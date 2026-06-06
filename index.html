@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spanish Lessons With Mercedes — Learn Spanish Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ── TOP BANNER ───────────────────────────── -->
+<div class="top-banner">
+  <div class="top-banner__inner">
+    <div class="top-banner__icon">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+    </div>
+    <span>
+      <span class="lang-en" data-i18n="banner.text">New Spanish lesson every week! Subscribe and never miss a class.</span>
+      <span class="lang-es" data-i18n="banner.text"> </span>
+    </span>
+    <a class="top-banner__link" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank">
+      <span class="lang-en" data-i18n="banner.cta">Subscribe now</span>
+      <span class="lang-es"> </span>
+    </a>
+  </div>
+  <div class="top-banner__close" onclick="this.parentElement.style.display='none'">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M12 4 4 12M4 4l8 8" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+  </div>
+</div>
+
+<!-- ── HEADER ────────────────────────────────── -->
+<header class="header">
+  <div class="header__left">
+    <a class="header__logo" href="index.html">
+      <svg width="46" height="46" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="60" cy="56" rx="54" ry="48" fill="white" stroke="#C8102E" stroke-width="3"/>
+        <ellipse cx="60" cy="56" rx="48" ry="42" fill="none" stroke="#C8102E" stroke-width="1.5"/>
+        <path d="M18 48 Q60 10 102 48" fill="none" stroke="#E8A000" stroke-width="12" stroke-linecap="round"/>
+        <defs><path id="arc" d="M24 44 Q60 8 96 44"/></defs>
+        <text font-family="Arial,sans-serif" font-weight="900" font-size="11" fill="#C8102E" letter-spacing="3">
+          <textPath href="#arc" startOffset="50%" text-anchor="middle">SPANISH LESSONS</textPath>
+        </text>
+        <text x="60" y="82" font-family="Georgia,serif" font-weight="bold" font-size="48" fill="#1B2B5E" text-anchor="middle">M</text>
+      </svg>
+      <div class="header__logo-text">
+        <span class="header__logo-top">Spanish Lessons With</span>
+        <span class="header__logo-bottom">Mercedes</span>
+      </div>
+    </a>
+    <nav class="header__nav">
+      <a href="index.html" class="active" data-i18n="nav.home">Home</a>
+      <a href="videos.html" data-i18n="nav.videos">Videos</a>
+      <a href="free-pdf.html" data-i18n="nav.pdf">Free PDF</a>
+      <a href="dele.html" data-i18n="nav.dele">DELE</a>
+      <a href="culture.html" data-i18n="nav.culture">Culture</a>
+    </nav>
+  </div>
+  <div class="header__right">
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+    </div>
+    <a class="header__admin-link" href="login.html">Admin</a>
+    <a class="header__subscribe" href="videos.html">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+      <span data-i18n="nav.subscribe">Watch Free</span>
+    </a>
+  </div>
+</header>
+
+<!-- ── HERO ──────────────────────────────────── -->
+<section class="hero">
+  <div class="hero__inner">
+    <div class="hero__text">
+      <h1 class="hero__heading" data-i18n="hero.heading">Learn Spanish faster with your best online tutor.</h1>
+      <a class="hero__cta" href="videos.html">
+        <span data-i18n="hero.cta">Start Learning Free</span>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7 7 7-7 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="hero__images">
+      <div class="hero__img-stack">
+        <img src="https://www.figma.com/api/mcp/asset/5e2c88c2-23c2-4410-b727-0ff7801fe209" alt="Spanish lesson">
+        <img src="https://www.figma.com/api/mcp/asset/5e2c88c2-23c2-4410-b727-0ff7801fe209" alt="Spanish lesson">
+        <img src="https://www.figma.com/api/mcp/asset/5e2c88c2-23c2-4410-b727-0ff7801fe209" alt="Spanish lesson">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS ─────────────────────────────────── -->
+<div class="stats">
+  <div class="stats__inner">
+    <div class="stat"><div class="stat__number">500+</div><div class="stat__label" data-i18n="stat.videos">Free video lessons</div></div>
+    <div class="stat"><div class="stat__number">50,000+</div><div class="stat__label" data-i18n="stat.students">Students worldwide</div></div>
+    <div class="stat"><div class="stat__number">95%</div><div class="stat__label" data-i18n="stat.dele">DELE exam pass rate</div></div>
+    <div class="stat"><div class="stat__number">A1 – C2</div><div class="stat__label" data-i18n="stat.levels">All levels covered</div></div>
+    <div class="stat">
+      <div class="stat__rating">
+        <div class="stat__rating-number">4.9</div>
+        <div class="stat__stars">
+          <svg width="26" height="26" viewBox="0 0 32 32"><path d="M16 3l3.73 7.56 8.34 1.21-6.03 5.88 1.42 8.31L16 22.4l-7.46 3.56 1.42-8.31-6.03-5.88 8.34-1.21z" fill="#FFE03D"/></svg>
+          <svg width="26" height="26" viewBox="0 0 32 32"><path d="M16 3l3.73 7.56 8.34 1.21-6.03 5.88 1.42 8.31L16 22.4l-7.46 3.56 1.42-8.31-6.03-5.88 8.34-1.21z" fill="#FFE03D"/></svg>
+          <svg width="26" height="26" viewBox="0 0 32 32"><path d="M16 3l3.73 7.56 8.34 1.21-6.03 5.88 1.42 8.31L16 22.4l-7.46 3.56 1.42-8.31-6.03-5.88 8.34-1.21z" fill="#FFE03D"/></svg>
+          <svg width="26" height="26" viewBox="0 0 32 32"><path d="M16 3l3.73 7.56 8.34 1.21-6.03 5.88 1.42 8.31L16 22.4l-7.46 3.56 1.42-8.31-6.03-5.88 8.34-1.21z" fill="#FFE03D"/></svg>
+          <svg width="26" height="26" viewBox="0 0 32 32"><path d="M16 3l3.73 7.56 8.34 1.21-6.03 5.88 1.42 8.31L16 22.4l-7.46 3.56 1.42-8.31-6.03-5.88 8.34-1.21z" fill="#FFE03D"/></svg>
+        </div>
+      </div>
+      <div class="stat__label" data-i18n="stat.rating">on YouTube</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── LEVELS GRID ───────────────────────────── -->
+<div class="cards-section">
+  <div class="grid-3">
+    <a class="card-link" href="videos.html#a1">
+      <div class="card-link__icon">
+        <svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#121117" stroke-width="2" stroke-linecap="round"><rect x="5" y="32" width="10" height="12" rx="1"/><rect x="19" y="22" width="10" height="22" rx="1"/><rect x="33" y="10" width="10" height="34" rx="1"/><text x="3" y="11" font-family="Arial,sans-serif" font-size="9" font-weight="900" fill="#D4920A">A1</text></svg>
+      </div>
+      <div class="card-link__info">
+        <div class="card-link__name" data-i18n="card.a1">A1 · Beginner</div>
+        <div class="card-link__count" data-i18n="card.count.a1">45 video lessons</div>
+      </div>
+      <div class="card-link__arrow"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M7 16h18m-9-9 9 9-9 9" stroke="#121117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </a>
+    <a class="card-link" href="videos.html#a2">
+      <div class="card-link__icon">
+        <svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#121117" stroke-width="2" stroke-linecap="round"><rect x="5" y="28" width="10" height="16" rx="1"/><rect x="19" y="18" width="10" height="26" rx="1"/><rect x="33" y="8" width="10" height="36" rx="1"/><text x="3" y="11" font-family="Arial,sans-serif" font-size="9" font-weight="900" fill="#D4920A">A2</text></svg>
+      </div>
+      <div class="card-link__info">
+        <div class="card-link__name" data-i18n="card.a2">A2 · Elementary</div>
+        <div class="card-link__count" data-i18n="card.count.a2">38 video lessons</div>
+      </div>
+      <div class="card-link__arrow"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M7 16h18m-9-9 9 9-9 9" stroke="#121117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </a>
+    <a class="card-link" href="videos.html#b1">
+      <div class="card-link__icon">
+        <svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#121117" stroke-width="2" stroke-linecap="round"><path d="M8 36c4-8 12-20 22-28M8 36h9M8 36v-9"/><text x="2" y="13" font-family="Arial,sans-serif" font-size="9" font-weight="900" fill="#D4920A">B1</text></svg>
+      </div>
+      <div class="card-link__info">
+        <div class="card-link__name" data-i18n="card.b1">B1 · Intermediate</div>
+        <div class="card-link__count" data-i18n="card.count.b1">52 video lessons</div>
+      </div>
+      <div class="card-link__arrow"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M7 16h18m-9-9 9 9-9 9" stroke="#121117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </a>
+    <a class="card-link" href="videos.html#b2">
+      <div class="card-link__icon">
+        <svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#121117" stroke-width="2" stroke-linecap="round"><circle cx="24" cy="24" r="16"/><path d="M24 8v16l10 8"/><text x="2" y="13" font-family="Arial,sans-serif" font-size="9" font-weight="900" fill="#D4920A">B2</text></svg>
+      </div>
+      <div class="card-link__info">
+        <div class="card-link__name" data-i18n="card.b2">B2 · Upper-Intermediate</div>
+        <div class="card-link__count" data-i18n="card.count.b2">47 video lessons</div>
+      </div>
+      <div class="card-link__arrow"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M7 16h18m-9-9 9 9-9 9" stroke="#121117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </a>
+    <a class="card-link" href="videos.html#c1">
+      <div class="card-link__icon">
+        <svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#121117" stroke-width="2" stroke-linecap="round"><polygon points="24,5 27.5,18 42,18 30.5,26 34,40 24,32 14,40 17.5,26 6,18 20.5,18"/><text x="2" y="48" font-family="Arial,sans-serif" font-size="9" font-weight="900" fill="#D4920A">C1</text></svg>
+      </div>
+      <div class="card-link__info">
+        <div class="card-link__name" data-i18n="card.c1">C1 · Advanced</div>
+        <div class="card-link__count" data-i18n="card.count.c1">35 video lessons</div>
+      </div>
+      <div class="card-link__arrow"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M7 16h18m-9-9 9 9-9 9" stroke="#121117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </a>
+    <a class="card-link" href="dele.html">
+      <div class="card-link__icon">
+        <svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#121117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="40" height="26" rx="3"/><circle cx="24" cy="40" r="6"/><path d="M18 40h12"/><path d="M12 17h24M12 23h16"/></svg>
+      </div>
+      <div class="card-link__info">
+        <div class="card-link__name" data-i18n="card.dele">DELE Preparation</div>
+        <div class="card-link__count" data-i18n="card.count.dele">28 practice resources</div>
+      </div>
+      <div class="card-link__arrow"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M7 16h18m-9-9 9 9-9 9" stroke="#121117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </a>
+    <a class="card-link" href="free-pdf.html#grammar">
+      <div class="card-link__icon">
+        <svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#121117" stroke-width="2" stroke-linecap="round"><path d="M11 12h26M11 20h26M11 28h16"/><circle cx="38" cy="36" r="8"/><path d="M35 36h6M38 33v6"/></svg>
+      </div>
+      <div class="card-link__info">
+        <div class="card-link__name" data-i18n="card.grammar">Spanish Grammar</div>
+        <div class="card-link__count" data-i18n="card.count.grammar">60 free PDF guides</div>
+      </div>
+      <div class="card-link__arrow"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M7 16h18m-9-9 9 9-9 9" stroke="#121117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </a>
+    <a class="card-link" href="videos.html#conversation">
+      <div class="card-link__icon">
+        <svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#121117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 10a3 3 0 013-3h18a3 3 0 013 3v12a3 3 0 01-3 3h-4l-5 5v-5H11a3 3 0 01-3-3V10z"/><path d="M28 25v4a3 3 0 003 3h4l5 5v-5h2a3 3 0 003-3V20a3 3 0 00-3-3h-6"/></svg>
+      </div>
+      <div class="card-link__info">
+        <div class="card-link__name" data-i18n="card.conv">Conversation Practice</div>
+        <div class="card-link__count" data-i18n="card.count.conv">24 video lessons</div>
+      </div>
+      <div class="card-link__arrow"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M7 16h18m-9-9 9 9-9 9" stroke="#121117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </a>
+    <a class="card-link" href="culture.html">
+      <div class="card-link__icon">
+        <svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#121117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="18"/><line x1="6" y1="24" x2="42" y2="24"/><path d="M24 6a28 28 0 010 36M24 6a28 28 0 000 36"/></svg>
+      </div>
+      <div class="card-link__info">
+        <div class="card-link__name" data-i18n="card.culture">Spanish Culture</div>
+        <div class="card-link__count" data-i18n="card.count.culture">30 cultural articles</div>
+      </div>
+      <div class="card-link__arrow"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M7 16h18m-9-9 9 9-9 9" stroke="#121117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </a>
+  </div>
+  <div class="show-more-wrap">
+    <div class="show-more-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#121117" stroke-width="2" stroke-linecap="round"/></svg>
+      <span data-i18n="card.showmore">Show more topics</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── WHO IS MERCEDES ───────────────────────── -->
+<section class="who-section" id="about">
+  <div class="who-section__inner">
+    <div class="who-section__photo">
+      <img src="images/mercedes.jpg" alt="Mercedes — Spanish Teacher"
+           onerror="this.src='https://www.figma.com/api/mcp/asset/1e6a244e-8970-49f5-aee0-089c216187b8'">
+      <div class="who-section__photo-badge">
+        <strong>15+</strong>
+        <span data-i18n="who.badge.years">Years</span><br>
+        <span data-i18n="who.badge.teaching">of teaching</span>
+      </div>
+    </div>
+    <div class="who-section__content">
+      <div class="who-section__tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        <span data-i18n="who.tag">About your teacher</span>
+      </div>
+      <h2 class="who-section__heading" data-i18n="who.heading">Who is<br>Mercedes?</h2>
+      <p class="who-section__desc" data-i18n="who.desc">Mercedes is a native Spanish teacher from Spain with over 15 years of experience teaching Spanish to students from all over the world. She is the creator of the YouTube channel <em>Spanish Lessons With Mercedes</em>, where she shares structured, engaging lessons for every level — completely free.</p>
+      <p class="who-section__desc" data-i18n="who.desc2">Her method combines clear grammar explanations with real conversational practice and deep cultural context, so you don't just learn Spanish — you truly understand it.</p>
+      <div class="who-section__credentials">
+        <div class="credential">
+          <div class="credential__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="credential__text">
+            <strong data-i18n="who.cred1.title">15+ Years Teaching</strong>
+            <span data-i18n="who.cred1.text">Experienced teacher with students from 40+ countries</span>
+          </div>
+        </div>
+        <div class="credential">
+          <div class="credential__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>
+          </div>
+          <div class="credential__text">
+            <strong data-i18n="who.cred2.title">Native Speaker</strong>
+            <span data-i18n="who.cred2.text">Born and raised in Spain, deep knowledge of all accents</span>
+          </div>
+        </div>
+        <div class="credential">
+          <div class="credential__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="credential__text">
+            <strong data-i18n="who.cred3.title">50,000+ Students</strong>
+            <span data-i18n="who.cred3.text">Global community of learners on YouTube</span>
+          </div>
+        </div>
+        <div class="credential">
+          <div class="credential__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><circle cx="12" cy="20" r="3"/><path d="M9 20h6"/></svg>
+          </div>
+          <div class="credential__text">
+            <strong data-i18n="who.cred4.title">DELE Expert</strong>
+            <span data-i18n="who.cred4.text">95% pass rate among exam preparation students</span>
+          </div>
+        </div>
+      </div>
+      <div class="who-section__cta">
+        <a class="btn-ochre" href="videos.html">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          <span data-i18n="who.cta1">Watch free lessons</span>
+        </a>
+        <a class="btn-outline-ochre" href="free-pdf.html">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          <span data-i18n="who.cta2">Download free PDFs</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROGRESS / TESTIMONIAL ────────────────── -->
+<section class="progress-section">
+  <div class="progress-section__header">
+    <h2 class="progress-section__heading" data-i18n="testimonial.heading">Progress starts with<br>the right teacher</h2>
+    <p class="progress-section__sub" data-i18n="testimonial.sub">Thousands of learners. Real results. Spanish that sticks — personal and proven.</p>
+  </div>
+  <div class="progress-slider">
+    <div class="slider-nav">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M19 12H5m7 7-7-7 7-7" stroke="#121117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="slider-content">
+      <div class="slider-image-area">
+        <div class="slider-image-stack">
+          <img src="https://www.figma.com/api/mcp/asset/6157f9ed-9e1e-46c5-94f8-29ce4f1d6330" alt="Student">
+          <img src="https://www.figma.com/api/mcp/asset/6157f9ed-9e1e-46c5-94f8-29ce4f1d6330" alt="Student">
+          <img src="https://www.figma.com/api/mcp/asset/6157f9ed-9e1e-46c5-94f8-29ce4f1d6330" alt="Student">
+        </div>
+      </div>
+      <div class="slider-text">
+        <h3 class="slider-text__quote" data-i18n="testimonial.quote">95% of Mercedes's DELE students pass their exam on the first attempt.</h3>
+        <div class="slider-text__source" data-i18n="testimonial.source">From the 2024 Spanish Lessons With Mercedes Student Survey</div>
+        <div class="slider-dots">
+          <span><div class="dot-active"></div></span>
+          <span><div class="dot"></div></span>
+          <span><div class="dot"></div></span>
+        </div>
+      </div>
+    </div>
+    <div class="slider-nav">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7 7 7-7 7" stroke="#121117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ───────────────────────────── -->
+<section class="how-it-works">
+  <h2 class="how-it-works__heading" data-i18n="how.heading">How Spanish Lessons<br>With Mercedes works:</h2>
+  <div class="step-cards-row">
+    <div class="step-card">
+      <div class="step-card__top">
+        <div class="step-badge step-badge--teal">1</div>
+        <div class="step-card__title" data-i18n="how.step1.title">Find your level.</div>
+        <div class="step-card__desc" data-i18n="how.step1.desc">Take our free level test to find the perfect starting point — from A1 beginner to C2 mastery.</div>
+      </div>
+      <div class="tutor-stack">
+        <div class="tutor-mini-card">
+          <img class="tutor-mini-avatar" src="https://www.figma.com/api/mcp/asset/e638cdba-4303-46f1-a1e9-c711aaa91deb" alt="Student">
+          <div class="tutor-mini-info">
+            <div class="tutor-mini-name"><span>Ana García</span><span style="color:#D4920A;font-size:12px;">★ 4.9</span></div>
+            <div class="tutor-mini-detail">🎓 Level B2 · Upper-Intermediate</div>
+            <div class="tutor-mini-detail">🌍 <span class="lang-en">Speaks Spanish (Native), English (C1)</span><span class="lang-es">Habla Español (Nativa), Inglés (C1)</span></div>
+          </div>
+        </div>
+        <div class="tutor-mini-card">
+          <img class="tutor-mini-avatar" src="https://www.figma.com/api/mcp/asset/08a5d4be-927e-4445-a7c3-45fdc11da875" alt="Student">
+          <div class="tutor-mini-info">
+            <div class="tutor-mini-name">James T.</div>
+            <div class="tutor-mini-detail">🎓 Level A2 · <span class="lang-en">Elementary</span><span class="lang-es">Elemental</span></div>
+            <div class="tutor-mini-detail">📚 <span class="lang-en">Focus: Grammar &amp; Vocabulary</span><span class="lang-es">Enfoque: Gramática y Vocabulario</span></div>
+          </div>
+        </div>
+        <div class="tutor-mini-card">
+          <img class="tutor-mini-avatar" src="https://www.figma.com/api/mcp/asset/7dd688d1-efa9-42c7-889a-342c4e7120b7" alt="Student">
+          <div class="tutor-mini-info">
+            <div class="tutor-mini-name"><span>Maria L.</span><span style="color:#D4920A;font-size:12px;">★ 5.0</span></div>
+            <div class="tutor-mini-detail">🏆 <span class="lang-en">Level C1 · DELE passed!</span><span class="lang-es">Nivel C1 · ¡DELE superado!</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-card__top">
+        <div class="step-badge step-badge--yellow">2</div>
+        <div class="step-card__title" data-i18n="how.step2.title">Follow the lessons.</div>
+        <div class="step-card__desc" data-i18n="how.step2.desc">Watch structured video lessons on YouTube and download free PDFs to practice at home.</div>
+      </div>
+      <div class="step-card__image">
+        <img src="https://www.figma.com/api/mcp/asset/6d8a9a65-261c-4e13-a967-4528839f2b66" alt="Learning">
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-card__top">
+        <div class="step-badge step-badge--blue">3</div>
+        <div class="step-card__title" data-i18n="how.step3.title">Pass your DELE exam.</div>
+        <div class="step-card__desc" data-i18n="how.step3.desc">Prepare with expert guidance, practice materials and mock exams. Build real confidence.</div>
+      </div>
+      <div class="step-card__image">
+        <img src="https://www.figma.com/api/mcp/asset/3443e1d9-5525-4306-94e5-52a036ae3b53" alt="Progress">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GUARANTEE ─────────────────────────────── -->
+<div class="guarantee">
+  <h2 class="guarantee__heading" data-i18n="guarantee.heading">Classes you'll love.<br>Guaranteed.</h2>
+  <p class="guarantee__sub" data-i18n="guarantee.sub">Free resources for every level, from A1 to C2. No credit card required.</p>
+</div>
+
+<!-- ── JOIN COMMUNITY ────────────────────────── -->
+<section class="join-section">
+  <div class="join-section__inner">
+    <div class="join-section__image">
+      <img src="images/mercedes.jpg" alt="Mercedes teaching"
+           onerror="this.src='https://www.figma.com/api/mcp/asset/1e6a244e-8970-49f5-aee0-089c216187b8'">
+    </div>
+    <div class="join-section__content">
+      <h2 class="join-section__heading" data-i18n="join.heading">Join the<br>community</h2>
+      <p class="join-section__desc" data-i18n="join.desc">Learn Spanish with thousands of students worldwide. New videos every week, free PDFs, and expert DELE preparation — all in one place.</p>
+      <ul class="join-section__list">
+        <li data-i18n="join.li1">Access free study materials</li>
+        <li data-i18n="join.li2">New videos every week</li>
+        <li data-i18n="join.li3">Expert DELE preparation</li>
+      </ul>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <a class="btn-primary-dark" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank">
+          <span data-i18n="join.cta1">Subscribe on YouTube</span>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7 7 7-7 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn-outline-dark" href="free-pdf.html"><span data-i18n="join.cta2">Download Free PDFs</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BUSINESS ───────────────────────────────── -->
+<section class="business-section">
+  <div class="business-section__inner">
+    <div class="business-section__top">
+      <h2 class="business-section__heading" data-i18n="biz.heading">Spanish for teams<br>and businesses</h2>
+    </div>
+    <div class="business-section__left">
+      <p class="business-section__desc" data-i18n="biz.desc1">Mercedes offers tailored corporate Spanish courses for teams and companies. Personalised training to help your employees communicate with confidence.</p>
+      <p class="business-section__desc" data-i18n="biz.desc2">Want your company to support your Spanish studies? Share our corporate programme with your HR team!</p>
+      <div class="business-section__btns">
+        <a class="btn-light-blue" href="mailto:contact@spanishlessonswithmercedes.com"><span data-i18n="biz.cta1">Book a session</span></a>
+        <a class="btn-outline-border" href="mailto:corporate@spanishlessonswithmercedes.com"><span data-i18n="biz.cta2">Share with your company</span></a>
+      </div>
+    </div>
+    <div class="business-section__visual">
+      <div class="suitcase-item">
+        <div class="suitcase-label">Empresa</div>
+        <img src="https://www.figma.com/api/mcp/asset/83b5ed95-8b6b-4ab0-a341-3c677cbed730" alt="Business" style="margin-top:38px;">
+      </div>
+      <div class="suitcase-item">
+        <img src="https://www.figma.com/api/mcp/asset/83b5ed95-8b6b-4ab0-a341-3c677cbed730" alt="Business">
+        <div class="suitcase-label" style="position:absolute;top:162px;left:0;">Equipo</div>
+      </div>
+      <div class="suitcase-item">
+        <img src="https://www.figma.com/api/mcp/asset/83b5ed95-8b6b-4ab0-a341-3c677cbed730" alt="Business">
+        <div class="suitcase-label" style="position:absolute;top:108px;left:0;">Viaje</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <div class="footer__col">
+        <div class="footer__col-title" data-i18n="footer.about">About</div>
+        <ul>
+          <li><a href="#about"><span class="lang-en">Who is Mercedes?</span><span class="lang-es">¿Quién es Mercedes?</span></a></li>
+          <li><a href="#"><span class="lang-en">Teaching method</span><span class="lang-es">Método de enseñanza</span></a></li>
+          <li><a href="#"><span class="lang-en">Student reviews</span><span class="lang-es">Opiniones de alumnos</span></a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title" data-i18n="footer.learn">Learn Spanish</div>
+        <ul>
+          <li><a href="videos.html"><span class="lang-en">All video lessons</span><span class="lang-es">Todas las lecciones</span></a></li>
+          <li><a href="videos.html#a1"><span class="lang-en">Beginner Spanish (A1)</span><span class="lang-es">Español para principiantes (A1)</span></a></li>
+          <li><a href="videos.html#b1"><span class="lang-en">Intermediate Spanish (B1)</span><span class="lang-es">Español intermedio (B1)</span></a></li>
+          <li><a href="free-pdf.html"><span class="lang-en">Free PDF materials</span><span class="lang-es">PDFs gratuitos</span></a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title" data-i18n="footer.dele">DELE & Exams</div>
+        <ul>
+          <li><a href="dele.html"><span class="lang-en">DELE exam guide</span><span class="lang-es">Guía del examen DELE</span></a></li>
+          <li><a href="dele.html#b1">DELE B1</a></li>
+          <li><a href="dele.html#b2">DELE B2</a></li>
+          <li><a href="dele.html#c1">DELE C1</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title" data-i18n="footer.culture">Culture & Blog</div>
+        <ul>
+          <li><a href="culture.html"><span class="lang-en">Spanish literature</span><span class="lang-es">Literatura española</span></a></li>
+          <li><a href="culture.html"><span class="lang-en">Festivals &amp; traditions</span><span class="lang-es">Fiestas y tradiciones</span></a></li>
+          <li><a href="culture.html"><span class="lang-en">Cinema &amp; music</span><span class="lang-es">Cine y música</span></a></li>
+          <li><a href="culture.html"><span class="lang-en">Language curiosities</span><span class="lang-es">Curiosidades del idioma</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__divider"></div>
+    <div class="footer__bottom">
+      <div class="footer__logo-row">
+        <div class="footer__logo">
+          <div class="footer__logo-mark">
+            <svg width="18" height="18" viewBox="0 0 24 24"><text x="3" y="18" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="#121117">M</text></svg>
+          </div>
+          <div class="footer__logo-name">Spanish Lessons With Mercedes</div>
+        </div>
+        <div class="footer__social-apps">
+          <div class="footer__social">
+            <a class="footer__social-link" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank" title="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+            </a>
+            <a class="footer__social-link" href="#" title="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a class="footer__social-link" href="#" title="TikTok">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V9.35a8.16 8.16 0 004.77 1.52V7.42a4.85 4.85 0 01-1-.73z"/></svg>
+            </a>
+          </div>
+          <div class="footer__apps">
+            <a class="footer__app-btn" href="#" target="_blank">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              App Store
+            </a>
+            <a class="footer__app-btn" href="#" target="_blank">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.34.19.74.2 1.1.03l12.56-7.02-2.81-2.87-10.85 9.86zM20.52 10.39L17.48 8.6 14.3 11.8l3.2 3.2 3.02-1.8a1.8 1.8 0 000-2.81zM.65.55A1.77 1.77 0 000 1.97v20.09c0 .6.25 1.12.65 1.48L13.36 12 .65.55zM4.28.21L16.85 7.2l-2.81 2.81L4.28.21z"/></svg>
+              Google Play
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__links-row">
+        <a href="#"><span class="lang-en">Privacy policy</span><span class="lang-es">Política de privacidad</span></a>
+        <a href="#"><span class="lang-en">Terms of use</span><span class="lang-es">Términos de uso</span></a>
+        <a href="#">Cookie policy</a>
+        <a href="login.html">Admin</a>
+      </div>
+      <div class="footer__copyright">© 2025 Spanish Lessons With Mercedes. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+</body>
+</html>

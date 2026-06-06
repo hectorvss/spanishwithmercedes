@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Videos — Spanish Lessons With Mercedes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1280px;
+      margin-bottom: 48px;
+    }
+    .level-anchor { scroll-margin-top: 100px; }
+    .level-section { margin-bottom: 64px; }
+    .level-section__title {
+      font-family: 'Noto Sans', sans-serif;
+      font-weight: 700; font-size: 32px; line-height: 44px;
+      color: #121117; margin-bottom: 24px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .level-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 52px; height: 32px; background: #D4920A;
+      border-radius: 4px; font-size: 14px; font-weight: 700;
+      color: #121117; letter-spacing: 0.5px; flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── TOP BANNER ─────────────────────────────── -->
+<div class="top-banner">
+  <div class="top-banner__inner">
+    <div class="top-banner__icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <span>🎬 New Spanish lesson every week! Subscribe and never miss a class.</span>
+    <a class="top-banner__link" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank">Subscribe now</a>
+  </div>
+  <div class="top-banner__close" onclick="this.parentElement.style.display='none'">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M12 4 4 12M4 4l8 8" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+  </div>
+</div>
+
+<!-- ── HEADER ─────────────────────────────────── -->
+<header class="header">
+  <div class="header__left">
+    <a class="header__logo" href="index.html">
+      <div class="header__logo-mark">
+        <svg width="46" height="46" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><ellipse cx="60" cy="56" rx="54" ry="48" fill="white" stroke="#C8102E" stroke-width="3"/><ellipse cx="60" cy="56" rx="48" ry="42" fill="none" stroke="#C8102E" stroke-width="1.5"/><path d="M18 48 Q60 10 102 48" fill="none" stroke="#E8A000" stroke-width="12" stroke-linecap="round"/><defs><path id="arc" d="M24 44 Q60 8 96 44"/></defs><text font-family="Arial,sans-serif" font-weight="900" font-size="11" fill="#C8102E" letter-spacing="3"><textPath href="#arc" startOffset="50%" text-anchor="middle">SPANISH LESSONS</textPath></text><text x="60" y="82" font-family="Georgia,serif" font-weight="bold" font-size="48" fill="#1B2B5E" text-anchor="middle">M</text></svg>
+      </div>
+      <div class="header__logo-text">
+        <span class="header__logo-top">Spanish Lessons With</span>
+        <span class="header__logo-bottom">Mercedes</span>
+      </div>
+    </a>
+    <nav class="header__nav">
+      <a href="index.html">Home</a>
+      <a href="videos.html" class="active">Videos</a>
+      <a href="free-pdf.html">Free PDF</a>
+      <a href="dele.html">DELE</a>
+      <a href="culture.html">Culture</a>
+    </nav>
+  </div>
+  <div class="header__right">
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+    </div>
+    <a class="header__subscribe" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Subscribe Free
+    </a>
+  </div>
+</header>
+
+<!-- ── INNER HERO ──────────────────────────────── -->
+<div class="inner-hero">
+  <div class="inner-hero__breadcrumb"><a href="index.html">Home</a> / Videos</div>
+  <h1 class="inner-hero__title">Video Lessons</h1>
+  <p class="inner-hero__desc">Browse 500+ free Spanish lessons organised by level — from A1 beginner to C2 advanced. New videos every week on YouTube.</p>
+</div>
+
+<!-- ── STATS ──────────────────────────────────── -->
+<div class="stats">
+  <div class="stats__inner">
+    <div class="stat"><div class="stat__number">500+</div><div class="stat__label">Video lessons</div></div>
+    <div class="stat"><div class="stat__number">A1–C2</div><div class="stat__label">All levels</div></div>
+    <div class="stat"><div class="stat__number">Weekly</div><div class="stat__label">New uploads</div></div>
+    <div class="stat"><div class="stat__number">Free</div><div class="stat__label">Always 100% free</div></div>
+    <div class="stat">
+      <div class="stat__rating">
+        <div class="stat__rating-number">4.9</div>
+        <div class="stat__stars">
+          <svg width="26" height="26" viewBox="0 0 32 32"><path d="M16 3l3.73 7.56 8.34 1.21-6.03 5.88 1.42 8.31L16 22.4l-7.46 3.56 1.42-8.31-6.03-5.88 8.34-1.21z" fill="#FFE03D"/></svg>
+          <svg width="26" height="26" viewBox="0 0 32 32"><path d="M16 3l3.73 7.56 8.34 1.21-6.03 5.88 1.42 8.31L16 22.4l-7.46 3.56 1.42-8.31-6.03-5.88 8.34-1.21z" fill="#FFE03D"/></svg>
+          <svg width="26" height="26" viewBox="0 0 32 32"><path d="M16 3l3.73 7.56 8.34 1.21-6.03 5.88 1.42 8.31L16 22.4l-7.46 3.56 1.42-8.31-6.03-5.88 8.34-1.21z" fill="#FFE03D"/></svg>
+          <svg width="26" height="26" viewBox="0 0 32 32"><path d="M16 3l3.73 7.56 8.34 1.21-6.03 5.88 1.42 8.31L16 22.4l-7.46 3.56 1.42-8.31-6.03-5.88 8.34-1.21z" fill="#FFE03D"/></svg>
+          <svg width="26" height="26" viewBox="0 0 32 32"><path d="M16 3l3.73 7.56 8.34 1.21-6.03 5.88 1.42 8.31L16 22.4l-7.46 3.56 1.42-8.31-6.03-5.88 8.34-1.21z" fill="#FFE03D"/></svg>
+        </div>
+      </div>
+      <div class="stat__label">on YouTube</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── VIDEO CONTENT ─────────────────────────── -->
+<div class="cards-section">
+
+  <!-- FEATURED VIDEO -->
+  <div id="featured" class="level-section level-anchor">
+    <div class="level-section__title">🎯 Featured — Latest upload</div>
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:24px;max-width:1280px;">
+      <a class="video-card" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank" style="display:block;">
+        <div class="video-card__thumb">
+          <img src="https://www.figma.com/api/mcp/asset/6d8a9a65-261c-4e13-a967-4528839f2b66" alt="Featured video">
+          <div class="video-card__play">
+            <div class="video-card__play-btn">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="video-card__body">
+          <span class="video-card__tag">NEW · B2</span>
+          <div class="video-card__title">The Subjunctive Mood Explained Once and For All — Mercedes's Complete Guide</div>
+          <div class="video-card__meta">28 min · 42,000 views · This week</div>
+        </div>
+      </a>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <a class="video-card" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank">
+          <div class="video-card__thumb" style="aspect-ratio:16/6;">
+            <img src="https://www.figma.com/api/mcp/asset/3443e1d9-5525-4306-94e5-52a036ae3b53" alt="Video">
+            <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div>
+          </div>
+          <div class="video-card__body">
+            <span class="video-card__tag">DELE · C1</span>
+            <div class="video-card__title" style="font-size:15px;">DELE C1 Oral Exam: 10 Tips to Score Higher</div>
+            <div class="video-card__meta">19 min · 28,000 views</div>
+          </div>
+        </a>
+        <a class="video-card" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank">
+          <div class="video-card__thumb" style="aspect-ratio:16/6;">
+            <img src="https://www.figma.com/api/mcp/asset/6157f9ed-9e1e-46c5-94f8-29ce4f1d6330" alt="Video">
+            <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div>
+          </div>
+          <div class="video-card__body">
+            <span class="video-card__tag">A1 · BEGINNER</span>
+            <div class="video-card__title" style="font-size:15px;">Your First 100 Spanish Words — Learn in 20 Minutes</div>
+            <div class="video-card__meta">22 min · 115,000 views</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- A1 -->
+  <div id="a1" class="level-section level-anchor">
+    <div class="level-section__title"><span class="level-badge">A1</span> Beginner Spanish</div>
+    <div class="videos-grid">
+      <a class="video-card" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank">
+        <div class="video-card__thumb"><img src="https://www.figma.com/api/mcp/asset/5e2c88c2-23c2-4410-b727-0ff7801fe209" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__body">
+          <span class="video-card__tag">A1 · Grammar</span>
+          <div class="video-card__title">Spanish Greetings &amp; Introductions — Complete A1 Guide</div>
+          <div class="video-card__meta">15 min · 89,000 views</div>
+        </div>
+      </a>
+      <a class="video-card" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank">
+        <div class="video-card__thumb"><img src="https://www.figma.com/api/mcp/asset/6157f9ed-9e1e-46c5-94f8-29ce4f1d6330" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__body">
+          <span class="video-card__tag">A1 · Vocabulary</span>
+          <div class="video-card__title">Numbers, Days &amp; Months in Spanish — A1 Essentials</div>
+          <div class="video-card__meta">18 min · 67,000 views</div>
+        </div>
+      </a>
+      <a class="video-card" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank">
+        <div class="video-card__thumb"><img src="https://www.figma.com/api/mcp/asset/6d8a9a65-261c-4e13-a967-4528839f2b66" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__body">
+          <span class="video-card__tag">A1 · Grammar</span>
+          <div class="video-card__title">Ser vs Estar — The Most Important Lesson for Beginners</div>
+          <div class="video-card__meta">24 min · 134,000 views</div>
+        </div>
+      </a>
+    </div>
+    <a href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank" class="show-more-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" stroke="#D4920A" stroke-width="2" stroke-linecap="round"/></svg>
+      Watch all A1 videos on YouTube
+    </a>
+  </div>
+
+  <!-- B1 -->
+  <div id="b1" class="level-section level-anchor">
+    <div class="level-section__title"><span class="level-badge">B1</span> Intermediate Spanish</div>
+    <div class="videos-grid">
+      <a class="video-card" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank">
+        <div class="video-card__thumb"><img src="https://www.figma.com/api/mcp/asset/3443e1d9-5525-4306-94e5-52a036ae3b53" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__body">
+          <span class="video-card__tag">B1 · Grammar</span>
+          <div class="video-card__title">The Imperfect vs Preterite — Stop Making This Classic Mistake</div>
+          <div class="video-card__meta">31 min · 76,000 views</div>
+        </div>
+      </a>
+      <a class="video-card" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank">
+        <div class="video-card__thumb"><img src="https://www.figma.com/api/mcp/asset/5e2c88c2-23c2-4410-b727-0ff7801fe209" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__body">
+          <span class="video-card__tag">B1 · Conversation</span>
+          <div class="video-card__title">Talking About the Past in Spanish — Real Conversations</div>
+          <div class="video-card__meta">25 min · 54,000 views</div>
+        </div>
+      </a>
+      <a class="video-card" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank">
+        <div class="video-card__thumb"><img src="https://www.figma.com/api/mcp/asset/6157f9ed-9e1e-46c5-94f8-29ce4f1d6330" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__body">
+          <span class="video-card__tag">B1 · DELE Prep</span>
+          <div class="video-card__title">DELE B1 Reading Comprehension — Full Practice Session</div>
+          <div class="video-card__meta">38 min · 41,000 views</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- CONVERSATION -->
+  <div id="conversation" class="level-section level-anchor">
+    <div class="level-section__title">
+      <span style="font-size:28px;">💬</span> Conversation Practice
+    </div>
+    <div class="videos-grid">
+      <a class="video-card" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank">
+        <div class="video-card__thumb"><img src="https://www.figma.com/api/mcp/asset/6d8a9a65-261c-4e13-a967-4528839f2b66" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__body">
+          <span class="video-card__tag">Conversation · B2</span>
+          <div class="video-card__title">Ordering Food in a Spanish Restaurant — Real Dialogues</div>
+          <div class="video-card__meta">20 min · 58,000 views</div>
+        </div>
+      </a>
+      <a class="video-card" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank">
+        <div class="video-card__thumb"><img src="https://www.figma.com/api/mcp/asset/5e2c88c2-23c2-4410-b727-0ff7801fe209" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__body">
+          <span class="video-card__tag">Conversation · A2</span>
+          <div class="video-card__title">Asking for Directions in Spanish — 10 Essential Phrases</div>
+          <div class="video-card__meta">16 min · 83,000 views</div>
+        </div>
+      </a>
+      <a class="video-card" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank">
+        <div class="video-card__thumb"><img src="https://www.figma.com/api/mcp/asset/3443e1d9-5525-4306-94e5-52a036ae3b53" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__body">
+          <span class="video-card__tag">Conversation · C1</span>
+          <div class="video-card__title">Advanced Spanish Idioms &amp; Expressions — Sound Like a Native</div>
+          <div class="video-card__meta">34 min · 29,000 views</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── GUARANTEE ──────────────────────────────── -->
+<div class="guarantee">
+  <h2 class="guarantee__heading">Free lessons every week.<br>Subscribe today.</h2>
+  <p class="guarantee__sub">All videos are completely free on YouTube. No subscription needed.</p>
+</div>
+
+<!-- ── FOOTER ─────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <div class="footer__col"><div class="footer__col-title">About</div><ul><li><a href="#">Who is Mercedes?</a></li><li><a href="#">Teaching method</a></li><li><a href="#">Student reviews</a></li><li><a href="#">Contact</a></li></ul></div>
+      <div class="footer__col"><div class="footer__col-title">Learn Spanish</div><ul><li><a href="videos.html">All video lessons</a></li><li><a href="videos.html#a1">Beginner (A1)</a></li><li><a href="videos.html#b1">Intermediate (B1)</a></li><li><a href="free-pdf.html">Free PDFs</a></li></ul></div>
+      <div class="footer__col"><div class="footer__col-title">DELE &amp; Exams</div><ul><li><a href="dele.html">DELE guide</a></li><li><a href="dele.html#b2">DELE B2</a></li><li><a href="dele.html#c1">DELE C1</a></li></ul></div>
+      <div class="footer__col"><div class="footer__col-title">Culture</div><ul><li><a href="culture.html">Spanish culture</a></li><li><a href="culture.html">Literature</a></li><li><a href="culture.html">Music &amp; cinema</a></li></ul></div>
+    </div>
+    <div class="footer__divider"></div>
+    <div class="footer__bottom">
+      <div class="footer__logo-row">
+        <div class="footer__logo">
+          <div class="footer__logo-mark"><svg width="20" height="20" viewBox="0 0 24 24"><text x="3" y="18" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="#121117">S</text></svg></div>
+          <div class="footer__logo-name">Spanish Lessons With Mercedes</div>
+        </div>
+        <div class="footer__social-apps">
+          <div class="footer__social">
+            <a class="footer__social-link" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
+            <a class="footer__social-link" href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__copyright">© 2025 Spanish Lessons With Mercedes. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+</body>
+</html>

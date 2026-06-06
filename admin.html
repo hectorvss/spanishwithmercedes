@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel — Spanish Lessons With Mercedes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<div class="admin-layout">
+<nav class="sidebar">
+  <div class="sidebar__logo">
+    <div class="sidebar__logo-mark">M</div>
+    <div>
+      <div class="sidebar__logo-name">Spanish Lessons</div>
+      <div class="sidebar__logo-sub">with Mercedes</div>
+    </div>
+  </div>
+  <div class="sidebar__nav">
+    <div class="sidebar__section">Menu</div>
+    <a class="sidebar__link active" onclick="showSection('dashboard')" id="nav-dashboard">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      Dashboard
+    </a>
+    <a class="sidebar__link" onclick="showSection('videos')" id="nav-videos">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+      Videos
+    </a>
+    <a class="sidebar__link" onclick="showSection('pdfs')" id="nav-pdfs">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      PDFs
+    </a>
+    <div class="sidebar__section">Site</div>
+    <a class="sidebar__link" href="index.html" target="_blank">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      View Website
+    </a>
+  </div>
+  <div class="sidebar__footer">
+    <div class="sidebar__user">
+      <div class="sidebar__avatar">M</div>
+      <div class="sidebar__user-info">
+        <div class="sidebar__user-name">Mercedes</div>
+        <div class="sidebar__user-role">Administrator</div>
+      </div>
+    </div>
+    <button class="sidebar__logout" onclick="logout()">Sign Out</button>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="admin-main">
+
+  <!-- DASHBOARD -->
+  <div id="section-dashboard">
+    <div class="admin-topbar">
+      <div>
+        <div class="admin-topbar__title">Dashboard</div>
+        <div class="admin-topbar__subtitle">Welcome back, Mercedes 👋</div>
+      </div>
+    </div>
+    <div class="admin-content">
+      <div class="dash-stats">
+        <div class="dash-stat dash-stat--ochre">
+          <div class="dash-stat__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+          <div class="dash-stat__value" id="stat-video-count">0</div>
+          <div class="dash-stat__label">Videos published</div>
+        </div>
+        <div class="dash-stat dash-stat--teal">
+          <div class="dash-stat__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <div class="dash-stat__value" id="stat-pdf-count">0</div>
+          <div class="dash-stat__label">PDFs available</div>
+        </div>
+        <div class="dash-stat dash-stat--blue">
+          <div class="dash-stat__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg></div>
+          <div class="dash-stat__value" id="stat-level-count">0</div>
+          <div class="dash-stat__label">Levels covered</div>
+        </div>
+        <div class="dash-stat dash-stat--green">
+          <div class="dash-stat__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <div class="dash-stat__value">95%</div>
+          <div class="dash-stat__label">DELE pass rate</div>
+        </div>
+      </div>
+
+      <!-- Quick actions -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px;">
+        <div class="table-card" style="padding:24px;">
+          <h3 style="font-family:'Noto Sans',sans-serif;font-weight:700;font-size:18px;margin-bottom:16px;">Quick Actions</h3>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <button class="btn-add" onclick="showSection('videos');openVideoModal()" style="justify-content:flex-start;width:100%;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add new video
+            </button>
+            <button class="btn-add" onclick="showSection('pdfs');openPdfModal()" style="justify-content:flex-start;width:100%;background:#3DDABE;color:#121117;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add new PDF
+            </button>
+          </div>
+        </div>
+        <div class="table-card" style="padding:24px;">
+          <h3 style="font-family:'Noto Sans',sans-serif;font-weight:700;font-size:18px;margin-bottom:16px;">Admin Credentials</h3>
+          <p style="font-size:14px;color:#4D4C5C;line-height:22px;margin-bottom:12px;">To change the admin password, update the <code style="background:#f0f0f0;padding:2px 6px;border-radius:4px;font-size:13px;">ADMIN_PASS</code> constant in <code style="background:#f0f0f0;padding:2px 6px;border-radius:4px;font-size:13px;">login.html</code>.</p>
+          <p style="font-size:13px;color:#4D4C5C;">Current login: <strong>admin@spanishlessonswithmercedes.com</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIDEOS SECTION -->
+  <div id="section-videos" style="display:none;">
+    <div class="admin-topbar">
+      <div>
+        <div class="admin-topbar__title">Videos</div>
+        <div class="admin-topbar__subtitle">Manage YouTube video lessons</div>
+      </div>
+      <div class="admin-topbar__right">
+        <input class="table-search" type="text" placeholder="Search videos..." id="videoSearch" oninput="filterVideos()">
+        <button class="btn-add" onclick="openVideoModal()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Video
+        </button>
+      </div>
+    </div>
+    <div class="admin-content">
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th><th>Level</th><th>Category</th><th>YouTube URL</th><th>Featured</th><th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="videosTableBody"></tbody>
+        </table>
+        <div id="videosEmpty" class="empty-state" style="display:none;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          <p>No videos yet. Click <strong>Add Video</strong> to get started.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PDFS SECTION -->
+  <div id="section-pdfs" style="display:none;">
+    <div class="admin-topbar">
+      <div>
+        <div class="admin-topbar__title">PDFs</div>
+        <div class="admin-topbar__subtitle">Manage free downloadable PDF materials</div>
+      </div>
+      <div class="admin-topbar__right">
+        <input class="table-search" type="text" placeholder="Search PDFs..." id="pdfSearch" oninput="filterPdfs()">
+        <button class="btn-add" onclick="openPdfModal()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add PDF
+        </button>
+      </div>
+    </div>
+    <div class="admin-content">
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr><th>Title</th><th>Level</th><th>Category</th><th>Download URL</th><th>Actions</th></tr>
+          </thead>
+          <tbody id="pdfsTableBody"></tbody>
+        </table>
+        <div id="pdfsEmpty" class="empty-state" style="display:none;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <p>No PDFs yet. Click <strong>Add PDF</strong> to get started.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+</div>
+
+<!-- VIDEO MODAL -->
+<div class="modal-overlay" id="videoModal">
+  <div class="modal">
+    <div class="modal__header">
+      <div class="modal__title" id="videoModalTitle">Add Video</div>
+      <button class="modal__close" onclick="closeVideoModal()">×</button>
+    </div>
+    <div class="modal__body">
+      <input type="hidden" id="videoId">
+      <div class="form-group">
+        <label class="form-label">Video Title *</label>
+        <input class="form-input" type="text" id="videoTitle" placeholder="e.g. Ser vs Estar — Complete Guide">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Level *</label>
+          <select class="form-select" id="videoLevel">
+            <option value="">Select level</option>
+            <option value="a1">A1 - Beginner</option>
+            <option value="a2">A2 - Elementary</option>
+            <option value="b1">B1 - Intermediate</option>
+            <option value="b2">B2 - Upper-Intermediate</option>
+            <option value="c1">C1 - Advanced</option>
+            <option value="c2">C2 - Mastery</option>
+            <option value="dele">DELE Preparation</option>
+            <option value="conv">Conversation</option>
+            <option value="culture">Culture</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Category</label>
+          <select class="form-select" id="videoCategory">
+            <option value="grammar">Grammar</option>
+            <option value="vocabulary">Vocabulary</option>
+            <option value="conversation">Conversation</option>
+            <option value="dele">DELE Prep</option>
+            <option value="culture">Culture</option>
+            <option value="pronunciation">Pronunciation</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">YouTube URL *</label>
+        <input class="form-input" type="url" id="videoUrl" placeholder="https://youtu.be/...">
+        <div class="form-hint">Full YouTube video URL or short youtu.be link</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Thumbnail URL</label>
+        <input class="form-input" type="url" id="videoThumb" placeholder="https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg">
+        <div class="form-hint">Leave empty to use YouTube auto-thumbnail (replace VIDEO_ID with the actual ID)</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Description</label>
+        <textarea class="form-textarea" id="videoDesc" placeholder="Brief description of what the video covers..."></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Duration &amp; Views (optional)</label>
+        <div class="form-row">
+          <input class="form-input" type="text" id="videoDuration" placeholder="e.g. 22 min">
+          <input class="form-input" type="text" id="videoViews" placeholder="e.g. 45,000 views">
+        </div>
+      </div>
+      <div class="form-group" style="display:flex;align-items:center;gap:10px;">
+        <input type="checkbox" id="videoFeatured" style="width:18px;height:18px;cursor:pointer;accent-color:#D4920A;">
+        <label class="form-label" for="videoFeatured" style="margin:0;cursor:pointer;">Feature this video on the homepage</label>
+      </div>
+    </div>
+    <div class="modal__footer">
+      <button class="btn-cancel" onclick="closeVideoModal()">Cancel</button>
+      <button class="btn-save" onclick="saveVideo()">Save Video</button>
+    </div>
+  </div>
+</div>
+
+<!-- PDF MODAL -->
+<div class="modal-overlay" id="pdfModal">
+  <div class="modal">
+    <div class="modal__header">
+      <div class="modal__title" id="pdfModalTitle">Add PDF</div>
+      <button class="modal__close" onclick="closePdfModal()">×</button>
+    </div>
+    <div class="modal__body">
+      <input type="hidden" id="pdfId">
+      <div class="form-group">
+        <label class="form-label">PDF Title *</label>
+        <input class="form-input" type="text" id="pdfTitle" placeholder="e.g. Complete Guide to Ser &amp; Estar">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Level *</label>
+          <select class="form-select" id="pdfLevel">
+            <option value="">Select level</option>
+            <option value="a1">A1 - Beginner</option>
+            <option value="a2">A2 - Elementary</option>
+            <option value="b1">B1 - Intermediate</option>
+            <option value="b2">B2 - Upper-Intermediate</option>
+            <option value="c1">C1 - Advanced</option>
+            <option value="c2">C2 - Mastery</option>
+            <option value="dele">DELE Preparation</option>
+            <option value="a1-a2">A1 – A2</option>
+            <option value="b1-b2">B1 – B2</option>
+            <option value="c1-c2">C1 – C2</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Category</label>
+          <select class="form-select" id="pdfCategory">
+            <option value="grammar">Grammar</option>
+            <option value="vocabulary">Vocabulary</option>
+            <option value="dele">DELE Practice</option>
+            <option value="conversation">Conversation</option>
+            <option value="culture">Culture</option>
+            <option value="exercises">Exercises</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Download URL *</label>
+        <input class="form-input" type="url" id="pdfUrl" placeholder="https://drive.google.com/... or direct PDF link">
+        <div class="form-hint">Google Drive link, Dropbox, or any direct downloadable URL</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Description</label>
+        <textarea class="form-textarea" id="pdfDesc" placeholder="What does this PDF cover? Who is it for?"></textarea>
+      </div>
+    </div>
+    <div class="modal__footer">
+      <button class="btn-cancel" onclick="closePdfModal()">Cancel</button>
+      <button class="btn-save" onclick="savePdf()">Save PDF</button>
+    </div>
+  </div>
+</div>
+
+<!-- DELETE CONFIRM MODAL -->
+<div class="modal-overlay" id="deleteModal">
+  <div class="modal" style="width:420px;">
+    <div class="modal__header">
+      <div class="modal__title">Confirm Delete</div>
+      <button class="modal__close" onclick="closeDeleteModal()">×</button>
+    </div>
+    <div class="modal__body">
+      <p style="font-size:15px;line-height:24px;color:#4D4C5C;">Are you sure you want to delete <strong id="deleteItemName"></strong>? This action cannot be undone.</p>
+    </div>
+    <div class="modal__footer">
+      <button class="btn-cancel" onclick="closeDeleteModal()">Cancel</button>
+      <button class="btn-delete" onclick="confirmDelete()" style="padding:12px 24px;font-size:14px;font-family:'Figtree',sans-serif;">Yes, delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+  <span id="toastMsg"></span>
+</div>
+
+<script>
+// ── Auth guard ──────────────────────────────
+if (localStorage.getItem('slwm_admin_auth') !== 'true') {
+  window.location.href = 'login.html';
+}
+
+// ── Data layer ──────────────────────────────
+const STORAGE_KEY = 'slwm_data';
+
+function getData() {
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if (!raw) return { videos: [], pdfs: [] };
+  try { return JSON.parse(raw); } catch { return { videos: [], pdfs: [] }; }
+}
+
+function saveData(data) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+function genId() {
+  return Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
+}
+
+// ── Navigation ──────────────────────────────
+function showSection(name) {
+  ['dashboard','videos','pdfs'].forEach(s => {
+    document.getElementById(`section-${s}`).style.display = s === name ? 'block' : 'none';
+    const navEl = document.getElementById(`nav-${s}`);
+    if (navEl) navEl.classList.toggle('active', s === name);
+  });
+  if (name === 'videos') renderVideos();
+  if (name === 'pdfs') renderPdfs();
+  if (name === 'dashboard') updateDashStats();
+}
+
+function logout() {
+  localStorage.removeItem('slwm_admin_auth');
+  window.location.href = 'login.html';
+}
+
+// ── Toast ───────────────────────────────────
+function showToast(msg, type = 'success') {
+  const t = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  t.className = `toast toast--${type} show`;
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// ── Dashboard ───────────────────────────────
+function updateDashStats() {
+  const d = getData();
+  document.getElementById('stat-video-count').textContent = d.videos.length;
+  document.getElementById('stat-pdf-count').textContent = d.pdfs.length;
+  const levels = new Set([...d.videos.map(v=>v.level), ...d.pdfs.map(p=>p.level)].filter(Boolean));
+  document.getElementById('stat-level-count').textContent = levels.size;
+}
+
+// ── BADGE helpers ────────────────────────────
+const LEVEL_LABELS = { a1:'A1',a2:'A2',b1:'B1',b2:'B2',c1:'C1',c2:'C2',dele:'DELE','a1-a2':'A1–A2','b1-b2':'B1–B2','c1-c2':'C1–C2',conv:'Conv',culture:'Culture',grammar:'Grammar' };
+function levelBadge(lvl) {
+  const cls = 'badge badge-' + (lvl||'a1').replace('-','');
+  return `<span class="${cls}">${LEVEL_LABELS[lvl]||lvl||'—'}</span>`;
+}
+function truncate(str, n=40) { return str && str.length > n ? str.slice(0,n)+'…' : (str||'—'); }
+
+// ── VIDEOS ──────────────────────────────────
+let videoSearchTerm = '';
+
+function renderVideos() {
+  const d = getData();
+  const tbody = document.getElementById('videosTableBody');
+  const empty = document.getElementById('videosEmpty');
+  let vids = d.videos.filter(v => !videoSearchTerm || v.title.toLowerCase().includes(videoSearchTerm.toLowerCase()));
+
+  if (!vids.length) { tbody.innerHTML = ''; empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+  tbody.innerHTML = vids.map(v => `
+    <tr>
+      <td class="td-title">${v.title}<small>${truncate(v.description,55)}</small></td>
+      <td>${levelBadge(v.level)}</td>
+      <td><span style="font-size:13px;color:#4D4C5C;">${v.category||'—'}</span></td>
+      <td><a href="${v.youtubeUrl||'#'}" target="_blank" style="color:#D4920A;font-size:13px;font-weight:600;text-decoration:underline;">${truncate(v.youtubeUrl,30)}</a></td>
+      <td>${v.featured ? '<span class="badge" style="background:#FEF3E2;color:#A06C00;">⭐ Featured</span>' : '<span style="color:#DCDCE5;font-size:13px;">—</span>'}</td>
+      <td><div class="td-actions">
+        <button class="btn-edit" onclick="editVideo('${v.id}')">Edit</button>
+        <button class="btn-delete" onclick="deleteItem('video','${v.id}','${v.title.replace(/'/g,"\\'")}')">Delete</button>
+      </div></td>
+    </tr>`).join('');
+}
+
+function filterVideos() {
+  videoSearchTerm = document.getElementById('videoSearch').value;
+  renderVideos();
+}
+
+function openVideoModal(id) {
+  resetVideoForm();
+  document.getElementById('videoModalTitle').textContent = id ? 'Edit Video' : 'Add Video';
+  if (id) {
+    const v = getData().videos.find(v => v.id === id);
+    if (v) {
+      document.getElementById('videoId').value = v.id;
+      document.getElementById('videoTitle').value = v.title||'';
+      document.getElementById('videoLevel').value = v.level||'';
+      document.getElementById('videoCategory').value = v.category||'grammar';
+      document.getElementById('videoUrl').value = v.youtubeUrl||'';
+      document.getElementById('videoThumb').value = v.thumbnailUrl||'';
+      document.getElementById('videoDesc').value = v.description||'';
+      document.getElementById('videoDuration').value = v.duration||'';
+      document.getElementById('videoViews').value = v.views||'';
+      document.getElementById('videoFeatured').checked = !!v.featured;
+    }
+  }
+  document.getElementById('videoModal').classList.add('open');
+}
+
+function editVideo(id) { openVideoModal(id); }
+
+function closeVideoModal() {
+  document.getElementById('videoModal').classList.remove('open');
+  resetVideoForm();
+}
+
+function resetVideoForm() {
+  ['videoId','videoTitle','videoUrl','videoThumb','videoDesc','videoDuration','videoViews'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  document.getElementById('videoFeatured').checked = false;
+  document.getElementById('videoLevel').value = '';
+  document.getElementById('videoCategory').value = 'grammar';
+}
+
+function saveVideo() {
+  const title = document.getElementById('videoTitle').value.trim();
+  const level = document.getElementById('videoLevel').value;
+  const url   = document.getElementById('videoUrl').value.trim();
+  if (!title || !url) { showToast('Please fill in Title and YouTube URL', 'error'); return; }
+
+  const d = getData();
+  const vid = {
+    id: document.getElementById('videoId').value || genId(),
+    title, level,
+    category: document.getElementById('videoCategory').value,
+    youtubeUrl: url,
+    thumbnailUrl: document.getElementById('videoThumb').value.trim(),
+    description: document.getElementById('videoDesc').value.trim(),
+    duration: document.getElementById('videoDuration').value.trim(),
+    views: document.getElementById('videoViews').value.trim(),
+    featured: document.getElementById('videoFeatured').checked,
+    updatedAt: new Date().toISOString()
+  };
+
+  const existingIdx = d.videos.findIndex(v => v.id === vid.id);
+  if (existingIdx >= 0) { d.videos[existingIdx] = vid; showToast('Video updated ✓'); }
+  else { d.videos.unshift(vid); showToast('Video added ✓'); }
+
+  saveData(d);
+  closeVideoModal();
+  renderVideos();
+  updateDashStats();
+}
+
+// ── PDFS ────────────────────────────────────
+let pdfSearchTerm = '';
+
+function renderPdfs() {
+  const d = getData();
+  const tbody = document.getElementById('pdfsTableBody');
+  const empty = document.getElementById('pdfsEmpty');
+  let pdfs = d.pdfs.filter(p => !pdfSearchTerm || p.title.toLowerCase().includes(pdfSearchTerm.toLowerCase()));
+
+  if (!pdfs.length) { tbody.innerHTML = ''; empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+  tbody.innerHTML = pdfs.map(p => `
+    <tr>
+      <td class="td-title">${p.title}<small>${truncate(p.description,55)}</small></td>
+      <td>${levelBadge(p.level)}</td>
+      <td><span style="font-size:13px;color:#4D4C5C;">${p.category||'—'}</span></td>
+      <td><a href="${p.downloadUrl||'#'}" target="_blank" style="color:#D4920A;font-size:13px;font-weight:600;text-decoration:underline;">${truncate(p.downloadUrl,30)}</a></td>
+      <td><div class="td-actions">
+        <button class="btn-edit" onclick="editPdf('${p.id}')">Edit</button>
+        <button class="btn-delete" onclick="deleteItem('pdf','${p.id}','${p.title.replace(/'/g,"\\'")}')">Delete</button>
+      </div></td>
+    </tr>`).join('');
+}
+
+function filterPdfs() {
+  pdfSearchTerm = document.getElementById('pdfSearch').value;
+  renderPdfs();
+}
+
+function openPdfModal(id) {
+  resetPdfForm();
+  document.getElementById('pdfModalTitle').textContent = id ? 'Edit PDF' : 'Add PDF';
+  if (id) {
+    const p = getData().pdfs.find(p => p.id === id);
+    if (p) {
+      document.getElementById('pdfId').value = p.id;
+      document.getElementById('pdfTitle').value = p.title||'';
+      document.getElementById('pdfLevel').value = p.level||'';
+      document.getElementById('pdfCategory').value = p.category||'grammar';
+      document.getElementById('pdfUrl').value = p.downloadUrl||'';
+      document.getElementById('pdfDesc').value = p.description||'';
+    }
+  }
+  document.getElementById('pdfModal').classList.add('open');
+}
+
+function editPdf(id) { openPdfModal(id); }
+
+function closePdfModal() {
+  document.getElementById('pdfModal').classList.remove('open');
+  resetPdfForm();
+}
+
+function resetPdfForm() {
+  ['pdfId','pdfTitle','pdfUrl','pdfDesc'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  document.getElementById('pdfLevel').value = '';
+  document.getElementById('pdfCategory').value = 'grammar';
+}
+
+function savePdf() {
+  const title = document.getElementById('pdfTitle').value.trim();
+  const level = document.getElementById('pdfLevel').value;
+  const url   = document.getElementById('pdfUrl').value.trim();
+  if (!title || !url) { showToast('Please fill in Title and Download URL', 'error'); return; }
+
+  const d = getData();
+  const pdf = {
+    id: document.getElementById('pdfId').value || genId(),
+    title, level,
+    category: document.getElementById('pdfCategory').value,
+    downloadUrl: url,
+    description: document.getElementById('pdfDesc').value.trim(),
+    updatedAt: new Date().toISOString()
+  };
+
+  const existingIdx = d.pdfs.findIndex(p => p.id === pdf.id);
+  if (existingIdx >= 0) { d.pdfs[existingIdx] = pdf; showToast('PDF updated ✓'); }
+  else { d.pdfs.unshift(pdf); showToast('PDF added ✓'); }
+
+  saveData(d);
+  closePdfModal();
+  renderPdfs();
+  updateDashStats();
+}
+
+// ── DELETE ──────────────────────────────────
+let deleteType, deleteId;
+
+function deleteItem(type, id, name) {
+  deleteType = type; deleteId = id;
+  document.getElementById('deleteItemName').textContent = `"${name}"`;
+  document.getElementById('deleteModal').classList.add('open');
+}
+
+function closeDeleteModal() {
+  document.getElementById('deleteModal').classList.remove('open');
+}
+
+function confirmDelete() {
+  const d = getData();
+  if (deleteType === 'video') d.videos = d.videos.filter(v => v.id !== deleteId);
+  else if (deleteType === 'pdf') d.pdfs = d.pdfs.filter(p => p.id !== deleteId);
+  saveData(d);
+  closeDeleteModal();
+  if (deleteType === 'video') renderVideos();
+  else renderPdfs();
+  updateDashStats();
+  showToast('Item deleted');
+}
+
+// Close modals on overlay click
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay) {
+      overlay.classList.remove('open');
+    }
+  });
+});
+
+// ── Init ─────────────────────────────────────
+updateDashStats();
+</script>
+</body>
+</html>
