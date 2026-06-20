@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=16">
   <style>
     .pdf-grid {
       display: grid;
@@ -23,9 +23,110 @@
       color: #121117; margin-bottom: 24px;
       display: flex; align-items: center; gap: 12px;
     }
+
+    /* ── FEATURED PDF CARD ── */
+    .pdf-featured {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      max-width: 1280px;
+      margin-bottom: 56px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1.5px solid #DCDCE5;
+      background: #fff;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+    }
+    .pdf-featured:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.09); transform: translateY(-2px); border-color: #D4920A; }
+    .pdf-featured__cta:hover { opacity: 0.88; }
+    .pdf-featured__left {
+      background: #F9F9FB;
+      border-right: 1.5px solid #DCDCE5;
+      padding: 40px 36px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      min-height: 300px;
+    }
+    .pdf-featured__badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #D4920A; border: 1px solid #D4920A;
+      border-radius: 20px; padding: 5px 14px;
+      font-size: 11px; font-weight: 700; color: #121117; letter-spacing: 0.5px;
+      width: fit-content; margin-bottom: 20px; text-transform: uppercase;
+    }
+    .pdf-featured__title {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 32px; font-weight: 900; line-height: 1.15;
+      color: #121117; margin-bottom: 12px;
+    }
+    .pdf-featured__subtitle {
+      font-size: 14px; color: #4D4C5C; line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .pdf-featured__level {
+      display: inline-block;
+      background: #D4920A; border-radius: 4px;
+      padding: 4px 12px; font-size: 12px; font-weight: 700; color: #121117;
+      letter-spacing: 0.5px;
+    }
+    .pdf-featured__right {
+      padding: 36px 40px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .pdf-featured__desc {
+      font-size: 15px; line-height: 1.7; color: #4D4C5C; margin-bottom: 24px;
+    }
+    .pdf-featured__contents {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+      margin-bottom: 28px;
+    }
+    .pdf-featured__item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: #4D4C5C;
+    }
+    .pdf-featured__item::before {
+      content: ''; display: block; width: 6px; height: 6px;
+      background: #D4920A; border-radius: 50%; flex-shrink: 0;
+    }
+    .pdf-featured__cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #D4920A; color: #121117;
+      padding: 14px 28px; border-radius: 6px;
+      font-weight: 700; font-size: 15px;
+      width: fit-content; transition: background 0.2s;
+    }
+    .pdf-featured:hover .pdf-featured__cta { background: #b87d08; }
+    .pdf-featured__pages {
+      font-size: 13px; color: #9B9AAB; margin-top: 10px;
+    }
+    .pdf-featured__play-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 22px; border-radius: 6px;
+      border: 2px solid #121117; background: #fff; color: #121117;
+      font-weight: 700; font-size: 15px; text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .pdf-featured__play-btn:hover { background: #121117; color: #fff; }
   </style>
 </head>
 <body>
+
+<!-- ── TICKER CAROUSEL ───────────────────────────────── -->
+<div class="carousel-section">
+  <div class="carousel-track">
+    <a href="videos.html" class="carousel-item"><span class="lang-en">Ser y Estar in Spanish</span><span class="lang-es">Ser y Estar en Español</span></a>
+    <a href="videos.html" class="carousel-item"><span class="lang-en">Introduce Yourself</span><span class="lang-es">Presentarte en Español</span></a>
+    <a href="videos.html" class="carousel-item"><span class="lang-en">The Spanish R</span><span class="lang-es">La R en Español</span></a>
+    <a href="patria-reading-guide.html" class="carousel-item"><span class="lang-en">Reading Guide: Patria</span><span class="lang-es">Guía de Lectura: Patria</span></a>
+    <a href="dele.html#b1" class="carousel-item"><span class="lang-en">DELE B1 Practice Exam</span><span class="lang-es">Examen de Práctica DELE B1</span></a>
+    <!-- Duplicated for infinite scroll -->
+    <a href="videos.html" class="carousel-item"><span class="lang-en">Ser y Estar in Spanish</span><span class="lang-es">Ser y Estar en Español</span></a>
+    <a href="videos.html" class="carousel-item"><span class="lang-en">Introduce Yourself</span><span class="lang-es">Presentarte en Español</span></a>
+    <a href="videos.html" class="carousel-item"><span class="lang-en">The Spanish R</span><span class="lang-es">La R en Español</span></a>
+    <a href="patria-reading-guide.html" class="carousel-item"><span class="lang-en">Reading Guide: Patria</span><span class="lang-es">Guía de Lectura: Patria</span></a>
+    <a href="dele.html#b1" class="carousel-item"><span class="lang-en">DELE B1 Practice Exam</span><span class="lang-es">Examen de Práctica DELE B1</span></a>
+  </div>
+</div>
 
 <!-- ── TOP BANNER ─────────────────────────────── -->
 <div class="top-banner">
@@ -33,8 +134,14 @@
     <div class="top-banner__icon">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
-    <span>🎬 New Spanish lesson every week! Subscribe and never miss a class.</span>
-    <a class="top-banner__link" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank">Subscribe now</a>
+    <span>
+      <span class="lang-en" data-i18n="banner.text">New Spanish lesson every week! Subscribe and never miss a class.</span>
+      <span class="lang-es" data-i18n="banner.text"> </span>
+    </span>
+    <a class="top-banner__link" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank">
+      <span class="lang-en" data-i18n="banner.cta">Subscribe now</span>
+      <span class="lang-es"> </span>
+    </a>
   </div>
   <div class="top-banner__close" onclick="this.parentElement.style.display='none'">
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M12 4 4 12M4 4l8 8" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
@@ -45,18 +152,63 @@
 <header class="header">
   <div class="header__left">
     <a class="header__logo" href="index.html">
-      <div class="header__logo-mark"><svg width="46" height="46" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><ellipse cx="60" cy="56" rx="54" ry="48" fill="white" stroke="#C8102E" stroke-width="3"/><ellipse cx="60" cy="56" rx="48" ry="42" fill="none" stroke="#C8102E" stroke-width="1.5"/><path d="M18 48 Q60 10 102 48" fill="none" stroke="#E8A000" stroke-width="12" stroke-linecap="round"/><defs><path id="arc" d="M24 44 Q60 8 96 44"/></defs><text font-family="Arial,sans-serif" font-weight="900" font-size="11" fill="#C8102E" letter-spacing="3"><textPath href="#arc" startOffset="50%" text-anchor="middle">SPANISH LESSONS</textPath></text><text x="60" y="82" font-family="Georgia,serif" font-weight="bold" font-size="48" fill="#1B2B5E" text-anchor="middle">M</text></svg></div>
-      <div class="header__logo-text">
-        <span class="header__logo-top">Spanish Lessons With</span>
-        <span class="header__logo-bottom">Mercedes</span>
-      </div>
+      <img src="logo.png" alt="Spanish Lessons with Mercedes" class="header__logo-img">
     </a>
     <nav class="header__nav">
-      <a href="index.html">Home</a>
-      <a href="videos.html">Videos</a>
-      <a href="free-pdf.html" class="active">Free PDF</a>
-      <a href="dele.html">DELE</a>
-      <a href="culture.html">Culture</a>
+      <div class="nav-item-dropdown">
+        <a href="index.html" class="nav-item-trigger" data-i18n="nav.home">Home</a>
+        <div class="nav-dropdown">
+          <a href="index.html#about"><span class="lang-en">About</span><span class="lang-es">Acerca de</span></a>
+          <a href="index.html#dele"><span class="lang-en">DELE</span><span class="lang-es">DELE</span></a>
+          <a href="index.html#culture"><span class="lang-en">Culture</span><span class="lang-es">Cultura</span></a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="videos.html" class="nav-item-trigger" data-i18n="nav.videos">Videos</a>
+        <div class="nav-dropdown">
+          <a href="videos.html#a1">A1</a>
+          <a href="videos.html#a2">A2</a>
+          <a href="videos.html#b1">B1</a>
+          <a href="videos.html#b2">B2</a>
+          <a href="videos.html#c1">C1</a>
+          <a href="videos.html#c2">C2</a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="free-pdf.html" class="nav-item-trigger" data-i18n="nav.pdf">Free PDF</a>
+        <div class="nav-dropdown">
+          <a href="free-pdf.html#grammar"><span class="lang-en">Lessons</span><span class="lang-es">Lecciones</span></a>
+          <a href="free-pdf.html#vocabulary"><span class="lang-en">Exercises</span><span class="lang-es">Ejercicios</span></a>
+          <a href="free-pdf.html#dele"><span class="lang-en">Exams</span><span class="lang-es">Exámenes</span></a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="dele.html" class="nav-item-trigger" data-i18n="nav.dele">DELE</a>
+        <div class="nav-dropdown">
+          <a href="dele.html#a1">DELE A1</a>
+          <a href="dele.html#a2">DELE A2</a>
+          <a href="dele.html#b1">DELE B1</a>
+          <a href="dele.html#b2">DELE B2</a>
+          <a href="dele.html#c1">DELE C1</a>
+          <a href="dele.html#c2">DELE C2</a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="culture.html" class="nav-item-trigger" data-i18n="nav.culture">Culture</a>
+        <div class="nav-dropdown">
+          <a href="culture.html#literatura"><span class="lang-en">Literature</span><span class="lang-es">Literatura</span></a>
+          <a href="culture.html#cine"><span class="lang-en">Cinema</span><span class="lang-es">Cine</span></a>
+          <a href="culture.html#musica"><span class="lang-en">Music</span><span class="lang-es">Música</span></a>
+          <a href="culture.html#gastronomia"><span class="lang-en">Gastronomy</span><span class="lang-es">Gastronomía</span></a>
+          <a href="culture.html#fiestas"><span class="lang-en">Celebrations</span><span class="lang-es">Fiestas</span></a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="index.html#games" class="nav-item-trigger" data-i18n="nav.games">Games</a>
+        <div class="nav-dropdown">
+          <a href="index.html#games">Play Games</a>
+        </div>
+      </div>
     </nav>
   </div>
   <div class="header__right">
@@ -64,112 +216,245 @@
       <button class="lang-btn active" data-lang="en">EN</button>
       <button class="lang-btn" data-lang="es">ES</button>
     </div>
-    <a class="header__subscribe" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Watch Free
+    <a class="header__admin-link" href="login.html">Admin</a>
+    <a class="header__subscribe" href="videos.html">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+      <span data-i18n="nav.subscribe">Watch Free</span>
     </a>
   </div>
 </header>
 
 <!-- ── INNER HERO ──────────────────────────────── -->
 <div class="inner-hero">
-  <div class="inner-hero__breadcrumb"><a href="index.html">Home</a> / Free PDF</div>
-  <h1 class="inner-hero__title">Free PDF Materials</h1>
-  <p class="inner-hero__desc">Download 100+ free Spanish study guides, grammar sheets, vocabulary lists and DELE practice tests. Created by Mercedes, 100% free.</p>
+  <div class="inner-hero__breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a> / <span data-i18n="nav.pdf">Free PDF</span></div>
+  <h1 class="inner-hero__title" data-i18n="pdf.hero.title">Free PDF Materials</h1>
+  <p class="inner-hero__desc" data-i18n="pdf.hero.desc">Download 100+ free Spanish study guides, grammar sheets, vocabulary lists and DELE practice tests. Created by Mercedes, 100% free.</p>
 </div>
 
 <!-- ── STATS ──────────────────────────────────── -->
 <div class="stats">
   <div class="stats__inner">
-    <div class="stat"><div class="stat__number">100+</div><div class="stat__label">Free PDF guides</div></div>
-    <div class="stat"><div class="stat__number">A1–C2</div><div class="stat__label">All levels</div></div>
-    <div class="stat"><div class="stat__number">Weekly</div><div class="stat__label">New uploads</div></div>
-    <div class="stat"><div class="stat__number">0€</div><div class="stat__label">Always free</div></div>
-    <div class="stat"><div class="stat__number">PDF + MP3</div><div class="stat__label">Audio included</div></div>
+    <div class="stat"><div class="stat__number">A1–C2</div><div class="stat__label" data-i18n="pdf.stat2.label">All levels</div></div>
+    <div class="stat"><div class="stat__number">Weekly</div><div class="stat__label" data-i18n="pdf.stat3.label">New uploads</div></div>
+    <div class="stat"><div class="stat__number">0€</div><div class="stat__label" data-i18n="pdf.stat4.label">Always free</div></div>
+    <div class="stat"><div class="stat__number">PDF + MP3</div><div class="stat__label" data-i18n="pdf.stat5.label">Audio included</div></div>
   </div>
 </div>
 
 <!-- ── PDF CONTENT ───────────────────────────── -->
 <div class="cards-section">
 
+  <!-- FEATURED PDF — SER & ESTAR -->
+  <div class="pdf-featured">
+    <div class="pdf-featured__left">
+      <div>
+        <div class="pdf-featured__badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="lang-en">FEATURED · FREE DOWNLOAD</span><span class="lang-es">DESTACADO · DESCARGA GRATUITA</span>
+        </div>
+        <div class="pdf-featured__title">SER y ESTAR</div>
+        <div class="pdf-featured__subtitle">
+          <span class="lang-en">The two verbs that confuse everyone — completely mastered.</span>
+          <span class="lang-es">Los dos verbos que todo el mundo confunde — dominados por completo.</span>
+        </div>
+      </div>
+      <div class="pdf-featured__level">A1 · A2 · B1</div>
+    </div>
+    <div class="pdf-featured__right">
+      <div>
+        <p class="pdf-featured__desc">
+          <span class="lang-en">Mercedes's complete guide to the most confusing topic in Spanish: when to use SER and when to use ESTAR. Includes the 80% rule, adjectives that change meaning, a native-language error predictor and AI practice prompts.</span>
+          <span class="lang-es">La guía completa de Mercedes sobre el tema que más confunde en español: cuándo usar SER y cuándo ESTAR. Incluye la regla del 80%, adjetivos que cambian de significado, predictor de errores por idioma nativo y prompts de práctica con IA.</span>
+        </p>
+        <div class="pdf-featured__contents">
+          <div class="pdf-featured__item"><span class="lang-en">5 uses of SER explained</span><span class="lang-es">5 usos de SER explicados</span></div>
+          <div class="pdf-featured__item"><span class="lang-en">3 uses of ESTAR explained</span><span class="lang-es">3 usos de ESTAR explicados</span></div>
+          <div class="pdf-featured__item"><span class="lang-en">Adjectives that change meaning</span><span class="lang-es">Adjetivos que cambian de significado</span></div>
+          <div class="pdf-featured__item"><span class="lang-en">Error predictor by native language</span><span class="lang-es">Predictor de errores por idioma</span></div>
+          <div class="pdf-featured__item"><span class="lang-en">6 practice exercises + solutions</span><span class="lang-es">6 ejercicios prácticos + soluciones</span></div>
+          <div class="pdf-featured__item"><span class="lang-en">3 AI prompts ready to use</span><span class="lang-es">3 prompts de IA listos para usar</span></div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+          <a class="pdf-featured__cta" href="DESCARGABLES_PDF/SER_ESTAR/SER_ESTAR%20(1).pdf" target="_blank" download>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#121117" stroke-width="2.5" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            <span class="lang-en">Download free PDF</span>
+            <span class="lang-es">Descargar PDF gratis</span>
+          </a>
+          <a class="pdf-featured__cta" href="index.html?play=serEstar#games">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <span class="lang-en">Play the game</span>
+            <span class="lang-es">Jugar al juego</span>
+          </a>
+        </div>
+        <div class="pdf-featured__pages">
+          <span class="lang-en">PDF · 9 pages · A1–B1 · spanishmercedes.com</span>
+          <span class="lang-es">PDF · 9 páginas · A1–B1 · spanishmercedes.com</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURED PDF — PRESENTARSE EN ESPAÑOL -->
+  <div class="pdf-featured">
+    <div class="pdf-featured__left">
+      <div>
+        <div class="pdf-featured__badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span class="lang-en">NEW · FREE DOWNLOAD</span><span class="lang-es">NUEVO · DESCARGA GRATUITA</span>
+        </div>
+        <div class="pdf-featured__title">Presentarte<br>en español</div>
+        <div class="pdf-featured__subtitle">
+          <span class="lang-en">The 4 essential verbs of day one — speak from minute one.</span>
+          <span class="lang-es">Los 4 verbos esenciales del primer día — habla desde el primer minuto.</span>
+        </div>
+      </div>
+      <div class="pdf-featured__level">A1</div>
+    </div>
+    <div class="pdf-featured__right">
+      <div>
+        <p class="pdf-featured__desc">
+          <span class="lang-en">Mercedes's complete guide to introducing yourself in Spanish. Master LLAMARSE, SER, TENER and VIVIR — the four verbs that build 95% of every first conversation. Includes pronunciation tips, tú vs. usted by country, real dialogues and AI practice prompts.</span>
+          <span class="lang-es">La guía completa de Mercedes para presentarte en español. Domina LLAMARSE, SER, TENER y VIVIR — los cuatro verbos que construyen el 95% de una primera conversación. Incluye pronunciación, tú vs. usted por país, diálogos reales y prompts de práctica con IA.</span>
+        </p>
+        <div class="pdf-featured__contents">
+          <div class="pdf-featured__item"><span class="lang-en">4 key verbs: LLAMARSE, SER, TENER, VIVIR</span><span class="lang-es">4 verbos clave: LLAMARSE, SER, TENER, VIVIR</span></div>
+          <div class="pdf-featured__item"><span class="lang-en">Full conjugation tables for all 4 verbs</span><span class="lang-es">Tablas de conjugación completas de los 4 verbos</span></div>
+          <div class="pdf-featured__item"><span class="lang-en">Tú vs. usted — rules vary by country</span><span class="lang-es">Tú vs. usted — las reglas cambian según el país</span></div>
+          <div class="pdf-featured__item"><span class="lang-en">Pronunciation guide (ñ, ll, h, rr)</span><span class="lang-es">Guía de pronunciación (ñ, ll, h, rr)</span></div>
+          <div class="pdf-featured__item"><span class="lang-en">Real introduction dialogues</span><span class="lang-es">Diálogos reales de presentación</span></div>
+          <div class="pdf-featured__item"><span class="lang-en">4 exercises + solutions + 3 AI prompts</span><span class="lang-es">4 ejercicios + soluciones + 3 prompts de IA</span></div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+          <a class="pdf-featured__cta" href="DESCARGABLES_PDF/PRESENTARSE/PRESENTARSE%20EN%20ESPAÑOL.pdf" target="_blank" download>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#121117" stroke-width="2.5" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            <span class="lang-en">Download free PDF</span>
+            <span class="lang-es">Descargar PDF gratis</span>
+          </a>
+          <a class="pdf-featured__cta" href="index.html?play=presentarse#games">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <span class="lang-en">Play the game</span>
+            <span class="lang-es">Jugar al juego</span>
+          </a>
+        </div>
+        <div class="pdf-featured__pages">
+          <span class="lang-en">PDF · 13 pages · A1 · spanishmercedes.com</span>
+          <span class="lang-es">PDF · 13 páginas · A1 · spanishmercedes.com</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRONUNCIATION -->
+  <div id="pronunciation" class="pdf-category">
+    <div class="pdf-category__title">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+      <span class="lang-en">Pronunciation Guides</span>
+      <span class="lang-es">Guías de Pronunciación</span>
+    </div>
+    <div class="pdf-grid">
+      <a class="pdf-card" href="DESCARGABLES_PDF/LA%20R/EL_SONIDO_R.pdf" target="_blank" download style="border-color:#C8102E;">
+        <div class="pdf-card__icon" style="background:#C8102E;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        </div>
+        <div class="pdf-card__level">A1 – B1</div>
+        <div class="pdf-card__title">
+          <span class="lang-en">The R Sound in Spanish</span>
+          <span class="lang-es">El Sonido R en Español</span>
+        </div>
+        <div class="pdf-card__desc">
+          <span class="lang-en">Master the single R and the rolled RR — the most distinctive sounds in Spanish. Rules, minimal pairs and exercises.</span>
+          <span class="lang-es">Domina la R simple y la RR vibrante — los sonidos más característicos del español. Reglas, pares mínimos y ejercicios.</span>
+        </div>
+        <div class="pdf-card__download">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          <span data-i18n="pdf.download">Download free PDF</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
   <!-- GRAMMAR -->
   <div id="grammar" class="pdf-category">
     <div class="pdf-category__title">
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M6 8h20M6 14h20M6 20h12"/><circle cx="24" cy="24" r="5"/><path d="M22 24h4M24 22v4"/></svg>
-      Grammar Guides
+      <span data-i18n="pdf.grammar.heading">Grammar Guides</span>
     </div>
     <div class="pdf-grid">
-      <a class="pdf-card" href="#" target="_blank">
-        <div class="pdf-card__icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      <a class="pdf-card" href="DESCARGABLES_PDF/GUSTAR/El_verbo_GUSTAR_en_espanol.pdf" target="_blank" download="El verbo GUSTAR en español.pdf" style="border-color:#D4920A; display:flex; flex-direction:column; text-decoration:none;">
+        <div class="pdf-card__icon" style="background:#D4920A;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="pdf-card__level">A2 – B1 ⭐</div>
+        <div class="pdf-card__title"><span class="lang-en">GUSTAR &amp; Similar Verbs</span><span class="lang-es">El verbo GUSTAR y verbos similares</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">Complete guide to GUSTAR, ENCANTAR, MOLESTAR and other similar verbs — conjugation, pronouns and exercises.</span><span class="lang-es">Guía completa del verbo GUSTAR, ENCANTAR, MOLESTAR y otros similares — conjugación, pronombres y ejercicios.</span></div>
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span data-i18n="pdf.download">Download free PDF</span></div>
+      </a>
+      <a class="pdf-card" href="DESCARGABLES_PDF/GÉNERO/El_genero_en_espanol.pdf" target="_blank" download="El género en español.pdf" style="border-color:#9B59B6; display:flex; flex-direction:column; text-decoration:none;">
+        <div class="pdf-card__icon" style="background:#9B59B6;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="pdf-card__level">A1 – B1 ⭐</div>
+        <div class="pdf-card__title"><span class="lang-en">Gender in Spanish</span><span class="lang-es">El Género en Español</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">Complete guide to masculine and feminine nouns in Spanish — rules, exceptions and exercises to master gender from the start.</span><span class="lang-es">Guía completa del género gramatical en español — reglas, excepciones y ejercicios para dominar el género desde el principio.</span></div>
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span data-i18n="pdf.download">Download free PDF</span></div>
+      </a>
+      <div class="pdf-card" style="border-color:#D4920A; display:flex; flex-direction:column;">
+        <div class="pdf-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="pdf-card__level">A1 – B1 ⭐</div>
+        <div class="pdf-card__title"><span class="lang-en">Complete Guide to Ser &amp; Estar</span><span class="lang-es">Guía Completa de Ser y Estar</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">9-page guide with 6 exercises, solutions and AI practice prompts. The 80% rule explained.</span><span class="lang-es">Guía de 9 páginas con 6 ejercicios, soluciones y prompts de práctica con IA. La regla del 80% explicada.</span></div>
+        <div style="margin-top:auto; display:flex; flex-direction:column; gap:8px; padding-top:12px;">
+          <a class="pdf-card__download" href="DESCARGABLES_PDF/SER_ESTAR/SER_ESTAR%20(1).pdf" target="_blank" download style="text-decoration:none;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            <span data-i18n="pdf.download">Download free PDF</span>
+          </a>
+          <a href="index.html?play=serEstar#games" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#7C3AED;text-decoration:none;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <span class="lang-en">Practice with the game</span><span class="lang-es">Practicar con el juego</span>
+          </a>
         </div>
-        <div class="pdf-card__level">A1 – A2</div>
-        <div class="pdf-card__title">Complete Guide to Ser &amp; Estar</div>
-        <div class="pdf-card__desc">Master the most important distinction in Spanish grammar with tables, examples and practice exercises.</div>
-        <div class="pdf-card__download">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-          Download free PDF
-        </div>
+      </div>
+      <a class="pdf-card" href="DESCARGABLES_PDF/PRESENTARSE/PRESENTARSE%20EN%20ESPAÑOL.pdf" target="_blank" download style="border-color:#3DDABE;">
+        <div class="pdf-card__icon" style="background:#3DDABE;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div class="pdf-card__level">A1 ⭐</div>
+        <div class="pdf-card__title"><span class="lang-en">Introducing Yourself in Spanish</span><span class="lang-es">Presentarte en Español</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">13-page guide: LLAMARSE, SER, TENER, VIVIR — the 4 verbs that build every first conversation.</span><span class="lang-es">Guía de 13 páginas: LLAMARSE, SER, TENER, VIVIR — los 4 verbos de toda primera conversación.</span></div>
+        <div class="pdf-card__download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span data-i18n="pdf.download">Download free PDF</span></div>
       </a>
       <a class="pdf-card" href="#" target="_blank">
-        <div class="pdf-card__icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
+        <div class="pdf-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
         <div class="pdf-card__level">B1 – B2</div>
-        <div class="pdf-card__title">Preterite vs Imperfect — Full Reference Sheet</div>
-        <div class="pdf-card__desc">Side-by-side comparison of both past tenses with 50 example sentences and colour-coded rules.</div>
-        <div class="pdf-card__download">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-          Download free PDF
-        </div>
+        <div class="pdf-card__title"><span class="lang-en">Preterite vs Imperfect — Full Reference Sheet</span><span class="lang-es">Pretérito vs Imperfecto — Ficha de Referencia Completa</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">Side-by-side comparison of both past tenses with 50 example sentences and colour-coded rules.</span><span class="lang-es">Comparación paralela de los dos tiempos de pasado con 50 frases de ejemplo y reglas con código de colores.</span></div>
+        <div class="pdf-card__download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span data-i18n="pdf.download">Download free PDF</span></div>
       </a>
       <a class="pdf-card" href="#" target="_blank">
-        <div class="pdf-card__icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
+        <div class="pdf-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
         <div class="pdf-card__level">B2 – C1</div>
-        <div class="pdf-card__title">The Subjunctive Mood — Complete Workbook</div>
-        <div class="pdf-card__desc">All subjunctive triggers, tense forms and 80 practice exercises from intermediate to advanced level.</div>
-        <div class="pdf-card__download">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-          Download free PDF
-        </div>
+        <div class="pdf-card__title"><span class="lang-en">The Subjunctive Mood — Complete Workbook</span><span class="lang-es">El Subjuntivo — Cuaderno de Trabajo Completo</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">All subjunctive triggers, tense forms and 80 practice exercises from intermediate to advanced level.</span><span class="lang-es">Todos los desencadenantes del subjuntivo, formas verbales y 80 ejercicios prácticos de nivel intermedio a avanzado.</span></div>
+        <div class="pdf-card__download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span data-i18n="pdf.download">Download free PDF</span></div>
       </a>
       <a class="pdf-card" href="#" target="_blank">
-        <div class="pdf-card__icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
+        <div class="pdf-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
         <div class="pdf-card__level">A1 – B1</div>
-        <div class="pdf-card__title">Spanish Verb Conjugation Tables — All Tenses</div>
-        <div class="pdf-card__desc">Regular and irregular verbs fully conjugated in all major tenses. Perfect for quick reference while studying.</div>
-        <div class="pdf-card__download">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-          Download free PDF
-        </div>
+        <div class="pdf-card__title"><span class="lang-en">Spanish Verb Conjugation Tables — All Tenses</span><span class="lang-es">Tablas de Conjugación Verbal — Todos los Tiempos</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">Regular and irregular verbs fully conjugated in all major tenses. Perfect for quick reference while studying.</span><span class="lang-es">Verbos regulares e irregulares completamente conjugados en todos los tiempos principales. Perfecto para consulta rápida.</span></div>
+        <div class="pdf-card__download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span data-i18n="pdf.download">Download free PDF</span></div>
       </a>
       <a class="pdf-card" href="#" target="_blank">
-        <div class="pdf-card__icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
+        <div class="pdf-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
         <div class="pdf-card__level">A2 – B1</div>
-        <div class="pdf-card__title">Spanish Pronouns — Direct &amp; Indirect Objects</div>
-        <div class="pdf-card__desc">Clear explanations and 60 exercises to master pronoun placement — one of the trickiest areas for learners.</div>
-        <div class="pdf-card__download">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-          Download free PDF
-        </div>
+        <div class="pdf-card__title"><span class="lang-en">Spanish Pronouns — Direct &amp; Indirect Objects</span><span class="lang-es">Pronombres en Español — Objetos Directos e Indirectos</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">Clear explanations and 60 exercises to master pronoun placement — one of the trickiest areas for learners.</span><span class="lang-es">Explicaciones claras y 60 ejercicios para dominar la colocación de pronombres — una de las áreas más difíciles.</span></div>
+        <div class="pdf-card__download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span data-i18n="pdf.download">Download free PDF</span></div>
       </a>
       <a class="pdf-card" href="#" target="_blank">
-        <div class="pdf-card__icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
+        <div class="pdf-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
         <div class="pdf-card__level">C1 – C2</div>
-        <div class="pdf-card__title">Advanced Spanish Connectors &amp; Discourse Markers</div>
-        <div class="pdf-card__desc">Essential for DELE C1 and C2 writing tasks. 120 connectors organised by function with example essays.</div>
-        <div class="pdf-card__download">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-          Download free PDF
-        </div>
+        <div class="pdf-card__title"><span class="lang-en">Advanced Spanish Connectors &amp; Discourse Markers</span><span class="lang-es">Conectores y Marcadores del Discurso Avanzados</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">Essential for DELE C1 and C2 writing tasks. 120 connectors organised by function with example essays.</span><span class="lang-es">Imprescindible para las tareas escritas del DELE C1 y C2. 120 conectores organizados por función con redacciones de ejemplo.</span></div>
+        <div class="pdf-card__download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span data-i18n="pdf.download">Download free PDF</span></div>
       </a>
     </div>
   </div>
@@ -178,29 +463,29 @@
   <div id="vocabulary" class="pdf-category">
     <div class="pdf-category__title">
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H28"/><path d="M6.5 2H28v28H6.5A2.5 2.5 0 014 27.5v-23A2.5 2.5 0 016.5 2z"/><path d="M16 2v28"/></svg>
-      Vocabulary Lists
+      <span data-i18n="pdf.vocab.heading">Vocabulary Lists</span>
     </div>
     <div class="pdf-grid">
       <a class="pdf-card" href="#" target="_blank">
         <div class="pdf-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
         <div class="pdf-card__level">A1</div>
-        <div class="pdf-card__title">500 Essential Spanish Words for Beginners</div>
-        <div class="pdf-card__desc">The most common words you need to know at A1 level, with pronunciation guide and example sentences.</div>
-        <div class="pdf-card__download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Download free PDF</div>
+        <div class="pdf-card__title"><span class="lang-en">500 Essential Spanish Words for Beginners</span><span class="lang-es">500 Palabras Esenciales de Español para Principiantes</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">The most common words you need to know at A1 level, with pronunciation guide and example sentences.</span><span class="lang-es">Las palabras más comunes que necesitas conocer en nivel A1, con guía de pronunciación y frases de ejemplo.</span></div>
+        <div class="pdf-card__download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> <span data-i18n="pdf.download">Download free PDF</span></div>
       </a>
       <a class="pdf-card" href="#" target="_blank">
         <div class="pdf-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
         <div class="pdf-card__level">B1 – B2</div>
-        <div class="pdf-card__title">Spanish False Friends — Words That Trick English Speakers</div>
-        <div class="pdf-card__desc">The 80 most dangerous false cognates with their real meanings, explained with examples and memory tricks.</div>
-        <div class="pdf-card__download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Download free PDF</div>
+        <div class="pdf-card__title"><span class="lang-en">Spanish False Friends — Words That Trick English Speakers</span><span class="lang-es">Falsos Amigos del Español — Palabras que Engañan a los Angloparlantes</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">The 80 most dangerous false cognates with their real meanings, explained with examples and memory tricks.</span><span class="lang-es">Los 80 falsos cognados más peligrosos con sus significados reales, explicados con ejemplos y trucos de memoria.</span></div>
+        <div class="pdf-card__download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> <span data-i18n="pdf.download">Download free PDF</span></div>
       </a>
       <a class="pdf-card" href="#" target="_blank">
         <div class="pdf-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
         <div class="pdf-card__level">B2 – C1</div>
-        <div class="pdf-card__title">Spanish Idioms &amp; Expressions — Sound Like a Native</div>
-        <div class="pdf-card__desc">100 everyday idioms used by real Spanish speakers, with context, usage notes and exercises.</div>
-        <div class="pdf-card__download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Download free PDF</div>
+        <div class="pdf-card__title"><span class="lang-en">Spanish Idioms &amp; Expressions — Sound Like a Native</span><span class="lang-es">Modismos y Expresiones — Habla Como un Nativo</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">100 everyday idioms used by real Spanish speakers, with context, usage notes and exercises.</span><span class="lang-es">100 modismos cotidianos usados por hispanohablantes reales, con contexto, notas de uso y ejercicios.</span></div>
+        <div class="pdf-card__download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> <span data-i18n="pdf.download">Download free PDF</span></div>
       </a>
     </div>
   </div>
@@ -209,29 +494,57 @@
   <div id="dele" class="pdf-category">
     <div class="pdf-category__title">
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="26" height="18" rx="2"/><circle cx="16" cy="26" r="4"/><path d="M12 26h8"/><path d="M8 12h16M8 16h10"/></svg>
-      DELE Practice Tests
+      <span data-i18n="pdf.dele.heading">DELE Practice Tests</span>
     </div>
     <div class="pdf-grid">
-      <a class="pdf-card" href="dele.html#b1" >
-        <div class="pdf-card__icon" style="background:#7BEAD6;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#121117" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><circle cx="12" cy="21" r="3"/><path d="M9 21h6"/></svg></div>
+      <a class="pdf-card" href="DESCARGABLES_PDF/DELE_B1/EXAMEN_PRACTICA_DELE_B1.pdf" target="_blank" download="EXAMEN_PRACTICA_DELE_B1.pdf">
+        <div class="pdf-card__icon" style="background:#0d7a6a;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
         <div class="pdf-card__level">DELE B1</div>
-        <div class="pdf-card__title">DELE B1 — Full Mock Exam Paper</div>
-        <div class="pdf-card__desc">Complete practice exam with reading, listening, writing and speaking tasks, answer key included.</div>
-        <div class="pdf-card__download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Download free PDF</div>
+        <div class="pdf-card__title"><span class="lang-en">DELE B1 — Full Mock Exam Paper</span><span class="lang-es">DELE B1 — Examen de Práctica Completo</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">Complete practice exam with reading, listening, writing and speaking tasks, answer key included.</span><span class="lang-es">Examen de práctica completo con tareas de lectura, audición, escritura y expresión oral, con clave de respuestas.</span></div>
+        <div class="pdf-card__download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> <span data-i18n="pdf.download">Download free PDF</span></div>
       </a>
-      <a class="pdf-card" href="dele.html#b2">
-        <div class="pdf-card__icon" style="background:#FFE03D;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#121117" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><circle cx="12" cy="21" r="3"/><path d="M9 21h6"/></svg></div>
+      <a class="pdf-card" href="audio-dele-b1.html" target="_blank">
+        <div class="pdf-card__icon" style="background:#0d7a6a;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+        <div class="pdf-card__level" style="color:#0d7a6a;">DELE B1</div>
+        <div class="pdf-card__title"><span class="lang-en">DELE B1 — Listening Audio Player</span><span class="lang-es">DELE B1 — Audios de Comprensión Auditiva</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">All 5 listening tasks from the B1 mock exam. Play each audio and reveal the transcriptions when you need them.</span><span class="lang-es">Las 5 tareas de comprensión auditiva del examen de práctica B1. Escucha los audios y descubre las transcripciones cuando las necesites.</span></div>
+        <div class="pdf-card__download" style="color:#0d7a6a;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d7a6a" stroke-width="2" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg> <span class="lang-en">Open audio player</span><span class="lang-es">Abrir reproductor de audio</span></div>
+      </a>
+      <a class="pdf-card" href="DESCARGABLES_PDF/DELE_B2/EXAMEN_PRACTICA_DELE_B2.pdf" target="_blank" download="EXAMEN_PRACTICA_DELE_B2.pdf">
+        <div class="pdf-card__icon" style="background:#1C2A4A;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
         <div class="pdf-card__level">DELE B2</div>
-        <div class="pdf-card__title">DELE B2 — Full Mock Exam Paper</div>
-        <div class="pdf-card__desc">Authentic exam-style questions for all four skills, with detailed feedback notes from Mercedes.</div>
-        <div class="pdf-card__download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Download free PDF</div>
+        <div class="pdf-card__title"><span class="lang-en">DELE B2 — Full Mock Exam Paper</span><span class="lang-es">DELE B2 — Examen de Práctica Completo</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">Authentic exam-style questions for all four skills, with detailed feedback notes from Mercedes.</span><span class="lang-es">Preguntas auténticas de examen para las cuatro destrezas, con notas de retroalimentación detalladas de Mercedes.</span></div>
+        <div class="pdf-card__download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> <span data-i18n="pdf.download">Descargar PDF gratis</span></div>
+      </a>
+      <a class="pdf-card" href="audio-dele-b2.html" target="_blank">
+        <div class="pdf-card__icon" style="background:#1C2A4A;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+        <div class="pdf-card__level" style="color:#1C2A4A;">DELE B2</div>
+        <div class="pdf-card__title"><span class="lang-en">DELE B2 — Listening Audio Player</span><span class="lang-es">DELE B2 — Audios de Comprensión Auditiva</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">All 5 listening tasks from the mock exam. Play each audio, check your answers, then reveal the transcriptions.</span><span class="lang-es">Las 5 tareas de comprensión auditiva del examen de práctica. Escucha los audios, comprueba tus respuestas y descubre las transcripciones.</span></div>
+        <div class="pdf-card__download" style="color:#1C2A4A;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1C2A4A" stroke-width="2" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg> <span class="lang-en">Open audio player</span><span class="lang-es">Abrir reproductor de audio</span></div>
+      </a>
+      <a class="pdf-card" href="audio-dele-c1.html" target="_blank">
+        <div class="pdf-card__icon" style="background:#2885FD;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+        <div class="pdf-card__level" style="color:#2885FD;">DELE C1</div>
+        <div class="pdf-card__title"><span class="lang-en">DELE C1 — Listening Audio Player</span><span class="lang-es">DELE C1 — Audios de Comprensión Auditiva</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">All 6 listening tasks with academic content. Professional-level audio, one listening per task.</span><span class="lang-es">Las 6 tareas de comprensión auditiva con contenido académico. Audios de nivel profesional, una escucha por tarea.</span></div>
+        <div class="pdf-card__download" style="color:#2885FD;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2885FD" stroke-width="2" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg> <span class="lang-en">Open audio player</span><span class="lang-es">Abrir reproductor de audio</span></div>
+      </a>
+      <a class="pdf-card" href="DESCARGABLES_PDF/DELE_C1/EXAMEN_PRACTICA_DELE_C1.pdf" target="_blank" download="EXAMEN_PRACTICA_DELE_C1.pdf">
+        <div class="pdf-card__icon" style="background:#2885FD;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="pdf-card__level">DELE C1</div>
+        <div class="pdf-card__title"><span class="lang-en">DELE C1 — Full Mock Exam Paper</span><span class="lang-es">DELE C1 — Examen de Práctica Completo</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">Pruebas 1–2: Reading comprehension and listening with academic content. Full answer key included.</span><span class="lang-es">Pruebas 1–2: Comprensión de lectura y audios con contenido académico. Clave de respuestas incluida.</span></div>
+        <div class="pdf-card__download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> <span data-i18n="pdf.download">Download free PDF</span></div>
       </a>
       <a class="pdf-card" href="dele.html#c1">
         <div class="pdf-card__icon" style="background:#2885FD;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><circle cx="12" cy="21" r="3"/><path d="M9 21h6"/></svg></div>
         <div class="pdf-card__level">DELE C1</div>
-        <div class="pdf-card__title">DELE C1 — Writing Task Masterclass PDF</div>
-        <div class="pdf-card__desc">Mercedes's step-by-step method to ace the C1 written production task. Includes 5 model answers.</div>
-        <div class="pdf-card__download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Download free PDF</div>
+        <div class="pdf-card__title"><span class="lang-en">DELE C1 — Writing Task Masterclass PDF</span><span class="lang-es">DELE C1 — PDF Masterclass de Expresión Escrita</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">Mercedes's step-by-step method to ace the C1 written production task. Includes 5 model answers.</span><span class="lang-es">El método paso a paso de Mercedes para superar la tarea de producción escrita del C1. Incluye 5 respuestas modelo.</span></div>
+        <div class="pdf-card__download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> <span data-i18n="pdf.download">Download free PDF</span></div>
       </a>
     </div>
   </div>
@@ -239,33 +552,42 @@
 </div>
 
 <!-- ── GUARANTEE ──────────────────────────────── -->
-<div class="guarantee">
-  <h2 class="guarantee__heading">100% free. Always.</h2>
-  <p class="guarantee__sub">All PDF materials are completely free — no email required. Just download and learn.</p>
-</div>
-
 <!-- ── FOOTER ─────────────────────────────────── -->
 <footer class="footer">
   <div class="footer__inner">
     <div class="footer__top">
-      <div class="footer__col"><div class="footer__col-title">About</div><ul><li><a href="#">Who is Mercedes?</a></li><li><a href="#">Contact</a></li></ul></div>
-      <div class="footer__col"><div class="footer__col-title">Learn Spanish</div><ul><li><a href="videos.html">All videos</a></li><li><a href="free-pdf.html">Free PDFs</a></li></ul></div>
-      <div class="footer__col"><div class="footer__col-title">DELE</div><ul><li><a href="dele.html">DELE guide</a></li><li><a href="dele.html#b2">DELE B2</a></li></ul></div>
-      <div class="footer__col"><div class="footer__col-title">Culture</div><ul><li><a href="culture.html">Spanish culture</a></li></ul></div>
+      <div class="footer__col"><div class="footer__col-title" data-i18n="footer.about">About</div><ul><li><a href="index.html#about"><span data-i18n="footer.who">Who is Mercedes?</span></a></li><li><a href="index.html#contact"><span data-i18n="footer.contact">Contact</span></a></li></ul></div>
+      <div class="footer__col"><div class="footer__col-title" data-i18n="footer.learn">Learn Spanish</div><ul><li><a href="videos.html"><span data-i18n="footer.allvideos">All videos</span></a></li><li><a href="free-pdf.html"><span data-i18n="footer.freepdfs">Free PDFs</span></a></li></ul></div>
+      <div class="footer__col"><div class="footer__col-title" data-i18n="footer.dele">DELE</div><ul><li><a href="dele.html#a1">DELE A1</a></li><li><a href="dele.html#a2">DELE A2</a></li><li><a href="dele.html#b1">DELE B1</a></li><li><a href="dele.html#b2">DELE B2</a></li><li><a href="dele.html#c1">DELE C1</a></li><li><a href="dele.html#c2">DELE C2</a></li></ul></div>
+      <div class="footer__col"><div class="footer__col-title" data-i18n="footer.culture">Culture</div><ul><li><a href="culture.html#literatura"><span class="lang-en">Literature</span><span class="lang-es">Literatura</span></a></li><li><a href="culture.html#cine"><span class="lang-en">Cinema &amp; Music</span><span class="lang-es">Cine y Música</span></a></li><li><a href="culture.html#gastronomia"><span class="lang-en">Gastronomy</span><span class="lang-es">Gastronomía</span></a></li><li><a href="culture.html#fiestas"><span class="lang-en">Festivals</span><span class="lang-es">Fiestas</span></a></li></ul></div>
     </div>
     <div class="footer__divider"></div>
     <div class="footer__bottom">
       <div class="footer__logo-row">
-        <div class="footer__logo">
-          <div class="footer__logo-mark"><svg width="20" height="20" viewBox="0 0 24 24"><text x="3" y="18" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="#121117">S</text></svg></div>
-          <div class="footer__logo-name">Spanish Lessons With Mercedes</div>
-        </div>
+        <div class="footer__logo"></div>
       </div>
-      <div class="footer__copyright">© 2025 Spanish Lessons With Mercedes. All rights reserved.</div>
+      <div class="footer__copyright" data-i18n="footer.copyright">© 2025 Spanish Lessons With Mercedes. All rights reserved.</div>
     </div>
   </div>
 </footer>
 
-<script src="i18n.js"></script>
+<script src="i18n.js?v=9"></script>
+<script>
+  // Navigation Dropdown Handler - Hover based
+  document.querySelectorAll('.nav-item-dropdown').forEach(dropdown => {
+    let hideTimeout;
+
+    dropdown.addEventListener('mouseenter', () => {
+      clearTimeout(hideTimeout);
+      dropdown.classList.add('active');
+    });
+
+    dropdown.addEventListener('mouseleave', () => {
+      hideTimeout = setTimeout(() => {
+        dropdown.classList.remove('active');
+      }, 100);
+    });
+  });
+</script>
 </body>
 </html>

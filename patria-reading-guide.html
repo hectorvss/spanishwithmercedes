@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía de Lectura: Patria — Spanish Lessons With Mercedes</title>
+  <link rel="stylesheet" href="styles.css?v=11">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@800;900&display=swap" rel="stylesheet">
+  <script>
+    const savedLang = localStorage.getItem('slwm_lang') || 'en';
+    if (savedLang === 'es') {
+      document.documentElement.classList.add('is-spanish');
+      document.documentElement.style.colorScheme = 'light';
+    }
+  </script>
+  <style>
+    html { font-size: 16px; }
+    .lang-en { display: inline; font-style: normal; }
+    .lang-es { display: none; font-style: normal; }
+    html.is-spanish .lang-en { display: none !important; }
+    html.is-spanish .lang-es { display: inline !important; font-style: normal; }
+    body { margin: 0; padding: 0; }
+    .footer { display: none !important; }
+    h1 .lang-es { font-style: italic; }
+    h2 .lang-es { font-style: normal; }
+    h3 .lang-es { font-style: normal; }
+    h4 .lang-es { font-style: normal; }
+    /* Slashed zero — estilo terminal */
+    .sz {
+      position: relative;
+      display: inline-block;
+    }
+    .sz::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 78%;
+      height: 2.5px;
+      background: currentColor;
+      border-radius: 1px;
+      transform: translate(-50%, -50%) rotate(-28deg);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+<header class="header">
+  <div class="header__left">
+    <a class="header__logo" href="index.html">
+      <img src="logo.png" alt="Spanish Lessons with Mercedes" class="header__logo-img">
+    </a>
+    <nav class="header__nav">
+      <div class="nav-item-dropdown">
+        <a href="index.html" class="nav-item-trigger" data-i18n="nav.home">Home</a>
+        <div class="nav-dropdown">
+          <a href="index.html#about"><span class="lang-en">About</span><span class="lang-es">Acerca de</span></a>
+          <a href="index.html#dele"><span class="lang-en">DELE</span><span class="lang-es">DELE</span></a>
+          <a href="index.html#culture"><span class="lang-en">Culture</span><span class="lang-es">Cultura</span></a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="videos.html" class="nav-item-trigger" data-i18n="nav.videos">Videos</a>
+        <div class="nav-dropdown">
+          <a href="videos.html#a1">A1</a><a href="videos.html#a2">A2</a><a href="videos.html#b1">B1</a><a href="videos.html#b2">B2</a><a href="videos.html#c1">C1</a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="free-pdf.html" class="nav-item-trigger" data-i18n="nav.pdf">Free PDF</a>
+        <div class="nav-dropdown">
+          <a href="free-pdf.html#grammar"><span class="lang-en">Lessons</span><span class="lang-es">Lecciones</span></a>
+          <a href="free-pdf.html#vocabulary"><span class="lang-en">Exercises</span><span class="lang-es">Ejercicios</span></a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="dele.html" class="nav-item-trigger" data-i18n="nav.dele">DELE</a>
+        <div class="nav-dropdown">
+          <a href="dele.html#a2">DELE A2</a><a href="dele.html#b1">DELE B1</a><a href="dele.html#b2">DELE B2</a><a href="dele.html#c1">DELE C1</a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="culture.html" class="nav-item-trigger" data-i18n="nav.culture">Culture</a>
+        <div class="nav-dropdown">
+          <a href="culture.html#literatura"><span class="lang-en">Literature</span><span class="lang-es">Literatura</span></a>
+          <a href="culture.html#cine"><span class="lang-en">Cinema</span><span class="lang-es">Cine</span></a>
+          <a href="culture.html#musica"><span class="lang-en">Music</span><span class="lang-es">Música</span></a>
+          <a href="culture.html#gastronomia"><span class="lang-en">Gastronomy</span><span class="lang-es">Gastronomía</span></a>
+          <a href="culture.html#fiestas"><span class="lang-en">Celebrations</span><span class="lang-es">Fiestas</span></a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="index.html#games" class="nav-item-trigger" data-i18n="nav.games">Games</a>
+        <div class="nav-dropdown"><a href="index.html#games">Play Games</a></div>
+      </div>
+    </nav>
+  </div>
+  <div class="header__right">
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+    </div>
+    <a class="header__admin-link" href="login.html">Admin</a>
+    <a class="header__subscribe" href="videos.html">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+      <span data-i18n="nav.subscribe">Watch Free</span>
+    </a>
+  </div>
+</header>
+
+<section class="hero hero--reading-guide">
+  <div class="hero__content-wrapper">
+    <div class="hero__images" style="display:flex;gap:20px;align-items:flex-start;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+        <div style="border:6px solid #111;line-height:0;box-shadow:0 4px 20px rgba(0,0,0,0.22);">
+          <img src="LIBROS/GUÍAS DE LECTURA/PATRIA_ARAMBURU/PATRIA_PORTADA_LIBRO.webp" alt="Portada libro Patria" style="width:140px;height:auto;display:block;">
+        </div>
+        <p style="margin:0;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#888;"><span class="lang-en">Novel</span><span class="lang-es">Novela</span></p>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+        <div style="border:6px solid #111;line-height:0;box-shadow:0 4px 20px rgba(0,0,0,0.22);">
+          <img src="LIBROS/GUÍAS DE LECTURA/PATRIA_ARAMBURU/PATRIA_PORTADA_SERIE.jpg" alt="Portada serie Patria HBO" style="width:140px;height:auto;display:block;">
+        </div>
+        <p style="margin:0;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#888;">Serie HBO</p>
+      </div>
+    </div>
+    <div class="hero__text">
+      <div class="hero__breadcrumb"><a href="index.html"><span class="lang-en">Home</span><span class="lang-es">Inicio</span></a> / <a href="culture.html"><span class="lang-en">Culture</span><span class="lang-es">Cultura española</span></a> / <a href="culture.html"><span class="lang-en">Literature</span><span class="lang-es">Literatura</span></a></div>
+      <h1 class="hero__title"><span class="lang-en">Reading Guide: Patria</span><span class="lang-es">Guía de Lectura: Patria</span></h1>
+      <p class="hero__author"><span class="lang-en">by Fernando Aramburu</span><span class="lang-es"><em>de Fernando Aramburu</em></span></p>
+      <p class="hero__subtitle"><span class="lang-en">A novel about memory, silence, and the wounds of terrorism in the Basque Country — B2/C1</span><span class="lang-es">Una novela sobre la memoria, el silencio y las heridas del terrorismo en el País Vasco — B2/C1</span></p>
+    </div>
+  </div>
+</section>
+
+<div class="reading-guide">
+  <div class="reading-guide__container">
+
+    <div class="reading-guide__section">
+      <h2 class="reading-guide__heading"><span class="sz">0</span>1 · <span class="lang-en">Book Information</span><span class="lang-es">Ficha de la Novela</span></h2>
+      <table class="reading-guide__table">
+        <tr>
+          <td><span class="lang-en">Title</span><span class="lang-es">Título</span></td>
+          <td><strong>Patria</strong></td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">Author</span><span class="lang-es">Autor</span></td>
+          <td>Fernando Aramburu</td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">Year</span><span class="lang-es">Año</span></td>
+          <td>2016</td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">Publisher</span><span class="lang-es">Editorial</span></td>
+          <td>Tusquets Editores</td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">Level</span><span class="lang-es">Nivel</span></td>
+          <td>B2 – C1</td>
+        </tr>
+        <tr>
+          <td><span class="lang-en">TV Adaptation</span><span class="lang-es">Adaptación</span></td>
+          <td><span class="lang-en">Patria — HBO Max (Spain, 2020)</span><span class="lang-es">Serie Patria — HBO Max (España, 2020)</span></td>
+        </tr>
+      </table>
+      <p class="reading-guide__intro"><span class="lang-en">Patria is the most acclaimed novel by Basque writer Fernando Aramburu. Published in 2016, it quickly became a literary phenomenon in Spain, with millions of readers and translations into dozens of languages. In 2020, HBO released its award-winning television adaptation.</span><span class="lang-es">Patria es la novela más aclamada del escritor vasco Fernando Aramburu. Publicada en 2016, se convirtió rápidamente en un fenómeno literario en España. En 2020, HBO estrenó su adaptación televisiva, muy premiada.</span></p>
+    </div>
+
+    <div class="reading-guide__section">
+      <h2 class="reading-guide__heading"><span class="sz">0</span>2 · <span class="lang-en">Synopsis</span><span class="lang-es">Sinopsis</span></h2>
+      <p><span class="lang-en">The story begins when ETA announces the abandonment of weapons. Bittori, widow of Txato — a businessman murdered by the terrorist group — decides to return to the Basque village where she lived, near Donostia (San Sebastián). Her goal: discover who killed her husband and, if possible, obtain his forgiveness.</span><span class="lang-es">La trama comienza cuando ETA anuncia el abandono de las armas. Bittori, viuda de Txato —un empresario asesinado por la banda terrorista— decide volver al pueblo vasco donde vivía, cercano a Donostia. Su objetivo: descubrir quién fue el asesino de su marido y, si es posible, obtener su perdón.</span></p>
+      <p><span class="lang-en">Facing her is Miren, her former best friend, whose son Joxe Mari is the prime suspect in the murder. Two families that were once intimate. A silence that destroyed everything.</span><span class="lang-es">Frente a ella está Miren, su antigua mejor amiga, cuyo hijo Joxe Mari es el principal sospechoso del asesinato. Dos familias que eran íntimas. Un silencio que lo destruyó todo.</span></p>
+    </div>
+
+    <div class="reading-guide__section">
+      <h2 class="reading-guide__heading"><span class="sz">0</span>3 · <span class="lang-en">Main Characters</span><span class="lang-es">Personajes Principales</span></h2>
+      <div class="reading-guide__family-group">
+        <h3 class="family-group__title"><span class="lang-en">The Family of Miren and Joxian</span><span class="lang-es"><em>La Familia de Miren y Joxian</em></span></h3>
+        <div class="reading-guide__characters">
+          <div class="character">
+            <h4>Miren</h4>
+            <p><span class="lang-en">A courageous mother who unconditionally supports her son Joxe Mari. She breaks her friendship with Bittori when Txato is threatened. She becomes an abertzale (Basque nationalist) out of blind love for her son, not political conviction.</span><span class="lang-es">Madre coraje que apoya incondicionalmente a su hijo Joxe Mari. Rompe su amistad con Bittori cuando el Txato es amenazado. Se convierte en abertzale por amor ciego a su hijo, no por convicción política.</span></p>
+          </div>
+          <div class="character">
+            <h4>Joxian</h4>
+            <p><span class="lang-en">A calm and cowardly man. Close friend of Txato, but unable to defend him against his wife. He represents the complicit silence that prevailed in Basque society.</span><span class="lang-es">Hombre tranquilo y cobarde. Amigo íntimo del Txato, pero incapaz de defenderle ante su mujer. Representa el silencio cómplice que reinaba en la sociedad vasca.</span></p>
+          </div>
+          <div class="character">
+            <h4>Joxe Mari</h4>
+            <p><span class="lang-en">Middle son. Joins ETA during adolescence. Prime suspect in Txato's murder. Spends years in prison, where he also suffers and reflects.</span><span class="lang-es">Hijo mediano. Entra en ETA durante su adolescencia. Principal sospechoso del asesinato del Txato. Pasa años en prisión, donde también sufre y reflexiona.</span></p>
+          </div>
+          <div class="character">
+            <h4>Arantxa</h4>
+            <p><span class="lang-en">The eldest daughter. The only one in her family who openly condemns the murder of Txato. She suffers a stroke and becomes paralyzed; she can only communicate through an iPad. A symbol of the silenced voice.</span><span class="lang-es">Hija mayor. La única de su familia que condena abiertamente el asesinato del Txato. Sufre un ictus y queda paralítica; solo puede comunicarse a través del iPad. Símbolo de la voz silenciada.</span></p>
+          </div>
+          <div class="character">
+            <h4>Gorka</h4>
+            <p><span class="lang-en">The youngest son. Writer and radio host. He moves to Bilbao to escape everything. He hides his homosexuality for years. He also remains silent.</span><span class="lang-es">Hijo menor. Escritor y locutor de radio. Se va a Bilbao para escapar de todo. Oculta su homosexualidad durante años. También calla.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reading-guide__family-group">
+        <h3 class="family-group__title"><span class="lang-en">The Family of Bittori and Txato</span><span class="lang-es"><em>La Familia de Bittori y el Txato</em></span></h3>
+        <div class="reading-guide__characters">
+          <div class="character">
+            <h4>Bittori</h4>
+            <p><span class="lang-en">Txato's widow. Stubborn and brave. She speaks to her husband's grave to process her grief. She returns to the village with a mission: know the truth and obtain the murderer's forgiveness. Cancer advances while she waits.</span><span class="lang-es">Viuda del Txato. Tozuda y valiente. Habla con la tumba de su marido para procesar el duelo. Regresa al pueblo con una misión: saber la verdad y obtener el perdón del asesino. Un cáncer avanza mientras ella espera.</span></p>
+          </div>
+          <div class="character">
+            <h4>Txato</h4>
+            <p><span class="lang-en">A truck business owner, a good man with no political ambitions. He began receiving extortion letters from ETA. When he stopped paying, the entire village turned their back on him. He was murdered.</span><span class="lang-es">Empresario de camiones, hombre bueno y sin afán político. Empezó a recibir cartas de extorsión de ETA. Cuando dejó de pagar, el pueblo entero le dio la espalda. Fue asesinado.</span></p>
+          </div>
+          <div class="character">
+            <h4>Xabier</h4>
+            <p><span class="lang-en">A reserved and melancholic doctor. He feels guilty for not protecting his father. Emotional paralysis. He lives to care for his mother, but is unable to be happy.</span><span class="lang-es">Hijo médico, reservado y melancólico. Se queda mirando la telaraña de su despacho, parálisis emocional. Culpable de no haber protegido a su padre. Vive para cuidar a su madre, pero incapaz de ser feliz.</span></p>
+          </div>
+          <div class="character">
+            <h4>Nerea</h4>
+            <p><span class="lang-en">The youngest daughter. Impulsive and selfish. She learns of her father's murder through the news from Zaragoza and decides not to attend the funeral. Something her mother will never forgive her for.</span><span class="lang-es">Hija menor, impulsiva y egoísta. Se entera del asesinato de su padre por las noticias desde Zaragoza y decide no ir al entierro. Algo que su madre nunca le perdonará.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reading-guide__section">
+      <h2 class="reading-guide__heading"><span class="sz">0</span>4 · <span class="lang-en">Main Themes</span><span class="lang-es">Temas Principales</span></h2>
+      <ul class="reading-guide__themes">
+        <li><span class="lang-en">The terrorism of ETA and its impact on Basque society</span><span class="lang-es">El terrorismo de ETA y su impacto en la sociedad vasca</span></li>
+        <li><span class="lang-en">Complicit silence: social pressure and collective fear</span><span class="lang-es">El silencio cómplice: la presión social y el miedo colectivo</span></li>
+        <li><span class="lang-en">Historical memory: a past that doesn't close</span><span class="lang-es">La memoria histórica: el pasado que no cierra</span></li>
+        <li><span class="lang-en">The search for forgiveness and reconciliation</span><span class="lang-es">La búsqueda del perdón y la reconciliación</span></li>
+        <li><span class="lang-en">The suffering of all: victims and perpetrators alike</span><span class="lang-es">El sufrimiento de todos: víctimas y verdugos por igual</span></li>
+        <li><span class="lang-en">Maternal love as a motor for fanaticism</span><span class="lang-es">El amor materno como motor del fanatismo</span></li>
+        <li><span class="lang-en">Cowardice in the face of injustice</span><span class="lang-es">La cobardía frente a la injusticia</span></li>
+      </ul>
+    </div>
+
+    <div class="reading-guide__section">
+      <h2 class="reading-guide__heading"><span class="sz">0</span>5 · <span class="lang-en">Narrative Technique</span><span class="lang-es">Técnica Narrativa</span></h2>
+      <h3><span class="lang-en">Polyphonic Structure</span><span class="lang-es">Estructura Polifónica</span></h3>
+      <p><span class="lang-en">Aramburu uses multiple narrative voices. The reader enters the mind of each character and ends up empathizing with all of them, regardless of their ideology. None is completely hero or villain.</span><span class="lang-es">Aramburu utiliza múltiples voces narrativas. El lector entra en la mente de cada personaje y acaba empatizando con todos ellos, independientemente de su ideología.</span></p>
+
+      <h3><span class="lang-en">Free Indirect Style</span><span class="lang-es">Estilo Indirecto Libre</span></h3>
+      <p><span class="lang-en">The thoughts of characters blend with the narrator's voice without typographic marks. This allows the reader to access each character's inner world naturally and immersively.</span><span class="lang-es">Los pensamientos de los personajes se mezclan con la voz del narrador sin marcas tipográficas.</span></p>
+
+      <h3><span class="lang-en">Brief, Non-Linear Chapters</span><span class="lang-es">Capítulos Breves y No Lineales</span></h3>
+      <p><span class="lang-en">The novel begins in medias res (2011) and constantly moves forward and backward. The fragmented structure imitates how traumatic memory works: the past erupts into the present without warning.</span><span class="lang-es">La novela empieza in medias res, en 2011, y avanza y retrocede constantemente. La estructura fragmentada imita el funcionamiento de la memoria traumática.</span></p>
+    </div>
+
+    <div class="reading-guide__section">
+      <h2 class="reading-guide__heading"><span class="sz">0</span>6 · <span class="lang-en">Space and Time</span><span class="lang-es">Espacio y Tiempo</span></h2>
+
+      <h3><span class="lang-en">The Unnamed Village</span><span class="lang-es">El Pueblo sin Nombre</span></h3>
+      <p><span class="lang-en">The action takes place in a village near Donostia whose name is never mentioned. This decision is not casual: that unnamed village represents all Basque villages. It is a microcosm of the conflict, where silence, fear, and rejection are omnipresent.</span><span class="lang-es">La acción transcurre en un pueblo cercano a Donostia cuyo nombre nunca se menciona. Esta decisión no es casual: ese pueblo sin nombre representa a todos los pueblos vascos. Es un microcosmos del conflicto, donde el silencio, el miedo y el rechazo son omnipresentes.</span></p>
+
+      <h3><span class="lang-en">Contrast of Spaces</span><span class="lang-es">Contraste de Espacios</span></h3>
+      <p><span class="lang-en">Cities like Zaragoza or Bilbao represent flight and freedom for Nerea and Gorka. For Bittori, on the other hand, returning to the village is an act of resistance and emotional necessity.</span><span class="lang-es">Ciudades como Zaragoza o Bilbao representan la huida y la libertad para Nerea y Gorka. Para Bittori, en cambio, el regreso al pueblo es un acto de resistencia y necesidad emocional.</span></p>
+
+      <h3><span class="lang-en">The Temporal Framework — From the 1970s to 2011</span><span class="lang-es">El Marco Temporal — de los Años 70 a 2011</span></h3>
+      <ul class="reading-guide__timeline">
+        <li><span class="lang-en">Assassination of Carrero Blanco (December 20, 1973)</span><span class="lang-es">Asesinato de Carrero Blanco (20 de diciembre de 1973)</span></li>
+        <li><span class="lang-en">Death of Yoyes (September 10, 1986)</span><span class="lang-es">Muerte de Yoyes (10 de septiembre de 1986)</span></li>
+        <li><span class="lang-en">Hipercor attack in Barcelona (June 19, 1987)</span><span class="lang-es">Atentado en el Hipercor de Barcelona (19 de junio de 1987)</span></li>
+        <li><span class="lang-en">Law on same-sex marriage in Spain (2005)</span><span class="lang-es">Ley del matrimonio entre personas del mismo sexo en España (2005)</span></li>
+        <li><span class="lang-en">Announcement of ETA's end (2011)</span><span class="lang-es">Anuncio del fin de ETA (2011)</span></li>
+      </ul>
+    </div>
+
+    <div class="reading-guide__section">
+      <h2 class="reading-guide__heading"><span class="sz">0</span>7 · <span class="lang-en">Comprehension & Reflection Activities</span><span class="lang-es">Actividades de Comprensión y Reflexión</span></h2>
+
+      <h3><span class="lang-en">Comprehension Questions</span><span class="lang-es">Preguntas de Comprensión</span></h3>
+      <ol class="reading-guide__questions">
+        <li><span class="lang-en">Why does Bittori decide to return to the village precisely when ETA announces the end of violence?</span><span class="lang-es">¿Por qué Bittori decide volver al pueblo precisamente cuando ETA anuncia el cese de la violencia?</span></li>
+        <li><span class="lang-en">What role does Txato's grave play in the novel?</span><span class="lang-es">¿Qué papel juega la tumba del Txato en la novela?</span></li>
+        <li><span class="lang-en">How does Miren's son influence her decisions regarding her maternal relationship?</span><span class="lang-es">¿Cómo influye el hijo de Miren en sus decisiones respecto a su maternidad?</span></li>
+        <li><span class="lang-en">What happens to Arantxa and what symbolic meaning does her condition have in the story?</span><span class="lang-es">¿Qué ocurre con Arantxa y qué significado simbólico tiene dentro de la historia?</span></li>
+        <li><span class="lang-en">Why does Nerea decide not to attend her father's funeral?</span><span class="lang-es">¿Por qué Nerea decide no ir al entierro de su padre?</span></li>
+      </ol>
+
+      <h3><span class="lang-en">Additional Comprehension Questions</span><span class="lang-es">Preguntas Adicionales de Comprensión</span></h3>
+      <ol class="reading-guide__questions" start="6">
+        <li><span class="lang-en">How does Father Serapio, the village priest, influence Miren's decisions regarding her son?</span><span class="lang-es">¿Cómo influye don Serapio, el cura del pueblo, en las decisiones de Miren respecto a su hijo?</span></li>
+        <li><span class="lang-en">At what point does Bittori discover she has cancer and how does she live with that news?</span><span class="lang-es">¿En qué momento descubre Bittori que tiene cáncer y cómo convive con esa noticia?</span></li>
+        <li><span class="lang-en">Why does Gorka move to Bilbao? What does he find there that he didn't have in the village?</span><span class="lang-es">¿Por qué Gorka se marcha a Bilbao? ¿Qué encuentra allí que no tenía en el pueblo?</span></li>
+        <li><span class="lang-en">What is the difference between Joxian's relationship with Txato and Miren's relationship with Bittori?</span><span class="lang-es">¿Qué diferencia hay entre la relación de Joxian con el Txato y la de Miren con Bittori?</span></li>
+      </ol>
+
+      <h3><span class="lang-en">Reflection Questions</span><span class="lang-es">Preguntas de Reflexión</span></h3>
+      <ol class="reading-guide__questions" start="10">
+        <li><span class="lang-en">The novel shows a village that looked the other way. Is that attitude understandable or is it also a form of complicity?</span><span class="lang-es">La novela muestra un pueblo que miraba hacia otro lado. ¿Crees que esa actitud es comprensible o es también una forma de complicidad?</span></li>
+        <li><span class="lang-en">Do you think the forgiveness Bittori seeks is possible? Does she ask it for the murderer or does she need it for herself?</span><span class="lang-es">¿Crees que el perdón que busca Bittori es posible? ¿Lo pide para el asesino o lo necesita para ella misma?</span></li>
+        <li><span class="lang-en">What is your opinion on the role of the Church represented by Father Serapio? Does it have moral responsibility in what happens?</span><span class="lang-es">¿Qué opinas del papel de la Iglesia representado por don Serapio? ¿Tiene responsabilidad moral en lo que ocurre?</span></li>
+        <li><span class="lang-en">If you were Joxian, would you have acted differently? At what point would you have said enough?</span><span class="lang-es">Si fueras Joxian, ¿habrías actuado de otra manera? ¿En qué momento habrías dicho basta?</span></li>
+        <li><span class="lang-en">Was there a character you couldn't empathize with? Why?</span><span class="lang-es">¿Hubo algún personaje con el que no pudieras empatizar? ¿Por qué?</span></li>
+        <li><span class="lang-en">Do you think Basque society has closed the wounds described in the novel, or do they remain open?</span><span class="lang-es">¿Crees que la sociedad vasca actual ha cerrado las heridas que describe la novela, o siguen abiertas?</span></li>
+        <li><span class="lang-en">What differences do you find between reading the novel and watching the HBO series? What does each format gain and what does it lose?</span><span class="lang-es">¿Qué diferencias encuentras entre leer la novela y ver la serie de HBO? ¿Qué gana y qué pierde cada formato?</span></li>
+      </ol>
+    </div>
+
+    <div class="reading-guide__section">
+      <h2 class="reading-guide__heading"><span class="sz">0</span>8 · <span class="lang-en">Comparing Book and HBO Series</span><span class="lang-es">Comparación con la Serie de HBO</span></h2>
+      <p><span class="lang-en">If you have already watched the Patria series on HBO Max, use these questions to reflect on how the novel and the series differ:</span><span class="lang-es">Si ya has visto la serie Patria en HBO Max, usa estas preguntas para reflexionar sobre cómo la novela y la serie difieren:</span></p>
+
+      <h3><span class="lang-en">Narrative and Structure</span><span class="lang-es">Narrativa y Estructura</span></h3>
+      <ul class="reading-guide__themes">
+        <li><span class="lang-en">How does the series handle the novel's non-linear structure? Does it make the story easier or more difficult to follow?</span><span class="lang-es">¿Cómo maneja la serie la estructura no lineal de la novela? ¿Hace la historia más fácil o más difícil de seguir?</span></li>
+        <li><span class="lang-en">Which elements of the novel are emphasized more in the series, and which are minimized?</span><span class="lang-es">¿Qué elementos de la novela se enfatizan más en la serie, y cuáles se minimizan?</span></li>
+        <li><span class="lang-en">The novel uses multiple interior monologues. How does the series show the characters' inner worlds without this technique?</span><span class="lang-es">La novela utiliza múltiples monólogos interiores. ¿Cómo muestra la serie los mundos interiores de los personajes sin esta técnica?</span></li>
+      </ul>
+
+      <h3><span class="lang-en">Character Interpretation</span><span class="lang-es">Interpretación de Personajes</span></h3>
+      <ul class="reading-guide__themes">
+        <li><span class="lang-en">Which character do you think is better portrayed in the book, and which in the series? Why?</span><span class="lang-es">¿Qué personaje crees que está mejor retratado en el libro, y cuál en la serie? ¿Por qué?</span></li>
+        <li><span class="lang-en">Does the series make you empathize more or less with the antagonists compared to the novel?</span><span class="lang-es">¿La serie te hace empatizar más o menos con los antagonistas en comparación con la novela?</span></li>
+        <li><span class="lang-en">How does the visual representation of aging and time affect your understanding of each character's journey?</span><span class="lang-es">¿Cómo afecta la representación visual del envejecimiento y el tiempo a tu comprensión del viaje de cada personaje?</span></li>
+      </ul>
+
+      <h3><span class="lang-en">Emotional Impact</span><span class="lang-es">Impacto Emocional</span></h3>
+      <ul class="reading-guide__themes">
+        <li><span class="lang-en">Which format (novel or series) made you feel more emotionally connected to the story?</span><span class="lang-es">¿Cuál formato (novela o serie) te hizo sentir más conectado emocionalmente con la historia?</span></li>
+        <li><span class="lang-en">Are there scenes that are more powerful on screen than they are on the page, or vice versa?</span><span class="lang-es">¿Hay escenas que son más poderosas en pantalla que en la página, o viceversa?</span></li>
+        <li><span class="lang-en">Does the silence and restraint in the novel translate to silence and restraint on screen?</span><span class="lang-es">¿Se traduce el silencio y la contención de la novela en silencio y contención en la pantalla?</span></li>
+      </ul>
+
+      <h3><span class="lang-en">Themes and Message</span><span class="lang-es">Temas y Mensaje</span></h3>
+      <ul class="reading-guide__themes">
+        <li><span class="lang-en">Does the series change how you understand the novel's central themes of silence and complicity?</span><span class="lang-es">¿La serie cambia cómo entiendes los temas centrales de la novela sobre silencio y complicidad?</span></li>
+        <li><span class="lang-en">How does the visual and auditory experience of the series affect the message about forgiveness and reconciliation?</span><span class="lang-es">¿Cómo afecta la experiencia visual y auditiva de la serie el mensaje sobre perdón y reconciliación?</span></li>
+      </ul>
+    </div>
+
+    <div class="reading-guide__section">
+      <h2 class="reading-guide__heading"><span class="sz">0</span>9 · <span class="lang-en">Key Vocabulary</span><span class="lang-es">Vocabulario Clave</span></h2>
+      <div class="reading-guide__vocab">
+        <div class="vocab-item">
+          <strong>Abertzale</strong>
+          <span class="lang-en">Basque radical nationalist</span><span class="lang-es">Nacionalista vasco radical</span>
+        </div>
+        <div class="vocab-item">
+          <strong>Euskera / Euskaldun</strong>
+          <span class="lang-en">Basque language / Basque speaker</span><span class="lang-es">Lengua vasca / Persona que habla euskera</span>
+        </div>
+        <div class="vocab-item">
+          <strong>ETA</strong>
+          <span class="lang-en">Euskadi Ta Askatasuna — Basque terrorist group (1959–2018)</span><span class="lang-es">Euskadi Ta Askatasuna, banda terrorista vasca (1959–2018)</span>
+        </div>
+        <div class="vocab-item">
+          <strong><span class="lang-en">Revolutionary tax</span><span class="lang-es">Impuesto revolucionario</span></strong>
+          <span class="lang-en">Economic extortion practiced by ETA on business owners</span><span class="lang-es">Extorsión económica practicada por ETA a empresarios</span>
+        </div>
+        <div class="vocab-item">
+          <strong>Kale borroka</strong>
+          <span class="lang-en">Street violence by groups linked to ETA</span><span class="lang-es">Violencia callejera de grupos afines a ETA</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="reading-guide__section reading-guide__section--final">
+      <h2 class="reading-guide__heading">1<span class="sz">0</span> · <span class="lang-en">A Novel That You Won't Forget</span><span class="lang-es">Una Novela que No se Olvida</span></h2>
+      <p><span class="lang-en">The stylistic and structural richness of the novel is key to its emotional impact and thematic depth, making it one of the most powerful representations of recent historical memory in contemporary Spanish literature.</span><span class="lang-es">La riqueza estilística y estructural de la novela es clave para su impacto emocional y su profundidad temática, convirtiéndola en una de las representaciones más contundentes de la memoria histórica reciente en la literatura española contemporánea.</span></p>
+      <p><span class="lang-en">Patria is not just a novel about terrorism. It is a novel about silence, cowardice, blind love, guilt, and the impossibility of forgetting. It is a work that will stay with you long after you close the last page.</span><span class="lang-es">Patria no es solo una novela sobre el terrorismo. Es una novela sobre el silencio, la cobardía, el amor ciego, la culpa y la imposibilidad del olvido. Es una obra que te acompañará mucho tiempo después de cerrar la última página.</span></p>
+      <p><span class="lang-en"><strong>Recommended for readers with B2–C1 Spanish level who wish to deepen their knowledge of Spain's recent history and contemporary Spanish literature.</strong></span><span class="lang-es"><strong>Recomendada para lectores con nivel B2–C1 de español que deseen profundizar en la historia reciente de España y en la literatura española contemporánea.</strong></span></p>
+      <p class="reading-guide__credit"><span class="lang-en">Reading guide created by Spanish Lessons with Mercedes</span><span class="lang-es">Guía elaborada por Spanish Lessons with Mercedes</span></p>
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer"><div class="footer__content"><div class="footer__cols"><div class="footer__col"><div class="footer__col-title" data-i18n="footer.about">About</div><ul><li><a href="index.html#about"><span data-i18n="footer.who">Who is Mercedes?</span></a></li><li><a href="index.html#contact"><span data-i18n="footer.contact">Contact</span></a></li></ul></div><div class="footer__col"><div class="footer__col-title" data-i18n="footer.learn">Learn Spanish</div><ul><li><a href="videos.html"><span data-i18n="footer.allvideos">All videos</span></a></li><li><a href="free-pdf.html"><span data-i18n="footer.freepdfs">Free PDFs</span></a></li></ul></div><div class="footer__col"><div class="footer__col-title" data-i18n="footer.dele">DELE</div><ul><li><a href="dele.html#a1">DELE A1</a></li><li><a href="dele.html#a2">DELE A2</a></li><li><a href="dele.html#b1">DELE B1</a></li><li><a href="dele.html#b2">DELE B2</a></li><li><a href="dele.html#c1">DELE C1</a></li><li><a href="dele.html#c2">DELE C2</a></li></ul></div><div class="footer__col"><div class="footer__col-title" data-i18n="footer.culture">Culture</div><ul><li><a href="culture.html#literatura"><span class="lang-en">Literature</span><span class="lang-es">Literatura</span></a></li><li><a href="culture.html#cine"><span class="lang-en">Cinema &amp; Music</span><span class="lang-es">Cine y Música</span></a></li><li><a href="culture.html#gastronomia"><span class="lang-en">Gastronomy</span><span class="lang-es">Gastronomía</span></a></li><li><a href="culture.html#fiestas"><span class="lang-en">Festivals</span><span class="lang-es">Fiestas</span></a></li></ul></div></div><div class="footer__divider"></div><div class="footer__bottom"><div class="footer__logo-row"><div class="footer__logo"><div class="footer__logo-mark"><svg width="20" height="20" viewBox="0 0 24 24"><text x="3" y="18" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="#121117">S</text></svg></div><div class="footer__logo-name">Spanish Lessons With Mercedes</div></div><div class="footer__social-apps"><div class="footer__social"><a class="footer__social-link" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a><a class="footer__social-link" href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a class="footer__social-link" href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V9.35a8.16 8.16 0 004.77 1.52V7.42a4.85 4.85 0 01-1-.73z"/></svg></a></div></div></div><div class="footer__copyright" data-i18n="footer.copyright">© 2025 Spanish Lessons With Mercedes. All rights reserved.</div></div></div></footer>
+
+<style>
+.hero--reading-guide {
+  background: white;
+  color: #1C2A4A;
+  padding: 60px 40px;
+  border-bottom: 2px solid #D4920A;
+}
+
+.hero__content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero__images {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.hero__image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero__book-cover {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  max-width: 280px;
+  transition: all 0.3s ease;
+}
+
+.hero__book-cover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+}
+
+.hero__image-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.hero__text {
+  padding-right: 20px;
+}
+
+.hero__breadcrumb {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero__breadcrumb a {
+  color: #666;
+  text-decoration: none;
+}
+
+.hero__breadcrumb a:hover {
+  color: #D4920A;
+}
+
+.hero--reading-guide .hero__title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 56px;
+  font-weight: 900;
+  font-style: normal;
+  text-transform: uppercase;
+  color: #1C2A4A;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+  line-height: 1.1;
+}
+
+.hero__author {
+  font-size: 20px;
+  font-weight: 600;
+  color: #D4920A;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.hero--reading-guide .hero__subtitle {
+  font-size: 17px;
+  color: #666;
+  line-height: 1.8;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .hero__content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero__text {
+    padding-right: 0;
+  }
+
+  .hero--reading-guide .hero__title {
+    font-size: 36px;
+  }
+
+  .hero__author {
+    font-size: 18px;
+  }
+}
+
+.reading-guide {
+  background: #ffffff;
+  padding: 0;
+}
+
+.reading-guide__container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 72px 48px;
+}
+
+.reading-guide__section {
+  margin-bottom: 72px;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.reading-guide__section:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.reading-guide__section--final {
+  background: linear-gradient(135deg, rgba(212, 146, 10, 0.05) 0%, rgba(43, 191, 168, 0.05) 100%);
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px solid #D4920A;
+  border-left: 4px solid #D4920A;
+  margin-top: 60px;
+  margin-bottom: 0;
+}
+
+.reading-guide__heading {
+  font-family: 'Noto Sans', 'Figtree', sans-serif;
+  font-size: 31px;
+  font-weight: 800;
+  color: #1C2A4A;
+  margin-bottom: 34px;
+  letter-spacing: 0;
+  line-height: 1.18;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reading-guide__heading::before {
+  content: '';
+  width: 4px;
+  height: 28px;
+  background: #D4920A;
+  border-radius: 2px;
+}
+
+.reading-guide__intro {
+  font-size: 18px;
+  line-height: 1.78;
+  color: #3f4654;
+  margin-bottom: 24px;
+}
+
+.reading-guide__section > h3 {
+  font-family: 'Noto Sans', 'Figtree', sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+  color: #102652;
+  line-height: 1.28;
+  letter-spacing: 0;
+  margin: 30px 0 8px;
+}
+
+.reading-guide__section > h3:first-of-type {
+  margin-top: 0;
+}
+
+.reading-guide__section > p {
+  max-width: 78ch;
+  font-size: 17px;
+  line-height: 1.76;
+  color: #2d3440;
+  margin: 0 0 24px;
+}
+
+.reading-guide__section > h3 + p {
+  padding-left: 18px;
+  border-left: 2px solid rgba(212, 146, 10, 0.24);
+}
+
+.reading-guide__section > p:last-child {
+  margin-bottom: 0;
+}
+
+.reading-guide__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 25px;
+  font-size: 15px;
+}
+
+.reading-guide__table tr {
+  border: none;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.reading-guide__table tr:hover {
+  background: #fafafa;
+}
+
+.reading-guide__table td {
+  padding: 16px 0;
+  padding-right: 30px;
+}
+
+.reading-guide__table td:first-child {
+  font-weight: 700;
+  color: #1C2A4A;
+  width: 30%;
+  font-size: 14px;
+}
+
+.family-group__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1C2A4A;
+  margin: 35px 0 25px 0;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #D4920A;
+}
+
+.reading-guide__characters {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 20px;
+}
+
+.character {
+  padding: 28px;
+  background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+  border-radius: 12px;
+  border: 2px solid #f0f0f0;
+  border-left: 4px solid #D4920A;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.character::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #D4920A, #2BBFA8);
+}
+
+.character:hover {
+  box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+  transform: translateY(-4px);
+  border-left-color: #2BBFA8;
+  background: linear-gradient(135deg, #ffffff 0%, #f5f9fb 100%);
+}
+
+.character h4 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1C2A4A;
+  margin-bottom: 12px;
+  letter-spacing: -0.3px;
+}
+
+.character p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #555;
+}
+
+.reading-guide__themes {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.reading-guide__themes li {
+  padding: 18px 20px;
+  position: relative;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #555;
+  background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+  border-radius: 8px;
+  border: 1px solid #f0f0f0;
+  border-left: 4px solid #D4920A;
+  transition: all 0.3s ease;
+  padding-left: 32px;
+}
+
+.reading-guide__themes li:hover {
+  background: linear-gradient(135deg, #ffffff 0%, #f5f9fb 100%);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-left-color: #2BBFA8;
+}
+
+.reading-guide__themes li:before {
+  content: "▸";
+  position: absolute;
+  left: 12px;
+  color: #D4920A;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.reading-guide__questions {
+  list-style: none;
+  padding: 0;
+  counter-reset: question;
+  margin-top: 25px;
+}
+
+.reading-guide__questions li {
+  padding: 18px 0 18px 40px;
+  position: relative;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #555;
+  counter-increment: question;
+  border-left: 2px solid #f0f0f0;
+  padding-left: 30px;
+  margin-left: 10px;
+}
+
+.reading-guide__questions li:before {
+  content: counter(question) ".";
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+  color: #D4920A;
+  font-size: 16px;
+}
+
+.reading-guide__vocab {
+  display: grid;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.vocab-item {
+  padding: 20px;
+  background: #fafafa;
+  border-radius: 8px;
+  border: 1px solid #f0f0f0;
+  border-left: 3px solid #D4920A;
+}
+
+.vocab-item strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1C2A4A;
+  margin-bottom: 6px;
+}
+
+.vocab-item > span {
+  display: block;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.reading-guide__section--final p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.reading-guide__section--final p:last-child {
+  margin-bottom: 0;
+}
+
+.reading-guide__timeline {
+  list-style: none;
+  padding: 0;
+  margin-top: 25px;
+}
+
+.reading-guide__timeline li {
+  padding: 12px 0 12px 28px;
+  position: relative;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #555;
+}
+
+.reading-guide__timeline li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #D4920A;
+  font-weight: bold;
+}
+
+.reading-guide__credit {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid rgba(212, 146, 10, 0.2);
+  font-size: 14px;
+  color: #999;
+  text-align: center;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .reading-guide__container {
+    padding: 40px 20px;
+  }
+
+  .reading-guide__characters {
+    grid-template-columns: 1fr;
+  }
+
+  .reading-guide__themes {
+    grid-template-columns: 1fr;
+  }
+
+  .reading-guide__heading {
+    font-size: 24px;
+  }
+
+  .hero--reading-guide .hero__title {
+    font-size: 36px;
+  }
+
+  .hero__images {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .hero__book-cover {
+    max-width: 240px;
+  }
+}
+</style>
+
+<script src="i18n.js?v=3"></script>
+</body>
+</html>

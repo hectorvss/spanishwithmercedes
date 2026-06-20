@@ -7,8 +7,244 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=11">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
   <style>
+    /* ── DELE HERO ── */
+    .dele-hero {
+      background: #D4920A;
+      padding: 64px 96px;
+      text-align: left;
+    }
+    .dele-hero__cervantes {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.2);
+      border-radius: 20px; padding: 6px 18px;
+      font-size: 11px; font-weight: 700; color: #000;
+      letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 12px; text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .dele-hero__cervantes:hover {
+      background: rgba(0,0,0,0.15);
+      border-color: #000;
+    }
+    .dele-hero__title {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 84px;
+      font-weight: 800; line-height: 100px;
+      letter-spacing: -0.6px;
+      color: #000;
+      margin-bottom: 16px;
+    }
+    .dele-hero__sub {
+      font-size: 20px; color: rgba(18,17,23,0.8);
+      max-width: 680px; margin: 0;
+      line-height: 1.6;
+      text-align: left;
+    }
+    .dele-stats {
+      display: flex; justify-content: center; gap: 0;
+      background: #fff;
+      padding: 32px 80px;
+      border-top: 1px solid #e0e0e0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .dele-stats__stat {
+      flex: 1; max-width: 200px;
+      border-right: 1px solid #e0e0e0;
+      padding: 0 32px;
+      text-align: center;
+    }
+    .dele-stats__stat:last-child { border-right: none; }
+    .dele-stats__stat-num {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 32px; font-weight: 900;
+      color: #D4920A; line-height: 1;
+      margin-bottom: 6px;
+    }
+    .dele-stats__stat-label {
+      font-size: 11px; font-weight: 600;
+      color: #999;
+      letter-spacing: 1.5px; text-transform: uppercase;
+    }
+
+    /* ── QUÉ ES DELE ── */
+    .dele-intro {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; max-width: 1280px;
+      margin: 0 auto 64px; padding: 64px 80px;
+    }
+    .dele-intro__eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #D4920A; margin-bottom: 14px;
+    }
+    .dele-intro__heading {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 32px; font-weight: 800;
+      line-height: 1.15; color: #121117; margin-bottom: 20px;
+    }
+    .dele-intro__text {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 15px; line-height: 1.8; color: #4D4C5C;
+    }
+    .dele-intro__text p + p { margin-top: 14px; }
+    .dele-intro__why-title {
+      font-family: 'Noto Sans', sans-serif;
+      font-weight: 800; font-size: 32px; line-height: 1.15; color: #121117;
+      margin-bottom: 20px;
+    }
+    .dele-intro__list {
+      list-style: none; display: flex; flex-direction: column; gap: 12px;
+    }
+    .dele-intro__list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 15px; color: #4D4C5C; line-height: 1.6;
+    }
+    .dele-intro__list li::before {
+      content: ''; display: block; width: 7px; height: 7px;
+      background: #D4920A; border-radius: 50%; flex-shrink: 0; margin-top: 7px;
+    }
+
+    /* ── LEVELS TABLE ── */
+    .dele-levels-section {
+      background: #F9F9FB;
+      padding: 64px 80px;
+    }
+    .dele-levels-section__eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #D4920A;
+      text-align: center; margin-bottom: 12px;
+    }
+    .dele-levels-section__heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(26px, 3vw, 38px); font-weight: 700;
+      text-align: center; color: #121117; margin-bottom: 40px;
+    }
+    .dele-levels-table {
+      display: grid; grid-template-columns: repeat(6, 1fr);
+      gap: 12px; max-width: 1280px; margin: 0 auto 40px;
+    }
+    .dele-level-col {
+      background: #fff; border-radius: 10px;
+      border: 1.5px solid #DCDCE5;
+      padding: 20px 14px; text-align: center;
+      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+    }
+    .dele-level-col:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.09);
+      transform: translateY(-3px);
+    }
+    .dele-level-col--featured { border-color: #D4920A; }
+    .dele-level-col__badge {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 22px; font-weight: 900;
+      margin-bottom: 8px;
+    }
+    .dele-level-col__name {
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      color: #9B9AAB; margin-bottom: 12px;
+    }
+    .dele-level-col__desc {
+      font-size: 12px; color: #6B6A7A; line-height: 1.5;
+    }
+    .dele-level-col__tag {
+      display: inline-block; margin-top: 10px;
+      background: #F0F0F4; border-radius: 4px;
+      padding: 2px 8px; font-size: 10px; font-weight: 700;
+      color: #121117; letter-spacing: 0.3px;
+    }
+    .dele-level-col--featured .dele-level-col__tag {
+      background: #D4920A; color: #121117;
+    }
+
+    /* ── PREPARE CTA ── */
+    .dele-prepare-cta {
+      background: #121117;
+      padding: 72px 80px;
+      text-align: center;
+    }
+    .dele-prepare-cta__title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 3.5vw, 46px); font-weight: 700;
+      color: #fff; margin-bottom: 14px; line-height: 1.2;
+    }
+    .dele-prepare-cta__title span { color: #D4920A; }
+    .dele-prepare-cta__sub {
+      font-size: 16px; color: rgba(255,255,255,0.65);
+      max-width: 520px; margin: 0 auto 36px; line-height: 1.6;
+    }
+    .dele-prepare-cta__btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #D4920A; color: #121117;
+      font-weight: 700; font-size: 15px;
+      padding: 16px 36px; border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .dele-prepare-cta__btn:hover { background: #b87d08; }
+
+    /* ── B2 PRUEBAS ── */
+    .b2-prueba {
+      border: 1.5px solid #DCDCE5; border-radius: 14px;
+      overflow: hidden; margin-bottom: 20px;
+      background: #fff;
+    }
+    .b2-prueba__head {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 24px; border-bottom: 1.5px solid #F0F0F4;
+      flex-wrap: wrap;
+    }
+    .b2-prueba__num {
+      width: 44px; height: 44px; border-radius: 10px;
+      font-family: 'Noto Sans', sans-serif; font-weight: 900; font-size: 20px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .b2-prueba__meta { flex: 1; }
+    .b2-prueba__label {
+      font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: #9B9AAB; margin-bottom: 3px;
+    }
+    .b2-prueba__title {
+      font-family: 'Noto Sans', sans-serif; font-weight: 700;
+      font-size: 18px; color: #121117;
+    }
+    .b2-prueba__tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .b2-tag {
+      background: #F0F0F4; border-radius: 20px;
+      padding: 5px 14px; font-size: 12px; font-weight: 600; color: #4D4C5C;
+    }
+    .b2-prueba__body { padding: 24px; background: #FAFAFA; }
+    .b2-prueba__desc {
+      font-size: 14px; line-height: 1.7; color: #4D4C5C;
+      margin-bottom: 20px; max-width: 900px;
+    }
+    .b2-tareas-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 12px; margin-bottom: 18px;
+    }
+    .b2-tarea {
+      background: #fff; border: 1.5px solid #DCDCE5;
+      border-radius: 10px; padding: 16px 18px;
+    }
+    .b2-tarea__label {
+      font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: #9B9AAB; margin-bottom: 6px;
+    }
+    .b2-tarea__title {
+      font-weight: 700; font-size: 14px; color: #121117; margin-bottom: 6px;
+    }
+    .b2-tarea__desc { font-size: 13px; color: #6B6A7A; line-height: 1.5; }
+    .b2-tip {
+      background: #FFFBF0; border: 1.5px solid #D4920A40;
+      border-left: 4px solid #D4920A;
+      border-radius: 8px; padding: 14px 18px;
+      font-size: 13px; color: #4D4C5C; line-height: 1.6;
+    }
+
+    /* ── EXISTING STYLES (kept) ── */
     .dele-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1280px; margin-bottom: 64px; }
     .dele-grid--2 { grid-template-columns: repeat(2, 1fr); }
     .info-block {
@@ -20,44 +256,38 @@
       font-family: 'Noto Sans', sans-serif; font-weight: 700;
       font-size: 28px; line-height: 38px; color: #121117; margin-bottom: 16px;
     }
-    .info-block__text {
-      font-size: 16px; line-height: 28px; color: #4D4C5C; max-width: 800px;
-    }
+    .info-block__text { font-size: 16px; line-height: 28px; color: #4D4C5C; max-width: 800px; }
     .info-block__text p + p { margin-top: 12px; }
-    .skills-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
-      max-width: 1280px; margin-bottom: 48px;
-    }
-    .skill-item {
-      padding: 24px; border: 1px solid #DCDCE5; border-radius: 8px;
-      background: #fff;
-    }
-    .skill-item__icon {
-      font-size: 32px; margin-bottom: 12px;
-    }
-    .skill-item__name {
-      font-family: 'Noto Sans', sans-serif; font-weight: 700;
-      font-size: 18px; margin-bottom: 8px; color: #121117;
-    }
+    .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1280px; margin-bottom: 48px; }
+    .skill-item { padding: 24px; border: 1px solid #DCDCE5; border-radius: 8px; background: #fff; }
+    .skill-item__icon { display: none; }
+    .skill-item__name { font-family: 'Noto Sans', sans-serif; font-weight: 800; font-size: 17px; margin-bottom: 8px; color: #121117; line-height: 1.3; letter-spacing: -0.3px; }
     .skill-item__desc { font-size: 14px; color: #4D4C5C; line-height: 22px; }
-    .tips-list {
-      max-width: 1280px; display: grid;
-      grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 64px;
-    }
-    .tip {
-      display: flex; gap: 16px; padding: 20px;
-      border: 1px solid #DCDCE5; border-radius: 8px; background: #fff;
-    }
-    .tip__number {
-      width: 36px; height: 36px; background: #D4920A; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-      font-family: 'Noto Sans', sans-serif; font-weight: 700; font-size: 16px; color: #121117;
-    }
+    .tips-list { max-width: 1280px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 64px; }
+    .tip { display: flex; gap: 16px; padding: 20px; border: 1px solid #DCDCE5; border-radius: 8px; background: #fff; }
+    .tip__number { width: 36px; height: 36px; background: #D4920A; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: 'Noto Sans', sans-serif; font-weight: 700; font-size: 16px; color: #121117; }
     .tip__text { font-size: 15px; line-height: 24px; color: #4D4C5C; }
     .tip__text strong { color: #121117; display: block; margin-bottom: 4px; }
   </style>
 </head>
 <body>
+
+<!-- ── TICKER CAROUSEL ───────────────────────────────── -->
+<div class="carousel-section">
+  <div class="carousel-track">
+    <a href="videos.html" class="carousel-item"><span class="lang-en">Ser y Estar in Spanish</span><span class="lang-es">Ser y Estar en Español</span></a>
+    <a href="videos.html" class="carousel-item"><span class="lang-en">Introduce Yourself</span><span class="lang-es">Presentarte en Español</span></a>
+    <a href="videos.html" class="carousel-item"><span class="lang-en">The Spanish R</span><span class="lang-es">La R en Español</span></a>
+    <a href="patria-reading-guide.html" class="carousel-item"><span class="lang-en">Reading Guide: Patria</span><span class="lang-es">Guía de Lectura: Patria</span></a>
+    <a href="dele.html#b1" class="carousel-item"><span class="lang-en">DELE B1 Practice Exam</span><span class="lang-es">Examen de Práctica DELE B1</span></a>
+    <!-- Duplicated for infinite scroll -->
+    <a href="videos.html" class="carousel-item"><span class="lang-en">Ser y Estar in Spanish</span><span class="lang-es">Ser y Estar en Español</span></a>
+    <a href="videos.html" class="carousel-item"><span class="lang-en">Introduce Yourself</span><span class="lang-es">Presentarte en Español</span></a>
+    <a href="videos.html" class="carousel-item"><span class="lang-en">The Spanish R</span><span class="lang-es">La R en Español</span></a>
+    <a href="patria-reading-guide.html" class="carousel-item"><span class="lang-en">Reading Guide: Patria</span><span class="lang-es">Guía de Lectura: Patria</span></a>
+    <a href="dele.html#b1" class="carousel-item"><span class="lang-en">DELE B1 Practice Exam</span><span class="lang-es">Examen de Práctica DELE B1</span></a>
+  </div>
+</div>
 
 <!-- ── TOP BANNER ─────────────────────────────── -->
 <div class="top-banner">
@@ -65,8 +295,14 @@
     <div class="top-banner__icon">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
-    <span>🎬 New Spanish lesson every week! Subscribe and never miss a class.</span>
-    <a class="top-banner__link" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank">Subscribe now</a>
+    <span>
+      <span class="lang-en" data-i18n="banner.text">New Spanish lesson every week! Subscribe and never miss a class.</span>
+      <span class="lang-es" data-i18n="banner.text"> </span>
+    </span>
+    <a class="top-banner__link" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank">
+      <span class="lang-en" data-i18n="banner.cta">Subscribe now</span>
+      <span class="lang-es"> </span>
+    </a>
   </div>
   <div class="top-banner__close" onclick="this.parentElement.style.display='none'">
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M12 4 4 12M4 4l8 8" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
@@ -77,18 +313,63 @@
 <header class="header">
   <div class="header__left">
     <a class="header__logo" href="index.html">
-      <div class="header__logo-mark"><svg width="46" height="46" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><ellipse cx="60" cy="56" rx="54" ry="48" fill="white" stroke="#C8102E" stroke-width="3"/><ellipse cx="60" cy="56" rx="48" ry="42" fill="none" stroke="#C8102E" stroke-width="1.5"/><path d="M18 48 Q60 10 102 48" fill="none" stroke="#E8A000" stroke-width="12" stroke-linecap="round"/><defs><path id="arc" d="M24 44 Q60 8 96 44"/></defs><text font-family="Arial,sans-serif" font-weight="900" font-size="11" fill="#C8102E" letter-spacing="3"><textPath href="#arc" startOffset="50%" text-anchor="middle">SPANISH LESSONS</textPath></text><text x="60" y="82" font-family="Georgia,serif" font-weight="bold" font-size="48" fill="#1B2B5E" text-anchor="middle">M</text></svg></div>
-      <div class="header__logo-text">
-        <span class="header__logo-top">Spanish Lessons With</span>
-        <span class="header__logo-bottom">Mercedes</span>
-      </div>
+      <img src="logo.png" alt="Spanish Lessons with Mercedes" class="header__logo-img">
     </a>
     <nav class="header__nav">
-      <a href="index.html">Home</a>
-      <a href="videos.html">Videos</a>
-      <a href="free-pdf.html">Free PDF</a>
-      <a href="dele.html" class="active">DELE</a>
-      <a href="culture.html">Culture</a>
+      <div class="nav-item-dropdown">
+        <a href="index.html" class="nav-item-trigger" data-i18n="nav.home">Home</a>
+        <div class="nav-dropdown">
+          <a href="index.html#about"><span class="lang-en">About</span><span class="lang-es">Acerca de</span></a>
+          <a href="index.html#dele"><span class="lang-en">DELE</span><span class="lang-es">DELE</span></a>
+          <a href="index.html#culture"><span class="lang-en">Culture</span><span class="lang-es">Cultura</span></a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="videos.html" class="nav-item-trigger" data-i18n="nav.videos">Videos</a>
+        <div class="nav-dropdown">
+          <a href="videos.html#a1">A1</a>
+          <a href="videos.html#a2">A2</a>
+          <a href="videos.html#b1">B1</a>
+          <a href="videos.html#b2">B2</a>
+          <a href="videos.html#c1">C1</a>
+          <a href="videos.html#c2">C2</a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="free-pdf.html" class="nav-item-trigger" data-i18n="nav.pdf">Free PDF</a>
+        <div class="nav-dropdown">
+          <a href="free-pdf.html#grammar"><span class="lang-en">Lessons</span><span class="lang-es">Lecciones</span></a>
+          <a href="free-pdf.html#vocabulary"><span class="lang-en">Exercises</span><span class="lang-es">Ejercicios</span></a>
+          <a href="free-pdf.html#dele"><span class="lang-en">Exams</span><span class="lang-es">Exámenes</span></a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="dele.html" class="nav-item-trigger" data-i18n="nav.dele">DELE</a>
+        <div class="nav-dropdown">
+          <a href="#" onclick="toggleA1(); return false;">DELE A1</a>
+          <a href="#" onclick="toggleA2(); return false;">DELE A2</a>
+          <a href="#" onclick="toggleB1(); return false;">DELE B1</a>
+          <a href="#" onclick="toggleB2(); return false;">DELE B2</a>
+          <a href="#" onclick="toggleC1(); return false;">DELE C1</a>
+          <a href="#" onclick="toggleC2(); return false;">DELE C2</a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="culture.html" class="nav-item-trigger" data-i18n="nav.culture">Culture</a>
+        <div class="nav-dropdown">
+          <a href="culture.html#literatura"><span class="lang-en">Literature</span><span class="lang-es">Literatura</span></a>
+          <a href="culture.html#cine"><span class="lang-en">Cinema</span><span class="lang-es">Cine</span></a>
+          <a href="culture.html#musica"><span class="lang-en">Music</span><span class="lang-es">Música</span></a>
+          <a href="culture.html#gastronomia"><span class="lang-en">Gastronomy</span><span class="lang-es">Gastronomía</span></a>
+          <a href="culture.html#fiestas"><span class="lang-en">Celebrations</span><span class="lang-es">Fiestas</span></a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="index.html#games" class="nav-item-trigger" data-i18n="nav.games">Games</a>
+        <div class="nav-dropdown">
+          <a href="index.html#games">Play Games</a>
+        </div>
+      </div>
     </nav>
   </div>
   <div class="header__right">
@@ -96,180 +377,1201 @@
       <button class="lang-btn active" data-lang="en">EN</button>
       <button class="lang-btn" data-lang="es">ES</button>
     </div>
-    <a class="header__subscribe" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Watch Free
+    <a class="header__admin-link" href="login.html">Admin</a>
+    <a class="header__subscribe" href="videos.html">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+      <span data-i18n="nav.subscribe">Watch Free</span>
     </a>
   </div>
 </header>
 
-<!-- ── INNER HERO ──────────────────────────────── -->
-<div class="inner-hero">
-  <div class="inner-hero__breadcrumb"><a href="index.html">Home</a> / DELE Preparation</div>
-  <h1 class="inner-hero__title">DELE Exam Guide</h1>
-  <p class="inner-hero__desc">Everything you need to know about the DELE exam — levels, structure, preparation tips and free practice materials. 95% of Mercedes's students pass on their first attempt.</p>
+<!-- ── DELE HERO ─────────────────────────────── -->
+<div class="dele-hero">
+  <a href="https://examenes.cervantes.es/" target="_blank" rel="noopener" class="dele-hero__cervantes">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="#D4920A"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    Instituto Cervantes · Ministerio de Educación de España
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2.5" stroke-linecap="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+  </a>
+  <h1 class="dele-hero__title">Exámenes DELE</h1>
+  <p class="dele-hero__sub">
+    <span class="lang-en">El Diploma de Español como Lengua Extranjera — the official Spanish certification with international recognition, valid permanently, awarded by the Spanish Ministry of Education.</span>
+    <span class="lang-es">El Diploma de Español como Lengua Extranjera — la certificación oficial con reconocimiento internacional, válida permanentemente y respaldada por el Ministerio de Educación de España.</span>
+  </p>
 </div>
 
-<!-- ── STATS ──────────────────────────────────── -->
-<div class="stats">
-  <div class="stats__inner">
-    <div class="stat"><div class="stat__number">95%</div><div class="stat__label">Pass rate</div></div>
-    <div class="stat"><div class="stat__number">6</div><div class="stat__label">DELE levels (A1–C2)</div></div>
-    <div class="stat"><div class="stat__number">28+</div><div class="stat__label">Practice resources</div></div>
-    <div class="stat"><div class="stat__number">Free</div><div class="stat__label">All materials</div></div>
-    <div class="stat"><div class="stat__number">Expert</div><div class="stat__label">Native teacher guidance</div></div>
+<!-- ── DELE STATS ─────────────────────────────── -->
+<div class="dele-stats">
+  <div class="dele-stats__stat">
+    <div class="dele-stats__stat-num">6</div>
+    <div class="dele-stats__stat-label"><span class="lang-en">Levels</span><span class="lang-es">Niveles</span></div>
+  </div>
+  <div class="dele-stats__stat">
+    <div class="dele-stats__stat-num">+100</div>
+    <div class="dele-stats__stat-label"><span class="lang-en">Countries</span><span class="lang-es">Países</span></div>
+  </div>
+  <div class="dele-stats__stat">
+    <div class="dele-stats__stat-num">∞</div>
+    <div class="dele-stats__stat-label"><span class="lang-en">Validity</span><span class="lang-es">Validez</span></div>
+  </div>
+  <div class="dele-stats__stat">
+    <div class="dele-stats__stat-num">1988</div>
+    <div class="dele-stats__stat-label"><span class="lang-en">Since</span><span class="lang-es">Desde</span></div>
   </div>
 </div>
 
-<!-- ── DELE CONTENT ──────────────────────────── -->
-<div class="cards-section">
+<!-- ── QUÉ ES EL DELE ─────────────────────────── -->
+<div class="dele-intro">
+  <div>
+    <div class="dele-intro__eyebrow"><span class="lang-en">What is the DELE?</span><span class="lang-es">¿Qué es el DELE?</span></div>
+    <h2 class="dele-intro__heading">
+      <span class="lang-en">The world's most recognised official Spanish qualification</span>
+      <span class="lang-es">El título oficial de español más reconocido del mundo</span>
+    </h2>
+    <div class="dele-intro__text">
+      <p><span class="lang-en">The DELE (<em>Diploma de Español como Lengua Extranjera</em>) is the official Spanish certification awarded by the Instituto Cervantes, an organisation of the Spanish Ministry of Education. It has international recognition based on the Common European Framework of Reference (CEFR). Unlike other certificates, the DELE has no expiry date. Once obtained, it is yours for life.</span><span class="lang-es">El DELE (<em>Diploma de Español como Lengua Extranjera</em>) es la certificación oficial de español acreditada por el Instituto Cervantes, organismo del Ministerio de Educación de España. Goza de reconocimiento internacional basado en el Marco Común Europeo de Referencia (MCER). A diferencia de otros certificados, el DELE no tiene fecha de caducidad. Una vez obtenido, es tuyo para siempre.</span></p>
+    </div>
+  </div>
+  <div>
+    <div class="dele-intro__why-title"><span class="lang-en">Why get the DELE?</span><span class="lang-es">¿Para qué sirve el DELE?</span></div>
+    <ul class="dele-intro__list">
+      <li><span class="lang-en">Access accreditation recognised in more than 100 countries</span><span class="lang-es">Accede a una acreditación reconocida en más de 100 países</span></li>
+      <li><span class="lang-en">Strengthen your professional profile in international companies</span><span class="lang-es">Refuerza tu perfil profesional en empresas internacionales</span></li>
+      <li><span class="lang-en">Meet academic requirements for universities in Spain and Latin America</span><span class="lang-es">Cumple los requisitos académicos para universidades en España y Latinoamérica</span></li>
+      <li><span class="lang-en">Demonstrate your real level to any employer or institution</span><span class="lang-es">Demuestra tu nivel real ante cualquier empleador o institución</span></li>
+      <li><span class="lang-en">Set a clear goal that accelerates your learning</span><span class="lang-es">Marca un objetivo claro que acelera tu aprendizaje</span></li>
+    </ul>
+  </div>
+</div>
 
-  <!-- WHAT IS DELE -->
-  <div class="info-block">
-    <div class="info-block__title">What is the DELE exam?</div>
-    <div class="info-block__text">
-      <p>The DELE (Diploma de Español como Lengua Extranjera) is the official internationally recognised Spanish language qualification, awarded by the Instituto Cervantes on behalf of the Spanish Ministry of Education. It is accepted by universities, employers and governments worldwide as proof of Spanish proficiency.</p>
-      <p>The exam is available at six levels — from A1 (absolute beginner) to C2 (master level) — following the Common European Framework of Reference for Languages (CEFR). Exams are held twice a year at official exam centres around the world.</p>
+<!-- ── SEIS NIVELES ───────────────────────────── -->
+<div class="dele-levels-section">
+  <div class="dele-levels-section__eyebrow"><span class="lang-en">Exam structure</span><span class="lang-es">Estructura del examen</span></div>
+  <h2 class="dele-levels-section__heading">
+    <span class="lang-en">Six levels, one title for every moment</span>
+    <span class="lang-es">Seis niveles, un título para cada momento</span>
+  </h2>
+  <div class="dele-levels-table">
+    <div class="dele-level-col dele-level-col--featured" id="a1" onclick="toggleA1()" style="cursor:pointer;">
+      <div class="dele-level-col__badge" style="color:#6B6A7A;">A1</div>
+      <div class="dele-level-col__name"><span class="lang-en">Initial</span><span class="lang-es">Acceso</span></div>
+      <div class="dele-level-col__desc"><span class="lang-en">First words, basic survival communication</span><span class="lang-es">Primeras palabras, comunicación básica</span></div>
+      <span class="dele-level-col__tag" id="a1-toggle-label"><span class="lang-en">⭐ Beginner</span><span class="lang-es">⭐ Principiante</span></span>
+      <div style="margin-top:8px;font-size:12px;color:#9B9AAB;font-weight:500;"><span class="lang-en">👆 Click to explore exam contents</span><span class="lang-es">👆 Clica para ver los contenidos del examen</span></div>
+    </div>
+    <div class="dele-level-col dele-level-col--featured" id="a2" onclick="toggleA2()" style="cursor:pointer;">
+      <div class="dele-level-col__badge" style="color:#4D9DE0;">A2</div>
+      <div class="dele-level-col__name"><span class="lang-en">Platform</span><span class="lang-es">Plataforma</span></div>
+      <div class="dele-level-col__desc"><span class="lang-en">Everyday situations and familiar topics</span><span class="lang-es">Situaciones cotidianas y temas familiares</span></div>
+      <span class="dele-level-col__tag" id="a2-toggle-label"><span class="lang-en">⭐ Elementary</span><span class="lang-es">⭐ Elemental</span></span>
+      <div style="margin-top:8px;font-size:12px;color:#9B9AAB;font-weight:500;"><span class="lang-en">👆 Click to explore exam contents</span><span class="lang-es">👆 Clica para ver los contenidos del examen</span></div>
+    </div>
+    <div class="dele-level-col dele-level-col--featured" id="b1" onclick="toggleB1()" style="cursor:pointer;">
+      <div class="dele-level-col__badge" style="color:#3DDABE;">B1</div>
+      <div class="dele-level-col__name"><span class="lang-en">Threshold</span><span class="lang-es">Umbral</span></div>
+      <div class="dele-level-col__desc"><span class="lang-en">Independent communication in most situations</span><span class="lang-es">Comunicación independiente en la mayoría de situaciones</span></div>
+      <span class="dele-level-col__tag" id="b1-toggle-label"><span class="lang-en">⭐ Most popular</span><span class="lang-es">⭐ Más solicitado</span></span>
+      <div style="margin-top:8px;font-size:12px;color:#9B9AAB;font-weight:500;"><span class="lang-en">👆 Click to explore exam contents</span><span class="lang-es">👆 Clica para ver los contenidos del examen</span></div>
+    </div>
+    <div class="dele-level-col dele-level-col--featured" id="b2" onclick="toggleB2()" style="cursor:pointer;">
+      <div class="dele-level-col__badge" style="color:#D4920A;">B2</div>
+      <div class="dele-level-col__name"><span class="lang-en">Advanced</span><span class="lang-es">Avanzado</span></div>
+      <div class="dele-level-col__desc"><span class="lang-en">Complex topics, university access in Spain</span><span class="lang-es">Temas complejos, acceso a universidades en España</span></div>
+      <span class="dele-level-col__tag" id="b2-toggle-label"><span class="lang-en">⭐ Key level</span><span class="lang-es">⭐ Nivel clave</span></span>
+      <div style="margin-top:8px;font-size:12px;color:#9B9AAB;font-weight:500;"><span class="lang-en">👆 Click to explore exam contents</span><span class="lang-es">👆 Clica para ver los contenidos del examen</span></div>
+    </div>
+    <div class="dele-level-col dele-level-col--featured" id="c1" onclick="toggleC1()" style="cursor:pointer;">
+      <div class="dele-level-col__badge" style="color:#2885FD;">C1</div>
+      <div class="dele-level-col__name"><span class="lang-en">Domain</span><span class="lang-es">Dominio</span></div>
+      <div class="dele-level-col__desc"><span class="lang-en">Professional and academic high-level fluency</span><span class="lang-es">Fluidez profesional y académica de alto nivel</span></div>
+      <span class="dele-level-col__tag" id="c1-toggle-label"><span class="lang-en">⭐ Advanced</span><span class="lang-es">⭐ Avanzado</span></span>
+      <div style="margin-top:8px;font-size:12px;color:#9B9AAB;font-weight:500;"><span class="lang-en">👆 Click to explore exam contents</span><span class="lang-es">👆 Clica para ver los contenidos del examen</span></div>
+    </div>
+    <div class="dele-level-col dele-level-col--featured" id="c2" onclick="toggleC2()" style="cursor:pointer;">
+      <div class="dele-level-col__badge" style="color:#C8102E;">C2</div>
+      <div class="dele-level-col__name"><span class="lang-en">Mastery</span><span class="lang-es">Maestría</span></div>
+      <div class="dele-level-col__desc"><span class="lang-en">Near-native command in all contexts</span><span class="lang-es">Dominio casi nativo en todos los contextos</span></div>
+      <span class="dele-level-col__tag" id="c2-toggle-label"><span class="lang-en">⭐ Expert</span><span class="lang-es">⭐ Experto</span></span>
+      <div style="margin-top:8px;font-size:12px;color:#9B9AAB;font-weight:500;"><span class="lang-en">👆 Click to explore exam contents</span><span class="lang-es">👆 Clica para ver los contenidos del examen</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── B2 DETAILED SECTION (expandable below the table) ── -->
+<div class="cards-section">
+  <div id="b2-detail" style="display:none; margin-bottom:64px;">
+
+    <!-- HERO B2 -->
+    <div style="background:#fff; border:1px solid #e5e5e5; border-radius:16px; padding:40px 48px; display:grid; grid-template-columns:1fr auto; gap:32px; align-items:start; margin-bottom:36px;">
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#D4920A;margin-bottom:12px;">GUÍA DETALLADA</div>
+        <h2 style="font-family:'Noto Sans',sans-serif;font-size:36px;font-weight:800;color:#000;margin-bottom:16px;">El examen DELE B2</h2>
+        <p style="font-size:15px;color:#444;line-height:1.7;max-width:580px;">El B2 acredita que puedes comprender textos complejos orales y escritos, interactuar con fluidez con cualquier hablante nativo y producir textos claros y detallados sobre temas diversos. Es el nivel mínimo exigido para acceder a estudios universitarios en España y para muchos empleos cualificados.</p>
+        <p style="font-size:14px;color:#666;line-height:1.6;margin-top:12px;max-width:580px;">Para aprobar debes superar <strong style="color:#D4920A;">los dos grupos por separado</strong>: el grupo de comprensión (pruebas 1 y 2) y el grupo de expresión (pruebas 3 y 4). Una nota alta en un grupo no compensa un suspenso en el otro.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:220px;">
+        <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
+          <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">4</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;">PRUEBAS</div>
+        </div>
+        <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
+          <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">210'</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;">DURACIÓN</div>
+        </div>
+        <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
+          <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">66</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;">PREGUNTAS</div>
+        </div>
+        <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
+          <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">25%</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;">CADA PRUEBA</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LAS 4 PRUEBAS -->
+    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#C8102E;margin-bottom:20px;">LAS CUATRO PRUEBAS DEL DELE B2</div>
+
+    <!-- PRUEBA 1 -->
+    <div class="b2-prueba">
+      <div class="b2-prueba__head">
+        <div class="b2-prueba__num" style="background:#FFF0F0;color:#C8102E;">1</div>
+        <div class="b2-prueba__meta">
+          <div class="b2-prueba__label">PRUEBA 1</div>
+          <div class="b2-prueba__title">Comprensión de lectura</div>
+        </div>
+        <div class="b2-prueba__tags">
+          <span class="b2-tag">70 minutos</span>
+          <span class="b2-tag">36 preguntas</span>
+          <span class="b2-tag">4 tareas</span>
+        </div>
+      </div>
+      <div class="b2-prueba__body">
+        <p class="b2-prueba__desc">Mide tu capacidad de entender textos escritos de nivel medio-alto: artículos de prensa, textos académicos, literarios e históricos. Las respuestas incorrectas <strong>no penalizan</strong> — nunca dejes una respuesta en blanco.</p>
+        <div class="b2-tareas-grid">
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 1</div><div class="b2-tarea__title">Texto informativo largo</div><div class="b2-tarea__desc">Un texto de 400–450 palabras con 6 preguntas de opción múltiple (a/b/c). La información puede aparecer reformulada con sinónimos.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 2</div><div class="b2-tarea__title">Cuatro textos breves sobre el mismo tema</div><div class="b2-tarea__desc">Relacionas 10 enunciados con el texto correcto (A, B, C o D). El vocabulario del enunciado y el del texto no siempre coinciden.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 3</div><div class="b2-tarea__title">Texto con fragmentos extraídos</div><div class="b2-tarea__desc">Colocas 6 de 8 fragmentos en su posición correcta dentro del texto. Presta atención a conectores, pronombres y cohesión.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 4</div><div class="b2-tarea__title">Texto con huecos gramaticales</div><div class="b2-tarea__desc">Completas 14 huecos en un texto literario o histórico eligiendo entre 3 opciones. Evalúa conocimiento gramatical en contexto.</div></div>
+        </div>
+        <div class="b2-tip"><strong style="color:#D4920A;">Consejo de Mercedes:</strong> Lee las preguntas antes que el texto en las tareas 1 y 3 — te orientan hacia la información relevante. En la tarea 4, imagina primero la palabra que pondrías tú; después compara con las opciones.</div>
+      </div>
+    </div>
+
+    <!-- PRUEBA 2 -->
+    <div class="b2-prueba">
+      <div class="b2-prueba__head">
+        <div class="b2-prueba__num" style="background:#F0F4FF;color:#2885FD;">2</div>
+        <div class="b2-prueba__meta">
+          <div class="b2-prueba__label">PRUEBA 2</div>
+          <div class="b2-prueba__title">Comprensión auditiva</div>
+        </div>
+        <div class="b2-prueba__tags">
+          <span class="b2-tag">40 minutos</span>
+          <span class="b2-tag">30 preguntas</span>
+          <span class="b2-tag">5 tareas</span>
+        </div>
+      </div>
+      <div class="b2-prueba__body">
+        <p class="b2-prueba__desc">Evalúa tu comprensión del español hablado real: conversaciones, entrevistas, conferencias y monólogos de distintos registros. Cada grabación se escucha <strong>dos veces</strong>. Las respuestas incorrectas no penalizan.</p>
+        <div class="b2-tareas-grid">
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 1</div><div class="b2-tarea__title">Seis conversaciones breves</div><div class="b2-tarea__desc">6 diálogos cortos de diferentes ámbitos. Una pregunta de opción múltiple por cada uno.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 2</div><div class="b2-tarea__title">Conversación entre dos personas</div><div class="b2-tarea__desc">Atribuyes 6 enunciados al hablante A, al B, o a ninguno. En conversación, las ideas no aparecen en orden lineal.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 3</div><div class="b2-tarea__title">Entrevista radiofónica o televisiva</div><div class="b2-tarea__desc">Escuchas una entrevista a un experto y respondes 6 preguntas sobre sus opiniones y argumentos.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 4</div><div class="b2-tarea__title">Seis monólogos breves</div><div class="b2-tarea__desc">Relacionas 6 mensajes con 10 enunciados posibles. Hay 4 enunciados que no corresponden a nadie.</div></div>
+        </div>
+        <div class="b2-tip"><strong style="color:#D4920A;">Consejo de Mercedes:</strong> Los segundos antes de cada grabación son valiosos — úsalos siempre para leer las preguntas. Primera escucha: captura la idea general. Segunda: busca la respuesta concreta.</div>
+      </div>
+    </div>
+
+    <!-- PRUEBA 3 -->
+    <div class="b2-prueba">
+      <div class="b2-prueba__head">
+        <div class="b2-prueba__num" style="background:#F0FBF8;color:#1a9c7a;">3</div>
+        <div class="b2-prueba__meta">
+          <div class="b2-prueba__label">PRUEBA 3</div>
+          <div class="b2-prueba__title">Expresión e interacción escritas</div>
+        </div>
+        <div class="b2-prueba__tags">
+          <span class="b2-tag">80 minutos</span>
+          <span class="b2-tag">2 textos</span>
+          <span class="b2-tag">150–180 palabras c/u</span>
+        </div>
+      </div>
+      <div class="b2-prueba__body">
+        <p class="b2-prueba__desc">Aquí produces tú el texto, a bolígrafo, en la Hoja de respuestas. Los correctores evalúan: adecuación al tipo de texto, coherencia y estructura, uso de conectores, corrección gramatical y riqueza de vocabulario.</p>
+        <div class="b2-tareas-grid">
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 1</div><div class="b2-tarea__title">Carta o correo electrónico</div><div class="b2-tarea__desc">Escuchas una noticia breve (dos veces) y escribes un correo o carta respondiendo a los puntos indicados: presentarte, argumentar tu posición, pedir información y despedirte adecuadamente.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 2</div><div class="b2-tarea__title">Artículo de opinión o reseña (eliges una opción)</div><div class="b2-tarea__desc">Opción A: comentas un gráfico con datos reales. Opción B: escribes sobre un tema periodístico. En ambos casos: introducción, desarrollo y conclusión.</div></div>
+        </div>
+        <div class="b2-tip"><strong style="color:#D4920A;">Consejo de Mercedes:</strong> Escribe siempre un borrador antes de la hoja definitiva. Cuenta las palabras. La claridad vale más que la complejidad: un texto bien estructurado con errores mínimos supera siempre a uno lleno de estructuras rebuscadas.</div>
+      </div>
+    </div>
+
+    <!-- PRUEBA 4 -->
+    <div class="b2-prueba">
+      <div class="b2-prueba__head">
+        <div class="b2-prueba__num" style="background:#FFFBF0;color:#D4920A;">4</div>
+        <div class="b2-prueba__meta">
+          <div class="b2-prueba__label">PRUEBA 4</div>
+          <div class="b2-prueba__title">Expresión e interacción orales</div>
+        </div>
+        <div class="b2-prueba__tags">
+          <span class="b2-tag">20 min prueba</span>
+          <span class="b2-tag">+20 min preparación</span>
+          <span class="b2-tag">3 tareas</span>
+        </div>
+      </div>
+      <div class="b2-prueba__body">
+        <p class="b2-prueba__desc">Hablas directamente con un examinador. En la sala hay también un calificador que evalúa en silencio. La prueba empieza siempre con preguntas de contacto para que te relajes — no son evaluadas.</p>
+        <div class="b2-tareas-grid">
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 1</div><div class="b2-tarea__title">Valorar propuestas y conversar</div><div class="b2-tarea__desc">Monólogo de 2–3 minutos valorando ventajas e inconvenientes de soluciones a un problema. Luego conversas con el examinador sobre el mismo tema.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 2</div><div class="b2-tarea__title">Describir una fotografía</div><div class="b2-tarea__desc">Describes una imagen durante 2–3 minutos: personas, lugar, situación, relaciones, qué puede ocurrir. Después conversas con el examinador sobre el tema que sugiere la foto.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 3</div><div class="b2-tarea__title">Conversar sobre una encuesta o gráfico</div><div class="b2-tarea__desc">Se descubre en el momento del examen. Conversas comparando tus respuestas personales con los datos de una encuesta sobre hábitos cotidianos de la sociedad española.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">PREPARACIÓN PREVIA</div><div class="b2-tarea__title">20 minutos antes de entrar</div><div class="b2-tarea__desc">Puedes tomar notas y preparar un esquema para las tareas 1 y 2. Puedes consultarlo durante la prueba, pero no leerlo.</div></div>
+        </div>
+        <div class="b2-tip"><strong style="color:#D4920A;">Consejo de Mercedes:</strong> Estructura tu monólogo con marcadores: <em>Para empezar… En primer lugar… Por otro lado… Para terminar…</em> Si no entiendes una pregunta del examinador, pídele que la repita — eso también demuestra competencia comunicativa real.</div>
+      </div>
+    </div>
+
+    <!-- BOTONES EXAMEN + AUDIO -->
+    <div style="display:flex;flex-wrap:wrap;gap:14px;margin:28px 0 8px;align-items:stretch;">
+      <a href="DESCARGABLES_PDF/DELE_B2/EXAMEN_PRACTICA_DELE_B2.pdf"
+         target="_blank" download="EXAMEN_PRACTICA_DELE_B2.pdf"
+         style="flex:1;min-width:240px;display:flex;align-items:center;gap:16px;background:#fff;border:1.5px solid #e5e5e5;border-radius:12px;padding:20px 24px;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;"
+         onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 32px rgba(0,0,0,0.1)'"
+         onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="flex-shrink:0;width:46px;height:46px;background:#D4920A;border-radius:10px;display:flex;align-items:center;justify-content:center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2v13m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div style="color:#D4920A;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;">EXAMEN DE PRÁCTICA · GRATIS</div>
+          <div style="color:#000;font-size:16px;font-weight:800;font-family:'Noto Sans',sans-serif;">Descargar examen DELE B2</div>
+          <div style="color:#888;font-size:12px;margin-top:3px;">4 pruebas · 66 preguntas · Soluciones incluidas</div>
+        </div>
+      </a>
+      <a href="audio-dele-b2.html" target="_blank"
+         style="flex:1;min-width:240px;display:flex;align-items:center;gap:16px;background:#fff;border:1.5px solid #e5e5e5;border-radius:12px;padding:20px 24px;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;"
+         onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 32px rgba(0,0,0,0.1)'"
+         onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="flex-shrink:0;width:46px;height:46px;background:#D4920A;border-radius:10px;display:flex;align-items:center;justify-content:center;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+        <div>
+          <div style="color:#D4920A;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;">PRUEBA 2 · COMPRENSIÓN AUDITIVA</div>
+          <div style="color:#000;font-size:16px;font-weight:800;font-family:'Noto Sans',sans-serif;">Escuchar audios del examen</div>
+          <div style="color:#888;font-size:12px;margin-top:3px;">5 tareas · Transcripciones incluidas</div>
+        </div>
+      </a>
+    </div>
+
+    <div style="text-align:center;margin-top:8px;">
+      <button onclick="toggleB2()" style="background:none;border:1.5px solid #DCDCE5;border-radius:8px;padding:10px 24px;font-family:'Figtree',sans-serif;font-weight:600;font-size:14px;color:#6B6A7A;cursor:pointer;">↑ Cerrar guía B2</button>
     </div>
   </div>
 
-  <!-- DELE LEVELS GRID -->
-  <div style="margin-bottom:16px;">
-    <h2 class="section-heading" style="margin-bottom:24px;">Choose your DELE level</h2>
+  <!-- ── A1 DETAILED SECTION (expandable) ── -->
+  <div id="a1-detail" style="display:none; margin-bottom:64px;">
+
+    <!-- HERO A1 -->
+    <div style="background:#fff; border:1px solid #e5e5e5; border-radius:16px; padding:40px 48px; display:grid; grid-template-columns:1fr auto; gap:32px; align-items:start; margin-bottom:36px;">
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#D4920A;margin-bottom:12px;">GUÍA DETALLADA</div>
+        <h2 style="font-family:'Noto Sans',sans-serif;font-size:36px;font-weight:800;color:#000;margin-bottom:16px;">El examen DELE A1</h2>
+        <p style="font-size:15px;color:#444;line-height:1.7;max-width:580px;">El A1 acredita la competencia lingüística suficiente para comprender y utilizar expresiones cotidianas de uso muy frecuente. Puedes pedir y dar información personal básica, interactuar de forma elemental siempre que el interlocutor hable despacio y con claridad.</p>
+        <p style="font-size:14px;color:#666;line-height:1.6;margin-top:12px;max-width:580px;">Para aprobar debes superar <strong style="color:#D4920A;">los dos grupos por separado</strong>: el grupo de comprensión (pruebas 1 y 2) y el grupo de expresión (pruebas 3 y 4). Una nota alta en un grupo no compensa un suspenso en el otro.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:220px;">
+        <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
+          <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">4</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;">PRUEBAS</div>
+        </div>
+        <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
+          <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">125'</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;">DURACIÓN</div>
+        </div>
+        <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
+          <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">100</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;">ITEMS</div>
+        </div>
+        <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
+          <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">25%</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;">CADA PRUEBA</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LAS 4 PRUEBAS A1 -->
+    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#9B9AAB;margin-bottom:20px;">LAS CUATRO PRUEBAS DEL DELE A1</div>
+
+    <!-- PRUEBA 1 A1 -->
+    <div class="b2-prueba">
+      <div class="b2-prueba__head">
+        <div class="b2-prueba__num" style="background:#F5F5F7;color:#9B9AAB;">1</div>
+        <div class="b2-prueba__meta">
+          <div class="b2-prueba__label">PRUEBA 1</div>
+          <div class="b2-prueba__title">Comprensión de lectura</div>
+        </div>
+        <div class="b2-prueba__tags">
+          <span class="b2-tag">45 minutos</span>
+          <span class="b2-tag">25 items</span>
+          <span class="b2-tag">4 tareas</span>
+        </div>
+      </div>
+      <div class="b2-prueba__body">
+        <p class="b2-prueba__desc">Evalúa tu capacidad de comprender textos muy breves y sencillos sobre temas cotidianos. Los textos utilizan vocabulario elemental y estructuras gramaticales muy básicas. Son anuncios, postales, listas, instrucciones simples.</p>
+        <div class="b2-tareas-grid">
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 1</div><div class="b2-tarea__title">Comprender textos muy breves (anuncios, carteles)</div><div class="b2-tarea__desc">Lees 5 textos muy cortos (2–3 líneas) y respondes 5 preguntas verdadero/falso o de opción múltiple muy simple.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 2</div><div class="b2-tarea__title">Comprender correos o mensajes breves</div><div class="b2-tarea__desc">Relacionas 6 enunciados sencillos con 6 textos breves. Los temas son cotidianos: saludos, citas, información personal.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 3</div><div class="b2-tarea__title">Comprender un texto narrativo elemental</div><div class="b2-tarea__desc">Lees un texto muy breve (80–100 palabras) y respondes 6 preguntas de opción múltiple extremadamente simples.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 4</div><div class="b2-tarea__title">Comprender instrucciones o información básica</div><div class="b2-tarea__desc">Lees otro texto breve (80–100 palabras) con información práctica y respondes 8 preguntas de comprensión directa.</div></div>
+        </div>
+        <div class="b2-tip"><strong style="color:#9B9AAB;">Consejo de Mercedes:</strong> Los textos en A1 son muy cortos — no hay que intimidarse. Lee palabra por palabra si es necesario. Si hay una palabra desconocida, intenta adivinar por el contexto.</div>
+      </div>
+    </div>
+
+    <!-- PRUEBA 2 A1 -->
+    <div class="b2-prueba">
+      <div class="b2-prueba__head">
+        <div class="b2-prueba__num" style="background:#F5F5F7;color:#9B9AAB;">2</div>
+        <div class="b2-prueba__meta">
+          <div class="b2-prueba__label">PRUEBA 2</div>
+          <div class="b2-prueba__title">Comprensión auditiva</div>
+        </div>
+        <div class="b2-prueba__tags">
+          <span class="b2-tag">25 minutos</span>
+          <span class="b2-tag">25 items</span>
+          <span class="b2-tag">4 tareas</span>
+        </div>
+      </div>
+      <div class="b2-prueba__body">
+        <p class="b2-prueba__desc">Evalúa tu comprensión de español hablado muy lentamente sobre situaciones cotidianas extremadamente simples. Los hablantes hablan claro, a velocidad baja, sin frases complicadas. Las grabaciones se escuchan <strong>dos veces</strong>.</p>
+        <div class="b2-tareas-grid">
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 1</div><div class="b2-tarea__title">Comprender monólogos o anuncios muy breves</div><div class="b2-tarea__desc">Escuchas 6 fragmentos muy cortos (10–15 seg) como mensajes, avisos, saludos. Respondes 6 preguntas de verdadero/falso.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 2</div><div class="b2-tarea__title">Comprender una conversación elemental</div><div class="b2-tarea__desc">Escuchas un diálogo muy breve (45–60 seg) entre dos personas sobre un tema cotidiano. Respondes 8 preguntas simples.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 3</div><div class="b2-tarea__title">Comprender otra conversación corta</div><div class="b2-tarea__desc">Escuchas otro diálogo breve (45–60 seg) y respondes 6 preguntas de opción múltiple o verdadero/falso.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 4</div><div class="b2-tarea__title">Comprender información específica</div><div class="b2-tarea__desc">Escuchas un fragmento y completas 7 huecos con palabras específicas o información muy concreta.</div></div>
+        </div>
+        <div class="b2-tip"><strong style="color:#9B9AAB;">Consejo de Mercedes:</strong> Relájate — el audio es muy lento y claro. La segunda escucha es para verificar. Primera escucha: entiende la idea general. Segunda escucha: rellena los detalles que no captaste.</div>
+      </div>
+    </div>
+
+    <!-- PRUEBA 3 A1 -->
+    <div class="b2-prueba">
+      <div class="b2-prueba__head">
+        <div class="b2-prueba__num" style="background:#F0FBF8;color:#1a9c7a;">3</div>
+        <div class="b2-prueba__meta">
+          <div class="b2-prueba__label">PRUEBA 3</div>
+          <div class="b2-prueba__title">Expresión e interacción escritas</div>
+        </div>
+        <div class="b2-prueba__tags">
+          <span class="b2-tag">25 minutos</span>
+          <span class="b2-tag">2 tareas</span>
+          <span class="b2-tag">25–50 palabras c/u</span>
+        </div>
+      </div>
+      <div class="b2-prueba__body">
+        <p class="b2-prueba__desc">Produces textos extremadamente breves en situaciones muy cotidianas. Se valora que escribas algo coherente usando el vocabulario que conoces y que el mensaje sea comprensible, aunque haya errores pequeños.</p>
+        <div class="b2-tareas-grid">
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 1</div><div class="b2-tarea__title">Interacción escrita (postal, nota, saludo)</div><div class="b2-tarea__desc">Escribes un saludo, una postal, o una nota muy breve (20–30 palabras). Debe tener un propósito claro: saludar, pedir algo sencillo.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 2</div><div class="b2-tarea__title">Interacción escrita (mensaje, formulario breve)</div><div class="b2-tarea__desc">Rellenas un formulario muy simple o escribes un mensaje completando información personal básica (25–30 palabras).</div></div>
+        </div>
+        <div class="b2-tip"><strong style="color:#1a9c7a;">Consejo de Mercedes:</strong> En A1, no hay penalización por errores. Simplemente escribe de forma clara con palabras que conoces. Los textos son muy cortos — no intentes ser elaborado, sé directo y simple.</div>
+      </div>
+    </div>
+
+    <!-- PRUEBA 4 A1 -->
+    <div class="b2-prueba">
+      <div class="b2-prueba__head">
+        <div class="b2-prueba__num" style="background:#FFF9F5;color:#D4920A;">4</div>
+        <div class="b2-prueba__meta">
+          <div class="b2-prueba__label">PRUEBA 4</div>
+          <div class="b2-prueba__title">Expresión e interacción orales</div>
+        </div>
+        <div class="b2-prueba__tags">
+          <span class="b2-tag">10 min prueba</span>
+          <span class="b2-tag">+10 min preparación</span>
+          <span class="b2-tag">3 tareas</span>
+        </div>
+      </div>
+      <div class="b2-prueba__body">
+        <p style="font-size:14px;line-height:1.7;color:#4D4C5C;margin-bottom:20px;">Hablas con un examinador. Se valora que puedas presentarte, responder preguntas personales muy simples y saludar. El examinador habla muy claro y lentamente. No espera respuestas largas — unas palabras o una frase breve es suficiente.</p>
+        <div class="b2-tareas-grid">
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 1</div><div class="b2-tarea__title">Presentación personal</div><div class="b2-tarea__desc">Hablas sobre ti durante 1–2 minutos: tu nombre, edad, dónde vives, qué haces. Las respuestas pueden ser muy cortas y simples.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 2</div><div class="b2-tarea__title">Exposición de un tema muy simple</div><div class="b2-tarea__desc">Describes algo muy cotidiano (tu familia, tu casa, tu día) durante 1–2 minutos con frases simples.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 3</div><div class="b2-tarea__title">Conversación con el entrevistador</div><div class="b2-tarea__desc">Conversas respondiendo preguntas sencillas sobre tu vida personal. El examinador espera respuestas breves: una o dos frases está bien.</div></div>
+        </div>
+        <div class="b2-tip"><strong style="color:#D4920A;">Consejo de Mercedes:</strong> No te asustes por los silencios. Es normal tardar un momento en pensar. Si no entiendes, di "No entiendo" o "¿Puedes repetir?". El objetivo es que demuestres que puedes usar el español en situaciones muy básicas.</div>
+      </div>
+    </div>
+
+    <!-- DESCARGA EXAMEN PRÁCTICA A1 -->
+    <div style="display:flex;flex-wrap:wrap;gap:14px;margin:28px 0 8px;align-items:stretch;">
+      <a href="DESCARGABLES_PDF/DELE_A1/EXAMEN_PRACTICA_DELE_A1.pdf"
+         target="_blank" download="EXAMEN_PRACTICA_DELE_A1.pdf"
+         style="flex:1;min-width:240px;display:flex;align-items:center;gap:16px;background:#fff;border:1.5px solid #e5e5e5;border-radius:12px;padding:20px 24px;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;"
+         onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 32px rgba(0,0,0,0.1)'"
+         onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="flex-shrink:0;width:46px;height:46px;background:#D4920A;border-radius:10px;display:flex;align-items:center;justify-content:center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2v13m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div style="color:#D4920A;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;">EXAMEN DE PRÁCTICA · GRATIS</div>
+          <div style="color:#000;font-size:16px;font-weight:800;font-family:'Noto Sans',sans-serif;">Descargar examen DELE A1</div>
+          <div style="color:#888;font-size:12px;margin-top:3px;">4 pruebas · 40 preguntas · Soluciones incluidas</div>
+        </div>
+      </a>
+    </div>
+
+    <div style="text-align:center;margin-top:8px;">
+      <button onclick="toggleA1()" style="background:none;border:1.5px solid #DCDCE5;border-radius:8px;padding:10px 24px;font-family:'Figtree',sans-serif;font-weight:600;font-size:14px;color:#6B6A7A;cursor:pointer;">↑ Cerrar guía A1</button>
+    </div>
   </div>
-  <div class="dele-grid">
-    <a class="dele-card" href="#a1" id="a1">
-      <div class="dele-card__badge">A1</div>
-      <div class="dele-card__name">Initial Access — Beginner</div>
-      <div class="dele-card__desc">Ideal for those who have just started learning Spanish. Tests basic survival communication in everyday situations.</div>
-      <div class="dele-card__link">Explore A1 resources <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7 7 7-7 7" stroke="#121117" stroke-width="2" stroke-linecap="round"/></svg></div>
-    </a>
-    <a class="dele-card" href="#a2" id="a2">
-      <div class="dele-card__badge">A2</div>
-      <div class="dele-card__name">Platform Access — Elementary</div>
-      <div class="dele-card__desc">Tests ability to communicate in simple, everyday contexts about familiar topics and routine tasks.</div>
-      <div class="dele-card__link">Explore A2 resources <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7 7 7-7 7" stroke="#121117" stroke-width="2" stroke-linecap="round"/></svg></div>
-    </a>
-    <a class="dele-card" href="#b1" id="b1">
-      <div class="dele-card__badge" style="color:#3DDABE;">B1</div>
-      <div class="dele-card__name">Threshold — Intermediate</div>
-      <div class="dele-card__desc">The most popular DELE level. Demonstrates the ability to communicate independently in most everyday situations.</div>
-      <div class="dele-card__link">Explore B1 resources <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7 7 7-7 7" stroke="#121117" stroke-width="2" stroke-linecap="round"/></svg></div>
-    </a>
-    <a class="dele-card" href="#b2" id="b2">
-      <div class="dele-card__badge" style="color:#FFE03D;">B2</div>
-      <div class="dele-card__name">Advances — Upper-Intermediate</div>
-      <div class="dele-card__desc">Required for university admission in Spain. Tests complex communication and understanding of abstract topics.</div>
-      <div class="dele-card__link">Explore B2 resources <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7 7 7-7 7" stroke="#121117" stroke-width="2" stroke-linecap="round"/></svg></div>
-    </a>
-    <a class="dele-card" href="#c1" id="c1">
-      <div class="dele-card__badge" style="color:#2885FD;">C1</div>
-      <div class="dele-card__name">Domain — Advanced</div>
-      <div class="dele-card__desc">Tests high-level proficiency. Required for many professional and academic positions in Spanish-speaking contexts.</div>
-      <div class="dele-card__link">Explore C1 resources <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7 7 7-7 7" stroke="#121117" stroke-width="2" stroke-linecap="round"/></svg></div>
-    </a>
-    <a class="dele-card" href="#c2" id="c2">
-      <div class="dele-card__badge" style="color:#D4920A;">C2</div>
-      <div class="dele-card__name">Mastery — Near-Native</div>
-      <div class="dele-card__desc">The highest DELE level. Demonstrates near-native command of Spanish in all academic and professional contexts.</div>
-      <div class="dele-card__link">Explore C2 resources <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7 7 7-7 7" stroke="#121117" stroke-width="2" stroke-linecap="round"/></svg></div>
-    </a>
+
+  <!-- ── A2 DETAILED SECTION (expandable) ── -->
+  <div id="a2-detail" style="display:none; margin-bottom:64px;">
+
+    <!-- HERO A2 -->
+    <div style="background:#fff; border:1px solid #e5e5e5; border-radius:16px; padding:40px 48px; display:grid; grid-template-columns:1fr auto; gap:32px; align-items:start; margin-bottom:36px;">
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#D4920A;margin-bottom:12px;">GUÍA DETALLADA</div>
+        <h2 style="font-family:'Noto Sans',sans-serif;font-size:36px;font-weight:800;color:#000;margin-bottom:16px;">El examen DELE A2</h2>
+        <p style="font-size:15px;color:#444;line-height:1.7;max-width:580px;">El A2 acredita que puedes comprender y utilizar expresiones cotidianas de uso frecuente relacionadas con áreas de experiencia que te sean especialmente relevantes. Puedes satisfacer necesidades comunicativas básicas y realizar intercambios sencillos en situaciones conocidas o habituales.</p>
+        <p style="font-size:14px;color:#666;line-height:1.6;margin-top:12px;max-width:580px;">Para aprobar debes superar <strong style="color:#D4920A;">los dos grupos por separado</strong>: el grupo de comprensión (pruebas 1 y 2) y el grupo de expresión (pruebas 3 y 4). Una nota alta en un grupo no compensa un suspenso en el otro.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:220px;">
+        <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
+          <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">4</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;">PRUEBAS</div>
+        </div>
+        <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
+          <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">157'</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;">DURACIÓN</div>
+        </div>
+        <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
+          <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">100</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;">ITEMS</div>
+        </div>
+        <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
+          <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">25%</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;">CADA PRUEBA</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LAS 4 PRUEBAS A2 -->
+    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#4D9DE0;margin-bottom:20px;">LAS CUATRO PRUEBAS DEL DELE A2</div>
+
+    <!-- PRUEBA 1 A2 -->
+    <div class="b2-prueba">
+      <div class="b2-prueba__head">
+        <div class="b2-prueba__num" style="background:#F0F6FF;color:#4D9DE0;">1</div>
+        <div class="b2-prueba__meta">
+          <div class="b2-prueba__label">PRUEBA 1</div>
+          <div class="b2-prueba__title">Comprensión de lectura</div>
+        </div>
+        <div class="b2-prueba__tags">
+          <span class="b2-tag">60 minutos</span>
+          <span class="b2-tag">25 items</span>
+          <span class="b2-tag">4 tareas</span>
+        </div>
+      </div>
+      <div class="b2-prueba__body">
+        <p class="b2-prueba__desc">Evalúa tu capacidad de comprender textos breves y sencillos sobre temas cotidianos: anuncios, instrucciones, correos, artículos cortos. Los textos utilizan vocabulario frecuente y estructuras gramaticales básicas de A2.</p>
+        <div class="b2-tareas-grid">
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 1</div><div class="b2-tarea__title">Comprender anuncios, avisos e instrucciones</div><div class="b2-tarea__desc">Lees 5 textos muy breves (avisos, anuncios) y respondes 5 preguntas de verdadero/falso o opción múltiple.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 2</div><div class="b2-tarea__title">Comprender mensajes y textos breves</div><div class="b2-tarea__desc">Relacionas 8 enunciados con 8 textos breves (correos, mensajes). Hay que emparejar contenido con precisión.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 3</div><div class="b2-tarea__title">Comprender un texto narrativo o descriptivo</div><div class="b2-tarea__desc">Lees un texto de 150–200 palabras y respondes 6 preguntas de opción múltiple sobre su contenido.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 4</div><div class="b2-tarea__title">Comprender un texto informativo</div><div class="b2-tarea__desc">Lees otro texto de 150–200 palabras (artículo, folleto) y respondes 6 preguntas sobre información específica.</div></div>
+        </div>
+        <div class="b2-tip"><strong style="color:#4D9DE0;">Consejo de Mercedes:</strong> En A2, los textos son cortos — no te desanimes. Lee con calma, busca palabras clave y no te obsesiones con palabras desconocidas. El contexto te ayudará a entender.</div>
+      </div>
+    </div>
+
+    <!-- PRUEBA 2 A2 -->
+    <div class="b2-prueba">
+      <div class="b2-prueba__head">
+        <div class="b2-prueba__num" style="background:#F0F6FF;color:#4D9DE0;">2</div>
+        <div class="b2-prueba__meta">
+          <div class="b2-prueba__label">PRUEBA 2</div>
+          <div class="b2-prueba__title">Comprensión auditiva</div>
+        </div>
+        <div class="b2-prueba__tags">
+          <span class="b2-tag">40 minutos</span>
+          <span class="b2-tag">25 items</span>
+          <span class="b2-tag">4 tareas</span>
+        </div>
+      </div>
+      <div class="b2-prueba__body">
+        <p class="b2-prueba__desc">Evalúa tu comprensión del español hablado en situaciones cotidianas: conversaciones breves, anuncios, indicaciones, mensajes. Las grabaciones se escuchan <strong>dos veces</strong>. El lenguaje es claro y se habla a velocidad normal.</p>
+        <div class="b2-tareas-grid">
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 1</div><div class="b2-tarea__title">Comprender anuncios y mensajes breves</div><div class="b2-tarea__desc">Escuchas 6 fragmentos breves (10–15 seg cada uno) y respondes 6 preguntas de opción múltiple.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 2</div><div class="b2-tarea__title">Comprender una conversación</div><div class="b2-tarea__desc">Escuchas un diálogo de 1–2 minutos y respondes 6 preguntas sobre su contenido.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 3</div><div class="b2-tarea__title">Comprender otra conversación o monólogo</div><div class="b2-tarea__desc">Escuchas otro fragmento de 1–2 minutos y respondes 6 preguntas de comprensión.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 4</div><div class="b2-tarea__title">Comprender información específica</div><div class="b2-tarea__desc">Escuchas un fragmento y completas 7 huecos o respondes 7 preguntas cortas sobre detalles específicos.</div></div>
+        </div>
+        <div class="b2-tip"><strong style="color:#4D9DE0;">Consejo de Mercedes:</strong> La segunda escucha es tu oportunidad de revisar y corregir. Primera escucha: entiende el tema general. Segunda escucha: busca los detalles específicos que necesitas.</div>
+      </div>
+    </div>
+
+    <!-- PRUEBA 3 A2 -->
+    <div class="b2-prueba">
+      <div class="b2-prueba__head">
+        <div class="b2-prueba__num" style="background:#F0FBF8;color:#1a9c7a;">3</div>
+        <div class="b2-prueba__meta">
+          <div class="b2-prueba__label">PRUEBA 3</div>
+          <div class="b2-prueba__title">Expresión e interacción escritas</div>
+        </div>
+        <div class="b2-prueba__tags">
+          <span class="b2-tag">45 minutos</span>
+          <span class="b2-tag">2 tareas</span>
+          <span class="b2-tag">80–100 palabras c/u</span>
+        </div>
+      </div>
+      <div class="b2-prueba__body">
+        <p class="b2-prueba__desc">Produces textos breves y sencillos en respuesta a situaciones cotidianas. Se valora que el texto sea adecuado a la tarea, que uses vocabulario conocido, que la gramática sea básica pero correcta, y que el texto sea coherente y claro.</p>
+        <div class="b2-tareas-grid">
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 1</div><div class="b2-tarea__title">Interacción escrita (correo, mensaje, nota)</div><div class="b2-tarea__desc">Escribes un correo electrónico, un mensaje o una nota respondiendo a una situación concreta. Debe ser natural y directo.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 2</div><div class="b2-tarea__title">Expresión escrita (descripción o narración breve)</div><div class="b2-tarea__desc">Escribes sobre un tema (tu día, un evento, un lugar que conoces). El texto debe ser coherente y usar conectores simples.</div></div>
+        </div>
+        <div class="b2-tip"><strong style="color:#1a9c7a;">Consejo de Mercedes:</strong> En A2, la claridad es más importante que la perfección. Usa palabras que conoces bien. Conecta tus ideas con "y", "pero", "porque". No intentes ser demasiado elaborado.</div>
+      </div>
+    </div>
+
+    <!-- PRUEBA 4 A2 -->
+    <div class="b2-prueba">
+      <div class="b2-prueba__head">
+        <div class="b2-prueba__num" style="background:#FFF9F5;color:#D4920A;">4</div>
+        <div class="b2-prueba__meta">
+          <div class="b2-prueba__label">PRUEBA 4</div>
+          <div class="b2-prueba__title">Expresión e interacción orales</div>
+        </div>
+        <div class="b2-prueba__tags">
+          <span class="b2-tag">12 min prueba</span>
+          <span class="b2-tag">+12 min preparación</span>
+          <span class="b2-tag">3 tareas</span>
+        </div>
+      </div>
+      <div class="b2-prueba__body">
+        <p style="font-size:14px;line-height:1.7;color:#4D4C5C;margin-bottom:20px;">Hablas con un examinador en una conversación cara a cara. Se valora que puedas comunicar información personal, responder preguntas simples y mantener un diálogo breve sobre temas cotidianos. El examinador habla clara y lentamente.</p>
+        <div class="b2-tareas-grid">
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 1</div><div class="b2-tarea__title">Exposición de un tema personal o general</div><div class="b2-tarea__desc">Hablas 1–2 minutos sobre un tema sencillo (tu familia, tu casa, tus aficiones). Luego el examinador te hace preguntas.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 2</div><div class="b2-tarea__title">Descripción de una fotografía</div><div class="b2-tarea__desc">Describes una imagen sencilla durante 1–2 minutos (quién está, dónde, qué hacen). No necesita ser perfecto, solo claro.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 3</div><div class="b2-tarea__title">Diálogo en una situación simulada</div><div class="b2-tarea__desc">Participas en un juego de rol simple (en una tienda, en la calle, pidiendo información). El examinador hace el otro papel.</div></div>
+        </div>
+        <div class="b2-tip"><strong style="color:#D4920A;">Consejo de Mercedes:</strong> No tengas miedo de los silencios — es normal pensar un momento. Si no entiendes, pide que repitan. La comunicación es lo más importante; los errores gramaticales menores no son un problema.</div>
+      </div>
+    </div>
+
+    <!-- DESCARGA EXAMEN PRÁCTICA A2 -->
+    <div style="display:flex;flex-wrap:wrap;gap:14px;margin:28px 0 8px;align-items:stretch;">
+      <a href="DESCARGABLES_PDF/DELE_A2/EXAMEN_PRACTICA_DELE_A2.pdf"
+         target="_blank" download="EXAMEN_PRACTICA_DELE_A2.pdf"
+         style="flex:1;min-width:240px;display:flex;align-items:center;gap:16px;background:#fff;border:1.5px solid #e5e5e5;border-radius:12px;padding:20px 24px;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;"
+         onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 32px rgba(0,0,0,0.1)'"
+         onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="flex-shrink:0;width:46px;height:46px;background:#D4920A;border-radius:10px;display:flex;align-items:center;justify-content:center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2v13m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div style="color:#D4920A;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;">EXAMEN DE PRÁCTICA · GRATIS</div>
+          <div style="color:#000;font-size:16px;font-weight:800;font-family:'Noto Sans',sans-serif;">Descargar examen DELE A2</div>
+          <div style="color:#888;font-size:12px;margin-top:3px;">4 pruebas · 50 preguntas · Soluciones incluidas</div>
+        </div>
+      </a>
+    </div>
+
+    <div style="text-align:center;margin-top:8px;">
+      <button onclick="toggleA2()" style="background:none;border:1.5px solid #DCDCE5;border-radius:8px;padding:10px 24px;font-family:'Figtree',sans-serif;font-weight:600;font-size:14px;color:#6B6A7A;cursor:pointer;">↑ Cerrar guía A2</button>
+    </div>
+  </div>
+
+  <!-- ── B1 DETAILED SECTION (expandable) ── -->
+  <div id="b1-detail" style="display:none; margin-bottom:64px;">
+
+    <!-- HERO B1 -->
+    <div style="background:#fff; border:1px solid #e5e5e5; border-radius:16px; padding:40px 48px; display:grid; grid-template-columns:1fr auto; gap:32px; align-items:start; margin-bottom:36px;">
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#D4920A;margin-bottom:12px;">GUÍA DETALLADA</div>
+        <h2 style="font-family:'Noto Sans',sans-serif;font-size:36px;font-weight:800;color:#000;margin-bottom:16px;">El examen DELE B1</h2>
+        <p style="font-size:15px;color:#444;line-height:1.7;max-width:580px;">El B1 acredita que te has convertido en usuario independiente del español. Puedes desenvolverte en la mayoría de situaciones cotidianas, expresar opiniones y comprender el español auténtico hablado y escrito. Es el nivel más solicitado por estudiantes de todo el mundo.</p>
+        <p style="font-size:14px;color:#666;line-height:1.6;margin-top:12px;max-width:580px;">Para aprobar debes superar <strong style="color:#D4920A;">los dos grupos por separado</strong>: el grupo de comprensión (pruebas 1 y 2) y el grupo de expresión (pruebas 3 y 4). Una nota alta en un grupo no compensa un suspenso en el otro.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:220px;">
+        <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
+          <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">4</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;">PRUEBAS</div>
+        </div>
+        <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
+          <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">3h</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;">DURACIÓN</div>
+        </div>
+        <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
+          <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">60</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;">ITEMS</div>
+        </div>
+        <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
+          <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">25%</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;">CADA PRUEBA</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LAS 4 PRUEBAS B1 -->
+    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#3DDABE;margin-bottom:20px;">LAS CUATRO PRUEBAS DEL DELE B1</div>
+
+    <!-- PRUEBA 1 B1 -->
+    <div class="b2-prueba">
+      <div class="b2-prueba__head">
+        <div class="b2-prueba__num" style="background:#FFF0F0;color:#C8102E;">1</div>
+        <div class="b2-prueba__meta">
+          <div class="b2-prueba__label">PRUEBA 1</div>
+          <div class="b2-prueba__title">Comprensión de lectura</div>
+        </div>
+        <div class="b2-prueba__tags">
+          <span class="b2-tag">70 minutos</span>
+          <span class="b2-tag">30 preguntas</span>
+          <span class="b2-tag">5 tareas</span>
+        </div>
+      </div>
+      <div class="b2-prueba__body">
+        <p class="b2-prueba__desc">Evalúa si puedes entender textos reales del día a día: anuncios, noticias, correos, artículos breves, instrucciones y textos personales. Las respuestas incorrectas <strong>no penalizan</strong> — nunca dejes una respuesta en blanco.</p>
+        <div class="b2-tareas-grid">
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 1</div><div class="b2-tarea__title">Textos breves sobre servicios y establecimientos</div><div class="b2-tarea__desc">Lees 10 textos cortos (anuncios, avisos, carteles, ofertas) y los relacionas con 6 personas según sus necesidades. Hay 3 textos que no corresponden a ninguna persona.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 2</div><div class="b2-tarea__title">Texto informativo con opción múltiple</div><div class="b2-tarea__desc">Un texto de unas 400 palabras sobre actualidad, historia o cultura. Respondes 6 preguntas eligiendo entre tres opciones (a, b o c). La opción correcta casi nunca usa exactamente las mismas palabras que el texto.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 3</div><div class="b2-tarea__title">Tres textos sobre el mismo tema</div><div class="b2-tarea__desc">Lees tres textos relacionados temáticamente y respondes 6 preguntas indicando a qué texto (A, B o C) corresponde cada respuesta. Lo que cambia es el punto de vista o los datos concretos.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 4</div><div class="b2-tarea__title">Texto con fragmentos que hay que colocar</div><div class="b2-tarea__desc">Un texto del que se han extraído 6 fragmentos. Tienes 8 opciones (A–H) y debes colocar cada uno en su lugar. Los conectores, pronombres y referencias son las pistas clave.</div></div>
+        </div>
+        <div class="b2-tip"><strong style="color:#D4920A;">Consejo de Mercedes:</strong> Lee primero las preguntas, no el texto. La opción correcta casi nunca usa exactamente las mismas palabras que el texto — las parafrasea con sinónimos. En la tarea 1, empieza por los textos más sencillos.</div>
+      </div>
+    </div>
+
+    <!-- PRUEBA 2 B1 -->
+    <div class="b2-prueba">
+      <div class="b2-prueba__head">
+        <div class="b2-prueba__num" style="background:#E8FAFA;color:#2bbfa8;">2</div>
+        <div class="b2-prueba__meta">
+          <div class="b2-prueba__label">PRUEBA 2</div>
+          <div class="b2-prueba__title">Comprensión auditiva</div>
+        </div>
+        <div class="b2-prueba__tags">
+          <span class="b2-tag">40 minutos</span>
+          <span class="b2-tag">30 preguntas</span>
+          <span class="b2-tag">5 tareas</span>
+          <span class="b2-tag">2× cada grabación</span>
+        </div>
+      </div>
+      <div class="b2-prueba__body">
+        <p class="b2-prueba__desc">Evalúa si puedes entender el español hablado en situaciones cotidianas reales: mensajes de voz, reportajes, noticias, conversaciones informales y monólogos. Cada grabación se escucha <strong>dos veces</strong>. Las respuestas incorrectas no penalizan.</p>
+        <div class="b2-tareas-grid">
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 1</div><div class="b2-tarea__title">Seis mensajes breves</div><div class="b2-tarea__desc">6 mensajes cortos del ámbito personal y público: avisos, anuncios, mensajes de buzón de voz. Una pregunta de opción múltiple (a/b/c) por cada uno.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 2</div><div class="b2-tarea__title">Monólogo sostenido</div><div class="b2-tarea__desc">Un reportaje o narración larga de carácter personal, profesional o académico. Respondes 6 preguntas de opción múltiple en el mismo orden que la narración.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 3</div><div class="b2-tarea__title">Seis noticias de radio o televisión</div><div class="b2-tarea__desc">Un informativo con 6 noticias cortas e independientes. Una pregunta de opción múltiple por cada noticia. Siempre hay una opción claramente incorrecta — descártala primero.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 4 y 5</div><div class="b2-tarea__title">Monólogos breves + conversación</div><div class="b2-tarea__desc">6 personas hablan sobre experiencias personales — las relacionas con 10 enunciados posibles. Después, una conversación entre dos personas con 6 enunciados para atribuir al hablante A, B o ninguno.</div></div>
+        </div>
+        <div class="b2-tip"><strong style="color:#D4920A;">Consejo de Mercedes:</strong> Antes de cada grabación tienes unos segundos para leer las preguntas. Ese tiempo es fundamental — úsalo siempre. Primera escucha: idea general. Segunda: confirma la respuesta concreta.</div>
+      </div>
+    </div>
+
+    <!-- PRUEBA 3 B1 -->
+    <div class="b2-prueba">
+      <div class="b2-prueba__head">
+        <div class="b2-prueba__num" style="background:#F0FBF8;color:#1a9c7a;">3</div>
+        <div class="b2-prueba__meta">
+          <div class="b2-prueba__label">PRUEBA 3</div>
+          <div class="b2-prueba__title">Expresión e interacción escritas</div>
+        </div>
+        <div class="b2-prueba__tags">
+          <span class="b2-tag">60 minutos</span>
+          <span class="b2-tag">2 tareas</span>
+          <span class="b2-tag">Tarea 1: 100–120 palabras</span>
+          <span class="b2-tag">Tarea 2: 130–150 palabras</span>
+        </div>
+      </div>
+      <div class="b2-prueba__body">
+        <p class="b2-prueba__desc">Produces textos escritos en situaciones cotidianas. Se valora la claridad, corrección y adecuación al tipo de texto. La clave del B1 en esta prueba es la <strong>sencillez bien ejecutada</strong>: un texto simple y correcto vale más que uno ambicioso pero confuso.</p>
+        <div class="b2-tareas-grid">
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 1 · 100–120 palabras</div><div class="b2-tarea__title">Respuesta a un mensaje, carta o foro</div><div class="b2-tarea__desc">Se te da un texto breve de entrada — correo, carta o mensaje de foro — y debes responder incluyendo exactamente los puntos que indican las instrucciones. Registro informal o semiformal según el contexto.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 2 · 130–150 palabras · ELIGE UNA OPCIÓN</div><div class="b2-tarea__title">Texto descriptivo o narrativo</div><div class="b2-tarea__desc">Dos opciones con textos de partida diferentes. Escribes un texto descriptivo o narrativo sobre tus propias experiencias. Elige la opción sobre la que tengas más vocabulario en español.</div></div>
+        </div>
+        <div class="b2-tip"><strong style="color:#D4920A;">Consejo de Mercedes:</strong> Escribe siempre un borrador antes de la hoja definitiva. Cuenta las palabras. En el B1 no necesitas impresionar con estructuras complejas — demuestra que puedes comunicarte con claridad.</div>
+      </div>
+    </div>
+
+    <!-- PRUEBA 4 B1 -->
+    <div class="b2-prueba">
+      <div class="b2-prueba__head">
+        <div class="b2-prueba__num" style="background:#FFFBF0;color:#D4920A;">4</div>
+        <div class="b2-prueba__meta">
+          <div class="b2-prueba__label">PRUEBA 4</div>
+          <div class="b2-prueba__title">Expresión e interacción orales</div>
+        </div>
+        <div class="b2-prueba__tags">
+          <span class="b2-tag">15 min prueba</span>
+          <span class="b2-tag">+15 min preparación</span>
+          <span class="b2-tag">4 tareas</span>
+        </div>
+      </div>
+      <div class="b2-prueba__body">
+        <p class="b2-prueba__desc">Hablas directamente con un examinador durante 15 minutos sobre temas cotidianos. No se evalúa si lo que dices es verdad — se evalúa <strong>cómo lo dices</strong>. El B1 oral no exige perfección: exige comunicación eficaz. Las tareas 1 y 2 se preparan en los 15 minutos previos; las tareas 3 y 4 se descubren en el momento.</p>
+        <div class="b2-tareas-grid">
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 1 · SE PREPARA · 2–3 min</div><div class="b2-tarea__title">Presentación breve sobre un tema personal</div><div class="b2-tarea__desc">Eliges uno de dos temas con preguntas orientativas y hablas de forma continua. Elige el tema sobre el que tengas más vocabulario. Anota solo palabras clave — no escribas el discurso completo.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 2 · SE PREPARA · 3–4 min</div><div class="b2-tarea__title">Conversación sobre el mismo tema</div><div class="b2-tarea__desc">El examinador te hace 4 o 5 preguntas sobre el tema de la Tarea 1. Responde siempre con algo más que un sí o un no. Si no entiendes una pregunta, pide que te la repitan.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 3 · NO SE PREPARA · 1–2 min</div><div class="b2-tarea__title">Describir una fotografía y conversar</div><div class="b2-tarea__desc">Eliges una de dos fotografías, la describes durante 1–2 minutos y luego conversas con el examinador. Describe todo lo que ves — los detalles demuestran vocabulario.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 4 · NO SE PREPARA · 2–3 min</div><div class="b2-tarea__title">Diálogo en una situación simulada</div><div class="b2-tarea__desc">A partir de la foto, el examinador te da una situación cotidiana que debes simular: quedar, organizar un plan, hacer propuestas y llegar a un acuerdo. Reacciona y toma también la iniciativa.</div></div>
+        </div>
+        <div class="b2-tip"><strong style="color:#D4920A;">Consejo de Mercedes:</strong> La Prueba 4 se prepara hablando — no estudiando. Practica las tareas con tiempo real y con alguien que haga de examinador. Los nervios del examen hacen que hables peor de lo que sabes — simular el examen 2 o 3 veces antes marca la diferencia.</div>
+      </div>
+    </div>
+
+    <!-- DESCARGA EXAMEN PRÁCTICA B1 -->
+    <div style="display:flex;flex-wrap:wrap;gap:14px;margin:28px 0 8px;align-items:stretch;">
+      <a href="DESCARGABLES_PDF/DELE_B1/EXAMEN_PRACTICA_DELE_B1.pdf"
+         target="_blank" download="EXAMEN_PRACTICA_DELE_B1.pdf"
+         style="flex:1;min-width:240px;display:flex;align-items:center;gap:16px;background:#fff;border:1.5px solid #e5e5e5;border-radius:12px;padding:20px 24px;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;"
+         onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 32px rgba(0,0,0,0.1)'"
+         onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="flex-shrink:0;width:46px;height:46px;background:#D4920A;border-radius:10px;display:flex;align-items:center;justify-content:center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2v13m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div style="color:#D4920A;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;">EXAMEN DE PRÁCTICA · GRATIS</div>
+          <div style="color:#000;font-size:16px;font-weight:800;font-family:'Noto Sans',sans-serif;">Descargar examen DELE B1</div>
+          <div style="color:#888;font-size:12px;margin-top:3px;">4 pruebas · 60 preguntas · Soluciones incluidas</div>
+        </div>
+      </a>
+    </div>
+
+    <div style="text-align:center;margin-top:8px;">
+      <button onclick="toggleB1()" style="background:none;border:1.5px solid #DCDCE5;border-radius:8px;padding:10px 24px;font-family:'Figtree',sans-serif;font-weight:600;font-size:14px;color:#6B6A7A;cursor:pointer;">↑ Cerrar guía B1</button>
+    </div>
+  </div>
+
+  <!-- ── C1 DETAILED SECTION (expandable) ── -->
+  <div id="c1-detail" style="display:none; margin-bottom:64px;">
+
+    <!-- HERO C1 -->
+    <div style="background:#fff; border:1px solid #e5e5e5; border-radius:16px; padding:40px 48px; display:grid; grid-template-columns:1fr auto; gap:32px; align-items:start; margin-bottom:36px;">
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#D4920A;margin-bottom:12px;">GUÍA DETALLADA</div>
+        <h2 style="font-family:'Noto Sans',sans-serif;font-size:36px;font-weight:800;color:#000;margin-bottom:16px;">El examen DELE C1</h2>
+        <p style="font-size:15px;color:#444;line-height:1.7;max-width:580px;">El C1 acredita dominio de la lengua española a nivel de usuario competente. Comprendes textos largos, complejos y exigentes; te expresas con fluidez sin tener que buscar las palabras; utilizas la lengua con flexibilidad y eficacia para fines sociales, académicos y profesionales; produces textos claros, bien estructurados y detallados sobre temas complejos.</p>
+        <p style="font-size:14px;color:#666;line-height:1.6;margin-top:12px;max-width:580px;">Para aprobar debes superar <strong style="color:#D4920A;">los dos grupos por separado</strong>: el grupo de comprensión (pruebas 1 y 2) y el grupo de expresión (pruebas 3 y 4). Una nota alta en un grupo no compensa un suspenso en el otro.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:220px;">
+        <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
+          <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">4</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;">PRUEBAS</div>
+        </div>
+        <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
+          <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">240'</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;">DURACIÓN</div>
+        </div>
+        <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
+          <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">70</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;">ITEMS</div>
+        </div>
+        <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
+          <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">25%</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;">CADA PRUEBA</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LAS 4 PRUEBAS C1 -->
+    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#2885FD;margin-bottom:20px;">LAS CUATRO PRUEBAS DEL DELE C1</div>
+
+    <!-- PRUEBA 1 C1 -->
+    <div class="b2-prueba">
+      <div class="b2-prueba__head">
+        <div class="b2-prueba__num" style="background:#F0F4FF;color:#2885FD;">1</div>
+        <div class="b2-prueba__meta">
+          <div class="b2-prueba__label">PRUEBA 1</div>
+          <div class="b2-prueba__title">Comprensión de lectura y uso de la lengua</div>
+        </div>
+        <div class="b2-prueba__tags">
+          <span class="b2-tag">90 minutos</span>
+          <span class="b2-tag">40 items</span>
+          <span class="b2-tag">5 tareas</span>
+        </div>
+      </div>
+      <div class="b2-prueba__body">
+        <p class="b2-prueba__desc">Evalúa tu capacidad de comprender e interpretar textos extensos, complejos y exigentes de carácter literario, académico, periodístico o profesional. Se valora especialmente la capacidad de inferencia y comprensión de argumentos implícitos.</p>
+        <div class="b2-tareas-grid">
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 1</div><div class="b2-tarea__title">Texto largo con respuestas múltiples</div><div class="b2-tarea__desc">Un texto de 450–550 palabras con 8 preguntas. Las opciones de respuesta pueden parafrasear la información del texto.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 2</div><div class="b2-tarea__title">Texto con fragmentos a emparejar</div><div class="b2-tarea__desc">Completas 8 huecos en un texto eligiendo entre 10 fragmentos. Requiere comprensión profunda de la cohesión textual.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 3</div><div class="b2-tarea__title">Cuatro textos cortos sobre el mismo tema</div><div class="b2-tarea__desc">Relacionas 12 enunciados con los textos A, B, C, D o "Ninguno". Hay elementos implícitos y detalles sutiles.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 4</div><div class="b2-tarea__title">Texto con huecos de vocabulario y gramática</div><div class="b2-tarea__desc">Completas 16 huecos eligiendo entre 3 opciones. Evalúa comprensión de matices semánticos y uso gramatical avanzado.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 5</div><div class="b2-tarea__title">Preguntas sobre opiniones y argumentos</div><div class="b2-tarea__desc">Respondes 8 preguntas sobre argumentos implícitos, actitudes del autor e intenciones comunicativas.</div></div>
+        </div>
+        <div class="b2-tip"><strong style="color:#2885FD;">Consejo de Mercedes:</strong> En C1, la inferencia es clave. Busca no solo lo que está escrito, sino lo que el autor sugiere entre líneas. Lee con atención los conectores y los matices de significado.</div>
+      </div>
+    </div>
+
+    <!-- PRUEBA 2 C1 -->
+    <div class="b2-prueba">
+      <div class="b2-prueba__head">
+        <div class="b2-prueba__num" style="background:#F0F4FF;color:#2885FD;">2</div>
+        <div class="b2-prueba__meta">
+          <div class="b2-prueba__label">PRUEBA 2</div>
+          <div class="b2-prueba__title">Comprensión auditiva y uso de la lengua</div>
+        </div>
+        <div class="b2-prueba__tags">
+          <span class="b2-tag">50 minutos</span>
+          <span class="b2-tag">30 items</span>
+          <span class="b2-tag">4 tareas</span>
+        </div>
+      </div>
+      <div class="b2-prueba__body">
+        <p class="b2-prueba__desc">Evalúa tu comprensión de textos orales extensos y complejos: conferencias, entrevistas especializadas, documentales. Se valora la capacidad de entender argumentos, valoraciones e intenciones implícitas. Cada fragmento se escucha <strong>una sola vez</strong> (a diferencia de otros niveles).</p>
+        <div class="b2-tareas-grid">
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 1</div><div class="b2-tarea__title">Cinco fragmentos cortos</div><div class="b2-tarea__desc">Escuchas 5 fragmentos breves (30–60 seg cada uno) y respondes 5 preguntas de opción múltiple.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 2</div><div class="b2-tarea__title">Fragmento largo de radio o podcast</div><div class="b2-tarea__desc">Escuchas un fragmento de 3–5 minutos y respondes 8 preguntas sobre contenido, argumentos y actitudes.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 3</div><div class="b2-tarea__title">Entrevista o conversación</div><div class="b2-tarea__desc">Atribuyes 8 enunciados a los hablantes (A, B, C) o "Ninguno". Requiere captar detalles, tono e implicaturas.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 4</div><div class="b2-tarea__title">Conferencia o discurso académico</div><div class="b2-tarea__desc">Escuchas una conferencia de 5–7 minutos y completas 9 huecos con información específica que falta.</div></div>
+        </div>
+        <div class="b2-tip"><strong style="color:#2885FD;">Consejo de Mercedes:</strong> En C1, una escucha no es suficiente — debes estar muy concentrado desde el inicio. Anota palabras clave y mantén la comprensión global sin obsesionarte con los detalles menores.</div>
+      </div>
+    </div>
+
+    <!-- PRUEBA 3 C1 -->
+    <div class="b2-prueba">
+      <div class="b2-prueba__head">
+        <div class="b2-prueba__num" style="background:#F0F8F6;color:#1a9c7a;">3</div>
+        <div class="b2-prueba__meta">
+          <div class="b2-prueba__label">PRUEBA 3</div>
+          <div class="b2-prueba__title">Expresión, mediación e interacción escritas</div>
+        </div>
+        <div class="b2-prueba__tags">
+          <span class="b2-tag">80 minutos</span>
+          <span class="b2-tag">2 tareas</span>
+          <span class="b2-tag">220–250 palabras c/u</span>
+        </div>
+      </div>
+      <div class="b2-prueba__body">
+        <p class="b2-prueba__desc">Produces textos claros, bien estructurados y detallados en respuesta a estímulos complejos. Se valora la capacidad de argumentación, la variedad de recursos lingüísticos, la coherencia y la adecuación al género textual y al registro.</p>
+        <div class="b2-tareas-grid">
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 1</div><div class="b2-tarea__title">Análisis, síntesis o valoración de documentos</div><div class="b2-tarea__desc">Escribes sobre un tema académico o profesional basándote en 2–3 documentos proporcionados. Requiere análisis crítico y síntesis de información.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 2</div><div class="b2-tarea__title">Ensayo, artículo de opinión o carta formal</div><div class="b2-tarea__desc">Eliges entre varias opciones. Redactas un texto argumentado con introducción, desarrollo y conclusión. Se valora la originalidad y la complejidad argumentativa.</div></div>
+        </div>
+        <div class="b2-tip"><strong style="color:#1a9c7a;">Consejo de Mercedes:</strong> En C1, evita las frases hechas. Demuestra pensamiento propio a través de argumentación estructurada. Usa una variedad de conectores y estructuras sintácticas para mostrar control de la lengua.</div>
+      </div>
+    </div>
+
+    <!-- PRUEBA 4 C1 -->
+    <div class="b2-prueba">
+      <div class="b2-prueba__head">
+        <div class="b2-prueba__num" style="background:#FFF9F5;color:#D4920A;">4</div>
+        <div class="b2-prueba__meta">
+          <div class="b2-prueba__label">PRUEBA 4</div>
+          <div class="b2-prueba__title">Expresión, mediación e interacción orales</div>
+        </div>
+        <div class="b2-prueba__tags">
+          <span class="b2-tag">20 min prueba</span>
+          <span class="b2-tag">+20 min preparación</span>
+          <span class="b2-tag">3 tareas</span>
+        </div>
+      </div>
+      <div class="b2-prueba__body">
+        <p class="b2-prueba__desc">Hablas con un examinador y un calificador en la sala. Se valora tu capacidad de expresarse espontáneamente, con fluidez y precisión; de defender opiniones y argumentar; de mediar en situaciones complejas. La lengua debe ser clara, coherente y apropiada al contexto.</p>
+        <div class="b2-tareas-grid">
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 1</div><div class="b2-tarea__title">Monólogo sobre un tema</div><div class="b2-tarea__desc">Hablas 3–4 minutos sobre un tema propuesto: analizas, valoras, argumentas. Luego conversas con el examinador sobre el mismo asunto.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 2</div><div class="b2-tarea__title">Mediación oral: interpretar y transmitir información</div><div class="b2-tarea__desc">Escuchas o lees un texto y debes transmitir el contenido en español (o mediar si intervienen varios idiomas) con claridad y precisión.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 3</div><div class="b2-tarea__title">Conversación sobre un tema de actualidad</div><div class="b2-tarea__desc">Conversas de manera espontánea con el examinador sobre un tema de interés general. Se valora tu capacidad de improvisación y fluidez.</div></div>
+        </div>
+        <div class="b2-tip"><strong style="color:#D4920A;">Consejo de Mercedes:</strong> En C1 oral, no memorices discursos. El examinador busca espontaneidad y flexibilidad. Si no entiendes, pide aclaración con seguridad. Si cometes errores, continúa sin obsesionarte — la fluidez es más importante que la perfección.</div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:14px;margin:28px 0 8px;align-items:stretch;">
+      <a href="DESCARGABLES_PDF/DELE_C1/EXAMEN_PRACTICA_DELE_C1.pdf"
+         target="_blank" download="EXAMEN_PRACTICA_DELE_C1.pdf"
+         style="flex:1;min-width:240px;display:flex;align-items:center;gap:16px;background:#fff;border:1.5px solid #e5e5e5;border-radius:12px;padding:20px 24px;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;"
+         onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 32px rgba(0,0,0,0.1)'"
+         onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="flex-shrink:0;width:46px;height:46px;background:#D4920A;border-radius:10px;display:flex;align-items:center;justify-content:center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2v13m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div style="color:#D4920A;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;">EXAMEN DE PRÁCTICA · GRATIS</div>
+          <div style="color:#000;font-size:16px;font-weight:800;font-family:'Noto Sans',sans-serif;">Descargar examen DELE C1</div>
+          <div style="color:#888;font-size:12px;margin-top:3px;">4 pruebas · Lectura + Escritura + Oral · Soluciones incluidas</div>
+        </div>
+      </a>
+      <a href="audio-dele-c1.html" target="_blank"
+         style="flex:1;min-width:240px;display:flex;align-items:center;gap:16px;background:#fff;border:1.5px solid #e5e5e5;border-radius:12px;padding:20px 24px;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;"
+         onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 32px rgba(0,0,0,0.1)'"
+         onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="flex-shrink:0;width:46px;height:46px;background:#D4920A;border-radius:10px;display:flex;align-items:center;justify-content:center;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+        <div>
+          <div style="color:#D4920A;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;">PRUEBA 2 · COMPRENSIÓN AUDITIVA</div>
+          <div style="color:#000;font-size:16px;font-weight:800;font-family:'Noto Sans',sans-serif;">Escuchar audios del examen</div>
+          <div style="color:#888;font-size:12px;margin-top:3px;">6 tareas · Transcripciones incluidas</div>
+        </div>
+      </a>
+    </div>
+
+    <div style="text-align:center;margin-top:8px;">
+      <button onclick="toggleC1()" style="background:none;border:1.5px solid #DCDCE5;border-radius:8px;padding:10px 24px;font-family:'Figtree',sans-serif;font-weight:600;font-size:14px;color:#6B6A7A;cursor:pointer;">↑ Cerrar guía C1</button>
+    </div>
+  </div>
+
+  <!-- ── C2 DETAILED SECTION (expandable) ── -->
+  <div id="c2-detail" style="display:none; margin-bottom:64px;">
+
+    <!-- HERO C2 -->
+    <div style="background:#fff; border:1px solid #e5e5e5; border-radius:16px; padding:40px 48px; display:grid; grid-template-columns:1fr auto; gap:32px; align-items:start; margin-bottom:36px;">
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#D4920A;margin-bottom:12px;">GUÍA DETALLADA</div>
+        <h2 style="font-family:'Noto Sans',sans-serif;font-size:36px;font-weight:800;color:#000;margin-bottom:16px;">El examen DELE C2</h2>
+        <p style="font-size:15px;color:#444;line-height:1.7;max-width:580px;">El C2 acredita dominio casi nativo de la lengua española. Comprendes con facilidad prácticamente todo lo que lees o escuchas; te expresas de forma espontánea, fluida y con precisión semántica y gramatical; utilizas la lengua con flexibilidad en contextos académicos, profesionales y sociales complejos.</p>
+        <p style="font-size:14px;color:#666;line-height:1.6;margin-top:12px;max-width:580px;">El C2 es la prueba más exigente del DELE. Requiere preparación intensiva y un dominio profundo no solo de la gramática, sino de la cultura, la historia y los matices de la lengua española.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:220px;">
+        <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
+          <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">3</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;">PRUEBAS</div>
+        </div>
+        <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
+          <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">275'</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;">DURACIÓN</div>
+        </div>
+        <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
+          <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">52</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;">ITEMS</div>
+        </div>
+        <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
+          <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">33%</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;">CADA PRUEBA</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LAS 3 PRUEBAS C2 -->
+    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#C8102E;margin-bottom:20px;">LAS TRES PRUEBAS DEL DELE C2</div>
+
+    <!-- PRUEBA 1 C2 -->
+    <div class="b2-prueba">
+      <div class="b2-prueba__head">
+        <div class="b2-prueba__num" style="background:#FFF0F0;color:#C8102E;">1</div>
+        <div class="b2-prueba__meta">
+          <div class="b2-prueba__label">PRUEBA 1</div>
+          <div class="b2-prueba__title">Uso de la lengua, comprensión de lectura y auditiva</div>
+        </div>
+        <div class="b2-prueba__tags">
+          <span class="b2-tag">105 minutos</span>
+          <span class="b2-tag">52 items</span>
+          <span class="b2-tag">6 tareas</span>
+        </div>
+      </div>
+      <div class="b2-prueba__body">
+        <p class="b2-prueba__desc">Integra comprensión de lectura, comprensión auditiva y uso de la lengua en una sola prueba. Evalúa tu capacidad de entender textos y audios de una complejidad y abstracción muy altas, así como tu dominio de matices semánticos y gramaticales sutiles.</p>
+        <div class="b2-tareas-grid">
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 1</div><div class="b2-tarea__title">Comprensión de lectura — Texto largo y complejo</div><div class="b2-tarea__desc">Lees un texto de 600–700 palabras (ensayo, artículo especializado, literario) y respondes 12 preguntas sobre contenido explícito e implícito, argumentos, actitudes e intenciones.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 2</div><div class="b2-tarea__title">Comprensión auditiva — Fragmento extenso</div><div class="b2-tarea__desc">Escuchas un fragmento de 5–8 minutos (conferencia, entrevista especializada, debate) y respondes 6 preguntas sobre argumentos, matices e implicaturas.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 3</div><div class="b2-tarea__title">Uso de la lengua — Huecos de vocabulario y gramática avanzada</div><div class="b2-tarea__desc">Completas 8 huecos en un texto con palabras o estructuras que requieren comprensión de matices semánticos profundos y dominio gramatical de registros formales.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 4</div><div class="b2-tarea__title">Comprensión de lectura — Fragmetos cortos relacionados</div><div class="b2-tarea__desc">Relacionas 5 fragmentos breves de textos diversos con 5 enunciados específicos que requieren inferencia y comprensión profunda.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 5</div><div class="b2-tarea__title">Comprensión auditiva — Múltiples fragmentos</div><div class="b2-tarea__desc">Escuchas 7 fragmentos cortos de diferentes registros y contextos, respondiendo 7 preguntas sobre detalles específicos e implicaciones.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 6</div><div class="b2-tarea__title">Reconocimiento de estructura textual y cohesión</div><div class="b2-tarea__desc">Completas 8 huecos en un texto relacionados con conectores, estructuras retóricas y coherencia textual de nivel muy avanzado.</div></div>
+        </div>
+        <div class="b2-tip"><strong style="color:#C8102E;">Consejo de Mercedes:</strong> En C2, no se trata solo de entender palabras — debes captar matices, ironía, argumentos implícitos, registros formales. Lee textos complejos en español regularmente: ensayos, literatura, artículos académicos, prensa especializada.</div>
+      </div>
+    </div>
+
+    <!-- PRUEBA 2 C2 -->
+    <div class="b2-prueba">
+      <div class="b2-prueba__head">
+        <div class="b2-prueba__num" style="background:#FFF0F0;color:#C8102E;">2</div>
+        <div class="b2-prueba__meta">
+          <div class="b2-prueba__label">PRUEBA 2</div>
+          <div class="b2-prueba__title">Expresión, mediación e interacción escritas</div>
+        </div>
+        <div class="b2-prueba__tags">
+          <span class="b2-tag">150 minutos</span>
+          <span class="b2-tag">3 tareas</span>
+          <span class="b2-tag">280–320 palabras c/u</span>
+        </div>
+      </div>
+      <div class="b2-prueba__body">
+        <p class="b2-prueba__desc">Produces textos claros, bien estructurados y argumentados sobre temas abstractos y complejos. Se valora la capacidad de mediar entre textos, la originalidad argumentativa, la precisión semántica y gramatical, y la coherencia discursiva a nivel muy avanzado.</p>
+        <div class="b2-tareas-grid">
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 1</div><div class="b2-tarea__title">Mediación escrita</div><div class="b2-tarea__desc">Sintetizas y transmites información de 2–3 textos proporcionados (en español o en otro idioma) adaptando el registro y el formato a la audiencia especificada. Requiere análisis crítico y síntesis.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 2</div><div class="b2-tarea__title">Reelaboración de un texto</div><div class="b2-tarea__desc">Reescribes un texto proporcionado adoptando otro género, registro o perspectiva (ej: ensayo a artículo de opinión, texto formal a informal). Requiere control de la lengua y creatividad.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 3</div><div class="b2-tarea__title">Expresión o interacción escrita</div><div class="b2-tarea__desc">Escribes un texto original sobre un tema de actualidad, abstracto o especializado. Debe ser argumentado, coherente y demostrar dominio de estructuras complejas y vocabulario preciso.</div></div>
+        </div>
+        <div class="b2-tip"><strong style="color:#C8102E;">Consejo de Mercedes:</strong> En C2, cada palabra importa. Elige el vocabulario con precisión. Estructura tu argumento de forma clara y sofisticada. Demuestra que puedes escribir con la corrección y elegancia de un hablante culto nativo.</div>
+      </div>
+    </div>
+
+    <!-- PRUEBA 3 C2 -->
+    <div class="b2-prueba">
+      <div class="b2-prueba__head">
+        <div class="b2-prueba__num" style="background:#FFF9F5;color:#D4920A;">3</div>
+        <div class="b2-prueba__meta">
+          <div class="b2-prueba__label">PRUEBA 3</div>
+          <div class="b2-prueba__title">Expresión, mediación e interacción orales</div>
+        </div>
+        <div class="b2-prueba__tags">
+          <span class="b2-tag">20 min prueba</span>
+          <span class="b2-tag">+30 min preparación</span>
+          <span class="b2-tag">3 tareas</span>
+        </div>
+      </div>
+      <div class="b2-prueba__body">
+        <p style="font-size:14px;line-height:1.7;color:#4D4C5C;margin-bottom:20px;">Hablas con un examinador en una conversación de alto nivel sobre temas complejos. Se valora la capacidad de argumentar con fluidez y precisión, de defender opiniones matizadas, de mediar entre posiciones diferentes, y de hacerlo con la espontaneidad y precisión de un hablante competente nativo.</p>
+        <div class="b2-tareas-grid">
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 1</div><div class="b2-tarea__title">Exposición oral de un tema argumentado</div><div class="b2-tarea__desc">Hablas 5–6 minutos sobre un tema propuesto, presentando argumentos, contraargumentos y conclusiones. Luego el examinador te cuestiona.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 2</div><div class="b2-tarea__title">Entrevista sobre el tema de la exposición</div><div class="b2-tarea__desc">Conversas con el examinador sobre el mismo tema en profundidad, defendiendo tu posición, matizándola, reconociendo puntos válidos en argumentos contrarios.</div></div>
+          <div class="b2-tarea"><div class="b2-tarea__label">TAREA 3</div><div class="b2-tarea__title">Conversación sobre titulares de prensa</div><div class="b2-tarea__desc">Conversas de manera espontánea sobre noticias de actualidad, dando tu opinión, analizando causas/consecuencias, y debatiendo desde perspectivas diferentes.</div></div>
+        </div>
+        <div class="b2-tip"><strong style="color:#D4920A;">Consejo de Mercedes:</strong> En C2, no se trata de hablr rápido o sin errores — es sobre pensar como un nativo. Desarrolla argumentos con matices, reconoce complejidades, cambia de registro según el contexto. Lee prensa en español, escucha podcasts especializados, participa en debates en línea.</div>
+      </div>
+    </div>
+
+    <!-- DESCARGA EXAMEN PRÁCTICA C2 — dentro del acordeón -->
+    <div style="display:flex;flex-wrap:wrap;gap:14px;margin:28px 0 8px;align-items:stretch;">
+      <a href="DESCARGABLES_PDF/DELE_C2/EXAMEN_PRACTICA_DELE_C2.pdf"
+         target="_blank" download="EXAMEN_PRACTICA_DELE_C2.pdf"
+         style="flex:1;min-width:240px;display:flex;align-items:center;gap:16px;background:#fff;border:1.5px solid #e5e5e5;border-radius:12px;padding:20px 24px;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;"
+         onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 32px rgba(0,0,0,0.1)'"
+         onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="flex-shrink:0;width:46px;height:46px;background:#C8102E;border-radius:10px;display:flex;align-items:center;justify-content:center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2v13m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div style="color:#C8102E;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;">EXAMEN DE PRÁCTICA · GRATIS</div>
+          <div style="color:#000;font-size:16px;font-weight:800;font-family:'Noto Sans',sans-serif;"><span class="lang-en">Download DELE C2 practice exam</span><span class="lang-es">Descargar examen DELE C2</span></div>
+          <div style="color:#888;font-size:12px;margin-top:3px;"><span class="lang-en">7 tasks · Reading + Listening · Answer key included</span><span class="lang-es">7 tareas · Lectura + Comprensión auditiva · Soluciones incluidas</span></div>
+        </div>
+      </a>
+    </div>
+
+    <div style="text-align:center;margin-top:8px;">
+      <button onclick="toggleC2()" style="background:none;border:1.5px solid #DCDCE5;border-radius:8px;padding:10px 24px;font-family:'Figtree',sans-serif;font-weight:600;font-size:14px;color:#6B6A7A;cursor:pointer;">↑ Cerrar guía C2</button>
+    </div>
   </div>
 
   <!-- EXAM STRUCTURE -->
   <div style="margin-bottom:24px;">
-    <h2 class="section-heading" style="margin-bottom:24px;">Exam skills tested</h2>
+    <h2 class="section-heading" style="margin-bottom:24px;" data-i18n="dele.skills.heading">Exam skills tested</h2>
   </div>
   <div class="skills-grid">
     <div class="skill-item">
       <div class="skill-item__icon">📖</div>
-      <div class="skill-item__name">Reading (Comprensión de lectura)</div>
-      <div class="skill-item__desc">Multiple reading tasks testing comprehension of authentic texts, articles and documents at your level.</div>
+      <div class="skill-item__name"><span class="lang-en">Reading (Comprensión de lectura)</span><span class="lang-es">Lectura (Comprensión de lectura)</span></div>
+      <div class="skill-item__desc"><span class="lang-en">Multiple reading tasks testing comprehension of authentic texts, articles and documents at your level.</span><span class="lang-es">Múltiples tareas de lectura que evalúan la comprensión de textos, artículos y documentos auténticos de tu nivel.</span></div>
     </div>
     <div class="skill-item">
       <div class="skill-item__icon">🎧</div>
-      <div class="skill-item__name">Listening (Comprensión auditiva)</div>
-      <div class="skill-item__desc">Audio recordings of conversations, news, interviews and announcements with comprehension questions.</div>
+      <div class="skill-item__name"><span class="lang-en">Listening (Comprensión auditiva)</span><span class="lang-es">Audición (Comprensión auditiva)</span></div>
+      <div class="skill-item__desc"><span class="lang-en">Audio recordings of conversations, news, interviews and announcements with comprehension questions.</span><span class="lang-es">Grabaciones de audio de conversaciones, noticias, entrevistas y anuncios con preguntas de comprensión.</span></div>
     </div>
     <div class="skill-item">
       <div class="skill-item__icon">✍️</div>
-      <div class="skill-item__name">Writing (Expresión escrita)</div>
-      <div class="skill-item__desc">Written tasks including emails, essays, reports and formal letters appropriate to your level.</div>
+      <div class="skill-item__name"><span class="lang-en">Writing (Expresión escrita)</span><span class="lang-es">Escritura (Expresión escrita)</span></div>
+      <div class="skill-item__desc"><span class="lang-en">Written tasks including emails, essays, reports and formal letters appropriate to your level.</span><span class="lang-es">Tareas escritas que incluyen correos, redacciones, informes y cartas formales adecuadas a tu nivel.</span></div>
     </div>
     <div class="skill-item">
       <div class="skill-item__icon">🗣️</div>
-      <div class="skill-item__name">Speaking (Expresión oral)</div>
-      <div class="skill-item__desc">Face-to-face oral tasks with an examiner — describing images, role plays and presenting your opinion.</div>
+      <div class="skill-item__name"><span class="lang-en">Speaking (Expresión oral)</span><span class="lang-es">Expresión oral</span></div>
+      <div class="skill-item__desc"><span class="lang-en">Face-to-face oral tasks with an examiner — describing images, role plays and presenting your opinion.</span><span class="lang-es">Tareas orales presenciales con un examinador — descripción de imágenes, juegos de rol y presentación de tu opinión.</span></div>
     </div>
   </div>
 
   <!-- TIPS -->
   <div style="margin-bottom:24px;">
-    <h2 class="section-heading" style="margin-bottom:24px;">Mercedes's top 8 DELE preparation tips</h2>
+    <h2 class="section-heading" style="margin-bottom:24px;" data-i18n="dele.tips.heading">Mercedes's top 8 DELE preparation tips</h2>
   </div>
   <div class="tips-list">
     <div class="tip">
       <div class="tip__number">1</div>
-      <div class="tip__text"><strong>Start with official sample papers</strong>Download past papers from the Instituto Cervantes website. Familiarise yourself with the exact format, timing and question types before anything else.</div>
+      <div class="tip__text">
+        <strong><span class="lang-en">Start with official sample papers</span><span class="lang-es">Empieza con exámenes oficiales de muestra</span></strong>
+        <span class="lang-en">Download past papers from the Instituto Cervantes website. Familiarise yourself with the exact format, timing and question types before anything else.</span>
+        <span class="lang-es">Descarga exámenes anteriores de la web del Instituto Cervantes. Familiarízate con el formato exacto, los tiempos y los tipos de preguntas antes que nada.</span>
+      </div>
     </div>
     <div class="tip">
       <div class="tip__number">2</div>
-      <div class="tip__text"><strong>Practice timed reading every day</strong>DELE reading tasks are time-pressured. Train yourself to skim for gist and scan for detail — don't read every word.</div>
+      <div class="tip__text">
+        <strong><span class="lang-en">Practice timed reading every day</span><span class="lang-es">Practica lectura cronometrada cada día</span></strong>
+        <span class="lang-en">DELE reading tasks are time-pressured. Train yourself to skim for gist and scan for detail — don't read every word.</span>
+        <span class="lang-es">Las tareas de lectura del DELE son contra reloj. Entrénate a hacer lectura global y búsqueda de detalles — no leas palabra por palabra.</span>
+      </div>
     </div>
     <div class="tip">
       <div class="tip__number">3</div>
-      <div class="tip__text"><strong>Listen to authentic Spanish daily</strong>Podcasts, news radio, TV series. The more variety of accents and speeds you hear, the more confident you'll be on exam day.</div>
+      <div class="tip__text">
+        <strong><span class="lang-en">Listen to authentic Spanish daily</span><span class="lang-es">Escucha español auténtico cada día</span></strong>
+        <span class="lang-en">Podcasts, news radio, TV series. The more variety of accents and speeds you hear, the more confident you'll be on exam day.</span>
+        <span class="lang-es">Podcasts, radio, series de televisión. Cuanta más variedad de acentos y velocidades escuches, más seguro estarás el día del examen.</span>
+      </div>
     </div>
     <div class="tip">
       <div class="tip__number">4</div>
-      <div class="tip__text"><strong>Write model answers and check them</strong>Practice writing the exact type of text required at your level. Use connectors, formal register and varied vocabulary.</div>
+      <div class="tip__text">
+        <strong><span class="lang-en">Write model answers and check them</span><span class="lang-es">Escribe respuestas modelo y corrígelas</span></strong>
+        <span class="lang-en">Practice writing the exact type of text required at your level. Use connectors, formal register and varied vocabulary.</span>
+        <span class="lang-es">Practica redactando exactamente el tipo de texto que pide tu nivel. Usa conectores, registro formal y vocabulario variado.</span>
+      </div>
     </div>
     <div class="tip">
       <div class="tip__number">5</div>
-      <div class="tip__text"><strong>Record yourself speaking</strong>The oral exam is where many students lose marks. Record yourself doing the speaking tasks and listen back critically.</div>
+      <div class="tip__text">
+        <strong><span class="lang-en">Record yourself speaking</span><span class="lang-es">Grábate hablando</span></strong>
+        <span class="lang-en">The oral exam is where many students lose marks. Record yourself doing the speaking tasks and listen back critically.</span>
+        <span class="lang-es">El examen oral es donde muchos alumnos pierden puntos. Grábate haciendo las tareas orales y escúchate de forma crítica.</span>
+      </div>
     </div>
     <div class="tip">
       <div class="tip__number">6</div>
-      <div class="tip__text"><strong>Don't ignore grammar — but don't obsess</strong>Accuracy matters, but so does fluency. Aim for communicative competence, not perfection.</div>
+      <div class="tip__text">
+        <strong><span class="lang-en">Don't ignore grammar — but don't obsess</span><span class="lang-es">No descuides la gramática — pero tampoco te obsesiones</span></strong>
+        <span class="lang-en">Accuracy matters, but so does fluency. Aim for communicative competence, not perfection.</span>
+        <span class="lang-es">La precisión importa, pero también la fluidez. Aspira a la competencia comunicativa, no a la perfección.</span>
+      </div>
     </div>
     <div class="tip">
       <div class="tip__number">7</div>
-      <div class="tip__text"><strong>Join a study group</strong>Practice speaking with other DELE candidates. Mercedes's YouTube community is a great place to find partners.</div>
+      <div class="tip__text">
+        <strong><span class="lang-en">Join a study group</span><span class="lang-es">Únete a un grupo de estudio</span></strong>
+        <span class="lang-en">Practice speaking with other DELE candidates. Mercedes's YouTube community is a great place to find partners.</span>
+        <span class="lang-es">Practica la conversación con otros candidatos al DELE. La comunidad de YouTube de Mercedes es un lugar estupendo para encontrar compañeros.</span>
+      </div>
     </div>
     <div class="tip">
       <div class="tip__number">8</div>
-      <div class="tip__text"><strong>Use Mercedes's free DELE materials</strong>Download the free mock exams and preparation PDFs from our Free PDF section. They are specifically designed for DELE success.</div>
+      <div class="tip__text">
+        <strong><span class="lang-en">Use Mercedes's free DELE materials</span><span class="lang-es">Usa los materiales DELE gratuitos de Mercedes</span></strong>
+        <span class="lang-en">Download the free mock exams and preparation PDFs from our Free PDF section. They are specifically designed for DELE success.</span>
+        <span class="lang-es">Descarga los exámenes de práctica gratuitos y los PDFs de preparación desde nuestra sección de PDF Gratis. Están diseñados específicamente para aprobar el DELE.</span>
+      </div>
     </div>
   </div>
 
 </div>
 
 <!-- ── GUARANTEE ──────────────────────────────── -->
-<div class="guarantee">
-  <h2 class="guarantee__heading">Pass your DELE. Guaranteed.</h2>
-  <p class="guarantee__sub">95% of Mercedes's students pass on their first attempt. Start preparing today with free resources.</p>
-</div>
-
 <!-- ── JOIN ──────────────────────────────────── -->
 <section class="join-section">
   <div class="join-section__inner">
     <div class="join-section__image">
-      <img src="https://www.figma.com/api/mcp/asset/1e6a244e-8970-49f5-aee0-089c216187b8" alt="Mercedes">
+      <img src="FOTOS/FOTO_PORTADA_ESCRITORIO.png" alt="Mercedes">
     </div>
     <div class="join-section__content">
-      <h2 class="join-section__heading">Start your<br>DELE prep</h2>
-      <p class="join-section__desc">Mercedes will guide you step by step through every part of the DELE exam. From grammar and vocabulary to writing and speaking — all in free video lessons and downloadable PDFs.</p>
+      <h2 class="join-section__heading" data-i18n="dele.join.heading">Start your<br>DELE prep</h2>
+      <p class="join-section__desc" data-i18n="dele.join.desc">Mercedes will guide you step by step through every part of the DELE exam. From grammar and vocabulary to writing and speaking — all in free video lessons and downloadable PDFs.</p>
       <ul class="join-section__list">
-        <li>Free mock exam papers</li>
-        <li>Weekly DELE tips on YouTube</li>
-        <li>Expert strategy guides</li>
+        <li data-i18n="dele.join.li1">Free mock exam papers</li>
+        <li data-i18n="dele.join.li3">Expert strategy guides</li>
       </ul>
       <div style="display:flex;flex-direction:column;gap:8px;">
         <a class="btn-primary-dark" href="free-pdf.html#dele">
-          Download Free DELE PDFs
+          <span data-i18n="dele.join.cta1">Download Free DELE PDFs</span>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7 7 7-7 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a class="btn-outline-dark" href="videos.html">Watch Preparation Videos</a>
+        <a class="btn-outline-dark" href="videos.html"><span data-i18n="dele.join.cta2">Watch Preparation Videos</span></a>
       </div>
     </div>
   </div>
@@ -279,24 +1581,106 @@
 <footer class="footer">
   <div class="footer__inner">
     <div class="footer__top">
-      <div class="footer__col"><div class="footer__col-title">About</div><ul><li><a href="#">Who is Mercedes?</a></li><li><a href="#">Contact</a></li></ul></div>
-      <div class="footer__col"><div class="footer__col-title">Learn Spanish</div><ul><li><a href="videos.html">All videos</a></li><li><a href="free-pdf.html">Free PDFs</a></li></ul></div>
-      <div class="footer__col"><div class="footer__col-title">DELE Levels</div><ul><li><a href="#a1">DELE A1</a></li><li><a href="#b1">DELE B1</a></li><li><a href="#b2">DELE B2</a></li><li><a href="#c1">DELE C1</a></li></ul></div>
-      <div class="footer__col"><div class="footer__col-title">Culture</div><ul><li><a href="culture.html">Spanish culture</a></li></ul></div>
+      <div class="footer__col"><div class="footer__col-title" data-i18n="footer.about">About</div><ul><li><a href="index.html#about"><span data-i18n="footer.who">Who is Mercedes?</span></a></li><li><a href="index.html#contact"><span data-i18n="footer.contact">Contact</span></a></li></ul></div>
+      <div class="footer__col"><div class="footer__col-title" data-i18n="footer.learn">Learn Spanish</div><ul><li><a href="videos.html"><span data-i18n="footer.allvideos">All videos</span></a></li><li><a href="free-pdf.html"><span data-i18n="footer.freepdfs">Free PDFs</span></a></li></ul></div>
+      <div class="footer__col"><div class="footer__col-title" data-i18n="footer.dele">DELE Levels</div><ul><li><a href="#a1">DELE A1</a></li><li><a href="#a2">DELE A2</a></li><li><a href="#b1">DELE B1</a></li><li><a href="#b2">DELE B2</a></li><li><a href="#c1">DELE C1</a></li><li><a href="#c2">DELE C2</a></li></ul></div>
+      <div class="footer__col"><div class="footer__col-title" data-i18n="footer.culture">Culture</div><ul><li><a href="culture.html#literatura"><span class="lang-en">Literature</span><span class="lang-es">Literatura</span></a></li><li><a href="culture.html#cine"><span class="lang-en">Cinema &amp; Music</span><span class="lang-es">Cine y Música</span></a></li><li><a href="culture.html#gastronomia"><span class="lang-en">Gastronomy</span><span class="lang-es">Gastronomía</span></a></li><li><a href="culture.html#fiestas"><span class="lang-en">Festivals</span><span class="lang-es">Fiestas</span></a></li></ul></div>
     </div>
     <div class="footer__divider"></div>
     <div class="footer__bottom">
       <div class="footer__logo-row">
-        <div class="footer__logo">
-          <div class="footer__logo-mark"><svg width="20" height="20" viewBox="0 0 24 24"><text x="3" y="18" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="#121117">S</text></svg></div>
-          <div class="footer__logo-name">Spanish Lessons With Mercedes</div>
-        </div>
+        <div class="footer__logo"></div>
       </div>
-      <div class="footer__copyright">© 2025 Spanish Lessons With Mercedes. All rights reserved.</div>
+      <div class="footer__copyright" data-i18n="footer.copyright">© 2025 Spanish Lessons With Mercedes. All rights reserved.</div>
     </div>
   </div>
 </footer>
 
-<script src="i18n.js"></script>
+<script src="i18n.js?v=9"></script>
+<script>
+const LEVELS = [
+  { id: 'a1', defaultLabel: '<span class="lang-en">⭐ Beginner</span><span class="lang-es">⭐ Principiante</span>' },
+  { id: 'a2', defaultLabel: '<span class="lang-en">⭐ Elementary</span><span class="lang-es">⭐ Elemental</span>' },
+  { id: 'b1', defaultLabel: '<span class="lang-en">⭐ Most popular</span><span class="lang-es">⭐ Más solicitado</span>' },
+  { id: 'b2', defaultLabel: '<span class="lang-en">⭐ Key level</span><span class="lang-es">⭐ Nivel clave</span>' },
+  { id: 'c1', defaultLabel: '<span class="lang-en">⭐ Advanced</span><span class="lang-es">⭐ Avanzado</span>' },
+  { id: 'c2', defaultLabel: '<span class="lang-en">⭐ Expert</span><span class="lang-es">⭐ Experto</span>' },
+];
+
+function closeAllDetails(except) {
+  LEVELS.forEach(({ id, defaultLabel }) => {
+    if (id === except) return;
+    const detail = document.getElementById(id + '-detail');
+    const label  = document.getElementById(id + '-toggle-label');
+    if (detail && detail.style.display !== 'none' && detail.style.display !== '') {
+      detail.style.opacity = '0';
+      detail.style.transform = 'translateY(-12px)';
+      setTimeout(() => { detail.style.display = 'none'; }, 320);
+      if (label) label.innerHTML = defaultLabel;
+    }
+  });
+}
+
+function toggleLevel(id, defaultLabel) {
+  const detail = document.getElementById(id + '-detail');
+  const label  = document.getElementById(id + '-toggle-label');
+  const open   = detail.style.display === 'none' || detail.style.display === '';
+
+  if (open) {
+    closeAllDetails(id);
+    detail.style.display = 'block';
+    detail.style.opacity = '0';
+    detail.style.transform = 'translateY(-12px)';
+    detail.style.transition = 'opacity 0.35s, transform 0.35s';
+    requestAnimationFrame(() => {
+      detail.style.opacity = '1';
+      detail.style.transform = 'translateY(0)';
+    });
+    label.innerHTML = '⭐ <span class="lang-en">Close ↑</span><span class="lang-es">Cerrar ↑</span>';
+    setTimeout(() => detail.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+  } else {
+    detail.style.opacity = '0';
+    detail.style.transform = 'translateY(-12px)';
+    setTimeout(() => { detail.style.display = 'none'; }, 320);
+    label.innerHTML = defaultLabel;
+  }
+}
+
+function toggleA1() { toggleLevel('a1', LEVELS[0].defaultLabel); }
+function toggleA2() { toggleLevel('a2', LEVELS[1].defaultLabel); }
+function toggleB1() { toggleLevel('b1', LEVELS[2].defaultLabel); }
+function toggleB2() { toggleLevel('b2', LEVELS[3].defaultLabel); }
+function toggleC1() { toggleLevel('c1', LEVELS[4].defaultLabel); }
+function toggleC2() { toggleLevel('c2', LEVELS[5].defaultLabel); }
+
+// Auto-expand accordion when arriving via hash (e.g. footer links #c2)
+document.addEventListener('DOMContentLoaded', () => {
+  const hash = window.location.hash.replace('#', '').toLowerCase();
+  const match = LEVELS.find(l => l.id === hash);
+  if (match) {
+    const detail = document.getElementById(match.id + '-detail');
+    if (detail && (detail.style.display === 'none' || detail.style.display === '')) {
+      toggleLevel(match.id, match.defaultLabel);
+    }
+  }
+});
+</script>
+<script>
+  // Navigation Dropdown Handler - Hover based
+  document.querySelectorAll('.nav-item-dropdown').forEach(dropdown => {
+    let hideTimeout;
+
+    dropdown.addEventListener('mouseenter', () => {
+      clearTimeout(hideTimeout);
+      dropdown.classList.add('active');
+    });
+
+    dropdown.addEventListener('mouseleave', () => {
+      hideTimeout = setTimeout(() => {
+        dropdown.classList.remove('active');
+      }, 100);
+    });
+  });
+</script>
 </body>
 </html>

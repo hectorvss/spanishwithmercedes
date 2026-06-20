@@ -6,8 +6,8 @@
   <title>Culture — Spanish Lessons With Mercedes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,800;0,900;1,800;1,900&family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=11">
   <style>
     .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1280px; margin-bottom: 64px; }
     .blog-grid--feature { grid-template-columns: 2fr 1fr; margin-bottom: 48px; }
@@ -52,14 +52,37 @@
 </head>
 <body>
 
+<!-- ── TICKER CAROUSEL ───────────────────────────────── -->
+<div class="carousel-section">
+  <div class="carousel-track">
+    <a href="videos.html" class="carousel-item"><span class="lang-en">Ser y Estar in Spanish</span><span class="lang-es">Ser y Estar en Español</span></a>
+    <a href="videos.html" class="carousel-item"><span class="lang-en">Introduce Yourself</span><span class="lang-es">Presentarte en Español</span></a>
+    <a href="videos.html" class="carousel-item"><span class="lang-en">The Spanish R</span><span class="lang-es">La R en Español</span></a>
+    <a href="patria-reading-guide.html" class="carousel-item"><span class="lang-en">Reading Guide: Patria</span><span class="lang-es">Guía de Lectura: Patria</span></a>
+    <a href="dele.html#b1" class="carousel-item"><span class="lang-en">DELE B1 Practice Exam</span><span class="lang-es">Examen de Práctica DELE B1</span></a>
+    <!-- Duplicated for infinite scroll -->
+    <a href="videos.html" class="carousel-item"><span class="lang-en">Ser y Estar in Spanish</span><span class="lang-es">Ser y Estar en Español</span></a>
+    <a href="videos.html" class="carousel-item"><span class="lang-en">Introduce Yourself</span><span class="lang-es">Presentarte en Español</span></a>
+    <a href="videos.html" class="carousel-item"><span class="lang-en">The Spanish R</span><span class="lang-es">La R en Español</span></a>
+    <a href="patria-reading-guide.html" class="carousel-item"><span class="lang-en">Reading Guide: Patria</span><span class="lang-es">Guía de Lectura: Patria</span></a>
+    <a href="dele.html#b1" class="carousel-item"><span class="lang-en">DELE B1 Practice Exam</span><span class="lang-es">Examen de Práctica DELE B1</span></a>
+  </div>
+</div>
+
 <!-- ── TOP BANNER ─────────────────────────────── -->
 <div class="top-banner">
   <div class="top-banner__inner">
     <div class="top-banner__icon">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
-    <span>🎬 New Spanish lesson every week! Subscribe and never miss a class.</span>
-    <a class="top-banner__link" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank">Subscribe now</a>
+    <span>
+      <span class="lang-en" data-i18n="banner.text">New Spanish lesson every week! Subscribe and never miss a class.</span>
+      <span class="lang-es" data-i18n="banner.text"> </span>
+    </span>
+    <a class="top-banner__link" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank">
+      <span class="lang-en" data-i18n="banner.cta">Subscribe now</span>
+      <span class="lang-es"> </span>
+    </a>
   </div>
   <div class="top-banner__close" onclick="this.parentElement.style.display='none'">
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M12 4 4 12M4 4l8 8" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
@@ -70,18 +93,63 @@
 <header class="header">
   <div class="header__left">
     <a class="header__logo" href="index.html">
-      <div class="header__logo-mark"><svg width="46" height="46" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><ellipse cx="60" cy="56" rx="54" ry="48" fill="white" stroke="#C8102E" stroke-width="3"/><ellipse cx="60" cy="56" rx="48" ry="42" fill="none" stroke="#C8102E" stroke-width="1.5"/><path d="M18 48 Q60 10 102 48" fill="none" stroke="#E8A000" stroke-width="12" stroke-linecap="round"/><defs><path id="arc" d="M24 44 Q60 8 96 44"/></defs><text font-family="Arial,sans-serif" font-weight="900" font-size="11" fill="#C8102E" letter-spacing="3"><textPath href="#arc" startOffset="50%" text-anchor="middle">SPANISH LESSONS</textPath></text><text x="60" y="82" font-family="Georgia,serif" font-weight="bold" font-size="48" fill="#1B2B5E" text-anchor="middle">M</text></svg></div>
-      <div class="header__logo-text">
-        <span class="header__logo-top">Spanish Lessons With</span>
-        <span class="header__logo-bottom">Mercedes</span>
-      </div>
+      <img src="logo.png" alt="Spanish Lessons with Mercedes" class="header__logo-img">
     </a>
     <nav class="header__nav">
-      <a href="index.html">Home</a>
-      <a href="videos.html">Videos</a>
-      <a href="free-pdf.html">Free PDF</a>
-      <a href="dele.html">DELE</a>
-      <a href="culture.html" class="active">Culture</a>
+      <div class="nav-item-dropdown">
+        <a href="index.html" class="nav-item-trigger" data-i18n="nav.home">Home</a>
+        <div class="nav-dropdown">
+          <a href="index.html#about"><span class="lang-en">About</span><span class="lang-es">Acerca de</span></a>
+          <a href="index.html#dele"><span class="lang-en">DELE</span><span class="lang-es">DELE</span></a>
+          <a href="index.html#culture"><span class="lang-en">Culture</span><span class="lang-es">Cultura</span></a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="videos.html" class="nav-item-trigger" data-i18n="nav.videos">Videos</a>
+        <div class="nav-dropdown">
+          <a href="videos.html#a1">A1</a>
+          <a href="videos.html#a2">A2</a>
+          <a href="videos.html#b1">B1</a>
+          <a href="videos.html#b2">B2</a>
+          <a href="videos.html#c1">C1</a>
+          <a href="videos.html#c2">C2</a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="free-pdf.html" class="nav-item-trigger" data-i18n="nav.pdf">Free PDF</a>
+        <div class="nav-dropdown">
+          <a href="free-pdf.html#grammar"><span class="lang-en">Lessons</span><span class="lang-es">Lecciones</span></a>
+          <a href="free-pdf.html#vocabulary"><span class="lang-en">Exercises</span><span class="lang-es">Ejercicios</span></a>
+          <a href="free-pdf.html#dele"><span class="lang-en">Exams</span><span class="lang-es">Exámenes</span></a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="dele.html" class="nav-item-trigger" data-i18n="nav.dele">DELE</a>
+        <div class="nav-dropdown">
+          <a href="dele.html#a1">DELE A1</a>
+          <a href="dele.html#a2">DELE A2</a>
+          <a href="dele.html#b1">DELE B1</a>
+          <a href="dele.html#b2">DELE B2</a>
+          <a href="dele.html#c1">DELE C1</a>
+          <a href="dele.html#c2">DELE C2</a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="culture.html" class="nav-item-trigger" data-i18n="nav.culture">Culture</a>
+        <div class="nav-dropdown">
+          <a href="culture.html#literatura"><span class="lang-en">Literature</span><span class="lang-es">Literatura</span></a>
+          <a href="culture.html#cine"><span class="lang-en">Cinema</span><span class="lang-es">Cine</span></a>
+          <a href="culture.html#musica"><span class="lang-en">Music</span><span class="lang-es">Música</span></a>
+          <a href="culture.html#gastronomia"><span class="lang-en">Gastronomy</span><span class="lang-es">Gastronomía</span></a>
+          <a href="culture.html#fiestas"><span class="lang-en">Celebrations</span><span class="lang-es">Fiestas</span></a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="index.html#games" class="nav-item-trigger" data-i18n="nav.games">Games</a>
+        <div class="nav-dropdown">
+          <a href="index.html#games">Play Games</a>
+        </div>
+      </div>
     </nav>
   </div>
   <div class="header__right">
@@ -89,213 +157,420 @@
       <button class="lang-btn active" data-lang="en">EN</button>
       <button class="lang-btn" data-lang="es">ES</button>
     </div>
-    <a class="header__subscribe" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Watch Free
+    <a class="header__admin-link" href="login.html">Admin</a>
+    <a class="header__subscribe" href="videos.html">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+      <span data-i18n="nav.subscribe">Watch Free</span>
     </a>
   </div>
 </header>
 
 <!-- ── INNER HERO ──────────────────────────────── -->
 <div class="inner-hero">
-  <div class="inner-hero__breadcrumb"><a href="index.html">Home</a> / Culture</div>
-  <h1 class="inner-hero__title">Spanish Culture</h1>
-  <p class="inner-hero__desc">Explore the rich cultures of the Spanish-speaking world — literature, cinema, music, art, gastronomy, festivals and so much more. Language and culture are inseparable.</p>
+  <div class="inner-hero__breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a> / <span data-i18n="nav.culture">Culture</span></div>
+  <h1 class="inner-hero__title" data-i18n="culture.hero.title">Spanish Culture</h1>
+  <p class="inner-hero__desc" data-i18n="culture.hero.desc">Explore the rich cultures of the Spanish-speaking world — literature, cinema, music, art, gastronomy, festivals and so much more. Language and culture are inseparable.</p>
 </div>
 
-<!-- ── STATS ──────────────────────────────────── -->
-<div class="stats">
-  <div class="stats__inner">
-    <div class="stat"><div class="stat__number">30+</div><div class="stat__label">Cultural articles</div></div>
-    <div class="stat"><div class="stat__number">8</div><div class="stat__label">Categories</div></div>
-    <div class="stat"><div class="stat__number">Monthly</div><div class="stat__label">New articles</div></div>
-    <div class="stat"><div class="stat__number">20+</div><div class="stat__label">Countries covered</div></div>
-    <div class="stat"><div class="stat__number">Free</div><div class="stat__label">Always free</div></div>
-  </div>
-</div>
 
 <!-- ── BLOG CONTENT ──────────────────────────── -->
 <div class="cards-section">
 
-  <!-- CATEGORY FILTERS -->
-  <div class="cat-filters">
-    <div class="cat-filter active">All</div>
-    <div class="cat-filter">Literature 📚</div>
-    <div class="cat-filter">Cinema 🎬</div>
-    <div class="cat-filter">Music 🎵</div>
-    <div class="cat-filter">Gastronomy 🍳</div>
-    <div class="cat-filter">Festivals 🎉</div>
-    <div class="cat-filter">Art &amp; History 🎨</div>
-    <div class="cat-filter">Language 🗣️</div>
-    <div class="cat-filter">Latin America 🌎</div>
+  <!-- CULTURE CATEGORY CARDS -->
+  <style>
+    .culture-levels-table {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 12px; max-width: 1280px; margin: 0 auto 48px;
+    }
+    @media (max-width: 900px) { .culture-levels-table { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 560px) { .culture-levels-table { grid-template-columns: repeat(2, 1fr); } }
+    .cult-level-col {
+      background: #fff; border-radius: 12px;
+      border: 1.5px solid #DCDCE5;
+      padding: 32px 24px 26px; cursor: pointer;
+      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+    }
+    .cult-level-col:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.09); transform: translateY(-3px); }
+    .cult-level-col--active { border-color: #D4920A; box-shadow: 0 8px 28px rgba(212,146,10,0.15); }
+    .cult-level-col__name {
+      font-family: 'Noto Sans', sans-serif; font-size: 16px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 1px; color: #121117; margin-bottom: 10px;
+    }
+    .cult-level-col__desc { font-size: 13px; color: #6B6A7A; line-height: 1.6; margin-bottom: 4px; }
+    .cult-level-col__toggle {
+      display: inline-block; margin-top: 16px;
+      background: #F0F0F4; border-radius: 5px;
+      font-size: 11px; font-weight: 700; padding: 5px 12px;
+      color: #121117; letter-spacing: 0.4px;
+    }
+    .cult-level-col--active .cult-level-col__toggle { background: #D4920A; }
+    .culture-detail {
+      max-width: 1280px; margin: 0 auto 64px;
+      display: none; opacity: 0; transform: translateY(-12px);
+      transition: opacity 0.35s, transform 0.35s;
+    }
+    .culture-detail__heading {
+      font-family: 'Noto Sans', sans-serif; font-size: 22px; font-weight: 800;
+      color: #121117; margin-bottom: 28px; padding-bottom: 14px;
+      border-bottom: 2px solid #F0F0F4;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .video-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; margin-bottom: 40px;
+    }
+    @media (max-width: 900px) { .video-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .video-grid { grid-template-columns: 1fr; } }
+    .video-card {
+      background: #fff; border-radius: 12px;
+      border: 1.5px solid #EBEBF0; overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .video-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.09); transform: translateY(-3px); }
+    .video-card__thumb {
+      position: relative; width: 100%; padding-bottom: 56.25%;
+      background: #1a1a2e; overflow: hidden;
+    }
+    .video-card__thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .video-card__play {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    }
+    .video-card__play-btn {
+      width: 52px; height: 52px; background: rgba(255,255,255,0.92);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    }
+    .video-card__play-btn svg { margin-left: 4px; }
+    .video-card__body { padding: 16px 18px 18px; }
+    .video-card__level {
+      font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px;
+      color: #D4920A; margin-bottom: 6px;
+    }
+    .video-card__title {
+      font-family: 'Noto Sans', sans-serif; font-size: 14px; font-weight: 700;
+      color: #121117; line-height: 1.4; margin-bottom: 6px;
+    }
+    .video-card__desc { font-size: 12px; color: #6B6A7A; line-height: 1.5; }
+  </style>
+
+  <div class="culture-levels-table">
+
+    <div class="cult-level-col" id="card-literatura" onclick="toggleCulture('literatura')">
+      <div class="cult-level-col__name"><span class="lang-en">Literature</span><span class="lang-es">Literatura</span></div>
+      <div class="cult-level-col__desc"><span class="lang-en">Novels, poetry & reading guides</span><span class="lang-es">Novelas, poesía y guías de lectura</span></div>
+      <div class="cult-level-col__toggle" id="toggle-literatura">
+        <span class="lang-en">Explore ↓</span><span class="lang-es">Explorar ↓</span>
+      </div>
+    </div>
+
+    <div class="cult-level-col" id="card-cine" onclick="toggleCulture('cine')">
+      <div class="cult-level-col__name"><span class="lang-en">Cinema</span><span class="lang-es">Cine</span></div>
+      <div class="cult-level-col__desc"><span class="lang-en">Films, series & directors</span><span class="lang-es">Películas, series y directores</span></div>
+      <div class="cult-level-col__toggle" id="toggle-cine">
+        <span class="lang-en">Explore ↓</span><span class="lang-es">Explorar ↓</span>
+      </div>
+    </div>
+
+    <div class="cult-level-col" id="card-musica" onclick="toggleCulture('musica')">
+      <div class="cult-level-col__name"><span class="lang-en">Music</span><span class="lang-es">Música</span></div>
+      <div class="cult-level-col__desc"><span class="lang-en">Artists, genres & playlists</span><span class="lang-es">Artistas, géneros y playlists</span></div>
+      <div class="cult-level-col__toggle" id="toggle-musica">
+        <span class="lang-en">Explore ↓</span><span class="lang-es">Explorar ↓</span>
+      </div>
+    </div>
+
+    <div class="cult-level-col" id="card-gastronomia" onclick="toggleCulture('gastronomia')">
+      <div class="cult-level-col__name"><span class="lang-en">Gastronomy</span><span class="lang-es">Gastronomía</span></div>
+      <div class="cult-level-col__desc"><span class="lang-en">Food, recipes & vocabulary</span><span class="lang-es">Comida, recetas y vocabulario</span></div>
+      <div class="cult-level-col__toggle" id="toggle-gastronomia">
+        <span class="lang-en">Explore ↓</span><span class="lang-es">Explorar ↓</span>
+      </div>
+    </div>
+
+    <div class="cult-level-col" id="card-fiestas" onclick="toggleCulture('fiestas')">
+      <div class="cult-level-col__name"><span class="lang-en">Festivals</span><span class="lang-es">Fiestas</span></div>
+      <div class="cult-level-col__desc"><span class="lang-en">Traditions, celebrations & culture</span><span class="lang-es">Tradiciones, celebraciones y cultura</span></div>
+      <div class="cult-level-col__toggle" id="toggle-fiestas">
+        <span class="lang-en">Explore ↓</span><span class="lang-es">Explorar ↓</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- LITERATURA DETAIL -->
+  <div class="culture-detail" id="literatura-detail">
+    <div class="culture-detail__heading">📚 <span class="lang-en">Literature</span><span class="lang-es">Literatura</span></div>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-card__thumb">
+          <img src="https://www.figma.com/api/mcp/asset/5e2c88c2-23c2-4410-b727-0ff7801fe209" alt="">
+          <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+        </div>
+        <div class="video-card__body">
+          <div class="video-card__level">B2 / C1</div>
+          <div class="video-card__title"><span class="lang-en">García Márquez &amp; Magical Realism — Full Video Guide</span><span class="lang-es">García Márquez y el Realismo Mágico — Guía en Vídeo</span></div>
+          <div class="video-card__desc"><span class="lang-en">Why he is essential reading for advanced Spanish learners.</span><span class="lang-es">Por qué es lectura imprescindible para estudiantes avanzados.</span></div>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-card__thumb">
+          <img src="https://www.figma.com/api/mcp/asset/3443e1d9-5525-4306-94e5-52a036ae3b53" alt="">
+          <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+        </div>
+        <div class="video-card__body">
+          <div class="video-card__level">C1</div>
+          <div class="video-card__title"><span class="lang-en">10 Spanish Novels Every Advanced Learner Must Read</span><span class="lang-es">10 Novelas que Todo Estudiante Avanzado Debe Leer</span></div>
+          <div class="video-card__desc"><span class="lang-en">From Lorca to Almudena Grandes — Mercedes's personal list.</span><span class="lang-es">De Lorca a Almudena Grandes — la lista personal de Mercedes.</span></div>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-card__thumb">
+          <img src="https://www.figma.com/api/mcp/asset/6157f9ed-9e1e-46c5-94f8-29ce4f1d6330" alt="">
+          <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+        </div>
+        <div class="video-card__body">
+          <div class="video-card__level">A2 – B1</div>
+          <div class="video-card__title"><span class="lang-en">Best Graded Readers in Spanish — From A1 to B2</span><span class="lang-es">Los Mejores Libros Graduados en Español — De A1 a B2</span></div>
+          <div class="video-card__desc"><span class="lang-en">Reading is the fastest way to build vocabulary.</span><span class="lang-es">La lectura es la forma más rápida de ampliar vocabulario.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="blog-grid">
+      <a class="blog-card" href="patria-reading-guide.html">
+        <div class="blog-card__thumb"><img src="LIBROS/GUÍAS DE LECTURA/PATRIA_ARAMBURU/PATRIA_PORTADA_LIBRO.webp" alt="Portada Patria — Fernando Aramburu" style="object-fit:cover;"></div>
+        <div class="blog-card__body">
+          <div class="blog-card__cat"><span class="lang-en">Literature · B2/C1</span><span class="lang-es">Literatura · B2/C1</span></div>
+          <div class="blog-card__title" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:22px;line-height:1.2;text-transform:uppercase;letter-spacing:0.5px;"><span class="lang-en">Reading Guide: <em>Patria</em> by Fernando Aramburu</span><span class="lang-es">Guía de Lectura: <em>Patria</em> de Fernando Aramburu</span></div>
+          <div class="blog-card__excerpt"><span class="lang-en">A novel about memory, silence, and the wounds of terrorism in the Basque Country.</span><span class="lang-es">Una novela sobre la memoria, el silencio y las heridas del terrorismo en el País Vasco.</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- CINE DETAIL -->
+  <div class="culture-detail" id="cine-detail">
+    <div class="culture-detail__heading">🎬 <span class="lang-en">Cinema &amp; Series</span><span class="lang-es">Cine y Series</span></div>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-card__thumb">
+          <img src="https://www.figma.com/api/mcp/asset/6d8a9a65-261c-4e13-a967-4528839f2b66" alt="">
+          <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+        </div>
+        <div class="video-card__body">
+          <div class="video-card__level">B1</div>
+          <div class="video-card__title"><span class="lang-en">Pedro Almodóvar's 10 Best Films — What They Teach About Spain</span><span class="lang-es">Las 10 Mejores Películas de Almodóvar — Lo Que Enseñan Sobre España</span></div>
+          <div class="video-card__desc"><span class="lang-en">A crash course in modern Spanish society and culture.</span><span class="lang-es">Un curso intensivo sobre la sociedad y la cultura española moderna.</span></div>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-card__thumb">
+          <img src="https://www.figma.com/api/mcp/asset/3443e1d9-5525-4306-94e5-52a036ae3b53" alt="">
+          <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+        </div>
+        <div class="video-card__body">
+          <div class="video-card__level">B2</div>
+          <div class="video-card__title"><span class="lang-en">"Money Heist" and "Elite" — Are They Good for Learning Spanish?</span><span class="lang-es">"La Casa de Papel" y "Élite" — ¿Son Buenas para Aprender Español?</span></div>
+          <div class="video-card__desc"><span class="lang-en">Spanish Netflix hits can be useful — if you use them the right way.</span><span class="lang-es">Las series de Netflix pueden ser útiles — si las usas bien.</span></div>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-card__thumb">
+          <img src="https://www.figma.com/api/mcp/asset/5e2c88c2-23c2-4410-b727-0ff7801fe209" alt="">
+          <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+        </div>
+        <div class="video-card__body">
+          <div class="video-card__level">B1 – C1</div>
+          <div class="video-card__title"><span class="lang-en">Best Spanish Films to Learn Spanish — By Level</span><span class="lang-es">Las Mejores Películas en Español para Aprender — Por Nivel</span></div>
+          <div class="video-card__desc"><span class="lang-en">A curated list from Mercedes sorted by difficulty.</span><span class="lang-es">Una lista seleccionada por Mercedes ordenada por dificultad.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MÚSICA DETAIL -->
+  <div class="culture-detail" id="musica-detail">
+    <div class="culture-detail__heading">🎵 <span class="lang-en">Music</span><span class="lang-es">Música</span></div>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-card__thumb">
+          <img src="https://www.figma.com/api/mcp/asset/5e2c88c2-23c2-4410-b727-0ff7801fe209" alt="">
+          <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+        </div>
+        <div class="video-card__body">
+          <div class="video-card__level">A2</div>
+          <div class="video-card__title"><span class="lang-en">Learn Spanish Through Songs — 15 Artists Beginner to Advanced</span><span class="lang-es">Aprende Español con Canciones — 15 Artistas de Principiante a Avanzado</span></div>
+          <div class="video-card__desc"><span class="lang-en">From Rosalía to Juanes, music is one of the best tools for acquisition.</span><span class="lang-es">De Rosalía a Juanes, la música es una de las mejores herramientas.</span></div>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-card__thumb">
+          <img src="https://www.figma.com/api/mcp/asset/6157f9ed-9e1e-46c5-94f8-29ce4f1d6330" alt="">
+          <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+        </div>
+        <div class="video-card__body">
+          <div class="video-card__level">B1</div>
+          <div class="video-card__title"><span class="lang-en">Flamenco — History, Vocabulary and Culture in One Lesson</span><span class="lang-es">Flamenco — Historia, Vocabulario y Cultura en Una Lección</span></div>
+          <div class="video-card__desc"><span class="lang-en">Understanding flamenco is understanding Andalusia. Essential cultural vocabulary.</span><span class="lang-es">Entender el flamenco es entender Andalucía. Vocabulario cultural esencial.</span></div>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-card__thumb">
+          <img src="https://www.figma.com/api/mcp/asset/6d8a9a65-261c-4e13-a967-4528839f2b66" alt="">
+          <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+        </div>
+        <div class="video-card__body">
+          <div class="video-card__level">A1 – B2</div>
+          <div class="video-card__title"><span class="lang-en">Top Spanish Playlists for Language Learners — By Level</span><span class="lang-es">Las Mejores Playlists en Español para Estudiantes — Por Nivel</span></div>
+          <div class="video-card__desc"><span class="lang-en">Mercedes's recommended playlists curated for each DELE level.</span><span class="lang-es">Playlists recomendadas por Mercedes para cada nivel DELE.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GASTRONOMÍA DETAIL -->
+  <div class="culture-detail" id="gastronomia-detail">
+    <div class="culture-detail__heading">🍳 <span class="lang-en">Gastronomy</span><span class="lang-es">Gastronomía</span></div>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-card__thumb">
+          <img src="https://www.figma.com/api/mcp/asset/6157f9ed-9e1e-46c5-94f8-29ce4f1d6330" alt="">
+          <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+        </div>
+        <div class="video-card__body">
+          <div class="video-card__level">A1</div>
+          <div class="video-card__title"><span class="lang-en">Spanish Food Vocabulary — From Tapas to Paella</span><span class="lang-es">Vocabulario de Comida Española — De las Tapas a la Paella</span></div>
+          <div class="video-card__desc"><span class="lang-en">Master the essential food vocabulary with the Spanish table as your guide.</span><span class="lang-es">Domina el vocabulario esencial de comida con la mesa española como guía.</span></div>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-card__thumb">
+          <img src="https://www.figma.com/api/mcp/asset/5e2c88c2-23c2-4410-b727-0ff7801fe209" alt="">
+          <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+        </div>
+        <div class="video-card__body">
+          <div class="video-card__level">B2</div>
+          <div class="video-card__title"><span class="lang-en">Ferran Adrià and Spanish Avant-Garde Cuisine — Vocabulary Masterclass</span><span class="lang-es">Ferran Adrià y la Cocina Vanguardista Española — Masterclass de Vocabulario</span></div>
+          <div class="video-card__desc"><span class="lang-en">How Spain revolutionised global cooking — language through gastronomy.</span><span class="lang-es">Cómo España revolucionó la cocina global — idioma a través de la gastronomía.</span></div>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-card__thumb">
+          <img src="https://www.figma.com/api/mcp/asset/3443e1d9-5525-4306-94e5-52a036ae3b53" alt="">
+          <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+        </div>
+        <div class="video-card__body">
+          <div class="video-card__level">B1</div>
+          <div class="video-card__title"><span class="lang-en">Spanish Regional Cuisine — A Journey Through 17 Autonomous Communities</span><span class="lang-es">Cocina Regional Española — Un Viaje por 17 Comunidades Autónomas</span></div>
+          <div class="video-card__desc"><span class="lang-en">Every region has its signature dish. A cultural and vocabulary tour.</span><span class="lang-es">Cada región tiene su plato estrella. Un recorrido cultural y de vocabulario.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FIESTAS DETAIL -->
+  <div class="culture-detail" id="fiestas-detail">
+    <div class="culture-detail__heading">🎉 <span class="lang-en">Festivals</span><span class="lang-es">Fiestas</span></div>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-card__thumb">
+          <img src="https://www.figma.com/api/mcp/asset/6d8a9a65-261c-4e13-a967-4528839f2b66" alt="">
+          <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+        </div>
+        <div class="video-card__body">
+          <div class="video-card__level">B1</div>
+          <div class="video-card__title"><span class="lang-en">La Feria de Abril, San Fermín &amp; La Tomatina — Spain's Famous Festivals</span><span class="lang-es">La Feria de Abril, San Fermín y La Tomatina — Las Fiestas Más Famosas</span></div>
+          <div class="video-card__desc"><span class="lang-en">History, traditions and vocabulary of Spain's most colourful celebrations.</span><span class="lang-es">Historia, tradiciones y vocabulario de las celebraciones más coloridas de España.</span></div>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-card__thumb">
+          <img src="https://www.figma.com/api/mcp/asset/5e2c88c2-23c2-4410-b727-0ff7801fe209" alt="">
+          <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+        </div>
+        <div class="video-card__body">
+          <div class="video-card__level">A2</div>
+          <div class="video-card__title"><span class="lang-en">Navidad in Spain — Traditions, Vocabulary and the Twelve Grapes</span><span class="lang-es">La Navidad en España — Tradiciones, Vocabulario y las Doce Uvas</span></div>
+          <div class="video-card__desc"><span class="lang-en">How Spain celebrates Christmas — unique traditions you won't find anywhere else.</span><span class="lang-es">Cómo celebra España la Navidad — tradiciones únicas que no encontrarás en ningún otro lugar.</span></div>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-card__thumb">
+          <img src="https://www.figma.com/api/mcp/asset/6157f9ed-9e1e-46c5-94f8-29ce4f1d6330" alt="">
+          <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+        </div>
+        <div class="video-card__body">
+          <div class="video-card__level">B2</div>
+          <div class="video-card__title"><span class="lang-en">Semana Santa — Holy Week in Spain, Culture and Language</span><span class="lang-es">Semana Santa — La Cultura y el Lenguaje de la Semana Santa en España</span></div>
+          <div class="video-card__desc"><span class="lang-en">A deep dive into Spain's most solemn and spectacular celebration.</span><span class="lang-es">Un análisis profundo de la celebración más solemne y espectacular de España.</span></div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- FEATURED ARTICLE -->
   <div class="blog-grid--feature" style="max-width:1280px;margin-bottom:64px;">
-    <a class="blog-card--feature" href="#">
-      <div class="blog-card__thumb">
-        <img src="https://www.figma.com/api/mcp/asset/6d8a9a65-261c-4e13-a967-4528839f2b66" alt="Featured">
+    <a class="blog-card--feature" href="patria-reading-guide.html">
+      <div class="blog-card__thumb" style="display:grid;grid-template-columns:1fr 1fr;overflow:hidden;">
+        <!-- Panel izquierdo: título tipográfico -->
+        <div style="background:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:28px 24px 32px 32px;">
+          <div style="font-family:'Bebas Neue',Impact,'Arial Narrow Bold',sans-serif;
+                      font-size:clamp(64px,8.5vw,118px);
+                      line-height:0.88;
+                      color:#000;
+                      letter-spacing:2px;
+                      text-transform:uppercase;
+                      word-break:break-word;">Patria</div>
+          <div style="font-family:'Figtree',sans-serif;font-size:11px;font-weight:600;
+                      color:#888;margin-top:16px;letter-spacing:2.5px;text-transform:uppercase;">
+            Fernando Aramburu
+          </div>
+        </div>
+        <!-- Panel derecho: portada del libro -->
+        <div style="background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+          <img src="LIBROS/GUÍAS DE LECTURA/PATRIA_ARAMBURU/PATRIA_PORTADA_LIBRO.webp"
+               alt="Portada Patria"
+               style="max-width:80%;height:auto;display:block;border:6px solid #111;box-shadow:0 6px 24px rgba(0,0,0,0.22);">
+        </div>
       </div>
       <div class="blog-card__body">
-        <div class="blog-card__cat">⭐ Featured · Literature</div>
-        <div class="blog-card__title" style="font-size:28px;line-height:38px;">García Márquez and Magical Realism — A Complete Guide for Spanish Learners</div>
-        <div class="blog-card__excerpt" style="font-size:16px;line-height:26px;">Why Gabriel García Márquez is essential reading if you want to understand Latin American Spanish, culture and storytelling. We explore his language, themes and why Mercedes recommends him to all B2+ students.</div>
+        <div class="blog-card__cat">⭐ <span class="lang-en">Featured · Literature · B2/C1</span><span class="lang-es">Destacado · Literatura · B2/C1</span></div>
+        <div class="blog-card__title" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:32px;line-height:38px;text-transform:uppercase;letter-spacing:1px;"><span class="lang-en">Reading Guide: <em>Patria</em> by Fernando Aramburu</span><span class="lang-es">Guía de Lectura: <em>Patria</em> de Fernando Aramburu</span></div>
+        <div class="blog-card__excerpt" style="font-size:16px;line-height:26px;"><span class="lang-en">A novel about memory, silence, and the wounds of terrorism in the Basque Country. Complete reading guide with characters, themes, discussion questions, activities, and essential vocabulary — recommended by Mercedes for B2/C1 students.</span><span class="lang-es">Una novela sobre la memoria, el silencio y las heridas del terrorismo en el País Vasco. Guía de lectura completa con personajes, temas, preguntas de debate, actividades y vocabulario esencial — recomendada por Mercedes para estudiantes de B2/C1.</span></div>
         <div class="read-more">
-          Read article
+          <span class="lang-en">Read guide</span><span class="lang-es">Leer guía</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7 7 7-7 7" stroke="#D4920A" stroke-width="2" stroke-linecap="round"/></svg>
         </div>
       </div>
     </a>
   </div>
 
-  <!-- LITERATURE -->
-  <div class="cat-section">
-    <div class="cat-section__title">📚 Literature</div>
-    <div class="blog-grid">
-      <a class="blog-card" href="#">
-        <div class="blog-card__thumb"><img src="https://www.figma.com/api/mcp/asset/5e2c88c2-23c2-4410-b727-0ff7801fe209" alt=""></div>
-        <div class="blog-card__body">
-          <div class="blog-card__cat">Literature · B2</div>
-          <div class="blog-card__title">Don Quixote Explained — Why Every Spanish Learner Should Know Cervantes</div>
-          <div class="blog-card__excerpt">The world's first modern novel is full of beautiful Spanish — and its vocabulary is still relevant today. Here's what you need to know.</div>
-        </div>
-      </a>
-      <a class="blog-card" href="#">
-        <div class="blog-card__thumb"><img src="https://www.figma.com/api/mcp/asset/3443e1d9-5525-4306-94e5-52a036ae3b53" alt=""></div>
-        <div class="blog-card__body">
-          <div class="blog-card__cat">Literature · C1</div>
-          <div class="blog-card__title">10 Spanish Novels Every Advanced Learner Must Read</div>
-          <div class="blog-card__excerpt">From Lorca to Almudena Grandes — Mercedes's personal list of essential Spanish literature to improve your C1 and C2 reading skills.</div>
-        </div>
-      </a>
-      <a class="blog-card" href="#">
-        <div class="blog-card__thumb"><img src="https://www.figma.com/api/mcp/asset/6157f9ed-9e1e-46c5-94f8-29ce4f1d6330" alt=""></div>
-        <div class="blog-card__body">
-          <div class="blog-card__cat">Literature · A2–B1</div>
-          <div class="blog-card__title">Best Graded Readers in Spanish — From A1 to B2</div>
-          <div class="blog-card__excerpt">Reading is the fastest way to build vocabulary. Here are the best levelled books for Spanish learners at every stage.</div>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <!-- CINEMA & MUSIC -->
-  <div class="cat-section">
-    <div class="cat-section__title">🎬 Cinema &amp; Music</div>
-    <div class="blog-grid">
-      <a class="blog-card" href="#">
-        <div class="blog-card__thumb"><img src="https://www.figma.com/api/mcp/asset/6d8a9a65-261c-4e13-a967-4528839f2b66" alt=""></div>
-        <div class="blog-card__body">
-          <div class="blog-card__cat">Cinema · B1</div>
-          <div class="blog-card__title">Pedro Almodóvar's 10 Best Films — And What They Teach You About Spain</div>
-          <div class="blog-card__excerpt">Almodóvar's cinema is a crash course in modern Spanish society, language and culture. Discover which films to watch and why.</div>
-        </div>
-      </a>
-      <a class="blog-card" href="#">
-        <div class="blog-card__thumb"><img src="https://www.figma.com/api/mcp/asset/5e2c88c2-23c2-4410-b727-0ff7801fe209" alt=""></div>
-        <div class="blog-card__body">
-          <div class="blog-card__cat">Music · A2</div>
-          <div class="blog-card__title">Learn Spanish Through Songs — 15 Artists From Beginner to Advanced</div>
-          <div class="blog-card__excerpt">From Rosalía to Juanes, music is one of the best tools for language acquisition. Here's your ultimate playlist for every level.</div>
-        </div>
-      </a>
-      <a class="blog-card" href="#">
-        <div class="blog-card__thumb"><img src="https://www.figma.com/api/mcp/asset/3443e1d9-5525-4306-94e5-52a036ae3b53" alt=""></div>
-        <div class="blog-card__body">
-          <div class="blog-card__cat">Cinema · B2</div>
-          <div class="blog-card__title">"Money Heist" and "Elite" — Are They Good for Learning Spanish?</div>
-          <div class="blog-card__excerpt">Spanish Netflix hits can be useful for learners — but only if you use them the right way. Mercedes explains her method.</div>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <!-- GASTRONOMY & FESTIVALS -->
-  <div class="cat-section">
-    <div class="cat-section__title">🍳 Gastronomy &amp; Festivals</div>
-    <div class="blog-grid">
-      <a class="blog-card" href="#">
-        <div class="blog-card__thumb"><img src="https://www.figma.com/api/mcp/asset/6157f9ed-9e1e-46c5-94f8-29ce4f1d6330" alt=""></div>
-        <div class="blog-card__body">
-          <div class="blog-card__cat">Gastronomy · A1</div>
-          <div class="blog-card__title">Spanish Food Vocabulary — From Tapas to Paella</div>
-          <div class="blog-card__excerpt">Master the essential food vocabulary — the perfect way to connect language learning with the delicious culture of the Spanish table.</div>
-        </div>
-      </a>
-      <a class="blog-card" href="#">
-        <div class="blog-card__thumb"><img src="https://www.figma.com/api/mcp/asset/6d8a9a65-261c-4e13-a967-4528839f2b66" alt=""></div>
-        <div class="blog-card__body">
-          <div class="blog-card__cat">Festivals · B1</div>
-          <div class="blog-card__title">La Feria de Abril, San Fermín and La Tomatina — Spain's Most Famous Festivals Explained</div>
-          <div class="blog-card__excerpt">A cultural guide to Spain's most colourful celebrations, their history, traditions and the Spanish vocabulary you'll need.</div>
-        </div>
-      </a>
-      <a class="blog-card" href="#">
-        <div class="blog-card__thumb"><img src="https://www.figma.com/api/mcp/asset/5e2c88c2-23c2-4410-b727-0ff7801fe209" alt=""></div>
-        <div class="blog-card__body">
-          <div class="blog-card__cat">Gastronomy · B2</div>
-          <div class="blog-card__title">Ferran Adrià and Spanish Avant-Garde Cuisine — A Vocabulary Masterclass</div>
-          <div class="blog-card__excerpt">From "El Bulli" to the world's finest restaurants — how Spain revolutionised global cooking and the vocabulary that goes with it.</div>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <!-- LANGUAGE CURIOSITIES -->
-  <div class="cat-section">
-    <div class="cat-section__title">🗣️ Language Curiosities</div>
-    <div class="blog-grid">
-      <a class="blog-card" href="#">
-        <div class="blog-card__thumb"><img src="https://www.figma.com/api/mcp/asset/3443e1d9-5525-4306-94e5-52a036ae3b53" alt=""></div>
-        <div class="blog-card__body">
-          <div class="blog-card__cat">Language · All levels</div>
-          <div class="blog-card__title">Why Does Spanish Have Two Past Tenses? The Fascinating History</div>
-          <div class="blog-card__excerpt">The difference between preterite and imperfect goes deep into history. Understanding the "why" will help you master the "how".</div>
-        </div>
-      </a>
-      <a class="blog-card" href="#">
-        <div class="blog-card__thumb"><img src="https://www.figma.com/api/mcp/asset/6157f9ed-9e1e-46c5-94f8-29ce4f1d6330" alt=""></div>
-        <div class="blog-card__body">
-          <div class="blog-card__cat">Language · B1</div>
-          <div class="blog-card__title">Regional Spanish Accents — From Andalusia to Argentina, What Changes?</div>
-          <div class="blog-card__excerpt">Spanish is spoken by 500 million people across 20+ countries. Here's your guide to the main accent and vocabulary differences.</div>
-        </div>
-      </a>
-      <a class="blog-card" href="#">
-        <div class="blog-card__thumb"><img src="https://www.figma.com/api/mcp/asset/6d8a9a65-261c-4e13-a967-4528839f2b66" alt=""></div>
-        <div class="blog-card__body">
-          <div class="blog-card__cat">Language · A2</div>
-          <div class="blog-card__title">The Origins of "Olé!" — And 9 Other Spanish Words With Surprising Histories</div>
-          <div class="blog-card__excerpt">Etymology makes vocabulary stick. These 10 Spanish words have fascinating backstories that will help you remember them forever.</div>
-        </div>
-      </a>
-    </div>
-  </div>
 
 </div>
 
 <!-- ── GUARANTEE ──────────────────────────────── -->
 <div class="guarantee">
-  <h2 class="guarantee__heading">Language is culture.<br>Learn both together.</h2>
-  <p class="guarantee__sub">Free articles, videos and PDFs every month. No registration required.</p>
+  <h2 class="guarantee__heading" data-i18n="culture.guarantee.heading">Language is culture.<br>Learn both together.</h2>
+  <p class="guarantee__sub" data-i18n="culture.guarantee.sub">Free articles, videos and PDFs every month. No registration required.</p>
 </div>
 
 <!-- ── FOOTER ─────────────────────────────────── -->
 <footer class="footer">
   <div class="footer__inner">
     <div class="footer__top">
-      <div class="footer__col"><div class="footer__col-title">About</div><ul><li><a href="#">Who is Mercedes?</a></li><li><a href="#">Contact</a></li></ul></div>
-      <div class="footer__col"><div class="footer__col-title">Learn Spanish</div><ul><li><a href="videos.html">All videos</a></li><li><a href="free-pdf.html">Free PDFs</a></li></ul></div>
-      <div class="footer__col"><div class="footer__col-title">DELE</div><ul><li><a href="dele.html">DELE guide</a></li><li><a href="dele.html#b2">DELE B2</a></li></ul></div>
-      <div class="footer__col"><div class="footer__col-title">Culture</div><ul><li><a href="culture.html">Literature</a></li><li><a href="culture.html">Cinema &amp; Music</a></li><li><a href="culture.html">Gastronomy</a></li><li><a href="culture.html">Festivals</a></li></ul></div>
+      <div class="footer__col"><div class="footer__col-title" data-i18n="footer.about">About</div><ul><li><a href="index.html#about"><span data-i18n="footer.who">Who is Mercedes?</span></a></li><li><a href="index.html#contact"><span data-i18n="footer.contact">Contact</span></a></li></ul></div>
+      <div class="footer__col"><div class="footer__col-title" data-i18n="footer.learn">Learn Spanish</div><ul><li><a href="videos.html"><span data-i18n="footer.allvideos">All videos</span></a></li><li><a href="videos.html#a1"><span class="lang-en">Beginner Spanish (A1)</span><span class="lang-es">Español para principiantes (A1)</span></a></li><li><a href="free-pdf.html"><span data-i18n="footer.freepdfs">Free PDFs</span></a></li></ul></div>
+      <div class="footer__col"><div class="footer__col-title" data-i18n="footer.dele">DELE</div><ul><li><a href="dele.html#a1">DELE A1</a></li><li><a href="dele.html#a2">DELE A2</a></li><li><a href="dele.html#b1">DELE B1</a></li><li><a href="dele.html#b2">DELE B2</a></li><li><a href="dele.html#c1">DELE C1</a></li><li><a href="dele.html#c2">DELE C2</a></li></ul></div>
+      <div class="footer__col"><div class="footer__col-title" data-i18n="footer.culture">Culture</div><ul>
+        <li><a href="culture.html#literatura"><span class="lang-en">Literature</span><span class="lang-es">Literatura</span></a></li>
+        <li><a href="culture.html#cine"><span class="lang-en">Cinema &amp; Music</span><span class="lang-es">Cine y Música</span></a></li>
+        <li><a href="culture.html#gastronomia"><span class="lang-en">Gastronomy</span><span class="lang-es">Gastronomía</span></a></li>
+        <li><a href="culture.html#fiestas"><span class="lang-en">Festivals</span><span class="lang-es">Fiestas</span></a></li>
+      </ul></div>
     </div>
     <div class="footer__divider"></div>
     <div class="footer__bottom">
       <div class="footer__logo-row">
-        <div class="footer__logo">
-          <div class="footer__logo-mark"><svg width="20" height="20" viewBox="0 0 24 24"><text x="3" y="18" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="#121117">S</text></svg></div>
-          <div class="footer__logo-name">Spanish Lessons With Mercedes</div>
-        </div>
+        <div class="footer__logo"></div>
         <div class="footer__social-apps">
           <div class="footer__social">
             <a class="footer__social-link" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
@@ -304,11 +579,82 @@
           </div>
         </div>
       </div>
-      <div class="footer__copyright">© 2025 Spanish Lessons With Mercedes. All rights reserved.</div>
+      <div class="footer__copyright" data-i18n="footer.copyright">© 2025 Spanish Lessons With Mercedes. All rights reserved.</div>
     </div>
   </div>
 </footer>
 
-<script src="i18n.js"></script>
+<script src="i18n.js?v=3"></script>
+<script>
+  // Culture category toggle
+  const CULTURE_CATS = ['literatura', 'cine', 'musica', 'gastronomia', 'fiestas'];
+
+  function closeAllCultureCats(except) {
+    CULTURE_CATS.forEach(id => {
+      if (id === except) return;
+      const detail = document.getElementById(id + '-detail');
+      const card   = document.getElementById('card-' + id);
+      const toggle = document.getElementById('toggle-' + id);
+      if (detail && detail.style.display !== 'none' && detail.style.display !== '') {
+        detail.style.opacity = '0';
+        detail.style.transform = 'translateY(-12px)';
+        setTimeout(() => { detail.style.display = 'none'; }, 320);
+        if (card)   card.classList.remove('cult-level-col--active');
+        if (toggle) toggle.innerHTML = '<span class="lang-en">Explore ↓</span><span class="lang-es">Explorar ↓</span>';
+      }
+    });
+  }
+
+  function toggleCulture(id) {
+    const detail = document.getElementById(id + '-detail');
+    const card   = document.getElementById('card-' + id);
+    const toggle = document.getElementById('toggle-' + id);
+    const open   = detail.style.display === 'none' || detail.style.display === '';
+    if (open) {
+      closeAllCultureCats(id);
+      detail.style.display = 'block';
+      detail.style.opacity = '0';
+      detail.style.transform = 'translateY(-12px)';
+      detail.style.transition = 'opacity 0.35s, transform 0.35s';
+      requestAnimationFrame(() => {
+        detail.style.opacity = '1';
+        detail.style.transform = 'translateY(0)';
+      });
+      if (card)   card.classList.add('cult-level-col--active');
+      if (toggle) toggle.innerHTML = '<span class="lang-en">Close ↑</span><span class="lang-es">Cerrar ↑</span>';
+      setTimeout(() => detail.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+    } else {
+      detail.style.opacity = '0';
+      detail.style.transform = 'translateY(-12px)';
+      setTimeout(() => { detail.style.display = 'none'; }, 320);
+      if (card)   card.classList.remove('cult-level-col--active');
+      if (toggle) toggle.innerHTML = '<span class="lang-en">Explore ↓</span><span class="lang-es">Explorar ↓</span>';
+    }
+  }
+
+  // Open section from URL hash (e.g. culture.html#cine)
+  document.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash.replace('#', '');
+    if (['literatura', 'cine', 'musica', 'gastronomia', 'fiestas'].includes(hash)) {
+      setTimeout(() => toggleCulture(hash), 120);
+    }
+  });
+
+  // Navigation Dropdown Handler - Hover based
+  document.querySelectorAll('.nav-item-dropdown').forEach(dropdown => {
+    let hideTimeout;
+
+    dropdown.addEventListener('mouseenter', () => {
+      clearTimeout(hideTimeout);
+      dropdown.classList.add('active');
+    });
+
+    dropdown.addEventListener('mouseleave', () => {
+      hideTimeout = setTimeout(() => {
+        dropdown.classList.remove('active');
+      }, 100);
+    });
+  });
+</script>
 </body>
 </html>
