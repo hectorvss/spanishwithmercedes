@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DELE B1 — Audios de Comprensión Auditiva | Spanish with Mercedes</title>
+<style>
+  :root {
+    --navy: #1C2A4A;
+    --gold: #D4920A;
+    --red: #C8102E;
+    --teal: #2bbfa8;
+    --teal-dark: #0d7a6a;
+    --teal-light: #e8faf7;
+    --bg: #FAFAF8;
+    --text: #2b2b2b;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height:1.6; }
+  .hero {
+    background: linear-gradient(160deg, #0f2320 0%, #0d2e28 55%, #0a1f1c 100%);
+    color:#fff; padding: 42px 20px 36px; text-align:center;
+  }
+  .hero h1 { font-family: Georgia, serif; font-size: clamp(26px, 4vw, 38px); }
+  .hero h1 .b1 { color: var(--teal); }
+  .hero p { color:#9ad8cf; margin-top:8px; font-size:15px; max-width:640px; margin-left:auto; margin-right:auto; }
+  .hero .back { display:inline-block; margin-top:18px; color:#9ad8cf; font-size:13px; text-decoration:none; border:1px solid rgba(154,216,207,.4); padding:7px 16px; border-radius:20px; }
+  .hero .back:hover { background:rgba(154,216,207,.12); }
+  .container { max-width: 860px; margin: 0 auto; padding: 30px 18px 60px; }
+  .note {
+    background: #FFFBF0; border-left: 4px solid var(--gold);
+    border-radius: 8px; padding: 14px 18px; font-size: 14px; margin-bottom: 30px;
+  }
+  section.tarea {
+    background:#fff; border:1px solid #e8e8e4; border-radius:14px;
+    padding: 26px 26px 22px; margin-bottom: 26px;
+    box-shadow: 0 2px 10px rgba(28,42,74,.05);
+  }
+  .tarea-tag { display:inline-block; background:var(--teal-light); color:var(--teal-dark); font-size:11px; font-weight:700; letter-spacing:1.5px; padding:4px 12px; border-radius:14px; text-transform:uppercase; }
+  .tarea h2 { font-family: Georgia, serif; color: var(--navy); font-size:21px; margin:10px 0 6px; }
+  .tarea .desc { font-size:14px; color:#555; margin-bottom:16px; }
+  .play-btn {
+    display:inline-flex; align-items:center; gap:10px;
+    background: var(--teal-dark); color:#fff; border:none; cursor:pointer;
+    padding: 12px 24px; border-radius: 10px; font-size:15px; font-weight:700;
+    transition: background .2s;
+  }
+  .play-btn:hover { background:#0a5f53; }
+  .play-btn.playing { background: var(--red); }
+  .play-btn .icon { font-size:17px; }
+  .seq-progress { display:none; margin-top:12px; height:6px; background:#e8e8e4; border-radius:3px; overflow:hidden; }
+  .seq-progress .bar { height:100%; width:0; background:var(--teal); transition: width .3s; }
+  .transcr-btn {
+    display:block; margin-top:16px; background:none; border:1px dashed #bbb; color:#666;
+    cursor:pointer; padding:9px 16px; border-radius:8px; font-size:13px; width:100%; text-align:left;
+  }
+  .transcr-btn:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
+  .transcr-panel { display:none; margin-top:14px; background:#f7f9f8; border-radius:10px; padding:18px 20px; font-size:14px; }
+  .transcr-panel h4 { color:var(--navy); font-size:13px; text-transform:uppercase; letter-spacing:1px; margin:14px 0 4px; }
+  .transcr-panel h4:first-child { margin-top:0; }
+  .transcr-panel p { margin: 6px 0; }
+  .transcr-panel .who { font-weight:700; color: var(--teal-dark); }
+  .page-footer { text-align:center; font-size:13px; color:#888; padding: 24px 0 40px; }
+  .page-footer a { color: var(--teal-dark); text-decoration:none; font-weight:600; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>DELE <span class="b1">B1</span> — Comprensión Auditiva</h1>
+  <p>Los 5 audios de la Prueba 2 del Examen de Práctica DELE B1. Escucha cada tarea (dos veces, como en el examen real) y, si lo necesitas, abre la transcripción para leer mientras escuchas.</p>
+  <a class="back" href="dele-b1.html">← Volver a la guía del DELE B1</a>
+</div>
+
+<div class="container">
+
+  <div class="note">
+    <strong>Cómo practicar:</strong> ① Lee las preguntas del cuadernillo PDF antes de escuchar. ② Pulsa ▶ y escucha el audio completo sin parar. ③ Escúchalo una segunda vez y responde. ④ Solo después, abre la transcripción para comprobar lo que no entendiste.
+  </div>
+
+  <!-- TAREA 1 -->
+  <section class="tarea" id="t1-section">
+    <span class="tarea-tag">Tarea 1 · Preguntas 1-6</span>
+    <h2>Seis mensajes de voz</h2>
+    <p class="desc">Seis mensajes de un buzón de voz. Para cada mensaje, selecciona la opción correcta (a/b/c) en tu cuadernillo.</p>
+    <button class="play-btn" onclick="playSeq('t1', this)"><span class="icon">▶</span> Escuchar Tarea 1 completa</button>
+    <div class="seq-progress" id="prog-t1"><div class="bar" id="progbar-t1"></div></div>
+    <button class="transcr-btn" onclick="toggleTranscr('tr-t1', this)">📄 Ver transcripción (revelar después de practicar)</button>
+    <div class="transcr-panel" id="tr-t1">
+      <h4>Mensaje 1</h4><p><span class="who">SERGIO:</span> Hola, Marina, soy Sergio. Te llamo porque el sábado que viene celebro mi cumpleaños en casa, nada formal, una cena con los amigos de siempre. Me haría mucha ilusión que vinieras. Es a partir de las nueve. Confírmame si puedes, ¿vale? ¡Un beso!</p>
+      <h4>Mensaje 2</h4><p><span class="who">GESTORÍA:</span> Buenos días, este mensaje es para Alberto Ríos. Le llamamos de la gestoría Sanz. Ya tenemos preparado el contrato de alquiler. Necesitamos que lo firme y nos lo devuelva esta misma semana; puede mandárnoslo escaneado por correo electrónico. Gracias.</p>
+      <h4>Mensaje 3</h4><p><span class="who">CLÍNICA:</span> Hola, buenas tardes. Llamamos de la Clínica Dental Sonrisa. Le recordamos que tiene cita con el doctor Vega mañana jueves a las cinco y media de la tarde. Si no puede venir, por favor, avísenos con tiempo. Muchas gracias.</p>
+      <h4>Mensaje 4</h4><p><span class="who">NURIA:</span> ¡Hola, hermanito! Soy Nuria. Oye, que al final nos vamos el viernes al pueblo y volvemos el lunes. ¿Te importaría pasarte por mi casa y darle de comer a Michu? Ya sabes dónde dejo la llave. Con una vez al día es suficiente. ¡Te debo una cena! Gracias, de verdad.</p>
+      <h4>Mensaje 5</h4><p><span class="who">PADRE:</span> Diego, soy papá. Mira, me acaba de llamar el mecánico y dice que el coche ya está arreglado. Yo no puedo ir hoy porque salgo tarde de la oficina. ¿Puedes pasarte tú esta tarde a recogerlo antes de que cierren a las ocho? Ya está pagado todo. Luego hablamos.</p>
+      <h4>Mensaje 6</h4><p><span class="who">CARMEN:</span> Pablo, soy Carmen. Que ya he comprado las entradas para el cine de mañana por internet, así que no hace falta hacer cola. Eso sí, la película empieza a las siete en punto y ya sabes cómo eres... ¡no llegues tarde, por favor! Nos vemos en la puerta a menos cuarto.</p>
+    </div>
+  </section>
+
+  <!-- TAREA 2 -->
+  <section class="tarea" id="t2-section">
+    <span class="tarea-tag">Tarea 2 · Preguntas 7-12</span>
+    <h2>Monólogo — Valentina, una sevillana en México</h2>
+    <p class="desc">Un fragmento del programa «Españoles por el mundo». Selecciona la respuesta correcta (a/b/c).</p>
+    <button class="play-btn" onclick="playSeq('t2', this)"><span class="icon">▶</span> Escuchar Tarea 2 completa</button>
+    <div class="seq-progress" id="prog-t2"><div class="bar" id="progbar-t2"></div></div>
+    <button class="transcr-btn" onclick="toggleTranscr('tr-t2', this)">📄 Ver transcripción (revelar después de practicar)</button>
+    <div class="transcr-panel" id="tr-t2">
+      <p><span class="who">VALENTINA:</span> Me llamo Valentina, soy de Sevilla y llevo ocho años viviendo en Ciudad de México. Vine porque la empresa donde trabajaba me ofreció un puesto en su oficina mexicana, y acepté casi sin pensarlo, aunque mi familia al principio no entendía la decisión.</p>
+      <p>Lo primero que me impresionó al llegar fue lo enorme que es la ciudad: en mi primer fin de semana intenté recorrerla a pie... ¡qué ingenua! Al final aprendí a moverme en metro como todo el mundo.</p>
+      <p>Estuve cinco años en aquella empresa, pero hace tres decidí independizarme y monté mi propia consultora con una socia mexicana, y la verdad es que no puedo estar más contenta.</p>
+      <p>Con la comida tuve una historia curiosa: yo no estaba acostumbrada al picante, pero me gustó tanto la cocina de aquí que me apunté a clases, y ahora preparo unos chiles en nogada que ya quisieran muchos restaurantes.</p>
+      <p>Lo más duro de estos años fue la primera Navidad: toda mi familia reunida en Sevilla y yo aquí sola. Lo pasé fatal, no paré de llorar por videollamada. Pero todo cambió cuando empecé a hacer amigos de verdad. Ahora tengo un grupo de amigos mexicanos que son como una segunda familia: celebramos juntos los cumpleaños, los buenos momentos y también los malos. Por eso, cuando me preguntan si volveré a España... ya no sé qué contestar.</p>
+    </div>
+  </section>
+
+  <!-- TAREA 3 -->
+  <section class="tarea" id="t3-section">
+    <span class="tarea-tag">Tarea 3 · Preguntas 13-18</span>
+    <h2>Seis noticias de radio</h2>
+    <p class="desc">Un informativo con seis noticias. Selecciona la respuesta correcta (a/b/c).</p>
+    <button class="play-btn" onclick="playSeq('t3', this)"><span class="icon">▶</span> Escuchar Tarea 3 completa</button>
+    <div class="seq-progress" id="prog-t3"><div class="bar" id="progbar-t3"></div></div>
+    <button class="transcr-btn" onclick="toggleTranscr('tr-t3', this)">📄 Ver transcripción (revelar después de practicar)</button>
+    <div class="transcr-panel" id="tr-t3">
+      <h4>Noticia 1</h4><p>La nueva biblioteca municipal abrirá finalmente sus puertas el próximo mes de octubre, tras dos años de obras. El edificio, de cuatro plantas, contará con salas de estudio, una zona infantil y un auditorio para presentaciones de libros. El horario será de lunes a sábado.</p>
+      <h4>Noticia 2</h4><p>Mañana comienza el festival de teatro de calle, que este año celebra su décima edición. Durante cuatro días, más de treinta compañías, todas ellas nacionales, llenarán de espectáculos las plazas del casco antiguo. Todas las actuaciones serán gratuitas.</p>
+      <h4>Noticia 3</h4><p>El cocinero Andrés Soler ha sido galardonado en París con el premio al mejor chef europeo del año, un reconocimiento que recibe por primera vez un cocinero de nuestra región. Soler, que regenta su restaurante en el mercado viejo, dedicó el premio a su madre, de quien aprendió a cocinar.</p>
+      <h4>Noticia 4</h4><p>Desde hoy puede visitarse la exposición «Mar adentro», con más de cien fotografías históricas de la vida de los pescadores. La muestra, organizada por el museo provincial, se exhibe en el centro cultural del puerto y permanecerá abierta hasta finales de mes. La entrada es libre.</p>
+      <h4>Noticia 5</h4><p>Y en deportes, victoria agónica del equipo de baloncesto de la ciudad, que ayer ganó su partido con una canasta espectacular en el último segundo. Con este triunfo, el equipo se clasifica para las semifinales, que se disputarán dentro de dos semanas.</p>
+      <h4>Noticia 6</h4><p>En cuanto al tiempo, hoy seguiremos con cielos despejados y temperaturas agradables. Eso sí, atención al fin de semana: se esperan lluvias intensas tanto el sábado como el domingo, así que si tienen planes al aire libre, mejor cambiarlos.</p>
+    </div>
+  </section>
+
+  <!-- TAREA 4 -->
+  <section class="tarea" id="t4-section">
+    <span class="tarea-tag">Tarea 4 · Preguntas 19-24</span>
+    <h2>Seis personas hablan de sus vacaciones</h2>
+    <p class="desc">Relaciona cada persona con el enunciado correspondiente (A-J). Hay diez enunciados; selecciona solamente seis.</p>
+    <button class="play-btn" onclick="playSeq('t4', this)"><span class="icon">▶</span> Escuchar Tarea 4 completa</button>
+    <div class="seq-progress" id="prog-t4"><div class="bar" id="progbar-t4"></div></div>
+    <button class="transcr-btn" onclick="toggleTranscr('tr-t4', this)">📄 Ver transcripción (revelar después de practicar)</button>
+    <div class="transcr-panel" id="tr-t4">
+      <h4>Persona 1</h4><p>¿Mis vacaciones más inolvidables? Hace dos veranos, en Galicia. Habíamos alquilado una casa rural por las fotos de internet: piscina, jardín precioso... Pues llegamos y nada que ver: la piscina llevaba años vacía y las habitaciones olían a humedad. Pedimos que nos devolvieran el dinero y acabamos en un hostal del pueblo, que por cierto era encantador.</p>
+      <h4>Persona 2</h4><p>Yo nunca olvidaré el viaje a Ibiza con mis amigos al acabar el instituto. El segundo día me apunté a una clase de buceo sin haberlo hecho nunca, ¡con el miedo que me daba a mí el mar! Y resultó que me encantó. Tanto que ahora tengo el título de buceador y voy siempre que puedo.</p>
+      <h4>Persona 3</h4><p>Pues mira, yo el año pasado fui a la boda de mi prima en Argentina. Fue un viaje larguísimo, pero no podíamos faltar: era la primera boda en la familia en muchos años y estábamos todos invitados. Fue precioso reencontrarme con mis tíos y primos después de tanto tiempo.</p>
+      <h4>Persona 4</h4><p>Mi peor anécdota fue en Roma. Segundo día de viaje, en el autobús del centro, me distraje un momento con el móvil haciendo fotos y, cuando fui a pagar en una cafetería... la cartera había desaparecido. Documentos, tarjetas, dinero, todo. Me pasé la tarde en comisaría en vez de viendo el Coliseo.</p>
+      <h4>Persona 5</h4><p>El verano pasado volví al pueblo de mis abuelos, donde pasaba todos los veranos de pequeña. Hacía más de veinte años que no iba. Paseé por las mismas calles, me bañé en el mismo río... Fue muy emocionante: no había cambiado casi nada, hasta la panadería seguía siendo de la misma familia.</p>
+      <h4>Persona 6</h4><p>¿Vacaciones complicadas? Las del año pasado. Teníamos planeada una semana de senderismo en los Pirineos, con las rutas estudiadas y todo. Pues llegamos y empezó a llover... y no paró en cinco días. Al final dejamos la montaña y nos fuimos a San Sebastián: museos, pintxos y paseos con paraguas. Distinto, pero estupendo.</p>
+    </div>
+  </section>
+
+  <!-- TAREA 5 -->
+  <section class="tarea" id="t5-section">
+    <span class="tarea-tag">Tarea 5 · Preguntas 25-30</span>
+    <h2>Conversación — Isabel y Fernando organizan un viaje</h2>
+    <p class="desc">Indica si cada enunciado se refiere a Isabel (A), a Fernando (B) o a ninguno de los dos (C).</p>
+    <button class="play-btn" onclick="playSeq('t5', this)"><span class="icon">▶</span> Escuchar Tarea 5 completa</button>
+    <div class="seq-progress" id="prog-t5"><div class="bar" id="progbar-t5"></div></div>
+    <button class="transcr-btn" onclick="toggleTranscr('tr-t5', this)">📄 Ver transcripción (revelar después de practicar)</button>
+    <div class="transcr-panel" id="tr-t5">
+      <p><span class="who">ISABEL:</span> ¡Fernando! Ya tengo los resultados de la búsqueda. El vuelo del viernes a las seis de la tarde es el más barato. ¿Lo reservo?</p>
+      <p><span class="who">FERNANDO:</span> Perfecto, ese mismo. Oye, ¿y el hotel? He visto uno baratísimo, pero está a las afueras de Lisboa.</p>
+      <p><span class="who">ISABEL:</span> Uy, no, mira, yo prefiero pagar un poco más y estar en el centro. Son solo treinta euros más por persona y nos ahorramos transportes y tiempo.</p>
+      <p><span class="who">FERNANDO:</span> Bueno, visto así, tienes razón. Tú que controlas más de hoteles, ¿te encargas de la reserva?</p>
+      <p><span class="who">ISABEL:</span> Vale, esta noche lo reservo yo. Ah, y tenemos que comprar las entradas para el espectáculo de fado, que se agotan enseguida. Mi compañera de trabajo me lo advirtió: ella se quedó sin verlas.</p>
+      <p><span class="who">FERNANDO:</span> De eso me ocupo yo, que ya he visto una página donde venden las entradas oficiales. ¿Y qué más quieres visitar? Yo había pensado el barrio de Alfama y, por supuesto, probar los famosos pasteles de Belém.</p>
+      <p><span class="who">ISABEL:</span> ¡Sí, sí, los pasteles son obligatorios! Pero una cosa, Fernando: no quiero un viaje con horarios para todo. Me gustaría dejar alguna tarde libre, sin nada planeado, para pasear y perdernos por ahí.</p>
+      <p><span class="who">FERNANDO:</span> Totalmente de acuerdo. Lo mejor de viajar es improvisar de vez en cuando. Bueno, pues ya casi lo tenemos todo, ¿no?</p>
+      <p><span class="who">ISABEL:</span> Casi. Solo falta decidir cómo vamos al aeropuerto... ¡pero eso lo hablamos mañana con un café!</p>
+    </div>
+  </section>
+
+</div>
+
+<footer class="page-footer">
+  <a href="index.html">Spanish with Mercedes</a> &middot; Material de práctica DELE B1 &middot; Todos los derechos reservados
+</footer>
+
+<script>
+const BASE = 'audio/dele_b1/';
+let currentAudio = null;
+
+const SEQ_CLIPS = {
+  t1: ['t1_intro','t1_m1_narr','t1_m1','t1_m2_narr','t1_m2','t1_m3_narr','t1_m3','t1_m4_narr','t1_m4','t1_m5_narr','t1_m5','t1_m6_narr','t1_m6'],
+  t2: ['t2_intro','t2_monologo'],
+  t3: ['t3_intro','t3_n1','t3_n2','t3_n3','t3_n4','t3_n5','t3_n6'],
+  t4: ['t4_intro','t4_p1_narr','t4_p1','t4_p2_narr','t4_p2','t4_p3_narr','t4_p3','t4_p4_narr','t4_p4','t4_p5_narr','t4_p5','t4_p6_narr','t4_p6'],
+  t5: ['t5_intro','t5_l01','t5_l02','t5_l03','t5_l04','t5_l05','t5_l06','t5_l07','t5_l08','t5_l09'],
+};
+
+function stopAll() {
+  if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+  document.querySelectorAll('.play-btn').forEach(b => {
+    b.classList.remove('playing');
+    b._seqRunning = false;
+    const icon = b.querySelector('.icon');
+    if (icon) icon.textContent = '▶';
+  });
+  document.querySelectorAll('.seq-progress').forEach(p => p.style.display='none');
+}
+
+function playSeq(taskId, btn) {
+  if (btn._seqRunning) { stopAll(); return; }
+  stopAll();
+  const clips = SEQ_CLIPS[taskId];
+  if (!clips) return;
+  let idx = 0;
+  const prog = document.getElementById('prog-' + taskId);
+  const progBar = document.getElementById('progbar-' + taskId);
+  if (prog) prog.style.display = 'block';
+  btn.classList.add('playing');
+  btn._seqRunning = true;
+  const icon = btn.querySelector('.icon');
+  if (icon) icon.textContent = '⏹';
+
+  function next() {
+    if (!btn._seqRunning) return;
+    if (idx >= clips.length) {
+      btn.classList.remove('playing');
+      btn._seqRunning = false;
+      if (icon) icon.textContent = '▶';
+      if (prog) prog.style.display = 'none';
+      if (progBar) progBar.style.width = '0';
+      currentAudio = null;
+      return;
+    }
+    const a = new Audio(BASE + clips[idx] + '.mp3');
+    currentAudio = a;
+    if (progBar) progBar.style.width = Math.round((idx/clips.length)*100) + '%';
+    a.play().catch(()=>{});
+    a.onended = () => { idx++; next(); };
+    a.onerror = () => { idx++; next(); };
+  }
+  next();
+}
+
+function toggleTranscr(panelId, btn) {
+  const panel = document.getElementById(panelId);
+  if (!panel) return;
+  const open = panel.style.display === 'block';
+  panel.style.display = open ? 'none' : 'block';
+  btn.textContent = open
+    ? '📄 Ver transcripción (revelar después de practicar)'
+    : '📄 Ocultar transcripción ↑';
+}
+</script>
+</body>
+</html>

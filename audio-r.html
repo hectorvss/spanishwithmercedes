@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio de Audición — La R en Español · Spanish Lessons with Mercedes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Figtree', sans-serif;
+      background: #F5F5F7;
+      color: #121117;
+      min-height: 100vh;
+      padding: 0 0 60px;
+    }
+
+    /* ── HEADER ── */
+    .page-header {
+      background: #121117;
+      padding: 18px 32px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .page-header img { height: 48px; }
+    .page-header__title {
+      color: #fff;
+      font-family: 'Noto Sans', sans-serif;
+      font-weight: 700; font-size: 15px;
+      line-height: 1.3;
+    }
+    .page-header__sub { color: #D4920A; font-size: 12px; font-weight: 600; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #C8102E 0%, #8B0A20 100%);
+      padding: 48px 32px 40px;
+      text-align: center;
+      color: #fff;
+    }
+    .hero__icon {
+      width: 72px; height: 72px; background: rgba(255,255,255,0.15);
+      border-radius: 50%; display: inline-flex; align-items: center;
+      justify-content: center; margin-bottom: 20px;
+    }
+    .hero__title {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 32px; font-weight: 900; margin-bottom: 10px;
+    }
+    .hero__sub { font-size: 16px; opacity: 0.88; max-width: 480px; margin: 0 auto 8px; }
+    .hero__level {
+      display: inline-block; background: #D4920A; color: #121117;
+      font-weight: 700; font-size: 12px; letter-spacing: 0.5px;
+      padding: 4px 14px; border-radius: 20px; margin-top: 12px;
+    }
+
+    /* ── MAIN ── */
+    .main { max-width: 720px; margin: 0 auto; padding: 40px 24px 0; }
+
+    /* ── EXERCISE CARD ── */
+    .ex-card {
+      background: #fff;
+      border-radius: 16px;
+      border: 1.5px solid #DCDCE5;
+      margin-bottom: 28px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+    .ex-card__head {
+      display: flex; align-items: center; gap: 14px;
+      padding: 20px 24px 16px;
+      border-bottom: 1.5px solid #F0F0F4;
+    }
+    .ex-card__num {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: #C8102E; color: #fff;
+      font-family: 'Noto Sans', sans-serif;
+      font-weight: 900; font-size: 16px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .ex-card__label { font-weight: 700; font-size: 17px; }
+    .ex-card__desc { font-size: 13px; color: #6B6A7A; margin-top: 2px; }
+    .ex-card__body { padding: 20px 24px 24px; }
+
+    /* ── AUDIO PLAYER ── */
+    .player-wrap {
+      background: #F9F9FB;
+      border: 1.5px solid #DCDCE5;
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 18px;
+    }
+    .player-wrap audio {
+      width: 100%;
+      accent-color: #C8102E;
+    }
+    .player-tip {
+      display: flex; align-items: flex-start; gap: 8px;
+      background: #FFF8E6; border: 1px solid #D4920A;
+      border-radius: 8px; padding: 12px 14px;
+      font-size: 13px; color: #7A5200; line-height: 1.5;
+      margin-top: 14px;
+    }
+    .player-tip svg { flex-shrink: 0; margin-top: 1px; }
+
+    /* ── WORD GRID (A1) ── */
+    .word-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 10px; margin-top: 16px;
+    }
+    .word-chip {
+      background: #F0F0F4; border-radius: 8px;
+      padding: 10px 14px; text-align: center;
+      font-family: 'Noto Sans', sans-serif;
+      font-weight: 700; font-size: 15px; color: #121117;
+    }
+    .word-chip span { display: block; font-size: 11px; font-weight: 600; color: #9B9AAB; margin-top: 3px; }
+
+    /* ── PAIR GRID (A2) ── */
+    .pair-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 12px; margin-top: 16px;
+    }
+    .pair-chip {
+      background: #F0F0F4; border-radius: 10px;
+      padding: 12px; text-align: center;
+    }
+    .pair-chip__label { font-size: 11px; font-weight: 600; color: #9B9AAB; margin-bottom: 6px; }
+    .pair-chip__words { font-family: 'Noto Sans', sans-serif; font-weight: 700; font-size: 14px; }
+    .pair-chip__words em { color: #C8102E; font-style: normal; }
+    .pair-chip__words span { color: #9B9AAB; }
+
+    /* ── DICTATION LINES (A3) ── */
+    .dictation-list { margin-top: 16px; display: flex; flex-direction: column; gap: 14px; }
+    .dictation-line {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .dictation-line__num {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: #C8102E; color: #fff;
+      font-weight: 700; font-size: 13px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .dictation-line__bar {
+      flex: 1; height: 2px; background: #DCDCE5; border-radius: 2px;
+    }
+
+    /* ── ANSWERS (collapsible) ── */
+    .answers-toggle {
+      width: 100%; background: none; border: 1.5px solid #DCDCE5;
+      border-radius: 10px; padding: 13px 18px;
+      font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 14px;
+      color: #121117; cursor: pointer; text-align: left;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.15s;
+    }
+    .answers-toggle:hover { background: #F5F5F7; }
+    .answers-toggle svg { transition: transform 0.2s; }
+    .answers-toggle.open svg { transform: rotate(180deg); }
+    .answers-box {
+      display: none; margin-top: 12px;
+      background: #F9F9FB; border: 1.5px solid #DCDCE5;
+      border-radius: 10px; padding: 16px 18px;
+    }
+    .answers-box.visible { display: block; }
+    .answers-row { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+    .answer-item {
+      font-size: 14px; display: flex; align-items: center; gap: 6px;
+    }
+    .answer-item strong { font-family: 'Noto Sans', sans-serif; font-weight: 900; }
+    .tag-r { background: #E8F4FD; color: #1A73E8; border-radius: 4px; padding: 1px 7px; font-size: 12px; font-weight: 700; }
+    .tag-rr { background: #FDECEA; color: #C8102E; border-radius: 4px; padding: 1px 7px; font-size: 12px; font-weight: 700; }
+    .answer-sentence { font-size: 14px; line-height: 1.7; }
+    .answer-sentence b { color: #C8102E; }
+
+    /* ── BACK LINK ── */
+    .back-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: #6B6A7A; font-size: 14px; font-weight: 600;
+      text-decoration: none; margin-bottom: 32px;
+      transition: color 0.15s;
+    }
+    .back-link:hover { color: #C8102E; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="page-header">
+  <img src="logo.png" alt="Spanish Lessons with Mercedes">
+  <div>
+    <div class="page-header__title">Spanish Lessons with Mercedes</div>
+    <div class="page-header__sub">spanishmercedes.com</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero__icon">
+    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+  </div>
+  <div class="hero__title">Ejercicio de Audición</div>
+  <div class="hero__sub">La R en Español — R suave vs RR fuerte<br>Escucha la voz de Mercedes y completa los ejercicios</div>
+  <div class="hero__level">A1 · A2 · B1 · Pronunciación</div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <a class="back-link" href="free-pdf.html">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Volver a los PDF gratuitos
+  </a>
+
+  <!-- ── EJERCICIO A1 ── -->
+  <div class="ex-card">
+    <div class="ex-card__head">
+      <div class="ex-card__num">A1</div>
+      <div>
+        <div class="ex-card__label">Escucha e identifica</div>
+        <div class="ex-card__desc">Escucha cada palabra. Escribe R (suave) o RR (fuerte) en tu PDF.</div>
+      </div>
+    </div>
+    <div class="ex-card__body">
+      <div class="player-wrap">
+        <audio controls>
+          <source src="audio/audio_A1.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+      <div class="player-tip">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span><strong>Consejo:</strong> Escucha cada palabra dos veces. La primera vez solo escucha. La segunda, escribe en tu PDF.</span>
+      </div>
+      <div class="word-grid">
+        <div class="word-chip">pero<span>nº 1</span></div>
+        <div class="word-chip">caro<span>nº 2</span></div>
+        <div class="word-chip">ferrocarril<span>nº 3</span></div>
+        <div class="word-chip">torre<span>nº 4</span></div>
+        <div class="word-chip">perro<span>nº 5</span></div>
+        <div class="word-chip">carro<span>nº 6</span></div>
+        <div class="word-chip">marrón<span>nº 7</span></div>
+        <div class="word-chip">verano<span>nº 8</span></div>
+        <div class="word-chip">rojo<span>nº 9</span></div>
+        <div class="word-chip">arena<span>nº 10</span></div>
+        <div class="word-chip">primero<span>nº 11</span></div>
+        <div class="word-chip">alrededor<span>nº 12</span></div>
+      </div>
+      <div style="margin-top:20px;">
+        <button class="answers-toggle" onclick="toggle(this)">
+          Ver respuestas del A1
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="answers-box">
+          <div class="answers-row">
+            <div class="answer-item"><strong>pero</strong><span class="tag-r">R suave</span></div>
+            <div class="answer-item"><strong>caro</strong><span class="tag-r">R suave</span></div>
+            <div class="answer-item"><strong>ferrocarril</strong><span class="tag-rr">RR fuerte</span></div>
+            <div class="answer-item"><strong>torre</strong><span class="tag-rr">RR fuerte</span></div>
+            <div class="answer-item"><strong>perro</strong><span class="tag-rr">RR fuerte</span></div>
+            <div class="answer-item"><strong>carro</strong><span class="tag-rr">RR fuerte</span></div>
+            <div class="answer-item"><strong>marrón</strong><span class="tag-rr">RR fuerte</span></div>
+            <div class="answer-item"><strong>verano</strong><span class="tag-r">R suave</span></div>
+            <div class="answer-item"><strong>rojo</strong><span class="tag-rr">RR fuerte</span></div>
+            <div class="answer-item"><strong>arena</strong><span class="tag-r">R suave</span></div>
+            <div class="answer-item"><strong>primero</strong><span class="tag-r">R suave</span></div>
+            <div class="answer-item"><strong>alrededor</strong><span class="tag-rr">RR fuerte</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── EJERCICIO A2 ── -->
+  <div class="ex-card">
+    <div class="ex-card__head">
+      <div class="ex-card__num">A2</div>
+      <div>
+        <div class="ex-card__label">Escucha y elige</div>
+        <div class="ex-card__desc">Mercedes pronuncia una palabra de cada par. Rodea la que escuchas en tu PDF.</div>
+      </div>
+    </div>
+    <div class="ex-card__body">
+      <div class="player-wrap">
+        <audio controls>
+          <source src="audio/audio_A2.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+      <div class="pair-grid">
+        <div class="pair-chip">
+          <div class="pair-chip__label">PAR 1</div>
+          <div class="pair-chip__words">pero / perro</div>
+        </div>
+        <div class="pair-chip">
+          <div class="pair-chip__label">PAR 2</div>
+          <div class="pair-chip__words">caro / carro</div>
+        </div>
+        <div class="pair-chip">
+          <div class="pair-chip__label">PAR 3</div>
+          <div class="pair-chip__words">coro / corro</div>
+        </div>
+        <div class="pair-chip">
+          <div class="pair-chip__label">PAR 4</div>
+          <div class="pair-chip__words">para / parra</div>
+        </div>
+        <div class="pair-chip">
+          <div class="pair-chip__label">PAR 5</div>
+          <div class="pair-chip__words">pera / perra</div>
+        </div>
+        <div class="pair-chip">
+          <div class="pair-chip__label">PAR 6</div>
+          <div class="pair-chip__words">moro / morro</div>
+        </div>
+      </div>
+      <div style="margin-top:20px;">
+        <button class="answers-toggle" onclick="toggle(this)">
+          Ver respuestas del A2
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="answers-box">
+          <div class="answers-row">
+            <div class="answer-item">Par 1: <strong>perro</strong> <span class="tag-rr">RR fuerte</span></div>
+            <div class="answer-item">Par 2: <strong>carro</strong> <span class="tag-rr">RR fuerte</span></div>
+            <div class="answer-item">Par 3: <strong>corro</strong> <span class="tag-rr">RR fuerte</span></div>
+            <div class="answer-item">Par 4: <strong>para</strong> <span class="tag-r">R suave</span></div>
+            <div class="answer-item">Par 5: <strong>perra</strong> <span class="tag-rr">RR fuerte</span></div>
+            <div class="answer-item">Par 6: <strong>morro</strong> <span class="tag-rr">RR fuerte</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── EJERCICIO A3 ── -->
+  <div class="ex-card">
+    <div class="ex-card__head">
+      <div class="ex-card__num">A3</div>
+      <div>
+        <div class="ex-card__label">Dictado</div>
+        <div class="ex-card__desc">Escucha las 8 frases y escríbelas en tu PDF prestando atención a cada R.</div>
+      </div>
+    </div>
+    <div class="ex-card__body">
+      <div class="player-wrap">
+        <audio controls>
+          <source src="audio/audio_A3.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+      <div class="player-tip">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span><strong>Consejo:</strong> Cada frase se repite dos veces. Usa la pausa para escribir. Presta especial atención a las palabras con R.</span>
+      </div>
+      <div class="dictation-list">
+        <div class="dictation-line"><div class="dictation-line__num">1</div><div class="dictation-line__bar"></div></div>
+        <div class="dictation-line"><div class="dictation-line__num">2</div><div class="dictation-line__bar"></div></div>
+        <div class="dictation-line"><div class="dictation-line__num">3</div><div class="dictation-line__bar"></div></div>
+        <div class="dictation-line"><div class="dictation-line__num">4</div><div class="dictation-line__bar"></div></div>
+        <div class="dictation-line"><div class="dictation-line__num">5</div><div class="dictation-line__bar"></div></div>
+        <div class="dictation-line"><div class="dictation-line__num">6</div><div class="dictation-line__bar"></div></div>
+        <div class="dictation-line"><div class="dictation-line__num">7</div><div class="dictation-line__bar"></div></div>
+        <div class="dictation-line"><div class="dictation-line__num">8</div><div class="dictation-line__bar"></div></div>
+      </div>
+      <div style="margin-top:20px;">
+        <button class="answers-toggle" onclick="toggle(this)">
+          Ver respuestas del A3
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="answers-box">
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div class="answer-sentence">1. El <b>perro</b> co<b>rr</b>e por el pa<b>r</b>que.</div>
+            <div class="answer-sentence">2. Mi ca<b>rr</b>o está en la ca<b>rr</b>ete<b>r</b>a.</div>
+            <div class="answer-sentence">3. <b>R</b>obe<b>r</b>to vive ce<b>r</b>ca del <b>R</b>eti<b>r</b>o.</div>
+            <div class="answer-sentence">4. El a<b>rr</b>oz con ma<b>r</b>iscos es <b>r</b>iquísimo.</div>
+            <div class="answer-sentence">5. La to<b>rr</b>e del castillo es muy alta.</div>
+            <div class="answer-sentence">6. Pe<b>r</b>o el lo<b>r</b>o no quie<b>r</b>e come<b>r</b>.</div>
+            <div class="answer-sentence">7. El fe<b>rr</b>oca<b>rr</b>il llega a las t<b>r</b>es.</div>
+            <div class="answer-sentence">8. <b>R</b>osa <b>r</b>eco<b>rr</b>e la ca<b>rr</b>ete<b>r</b>a cada mañana.</div>
+          </div>
+          <p style="font-size:12px;color:#9B9AAB;margin-top:12px;">Las R marcadas en rojo son RR fuerte. Las demás son R suave.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER NOTE -->
+  <div style="text-align:center;color:#9B9AAB;font-size:13px;padding-top:8px;">
+    <p>© Spanish Lessons with Mercedes · <a href="free-pdf.html" style="color:#C8102E;">spanishmercedes.com</a></p>
+  </div>
+
+</div>
+
+<script>
+function toggle(btn) {
+  btn.classList.toggle('open');
+  btn.nextElementSibling.classList.toggle('visible');
+}
+// Auto-open exercise from URL hash
+window.addEventListener('DOMContentLoaded', () => {
+  const hash = window.location.hash;
+  if (hash === '#a1' || hash === '#a2' || hash === '#a3') {
+    // scroll to the relevant card
+    const cards = document.querySelectorAll('.ex-card');
+    const map = {'#a1': 0, '#a2': 1, '#a3': 2};
+    const idx = map[hash];
+    if (cards[idx]) setTimeout(() => cards[idx].scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
+  }
+});
+</script>
+</body>
+</html>
