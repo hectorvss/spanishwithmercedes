@@ -9,7 +9,7 @@ body {
   font-family: 'Figtree', sans-serif;
   background: #fff;
   color: #000;
-  min-width: 1440px;
+  min-width: 320px;
   overflow-x: hidden;
 }
 a { text-decoration: none; color: inherit; }
@@ -942,14 +942,262 @@ body.is-spanish .lang-en-block { display: none; }
   100% { transform: translateX(0); }
 }
 
+/* ─── MOBILE NAV ──────────────────────────── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column; justify-content: center; align-items: center;
+  gap: 5px; width: 40px; height: 40px; cursor: pointer;
+  background: #f9f9f9; border: 1px solid #e5e5e5; border-radius: 6px;
+  padding: 0;
+}
+.nav-hamburger span {
+  display: block; width: 22px; height: 2px; background: #121117;
+  border-radius: 2px; transition: all 0.3s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none; position: fixed; inset: 0; top: 100px; z-index: 99;
+  background: #fff; overflow-y: auto;
+  border-top: 1px solid #e0e0e0;
+  padding: 24px 20px 40px;
+  flex-direction: column; gap: 6px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  display: block; padding: 14px 16px; font-size: 17px; font-weight: 700;
+  color: #121117; border-radius: 8px; border: 1px solid #e5e5e5;
+  background: #f9f9f9; text-decoration: none;
+}
+.mobile-menu a:hover { background: #fff; border-color: #D4920A; color: #D4920A; }
+.mobile-menu .mobile-menu__section {
+  font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: #9B9AAB; padding: 16px 0 6px;
+}
+.mobile-menu .mobile-menu__sub {
+  font-size: 15px; font-weight: 600; padding-left: 16px;
+}
+
+/* ============================================================
+   RESPONSIVE — Tablet (≤1024px)
+   ============================================================ */
+@media (max-width: 1024px) {
+  body { min-width: 320px; }
+
+  .header { padding: 0 24px; }
+  .header__nav { display: none; }
+  .nav-hamburger { display: flex; }
+
+  .hero { padding: 48px 24px; }
+  .hero__inner { flex-direction: column; gap: 40px; }
+  .hero__heading { font-size: 52px; line-height: 1.1; }
+  .hero__images { justify-content: center; padding-right: 0; }
+  .hero__img-stack { width: 320px; height: 400px; }
+  .hero__img-stack img:nth-child(1) { width: 320px; height: 400px; }
+
+  .stats { padding: 24px 24px; }
+  .stats__inner { flex-wrap: wrap; }
+  .stat { flex: 1 1 45%; padding: 12px 8px; }
+  .stat__label { font-size: 14px; white-space: normal; text-align: center; }
+
+  .cards-section { padding: 48px 24px 24px; }
+  .section-heading { font-size: 44px; line-height: 1.15; }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+
+  .who-section { padding: 64px 24px; }
+  .who-section__inner { grid-template-columns: 1fr; gap: 40px; }
+  .who-section__photo { max-width: 380px; margin: 0 auto; }
+  .who-section__name { font-size: 72px; }
+
+  .progress-section { padding: 48px 24px; }
+  .progress-section__heading { font-size: 48px; line-height: 1.2; }
+  .slider-content { flex-direction: column; gap: 40px; padding: 0; }
+  .slider-image-area { display: none; }
+  .progress-slider { grid-template-columns: 40px 1fr 40px; }
+
+  .how-it-works { padding: 48px 24px; }
+  .how-it-works__heading { font-size: 44px; line-height: 1.2; }
+  .step-cards-row { gap: 16px; }
+  .step-card { width: 340px; min-width: 340px; }
+
+  .games-section { padding: 48px 24px; }
+  .games-section__heading { font-size: 44px; line-height: 1.2; }
+  .games-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .guarantee { padding: 48px 24px; }
+  .guarantee__heading { font-size: 48px; line-height: 1.2; }
+
+  .join-section__inner { flex-direction: column; min-height: auto; margin: 0 24px; }
+  .join-section__image { min-height: 280px; }
+  .join-section__heading { font-size: 52px; line-height: 1.2; }
+  .join-section__content { padding: 40px 32px; }
+
+  .business-section { padding: 0 24px 48px; }
+  .business-section__heading { font-size: 48px; line-height: 1.2; }
+  .business-section__inner { grid-template-columns: 1fr; }
+  .business-section__top { grid-column: 1; }
+  .business-section__visual { display: none; }
+
+  .seo-section { padding: 0 24px 48px; }
+  .seo-cols { grid-template-columns: repeat(2, 1fr); }
+
+  .footer { padding: 32px 24px 0; }
+  .footer__top { flex-wrap: wrap; gap: 24px; }
+  .footer__col { flex: 1 1 40%; padding-right: 16px; }
+
+  .inner-hero { padding: 48px 24px; }
+  .inner-hero__title { font-size: 56px; line-height: 1.15; }
+
+  .dele-intro { padding: 48px 24px; grid-template-columns: 1fr; gap: 32px; }
+  .dele-hero { padding: 48px 24px; }
+  .dele-hero__title { font-size: 56px; line-height: 1.15; }
+
+  .b2-prueba__head { flex-wrap: wrap; gap: 12px; }
+  .b2-prueba__tags { flex-wrap: wrap; }
+}
+
+/* ============================================================
+   RESPONSIVE — Mobile (≤768px)
+   ============================================================ */
 @media (max-width: 768px) {
-  .carousel-section { padding: 12px 16px; }
-  .carousel-item { padding: 0 16px; font-size: 12px; }
-  .carousel-item::after { width: 22px; height: 22px; }
+  .top-banner { padding: 6px 12px; }
+  .top-banner__inner { font-size: 12px; gap: 8px; }
+
+  .header { height: 72px; padding: 0 16px; }
+  .header__logo-img { height: 48px; }
+  .header__right { gap: 8px; }
+  .lang-btn { padding: 4px 8px; font-size: 12px; }
+  .header__admin-link { display: none; }
+  .header__subscribe { padding: 8px 14px; font-size: 13px; }
+
+  .mobile-menu { top: 72px; }
+
+  .hero { padding: 36px 16px 40px; }
+  .hero__heading { font-size: 38px; }
+  .hero__cta { width: 100%; font-size: 16px; }
+  .hero__images { display: none; }
+
+  .stats { padding: 20px 16px; }
+  .stat { flex: 1 1 48%; }
+  .stat__number { font-size: 22px; }
+  .stat__label { font-size: 12px; }
+
+  .cards-section { padding: 36px 16px 20px; }
+  .section-heading { font-size: 32px; line-height: 1.2; margin-bottom: 24px; }
+  .section-subheading { font-size: 16px; margin-top: -16px; margin-bottom: 24px; }
+  .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .card-link { height: 88px; padding: 0 16px; gap: 12px; }
+  .card-link__name { font-size: 18px; }
+
+  .who-section { padding: 48px 16px; }
+  .who-section__name { font-size: 56px; letter-spacing: -2px; }
+  .who-section__hello { font-size: 28px; }
+  .who-section__desc { font-size: 15px; line-height: 26px; }
+  .who-section__credentials { grid-template-columns: 1fr; }
+  .who-section__cta { flex-direction: column; }
+  .who-section__cta a { width: 100%; justify-content: center; }
+  .who-section__photo-badge { right: 0; bottom: -16px; }
+  .who-section__stats { flex-direction: column; gap: 16px; border-top: none; padding-top: 0; }
+  .who-stat { border-right: none; padding-right: 0; padding-left: 0 !important; border-bottom: 1px solid rgba(212,146,10,0.2); padding-bottom: 16px; }
+  .who-stat:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .progress-section { padding: 36px 16px; }
+  .progress-section__heading { font-size: 32px; line-height: 1.2; }
+  .progress-section__sub { font-size: 16px; }
+  .progress-slider { grid-template-columns: 32px 1fr 32px; gap: 8px; min-height: auto; }
+  .slider-content { min-height: auto; }
+  .slider-text__quote { font-size: 20px; line-height: 30px; }
+
+  .how-it-works { padding: 36px 16px; }
+  .how-it-works__heading { font-size: 32px; line-height: 1.2; margin-bottom: 28px; }
+  .step-card { width: 290px; min-width: 290px; height: auto; min-height: 400px; }
+
+  .games-section { padding: 36px 16px; }
+  .games-section__heading { font-size: 32px; line-height: 1.2; }
+  .games-section__sub { font-size: 14px; }
+  .games-grid { grid-template-columns: 1fr; }
+
+  .guarantee { padding: 36px 16px; }
+  .guarantee__heading { font-size: 32px; line-height: 1.2; }
+  .guarantee__sub { font-size: 16px; margin-top: 16px; }
+
+  .join-section { padding-bottom: 40px; }
+  .join-section__inner { flex-direction: column; min-height: auto; margin: 0 16px; border-radius: 12px; }
+  .join-section__image { min-height: 220px; }
+  .join-section__heading { font-size: 36px; line-height: 1.2; }
+  .join-section__content { padding: 28px 20px; gap: 16px; }
+  .join-section__list li { font-size: 16px; }
+  .btn-primary-dark, .btn-outline-dark { padding: 14px 20px; font-size: 14px; }
+
+  .business-section { padding: 0 16px 40px; }
+  .business-section__heading { font-size: 32px; line-height: 1.2; }
+  .business-section__btns { flex-direction: column; }
+  .btn-light-blue, .btn-outline-border { font-size: 15px; padding: 14px 20px; }
+
+  .seo-section { padding: 0 16px 40px; }
+  .seo-cols { grid-template-columns: 1fr 1fr; }
+
+  .footer { padding: 28px 16px 0; }
+  .footer__top { flex-direction: column; gap: 20px; }
+  .footer__col { flex: none; padding-right: 0; }
+  .footer__logo-row { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .footer__social-apps { flex-wrap: wrap; }
+  .footer__links-row { gap: 16px; }
+
+  .inner-hero { padding: 36px 16px; }
+  .inner-hero__title { font-size: 40px; line-height: 1.15; }
+  .inner-hero__desc { font-size: 16px; }
+
+  /* DELE page mobile */
+  .dele-hero { padding: 36px 16px; }
+  .dele-hero__title { font-size: 48px; line-height: 1.1; }
+  .dele-hero__sub { font-size: 16px; }
+  .dele-stats { padding: 20px 16px; flex-wrap: wrap; }
+  .dele-stats__stat { flex: 1 1 40%; border-right: none; padding: 12px 8px; border-bottom: 1px solid #e0e0e0; }
+  .dele-stats__stat:nth-child(odd) { border-right: 1px solid #e0e0e0; }
+  .dele-stats__stat-num { font-size: 24px; }
+  .dele-intro { padding: 28px 16px; grid-template-columns: 1fr; gap: 24px; }
+
+  /* DELE level detail cards */
+  .b2-prueba { border-radius: 12px; }
+  .b2-prueba__head { padding: 16px; flex-direction: column; gap: 12px; align-items: flex-start; }
+  .b2-prueba__body { padding: 16px; }
+  .b2-tareas-grid { grid-template-columns: 1fr !important; }
+  .b2-tip { font-size: 13px; }
+
+  /* PDF/Videos page grids */
+  .dele-levels-grid { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+
+  /* Carousel */
+  .carousel-section { padding: 10px 12px; }
+  .carousel-item { padding: 0 14px; font-size: 12px; }
+  .carousel-item::after { width: 20px; height: 20px; }
   @keyframes scroll-left {
     0% { transform: translateX(0); }
-    50% { transform: translateX(-1400px); }
+    50% { transform: translateX(-1200px); }
     50.1% { transform: translateX(0); }
     100% { transform: translateX(0); }
   }
+}
+
+/* ============================================================
+   RESPONSIVE — Small Mobile (≤480px)
+   ============================================================ */
+@media (max-width: 480px) {
+  .hero__heading { font-size: 30px; }
+  .section-heading { font-size: 28px; }
+  .stat { flex: 1 1 100%; }
+  .who-section__name { font-size: 44px; }
+  .seo-cols { grid-template-columns: 1fr; }
+  .dele-levels-grid { grid-template-columns: 1fr !important; }
+  .inner-hero__title { font-size: 32px; }
+  .dele-hero__title { font-size: 36px; }
+  .guarantee__heading { font-size: 28px; }
+  .join-section__heading { font-size: 30px; }
+  .business-section__heading { font-size: 28px; }
+  .step-card { width: 260px; min-width: 260px; }
+  .footer__social-apps { flex-direction: column; gap: 12px; }
 }
