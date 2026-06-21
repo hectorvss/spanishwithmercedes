@@ -20,9 +20,9 @@ from reportlab.lib.enums import TA_JUSTIFY, TA_CENTER, TA_LEFT, TA_RIGHT
 from reportlab.platypus.flowables import Flowable
 
 W, H = A4
-GOLD   = colors.HexColor('#D4920A')
+C1_BLUE = colors.HexColor('#2885FD')
 NAVY   = colors.HexColor('#1C2A4A')
-CREAM  = colors.HexColor('#FDF5E0')
+CREAM  = colors.HexColor('#EEF4FF')
 LGRAY  = colors.HexColor('#F4F4F4')
 MGRAY  = colors.HexColor('#CCCCCC')
 WHITE  = colors.white
@@ -34,7 +34,7 @@ def make_styles():
     return {
         'title':   ParagraphStyle('title',   fontName='Helvetica-Bold',   fontSize=26, leading=30, textColor=NAVY,  alignment=TA_CENTER, spaceAfter=4),
         'sub':     ParagraphStyle('sub',     fontName='Helvetica',        fontSize=11, leading=14, textColor=colors.HexColor('#555555'), alignment=TA_CENTER, spaceAfter=2),
-        'label':   ParagraphStyle('label',   fontName='Helvetica-Bold',   fontSize=9,  leading=11, textColor=GOLD,  spaceBefore=0),
+        'label':   ParagraphStyle('label',   fontName='Helvetica-Bold',   fontSize=9,  leading=11, textColor=C1_BLUE,  spaceBefore=0),
         'banner':  ParagraphStyle('banner',  fontName='Helvetica-Bold',   fontSize=13, leading=15, textColor=WHITE, spaceBefore=0),
         'instr':   ParagraphStyle('instr',   fontName='Helvetica',        fontSize=10, leading=15, textColor=colors.HexColor('#333333'), spaceAfter=5),
         'body':    ParagraphStyle('body',    fontName='Helvetica',        fontSize=10.5, leading=16, textColor=BLACK, alignment=TA_JUSTIFY, spaceAfter=5),
@@ -92,8 +92,8 @@ def tarea_header(num, title, details=''):
         ('BOTTOMPADDING', (0,0), (0,0), 2),
         ('TOPPADDING',    (0,1), (0,1), 2),
         ('BOTTOMPADDING', (0,1), (0,1), 8),
-        ('LINEAFTER',     (0,0), (0,-1), 4, GOLD),
-        ('LINEBEFORE',    (0,0), (0,-1), 4, GOLD),
+        ('LINEAFTER',     (0,0), (0,-1), 4, C1_BLUE),
+        ('LINEBEFORE',    (0,0), (0,-1), 4, C1_BLUE),
     ]))
     return t
 
@@ -112,7 +112,8 @@ def instr_box(text):
 
 def question_block(num, qtext, options):
     """Render a numbered question with a/b/c options."""
-    rows = [Paragraph(f'<b>{num}.</b>  {qtext}', S['q'])]
+    prefix = f'<b>{num}.</b>  ' if num else ''
+    rows = [Paragraph(f'{prefix}{qtext}', S['q'])]
     for opt in options:
         rows.append(Paragraph(opt, S['opt']))
     return KeepTogether(rows + [sp(6)])
@@ -149,7 +150,7 @@ def tarea4_texts(texts):
     """texts = list of (label, title, body) tuples."""
     elems = []
     for label, title, body in texts:
-        data = [[Paragraph(label, ParagraphStyle('tl', fontName='Helvetica-Bold', fontSize=10, textColor=GOLD)),
+        data = [[Paragraph(label, ParagraphStyle('tl', fontName='Helvetica-Bold', fontSize=10, textColor=C1_BLUE)),
                  Paragraph(f'<b>{title}</b>  {body}', S['body'])]]
         t = Table(data, colWidths=[30, 460])
         t.setStyle(TableStyle([
@@ -184,17 +185,17 @@ def gap_options_table(gap_num, opts):
 def header_footer(canvas, doc):
     canvas.saveState()
     # Header
-    canvas.setStrokeColor(GOLD)
+    canvas.setStrokeColor(C1_BLUE)
     canvas.setLineWidth(1.5)
     canvas.line(2*cm, H - 1.8*cm, W - 2*cm, H - 1.8*cm)
     canvas.setFont('Helvetica-Bold', 8)
     canvas.setFillColor(NAVY)
     canvas.drawString(2*cm, H - 1.5*cm, 'DELE C1  ·  Examen de Práctica')
     canvas.setFont('Helvetica', 8)
-    canvas.setFillColor(GOLD)
+    canvas.setFillColor(C1_BLUE)
     canvas.drawRightString(W - 2*cm, H - 1.5*cm, 'spanishmercedes.com')
     # Footer
-    canvas.setStrokeColor(GOLD)
+    canvas.setStrokeColor(C1_BLUE)
     canvas.line(2*cm, 1.6*cm, W - 2*cm, 1.6*cm)
     canvas.setFont('Helvetica', 8)
     canvas.setFillColor(colors.HexColor('#666666'))
@@ -208,35 +209,41 @@ def header_footer(canvas, doc):
 story = []
 
 # ─── PORTADA ────────────────────────────────────────────────────────────────
-story.append(sp(60))
+story.append(sp(50))
+story.append(Paragraph('Diplomas de Español como Lengua Extranjera', ParagraphStyle('dlg', fontName='Helvetica', fontSize=13, leading=18, textColor=NAVY, alignment=TA_CENTER)))
+story.append(sp(4))
+story.append(Paragraph('Instituto Cervantes', ParagraphStyle('dlg2', fontName='Helvetica', fontSize=11, leading=16, textColor=colors.HexColor('#666666'), alignment=TA_CENTER)))
+story.append(sp(24))
+story.append(HRFlowable(width='100%', thickness=2, color=C1_BLUE))
+story.append(sp(24))
 
-# Logo DELE en oro
-data = [[Paragraph('<b>DELE</b>', ParagraphStyle('logo', fontName='Helvetica-Bold', fontSize=60, textColor=GOLD, alignment=TA_CENTER))]]
+# Logo DELE
+data = [[Paragraph('<b>DELE</b>', ParagraphStyle('logo', fontName='Helvetica-Bold', fontSize=56, leading=64, textColor=C1_BLUE, alignment=TA_CENTER))]]
 t = Table(data, colWidths=[490])
-t.setStyle(TableStyle([('BOTTOMPADDING', (0,0), (-1,-1), 0)]))
+t.setStyle(TableStyle([
+    ('TOPPADDING',    (0,0), (-1,-1), 0),
+    ('BOTTOMPADDING', (0,0), (-1,-1), 0),
+]))
 story.append(t)
+story.append(sp(24))
+story.append(HRFlowable(width='100%', thickness=2, color=C1_BLUE))
+story.append(sp(28))
 
-story.append(Paragraph('Diplomas de Español como Lengua Extranjera', ParagraphStyle('dlg', fontName='Helvetica', fontSize=13, textColor=NAVY, alignment=TA_CENTER)))
-story.append(Paragraph('Instituto Cervantes', ParagraphStyle('dlg2', fontName='Helvetica', fontSize=11, textColor=colors.HexColor('#666666'), alignment=TA_CENTER)))
-story.append(sp(30))
-story.append(HRFlowable(width='100%', thickness=2, color=GOLD))
-story.append(sp(30))
-
-story.append(Paragraph('Examen de Práctica', ParagraphStyle('ep', fontName='Helvetica-Bold', fontSize=28, textColor=BLACK, alignment=TA_CENTER)))
-story.append(sp(10))
+story.append(Paragraph('Examen de Práctica', ParagraphStyle('ep', fontName='Helvetica-Bold', fontSize=28, leading=34, textColor=BLACK, alignment=TA_CENTER)))
+story.append(sp(16))
 
 # Nivel badge
-data = [[Paragraph('<b>NIVEL C1</b>', ParagraphStyle('nb', fontName='Helvetica-Bold', fontSize=22, textColor=WHITE, alignment=TA_CENTER))]]
+data = [[Paragraph('<b>NIVEL C1</b>', ParagraphStyle('nb', fontName='Helvetica-Bold', fontSize=22, leading=26, textColor=WHITE, alignment=TA_CENTER))]]
 t = Table(data, colWidths=[260])
 t.setStyle(TableStyle([
-    ('BACKGROUND', (0,0), (-1,-1), GOLD),
+    ('BACKGROUND', (0,0), (-1,-1), C1_BLUE),
     ('TOPPADDING', (0,0), (-1,-1), 12),
     ('BOTTOMPADDING', (0,0), (-1,-1), 12),
     ('ROUNDEDCORNERS', [8]),
 ]))
 story.append(Table([[t]], colWidths=[490]))
-story.append(sp(8))
-story.append(Paragraph('Usuario competente / dominio operativo eficaz - MCER Nivel C1', ParagraphStyle('mcer', fontName='Helvetica', fontSize=10, textColor=colors.HexColor('#555555'), alignment=TA_CENTER)))
+story.append(sp(10))
+story.append(Paragraph('Usuario competente / dominio operativo eficaz — MCER Nivel C1', ParagraphStyle('mcer', fontName='Helvetica', fontSize=10, leading=14, textColor=colors.HexColor('#555555'), alignment=TA_CENTER)))
 story.append(sp(30))
 
 # Tabla de pruebas
@@ -274,7 +281,7 @@ story.append(Paragraph(
     'Las soluciones se incluyen al final del examen.',
     S['italic']))
 story.append(sp(10))
-story.append(Paragraph('spanishmercedes.com', ParagraphStyle('web', fontName='Helvetica-BoldOblique', fontSize=10, textColor=GOLD, alignment=TA_CENTER)))
+story.append(Paragraph('spanishmercedes.com', ParagraphStyle('web', fontName='Helvetica-BoldOblique', fontSize=10, textColor=C1_BLUE, alignment=TA_CENTER)))
 story.append(PageBreak())
 
 # ============================================================================
@@ -561,7 +568,7 @@ t4_texts_data = [
 
 for label, title, body in t4_texts_data:
     data = [[
-        Paragraph(f'<b>{label}</b>', ParagraphStyle('tl4', fontName='Helvetica-Bold', fontSize=11, textColor=GOLD, alignment=TA_CENTER)),
+        Paragraph(f'<b>{label}</b>', ParagraphStyle('tl4', fontName='Helvetica-Bold', fontSize=11, textColor=C1_BLUE, alignment=TA_CENTER)),
         Paragraph(f'<b>{title}</b> {body}', S['body'])
     ]]
     t = Table(data, colWidths=[22, 468])
@@ -925,7 +932,7 @@ data = [[Paragraph(
 t = Table(data, colWidths=[490])
 t.setStyle(TableStyle([
     ('BACKGROUND',    (0,0), (-1,-1), LGRAY),
-    ('BOX',           (0,0), (-1,-1), 1, GOLD),
+    ('BOX',           (0,0), (-1,-1), 1, C1_BLUE),
     ('TOPPADDING',    (0,0), (-1,-1), 10),
     ('BOTTOMPADDING', (0,0), (-1,-1), 10),
     ('LEFTPADDING',   (0,0), (-1,-1), 12),
@@ -1056,7 +1063,7 @@ data = [[Paragraph(
 t = Table(data, colWidths=[490])
 t.setStyle(TableStyle([
     ('BACKGROUND',    (0,0), (-1,-1), LGRAY),
-    ('BOX',           (0,0), (-1,-1), 1, GOLD),
+    ('BOX',           (0,0), (-1,-1), 1, C1_BLUE),
     ('TOPPADDING',    (0,0), (-1,-1), 10),
     ('BOTTOMPADDING', (0,0), (-1,-1), 10),
     ('LEFTPADDING',   (0,0), (-1,-1), 12),
@@ -1092,7 +1099,7 @@ story.append(PageBreak())
 # ============================================================================
 
 story.append(Paragraph('<b>SOLUCIONES</b>', ParagraphStyle('sol', fontName='Helvetica-Bold', fontSize=22, textColor=NAVY, alignment=TA_CENTER, spaceAfter=10)))
-story.append(HRFlowable(width='100%', thickness=2, color=GOLD))
+story.append(HRFlowable(width='100%', thickness=2, color=C1_BLUE))
 story.append(sp(12))
 
 story.append(Paragraph('<b>PRUEBA 1 — Comprensión de lectura y uso de la lengua</b>', S['htask']))
