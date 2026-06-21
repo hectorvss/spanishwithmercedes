@@ -211,8 +211,6 @@ story = []
 # ─── PORTADA ────────────────────────────────────────────────────────────────
 story.append(sp(50))
 story.append(Paragraph('Diplomas de Español como Lengua Extranjera', ParagraphStyle('dlg', fontName='Helvetica', fontSize=13, leading=18, textColor=NAVY, alignment=TA_CENTER)))
-story.append(sp(4))
-story.append(Paragraph('Instituto Cervantes', ParagraphStyle('dlg2', fontName='Helvetica', fontSize=11, leading=16, textColor=colors.HexColor('#666666'), alignment=TA_CENTER)))
 story.append(sp(24))
 story.append(HRFlowable(width='100%', thickness=2, color=C1_BLUE))
 story.append(sp(24))
