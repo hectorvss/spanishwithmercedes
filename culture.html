@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,800;0,900;1,800;1,900&family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=11">
+  <link rel="stylesheet" href="styles.css?v=12">
   <style>
     .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1280px; margin-bottom: 64px; }
     .blog-grid--feature { grid-template-columns: 2fr 1fr; margin-bottom: 48px; }
@@ -247,6 +247,29 @@
       color: #121117; line-height: 1.4; margin-bottom: 6px;
     }
     .video-card__desc { font-size: 12px; color: #6B6A7A; line-height: 1.5; }
+    .video-card__status {
+      position: absolute; top: 12px; left: 12px; z-index: 2;
+      background: rgba(18,17,23,0.88); color: #fff;
+      border-radius: 999px; padding: 6px 10px;
+      font-size: 10px; font-weight: 800; letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+    .video-card__actions {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-top: 14px;
+    }
+    .video-card__download {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 38px; padding: 10px 14px;
+      border-radius: 8px; background: #D4920A; color: #121117;
+      font-size: 12px; font-weight: 800; line-height: 1.2;
+      text-decoration: none; border: 1px solid #D4920A;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .video-card__download:hover {
+      background: #c58408; border-color: #c58408;
+      transform: translateY(-1px);
+    }
   </style>
 
   <div class="culture-levels-table">
@@ -297,6 +320,23 @@
   <div class="culture-detail" id="literatura-detail">
     <div class="culture-detail__heading">📚 <span class="lang-en">Literature</span><span class="lang-es">Literatura</span></div>
     <div class="video-grid">
+      <div class="video-card">
+        <div class="video-card__thumb">
+          <img src="LIBROS/VÍDEOS/PATRIA/PORTADA_PATRIA.png" alt="Patria — Fernando Aramburu">
+          <div class="video-card__status"><span class="lang-en">Video soon</span><span class="lang-es">Vídeo próximamente</span></div>
+          <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+        </div>
+        <div class="video-card__body">
+          <div class="video-card__level">B2 / C1</div>
+          <div class="video-card__title"><span class="lang-en"><em>Patria</em>, by Fernando Aramburu — Reading Guide</span><span class="lang-es"><em>Patria</em>, de Fernando Aramburu — Guía de lectura</span></div>
+          <div class="video-card__desc"><span class="lang-en">A reserved space for the upcoming video lesson on the novel.</span><span class="lang-es">Hueco reservado para el próximo vídeo sobre la novela.</span></div>
+          <div class="video-card__actions">
+            <a class="video-card__download" href="LIBROS/GUÍAS DE LECTURA/PATRIA_ARAMBURU/PATRIA_GUÍA_DE_LECTURA.docx" download>
+              <span class="lang-en">Download the reading guide</span><span class="lang-es">Descarga la guía de lectura</span>
+            </a>
+          </div>
+        </div>
+      </div>
       <div class="video-card">
         <div class="video-card__thumb">
           <img src="https://www.figma.com/api/mcp/asset/5e2c88c2-23c2-4410-b727-0ff7801fe209" alt="">
