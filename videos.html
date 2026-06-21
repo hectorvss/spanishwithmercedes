@@ -30,6 +30,23 @@
       border-radius: 4px; font-size: 14px; font-weight: 700;
       color: #121117; letter-spacing: 0.5px; flex-shrink: 0;
     }
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      max-width: 1280px;
+    }
+    @media (max-width: 768px) {
+      .videos-grid { grid-template-columns: 1fr; gap: 16px; }
+      .featured-grid { grid-template-columns: 1fr; }
+      .featured-grid > div { display: flex; flex-direction: column; gap: 16px; }
+      .level-section__title { font-size: 22px; line-height: 30px; }
+      .level-section { margin-bottom: 40px; }
+    }
+    @media (max-width: 480px) {
+      .videos-grid { gap: 12px; }
+      .video-card__title { font-size: 15px !important; line-height: 22px !important; }
+    }
   </style>
 </head>
 <body>
@@ -181,8 +198,8 @@
 
   <!-- FEATURED VIDEO -->
   <div id="featured" class="level-section level-anchor">
-    <div class="level-section__title" data-i18n="videos.featured.heading">🎯 Featured — Latest upload</div>
-    <div style="display:grid;grid-template-columns:2fr 1fr;gap:24px;max-width:1280px;">
+    <div class="level-section__title" data-i18n="videos.featured.heading">Featured — Latest upload</div>
+    <div class="featured-grid">
       <a class="video-card" href="https://youtube.com/@SpanishLessonsWithMercedes" target="_blank" style="display:block;">
         <div class="video-card__thumb">
           <img src="https://www.figma.com/api/mcp/asset/6d8a9a65-261c-4e13-a967-4528839f2b66" alt="Featured video">
