@@ -107,6 +107,29 @@
       transition: background 0.2s, color 0.2s;
     }
     .pdf-featured__play-btn:hover { background: #121117; color: #fff; }
+
+    @media (max-width: 768px) {
+      .pdf-grid { grid-template-columns: 1fr; gap: 16px; }
+      .pdf-category__title { font-size: 22px; line-height: 30px; }
+      .pdf-category { margin-bottom: 40px; }
+
+      .pdf-featured { grid-template-columns: 1fr; }
+      .pdf-featured__left {
+        border-right: none;
+        border-bottom: 1.5px solid #DCDCE5;
+        padding: 28px 20px;
+        min-height: unset;
+      }
+      .pdf-featured__right { padding: 24px 20px; }
+      .pdf-featured__title { font-size: 24px; }
+      .pdf-featured__contents { grid-template-columns: 1fr; gap: 8px; }
+      .pdf-featured__cta { width: 100%; justify-content: center; }
+      .pdf-featured__play-btn { width: 100%; justify-content: center; }
+    }
+
+    @media (max-width: 480px) {
+      .pdf-featured__badge { font-size: 10px; }
+    }
   </style>
 </head>
 <body>
