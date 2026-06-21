@@ -1084,8 +1084,9 @@ body.is-spanish .lang-en-block { display: none; }
    RESPONSIVE — Mobile (≤768px)
    ============================================================ */
 @media (max-width: 768px) {
-  .top-banner { padding: 6px 12px; }
-  .top-banner__inner { font-size: 12px; gap: 8px; }
+  .top-banner { padding: 8px 12px; height: auto; min-height: 44px; align-items: flex-start; }
+  .top-banner__inner { font-size: 12px; gap: 8px; flex-wrap: wrap; align-items: flex-start; }
+  .top-banner__close { align-self: flex-start; margin-top: 2px; }
 
   .header { height: 72px; padding: 0 16px; }
   .header__logo-img { height: 48px; }

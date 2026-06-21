@@ -306,6 +306,8 @@ function initMobileMenu() {
     const link = document.createElement('a');
     link.href = trigger.href || '#';
     link.innerHTML = trigger.innerHTML;
+    const i18nKey = trigger.getAttribute('data-i18n');
+    if (i18nKey) link.setAttribute('data-i18n', i18nKey);
     mobileMenu.appendChild(link);
 
     const dropdown = item.querySelector('.nav-dropdown');
