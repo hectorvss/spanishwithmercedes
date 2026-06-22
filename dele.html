@@ -132,6 +132,11 @@
       .dele-level-col__badge { font-size: 22px; }
       .dele-level-col__desc { display: none; }
       .dele-level-col div[style*="font-size:12px"] { display: none; }
+      .dele-intro { grid-template-columns: 1fr !important; gap: 32px; padding: 32px 20px; }
+      .dele-guide-header { grid-template-columns: 1fr !important; padding: 28px 20px !important; gap: 24px !important; }
+      .dele-stats-grid { min-width: unset !important; width: 100%; }
+      .b2-tareas-grid { grid-template-columns: 1fr !important; }
+      .tips-list { grid-template-columns: 1fr; gap: 14px; }
     }
     @media (max-width: 480px) {
       .dele-levels-table { grid-template-columns: repeat(2, 1fr); }
@@ -507,14 +512,14 @@
   <div id="b2-detail" style="display:none; margin-bottom:64px;">
 
     <!-- HERO B2 -->
-    <div style="background:#fff; border:1px solid #e5e5e5; border-radius:16px; padding:40px 48px; display:grid; grid-template-columns:1fr auto; gap:32px; align-items:start; margin-bottom:36px;">
+    <div class="dele-guide-header" style="background:#fff; border:1px solid #e5e5e5; border-radius:16px; padding:40px 48px; display:grid; grid-template-columns:1fr auto; gap:32px; align-items:start; margin-bottom:36px;">
       <div>
         <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#D4920A;margin-bottom:12px;"><span class="lang-en">DETAILED GUIDE</span><span class="lang-es">GUÍA DETALLADA</span></div>
         <h2 style="font-family:'Noto Sans',sans-serif;font-size:36px;font-weight:800;color:#000;margin-bottom:16px;"><span class="lang-en">The DELE B2 exam</span><span class="lang-es">El examen DELE B2</span></h2>
         <p style="font-size:15px;color:#444;line-height:1.7;max-width:580px;"><span class="lang-en">The B2 certifies that you can understand complex oral and written texts, interact fluently with any native speaker and produce clear, detailed texts on a variety of topics. It is the minimum level required to access university studies in Spain and for many skilled jobs.</span><span class="lang-es">El B2 acredita que puedes comprender textos complejos orales y escritos, interactuar con fluidez con cualquier hablante nativo y producir textos claros y detallados sobre temas diversos. Es el nivel mínimo exigido para acceder a estudios universitarios en España y para muchos empleos cualificados.</span></p>
         <p style="font-size:14px;color:#666;line-height:1.6;margin-top:12px;max-width:580px;"><span class="lang-en">To pass you must clear <strong style="color:#D4920A;">both groups separately</strong>: the comprehension group (sections 1 and 2) and the expression group (sections 3 and 4). A high mark in one group does not compensate for a fail in the other.</span><span class="lang-es">Para aprobar debes superar <strong style="color:#D4920A;">los dos grupos por separado</strong>: el grupo de comprensión (pruebas 1 y 2) y el grupo de expresión (pruebas 3 y 4). Una nota alta en un grupo no compensa un suspenso en el otro.</span></p>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:220px;">
+      <div class="dele-stats-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:220px;">
         <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
           <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">4</div>
           <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;"><span class="lang-en">SECTIONS</span><span class="lang-es">PRUEBAS</span></div>
@@ -679,14 +684,14 @@
   <div id="a1-detail" style="display:none; margin-bottom:64px;">
 
     <!-- HERO A1 -->
-    <div style="background:#fff; border:1px solid #e5e5e5; border-radius:16px; padding:40px 48px; display:grid; grid-template-columns:1fr auto; gap:32px; align-items:start; margin-bottom:36px;">
+    <div class="dele-guide-header" style="background:#fff; border:1px solid #e5e5e5; border-radius:16px; padding:40px 48px; display:grid; grid-template-columns:1fr auto; gap:32px; align-items:start; margin-bottom:36px;">
       <div>
         <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#D4920A;margin-bottom:12px;"><span class="lang-en">DETAILED GUIDE</span><span class="lang-es">GUÍA DETALLADA</span></div>
         <h2 style="font-family:'Noto Sans',sans-serif;font-size:36px;font-weight:800;color:#000;margin-bottom:16px;"><span class="lang-en">The DELE A1 exam</span><span class="lang-es">El examen DELE A1</span></h2>
         <p style="font-size:15px;color:#444;line-height:1.7;max-width:580px;"><span class="lang-en">The A1 certifies sufficient linguistic competence to understand and use very common everyday expressions. You can ask for and give basic personal information and interact in a basic way provided the other person speaks slowly and clearly.</span><span class="lang-es">El A1 acredita la competencia lingüística suficiente para comprender y utilizar expresiones cotidianas de uso muy frecuente. Puedes pedir y dar información personal básica, interactuar de forma elemental siempre que el interlocutor hable despacio y con claridad.</span></p>
         <p style="font-size:14px;color:#666;line-height:1.6;margin-top:12px;max-width:580px;"><span class="lang-en">To pass you must clear <strong style="color:#D4920A;">both groups separately</strong>: the comprehension group (sections 1 and 2) and the expression group (sections 3 and 4). A high mark in one group does not compensate for a fail in the other.</span><span class="lang-es">Para aprobar debes superar <strong style="color:#D4920A;">los dos grupos por separado</strong>: el grupo de comprensión (pruebas 1 y 2) y el grupo de expresión (pruebas 3 y 4). Una nota alta en un grupo no compensa un suspenso en el otro.</span></p>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:220px;">
+      <div class="dele-stats-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:220px;">
         <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
           <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">4</div>
           <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;"><span class="lang-en">SECTIONS</span><span class="lang-es">PRUEBAS</span></div>
@@ -837,14 +842,14 @@
   <div id="a2-detail" style="display:none; margin-bottom:64px;">
 
     <!-- HERO A2 -->
-    <div style="background:#fff; border:1px solid #e5e5e5; border-radius:16px; padding:40px 48px; display:grid; grid-template-columns:1fr auto; gap:32px; align-items:start; margin-bottom:36px;">
+    <div class="dele-guide-header" style="background:#fff; border:1px solid #e5e5e5; border-radius:16px; padding:40px 48px; display:grid; grid-template-columns:1fr auto; gap:32px; align-items:start; margin-bottom:36px;">
       <div>
         <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#D4920A;margin-bottom:12px;"><span class="lang-en">DETAILED GUIDE</span><span class="lang-es">GUÍA DETALLADA</span></div>
         <h2 style="font-family:'Noto Sans',sans-serif;font-size:36px;font-weight:800;color:#000;margin-bottom:16px;"><span class="lang-en">The DELE A2 exam</span><span class="lang-es">El examen DELE A2</span></h2>
         <p style="font-size:15px;color:#444;line-height:1.7;max-width:580px;"><span class="lang-en">The A2 certifies that you can understand and use frequently used everyday expressions related to areas of experience particularly relevant to you. You can satisfy basic communicative needs and carry out simple exchanges in familiar or habitual situations.</span><span class="lang-es">El A2 acredita que puedes comprender y utilizar expresiones cotidianas de uso frecuente relacionadas con áreas de experiencia que te sean especialmente relevantes. Puedes satisfacer necesidades comunicativas básicas y realizar intercambios sencillos en situaciones conocidas o habituales.</span></p>
         <p style="font-size:14px;color:#666;line-height:1.6;margin-top:12px;max-width:580px;"><span class="lang-en">To pass you must clear <strong style="color:#D4920A;">both groups separately</strong>: the comprehension group (sections 1 and 2) and the expression group (sections 3 and 4). A high mark in one group does not compensate for a fail in the other.</span><span class="lang-es">Para aprobar debes superar <strong style="color:#D4920A;">los dos grupos por separado</strong>: el grupo de comprensión (pruebas 1 y 2) y el grupo de expresión (pruebas 3 y 4). Una nota alta en un grupo no compensa un suspenso en el otro.</span></p>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:220px;">
+      <div class="dele-stats-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:220px;">
         <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
           <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">4</div>
           <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;"><span class="lang-en">SECTIONS</span><span class="lang-es">PRUEBAS</span></div>
@@ -995,14 +1000,14 @@
   <div id="b1-detail" style="display:none; margin-bottom:64px;">
 
     <!-- HERO B1 -->
-    <div style="background:#fff; border:1px solid #e5e5e5; border-radius:16px; padding:40px 48px; display:grid; grid-template-columns:1fr auto; gap:32px; align-items:start; margin-bottom:36px;">
+    <div class="dele-guide-header" style="background:#fff; border:1px solid #e5e5e5; border-radius:16px; padding:40px 48px; display:grid; grid-template-columns:1fr auto; gap:32px; align-items:start; margin-bottom:36px;">
       <div>
         <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#D4920A;margin-bottom:12px;"><span class="lang-en">DETAILED GUIDE</span><span class="lang-es">GUÍA DETALLADA</span></div>
         <h2 style="font-family:'Noto Sans',sans-serif;font-size:36px;font-weight:800;color:#000;margin-bottom:16px;"><span class="lang-en">The DELE B1 exam</span><span class="lang-es">El examen DELE B1</span></h2>
         <p style="font-size:15px;color:#444;line-height:1.7;max-width:580px;"><span class="lang-en">The B1 certifies that you have become an independent user of Spanish. You can manage in most everyday situations, express opinions and understand authentic spoken and written Spanish. It is the most sought-after level by students worldwide.</span><span class="lang-es">El B1 acredita que te has convertido en usuario independiente del español. Puedes desenvolverte en la mayoría de situaciones cotidianas, expresar opiniones y comprender el español auténtico hablado y escrito. Es el nivel más solicitado por estudiantes de todo el mundo.</span></p>
         <p style="font-size:14px;color:#666;line-height:1.6;margin-top:12px;max-width:580px;"><span class="lang-en">To pass you must clear <strong style="color:#D4920A;">both groups separately</strong>: the comprehension group (sections 1 and 2) and the expression group (sections 3 and 4). A high mark in one group does not compensate for a fail in the other.</span><span class="lang-es">Para aprobar debes superar <strong style="color:#D4920A;">los dos grupos por separado</strong>: el grupo de comprensión (pruebas 1 y 2) y el grupo de expresión (pruebas 3 y 4). Una nota alta en un grupo no compensa un suspenso en el otro.</span></p>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:220px;">
+      <div class="dele-stats-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:220px;">
         <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
           <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">4</div>
           <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;"><span class="lang-en">SECTIONS</span><span class="lang-es">PRUEBAS</span></div>
@@ -1156,14 +1161,14 @@
   <div id="c1-detail" style="display:none; margin-bottom:64px;">
 
     <!-- HERO C1 -->
-    <div style="background:#fff; border:1px solid #e5e5e5; border-radius:16px; padding:40px 48px; display:grid; grid-template-columns:1fr auto; gap:32px; align-items:start; margin-bottom:36px;">
+    <div class="dele-guide-header" style="background:#fff; border:1px solid #e5e5e5; border-radius:16px; padding:40px 48px; display:grid; grid-template-columns:1fr auto; gap:32px; align-items:start; margin-bottom:36px;">
       <div>
         <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#D4920A;margin-bottom:12px;"><span class="lang-en">DETAILED GUIDE</span><span class="lang-es">GUÍA DETALLADA</span></div>
         <h2 style="font-family:'Noto Sans',sans-serif;font-size:36px;font-weight:800;color:#000;margin-bottom:16px;"><span class="lang-en">The DELE C1 exam</span><span class="lang-es">El examen DELE C1</span></h2>
         <p style="font-size:15px;color:#444;line-height:1.7;max-width:580px;"><span class="lang-en">The C1 certifies mastery of Spanish as a competent user. You understand long, complex and demanding texts; you express yourself fluently without having to search for words; you use the language flexibly and effectively for social, academic and professional purposes; you produce clear, well-structured and detailed texts on complex topics.</span><span class="lang-es">El C1 acredita dominio de la lengua española a nivel de usuario competente. Comprendes textos largos, complejos y exigentes; te expresas con fluidez sin tener que buscar las palabras; utilizas la lengua con flexibilidad y eficacia para fines sociales, académicos y profesionales; produces textos claros, bien estructurados y detallados sobre temas complejos.</span></p>
         <p style="font-size:14px;color:#666;line-height:1.6;margin-top:12px;max-width:580px;"><span class="lang-en">To pass you must clear <strong style="color:#D4920A;">both groups separately</strong>: the comprehension group (sections 1 and 2) and the expression group (sections 3 and 4). A high mark in one group does not compensate for a fail in the other.</span><span class="lang-es">Para aprobar debes superar <strong style="color:#D4920A;">los dos grupos por separado</strong>: el grupo de comprensión (pruebas 1 y 2) y el grupo de expresión (pruebas 3 y 4). Una nota alta en un grupo no compensa un suspenso en el otro.</span></p>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:220px;">
+      <div class="dele-stats-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:220px;">
         <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
           <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">4</div>
           <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;"><span class="lang-en">SECTIONS</span><span class="lang-es">PRUEBAS</span></div>
@@ -1327,14 +1332,14 @@
   <div id="c2-detail" style="display:none; margin-bottom:64px;">
 
     <!-- HERO C2 -->
-    <div style="background:#fff; border:1px solid #e5e5e5; border-radius:16px; padding:40px 48px; display:grid; grid-template-columns:1fr auto; gap:32px; align-items:start; margin-bottom:36px;">
+    <div class="dele-guide-header" style="background:#fff; border:1px solid #e5e5e5; border-radius:16px; padding:40px 48px; display:grid; grid-template-columns:1fr auto; gap:32px; align-items:start; margin-bottom:36px;">
       <div>
         <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#D4920A;margin-bottom:12px;"><span class="lang-en">DETAILED GUIDE</span><span class="lang-es">GUÍA DETALLADA</span></div>
         <h2 style="font-family:'Noto Sans',sans-serif;font-size:36px;font-weight:800;color:#000;margin-bottom:16px;"><span class="lang-en">The DELE C2 exam</span><span class="lang-es">El examen DELE C2</span></h2>
         <p style="font-size:15px;color:#444;line-height:1.7;max-width:580px;"><span class="lang-en">The C2 certifies near-native mastery of Spanish. You can understand with ease virtually everything you read or hear; you express yourself spontaneously, fluently and with semantic and grammatical precision; you use the language flexibly in complex academic, professional and social contexts.</span><span class="lang-es">El C2 acredita dominio casi nativo de la lengua española. Comprendes con facilidad prácticamente todo lo que lees o escuchas; te expresas de forma espontánea, fluida y con precisión semántica y gramatical; utilizas la lengua con flexibilidad en contextos académicos, profesionales y sociales complejos.</span></p>
         <p style="font-size:14px;color:#666;line-height:1.6;margin-top:12px;max-width:580px;"><span class="lang-en">The C2 is the most demanding DELE exam. It requires intensive preparation and a deep command not only of grammar, but of the culture, history and nuances of the Spanish language.</span><span class="lang-es">El C2 es la prueba más exigente del DELE. Requiere preparación intensiva y un dominio profundo no solo de la gramática, sino de la cultura, la historia y los matices de la lengua española.</span></p>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:220px;">
+      <div class="dele-stats-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;min-width:220px;">
         <div style="background:#f5f5f5;border-radius:10px;padding:18px 14px;text-align:center;">
           <div style="font-family:'Noto Sans',sans-serif;font-size:32px;font-weight:900;color:#D4920A;line-height:1;">3</div>
           <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-top:6px;"><span class="lang-en">SECTIONS</span><span class="lang-es">PRUEBAS</span></div>
