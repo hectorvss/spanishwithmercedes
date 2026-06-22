@@ -126,6 +126,16 @@
       display: grid; grid-template-columns: repeat(6, 1fr);
       gap: 12px; max-width: 1280px; margin: 0 auto 40px;
     }
+    @media (max-width: 768px) {
+      .dele-levels-table { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+      .dele-level-col { padding: 14px 10px; }
+      .dele-level-col__badge { font-size: 22px; }
+      .dele-level-col__desc { display: none; }
+      .dele-level-col div[style*="font-size:12px"] { display: none; }
+    }
+    @media (max-width: 480px) {
+      .dele-levels-table { grid-template-columns: repeat(2, 1fr); }
+    }
     .dele-level-col {
       background: #fff; border-radius: 10px;
       border: 1.5px solid #DCDCE5;

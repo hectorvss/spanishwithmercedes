@@ -329,8 +329,23 @@ function initMobileMenu() {
 
   document.body.appendChild(mobileMenu);
 
+  const header = document.querySelector('.header');
+  function positionMenu() {
+    if (!header) return;
+    const rect = header.getBoundingClientRect();
+    // Use rect.bottom when header is in viewport, otherwise fall back to offsetHeight
+    const top = (rect.bottom > 0 && rect.bottom < window.innerHeight) ? rect.bottom : header.offsetHeight;
+    mobileMenu.style.top = top + 'px';
+  }
+
+  // Keep menu position updated as user scrolls (in case menu is open)
+  window.addEventListener('scroll', () => {
+    if (mobileMenu.classList.contains('open')) positionMenu();
+  }, { passive: true });
+
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('open');
+    positionMenu();
     mobileMenu.classList.toggle('open');
     document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
   });
