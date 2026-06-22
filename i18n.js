@@ -78,7 +78,7 @@ const translations = {
     // Footer
     'footer.about': 'About', 'footer.learn': 'Learn Spanish', 'footer.dele': 'DELE & Exams', 'footer.culture': 'Culture & Blog',
     'footer.who': 'Who is Mercedes?', 'footer.method': 'Teaching method', 'footer.reviews': 'Student reviews', 'footer.contact': 'Contact',
-    'footer.allvideos': 'All video lessons', 'footer.beginner': 'Beginner (A1)', 'footer.intermediate': 'Intermediate (B1)', 'footer.freepdfs': 'Free PDFs',
+    'footer.allvideos': 'Watch free video lessons', 'footer.beginner': 'Beginner (A1)', 'footer.intermediate': 'Intermediate (B1)', 'footer.freepdfs': 'Free PDFs',
     'footer.deleguide': 'DELE guide', 'footer.copyright': '© 2025 Spanish Lessons With Mercedes. All rights reserved.',
     // Videos page
     'videos.subscribe': 'Subscribe Free',
@@ -189,7 +189,7 @@ const translations = {
     // Footer
     'footer.about': 'Acerca de', 'footer.learn': 'Aprende Español', 'footer.dele': 'DELE y Exámenes', 'footer.culture': 'Cultura y Blog',
     'footer.who': '¿Quién es Mercedes?', 'footer.method': 'Método de enseñanza', 'footer.reviews': 'Opiniones de alumnos', 'footer.contact': 'Contacto',
-    'footer.allvideos': 'Todas las lecciones', 'footer.beginner': 'Principiante (A1)', 'footer.intermediate': 'Intermedio (B1)', 'footer.freepdfs': 'PDFs gratuitos',
+    'footer.allvideos': 'Ver lecciones en vídeo gratis', 'footer.beginner': 'Principiante (A1)', 'footer.intermediate': 'Intermedio (B1)', 'footer.freepdfs': 'PDFs gratuitos',
     'footer.deleguide': 'Guía DELE', 'footer.copyright': '© 2025 Spanish Lessons With Mercedes. Todos los derechos reservados.',
     // Videos page
     'videos.subscribe': 'Suscríbete Gratis',
