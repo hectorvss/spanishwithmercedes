@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Panel — Spanish Lessons With Mercedes</title>
+  <title>Admin Panel â€” Spanish Lessons With Mercedes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -61,7 +61,7 @@
     <div class="admin-topbar">
       <div>
         <div class="admin-topbar__title">Dashboard</div>
-        <div class="admin-topbar__subtitle">Welcome back, Mercedes 👋</div>
+        <div class="admin-topbar__subtitle">Welcome back, Mercedes ðŸ‘‹</div>
       </div>
     </div>
     <div class="admin-content">
@@ -184,13 +184,13 @@
   <div class="modal">
     <div class="modal__header">
       <div class="modal__title" id="videoModalTitle">Add Video</div>
-      <button class="modal__close" onclick="closeVideoModal()">×</button>
+      <button class="modal__close" onclick="closeVideoModal()">Ã—</button>
     </div>
     <div class="modal__body">
       <input type="hidden" id="videoId">
       <div class="form-group">
         <label class="form-label">Video Title *</label>
-        <input class="form-input" type="text" id="videoTitle" placeholder="e.g. Ser vs Estar — Complete Guide">
+        <input class="form-input" type="text" id="videoTitle" placeholder="e.g. Ser vs Estar â€” Complete Guide">
       </div>
       <div class="form-row">
         <div class="form-group">
@@ -258,7 +258,7 @@
   <div class="modal">
     <div class="modal__header">
       <div class="modal__title" id="pdfModalTitle">Add PDF</div>
-      <button class="modal__close" onclick="closePdfModal()">×</button>
+      <button class="modal__close" onclick="closePdfModal()">Ã—</button>
     </div>
     <div class="modal__body">
       <input type="hidden" id="pdfId">
@@ -278,9 +278,9 @@
             <option value="c1">C1 - Advanced</option>
             <option value="c2">C2 - Mastery</option>
             <option value="dele">DELE Preparation</option>
-            <option value="a1-a2">A1 – A2</option>
-            <option value="b1-b2">B1 – B2</option>
-            <option value="c1-c2">C1 – C2</option>
+            <option value="a1-a2">A1 â€“ A2</option>
+            <option value="b1-b2">B1 â€“ B2</option>
+            <option value="c1-c2">C1 â€“ C2</option>
           </select>
         </div>
         <div class="form-group">
@@ -317,7 +317,7 @@
   <div class="modal" style="width:420px;">
     <div class="modal__header">
       <div class="modal__title">Confirm Delete</div>
-      <button class="modal__close" onclick="closeDeleteModal()">×</button>
+      <button class="modal__close" onclick="closeDeleteModal()">Ã—</button>
     </div>
     <div class="modal__body">
       <p style="font-size:15px;line-height:24px;color:#4D4C5C;">Are you sure you want to delete <strong id="deleteItemName"></strong>? This action cannot be undone.</p>
@@ -336,12 +336,12 @@
 </div>
 
 <script>
-// ── Auth guard ──────────────────────────────
+// â”€â”€ Auth guard â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 if (localStorage.getItem('slwm_admin_auth') !== 'true') {
   window.location.href = 'login.html';
 }
 
-// ── Data layer ──────────────────────────────
+// â”€â”€ Data layer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const STORAGE_KEY = 'slwm_data';
 
 function getData() {
@@ -358,7 +358,7 @@ function genId() {
   return Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
 }
 
-// ── Navigation ──────────────────────────────
+// â”€â”€ Navigation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function showSection(name) {
   ['dashboard','videos','pdfs'].forEach(s => {
     document.getElementById(`section-${s}`).style.display = s === name ? 'block' : 'none';
@@ -375,7 +375,7 @@ function logout() {
   window.location.href = 'login.html';
 }
 
-// ── Toast ───────────────────────────────────
+// â”€â”€ Toast â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function showToast(msg, type = 'success') {
   const t = document.getElementById('toast');
   document.getElementById('toastMsg').textContent = msg;
@@ -383,7 +383,7 @@ function showToast(msg, type = 'success') {
   setTimeout(() => t.classList.remove('show'), 3000);
 }
 
-// ── Dashboard ───────────────────────────────
+// â”€â”€ Dashboard â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function updateDashStats() {
   const d = getData();
   document.getElementById('stat-video-count').textContent = d.videos.length;
@@ -392,15 +392,15 @@ function updateDashStats() {
   document.getElementById('stat-level-count').textContent = levels.size;
 }
 
-// ── BADGE helpers ────────────────────────────
-const LEVEL_LABELS = { a1:'A1',a2:'A2',b1:'B1',b2:'B2',c1:'C1',c2:'C2',dele:'DELE','a1-a2':'A1–A2','b1-b2':'B1–B2','c1-c2':'C1–C2',conv:'Conv',culture:'Culture',grammar:'Grammar' };
+// â”€â”€ BADGE helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+const LEVEL_LABELS = { a1:'A1',a2:'A2',b1:'B1',b2:'B2',c1:'C1',c2:'C2',dele:'DELE','a1-a2':'A1â€“A2','b1-b2':'B1â€“B2','c1-c2':'C1â€“C2',conv:'Conv',culture:'Culture',grammar:'Grammar' };
 function levelBadge(lvl) {
   const cls = 'badge badge-' + (lvl||'a1').replace('-','');
-  return `<span class="${cls}">${LEVEL_LABELS[lvl]||lvl||'—'}</span>`;
+  return `<span class="${cls}">${LEVEL_LABELS[lvl]||lvl||'â€”'}</span>`;
 }
-function truncate(str, n=40) { return str && str.length > n ? str.slice(0,n)+'…' : (str||'—'); }
+function truncate(str, n=40) { return str && str.length > n ? str.slice(0,n)+'â€¦' : (str||'â€”'); }
 
-// ── VIDEOS ──────────────────────────────────
+// â”€â”€ VIDEOS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 let videoSearchTerm = '';
 
 function renderVideos() {
@@ -415,9 +415,9 @@ function renderVideos() {
     <tr>
       <td class="td-title">${v.title}<small>${truncate(v.description,55)}</small></td>
       <td>${levelBadge(v.level)}</td>
-      <td><span style="font-size:13px;color:#4D4C5C;">${v.category||'—'}</span></td>
+      <td><span style="font-size:13px;color:#4D4C5C;">${v.category||'â€”'}</span></td>
       <td><a href="${v.youtubeUrl||'#'}" target="_blank" style="color:#D4920A;font-size:13px;font-weight:600;text-decoration:underline;">${truncate(v.youtubeUrl,30)}</a></td>
-      <td>${v.featured ? '<span class="badge" style="background:#FEF3E2;color:#A06C00;">⭐ Featured</span>' : '<span style="color:#DCDCE5;font-size:13px;">—</span>'}</td>
+      <td>${v.featured ? '<span class="badge" style="background:#FEF3E2;color:#A06C00;">â­ Featured</span>' : '<span style="color:#DCDCE5;font-size:13px;">â€”</span>'}</td>
       <td><div class="td-actions">
         <button class="btn-edit" onclick="editVideo('${v.id}')">Edit</button>
         <button class="btn-delete" onclick="deleteItem('video','${v.id}','${v.title.replace(/'/g,"\\'")}')">Delete</button>
@@ -489,8 +489,8 @@ function saveVideo() {
   };
 
   const existingIdx = d.videos.findIndex(v => v.id === vid.id);
-  if (existingIdx >= 0) { d.videos[existingIdx] = vid; showToast('Video updated ✓'); }
-  else { d.videos.unshift(vid); showToast('Video added ✓'); }
+  if (existingIdx >= 0) { d.videos[existingIdx] = vid; showToast('Video updated âœ“'); }
+  else { d.videos.unshift(vid); showToast('Video added âœ“'); }
 
   saveData(d);
   closeVideoModal();
@@ -498,7 +498,7 @@ function saveVideo() {
   updateDashStats();
 }
 
-// ── PDFS ────────────────────────────────────
+// â”€â”€ PDFS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 let pdfSearchTerm = '';
 
 function renderPdfs() {
@@ -513,7 +513,7 @@ function renderPdfs() {
     <tr>
       <td class="td-title">${p.title}<small>${truncate(p.description,55)}</small></td>
       <td>${levelBadge(p.level)}</td>
-      <td><span style="font-size:13px;color:#4D4C5C;">${p.category||'—'}</span></td>
+      <td><span style="font-size:13px;color:#4D4C5C;">${p.category||'â€”'}</span></td>
       <td><a href="${p.downloadUrl||'#'}" target="_blank" style="color:#D4920A;font-size:13px;font-weight:600;text-decoration:underline;">${truncate(p.downloadUrl,30)}</a></td>
       <td><div class="td-actions">
         <button class="btn-edit" onclick="editPdf('${p.id}')">Edit</button>
@@ -577,8 +577,8 @@ function savePdf() {
   };
 
   const existingIdx = d.pdfs.findIndex(p => p.id === pdf.id);
-  if (existingIdx >= 0) { d.pdfs[existingIdx] = pdf; showToast('PDF updated ✓'); }
-  else { d.pdfs.unshift(pdf); showToast('PDF added ✓'); }
+  if (existingIdx >= 0) { d.pdfs[existingIdx] = pdf; showToast('PDF updated âœ“'); }
+  else { d.pdfs.unshift(pdf); showToast('PDF added âœ“'); }
 
   saveData(d);
   closePdfModal();
@@ -586,7 +586,7 @@ function savePdf() {
   updateDashStats();
 }
 
-// ── DELETE ──────────────────────────────────
+// â”€â”€ DELETE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 let deleteType, deleteId;
 
 function deleteItem(type, id, name) {
@@ -620,8 +620,9 @@ document.querySelectorAll('.modal-overlay').forEach(overlay => {
   });
 });
 
-// ── Init ─────────────────────────────────────
+// â”€â”€ Init â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 updateDashStats();
 </script>
 </body>
 </html>
+

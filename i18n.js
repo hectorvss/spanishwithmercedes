@@ -344,6 +344,7 @@ function initMobileMenu() {
   }, { passive: true });
 
   hamburger.addEventListener('click', () => {
+    if (window.innerWidth > 900) return; // desktop: ignore click even if button is somehow visible
     hamburger.classList.toggle('open');
     positionMenu();
     mobileMenu.classList.toggle('open');
