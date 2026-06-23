@@ -1008,8 +1008,9 @@ body.is-spanish .lang-en-block { display: none; }
   body { min-width: 320px; }
 
   .header { padding: 0 24px; }
-  .header__nav { display: none; }
-  .nav-hamburger { display: flex; }
+  /* Compact nav for medium screens — nav stays visible, just smaller */
+  .header__nav { gap: 4px; }
+  .nav-item-trigger { padding: 8px 12px; font-size: 14px; }
 
   .hero { padding: 48px 24px; }
   .hero__inner { flex-direction: column; gap: 40px; }
@@ -1078,6 +1079,14 @@ body.is-spanish .lang-en-block { display: none; }
 
   .b2-prueba__head { flex-wrap: wrap; gap: 12px; }
   .b2-prueba__tags { flex-wrap: wrap; }
+}
+
+/* ============================================================
+   RESPONSIVE — Hamburger threshold (≤900px)
+   ============================================================ */
+@media (max-width: 900px) {
+  .header__nav { display: none; }
+  .nav-hamburger { display: flex; }
 }
 
 /* ============================================================
