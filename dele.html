@@ -513,7 +513,7 @@
 </div>
 
 <!-- ── EXÁMENES DE PRÁCTICA (sección dedicada) ── -->
-<div class="cards-section" id="examenes-practica">
+<div class="cards-section" id="examenes-practica" style="display:none;">
   <h2 class="section-heading" style="margin-bottom:8px;"><span class="lang-en">Free DELE Practice Exams</span><span class="lang-es">Exámenes de Práctica DELE Gratuitos</span></h2>
   <p style="font-size:15px;color:#666;margin-bottom:32px;"><span class="lang-en">Download the full practice exam for your level — with answer keys included.</span><span class="lang-es">Descarga el examen de práctica completo para tu nivel — con soluciones incluidas.</span></p>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
@@ -582,7 +582,7 @@
 </div>
 
 <!-- ── MATERIALES DE PREPARACIÓN DELE ── -->
-<div class="cards-section" id="materiales-dele">
+<div class="cards-section" id="materiales-dele" style="display:none;">
   <h2 class="section-heading" style="margin-bottom:8px;"><span class="lang-en">DELE Preparation Materials</span><span class="lang-es">Materiales de Preparación DELE</span></h2>
   <p style="font-size:15px;color:#666;margin-bottom:32px;"><span class="lang-en">Specific guides to help you prepare each section of the DELE exam.</span><span class="lang-es">Guías específicas para preparar cada prueba del examen DELE.</span></p>
 
@@ -1693,14 +1693,14 @@
       <h2 class="join-section__heading" data-i18n="dele.join.heading">Start your<br>DELE prep</h2>
       <p class="join-section__desc" data-i18n="dele.join.desc">Mercedes will guide you step by step through every part of the DELE exam. From grammar and vocabulary to writing and speaking — all in free video lessons and downloadable PDFs.</p>
       <div style="display:flex;flex-direction:column;gap:10px;">
-        <a href="#examenes-practica" style="display:flex;align-items:center;justify-content:space-between;background:#121117;color:#fff;border-radius:8px;padding:16px 20px;text-decoration:none;font-family:'Noto Sans',sans-serif;font-weight:700;font-size:16px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+        <a href="#examenes-practica" onclick="var s=document.getElementById('examenes-practica');s.style.display='block';setTimeout(function(){s.scrollIntoView({behavior:'smooth'});},50);return false;" style="display:flex;align-items:center;justify-content:space-between;background:#121117;color:#fff;border-radius:8px;padding:16px 20px;text-decoration:none;font-family:'Noto Sans',sans-serif;font-weight:700;font-size:16px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
           <span>
             <span style="font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;opacity:0.55;display:block;margin-bottom:3px;"><span class="lang-en">B1 · B2 · C1 · C2 · with answers</span><span class="lang-es">B1 · B2 · C1 · C2 · con soluciones</span></span>
             <span class="lang-en">Free practice exams</span><span class="lang-es">Exámenes de práctica gratuitos</span>
           </span>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-7-7 7 7-7 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="#materiales-dele" style="display:flex;align-items:center;justify-content:space-between;background:#121117;color:#fff;border-radius:8px;padding:16px 20px;text-decoration:none;font-family:'Noto Sans',sans-serif;font-weight:700;font-size:16px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+        <a href="#materiales-dele" onclick="var s=document.getElementById('materiales-dele');s.style.display='block';setTimeout(function(){s.scrollIntoView({behavior:'smooth'});},50);return false;" style="display:flex;align-items:center;justify-content:space-between;background:#121117;color:#fff;border-radius:8px;padding:16px 20px;text-decoration:none;font-family:'Noto Sans',sans-serif;font-weight:700;font-size:16px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
           <span>
             <span style="font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;opacity:0.55;display:block;margin-bottom:3px;"><span class="lang-en">Guides · Strategies · Materials</span><span class="lang-es">Guías · Estrategias · Materiales</span></span>
             <span class="lang-en">Specific materials to prepare the DELE</span><span class="lang-es">Materiales específicos para preparar el DELE</span>
