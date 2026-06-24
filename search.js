@@ -69,16 +69,25 @@
 
   function doSearch(query) {
     if (!query || query.length < 2) return [];
-    var q = normalize(query);
+    var qWords = normalize(query).split(/\s+/).filter(function(w){ return w.length > 0; });
     var scored = [];
     INDEX.forEach(function (item) {
       var titleNorm = normalize(item.es + ' ' + item.en);
       var kwNorm = normalize(item.kw);
+      // All query words must match somewhere (AND logic)
+      var allMatch = qWords.every(function(qw) {
+        return wordMatch(titleNorm, qw) ||
+               kwNorm.split(' ').some(function(k){ return k === qw || k.indexOf(qw) === 0; });
+      });
+      if (!allMatch) return;
+      // Score by relevance
       var score = 0;
-      if (wordMatch(titleNorm, q)) score += 10;
-      if (kwNorm.split(' ').some(function(k){ return k === q; })) score += 8;
-      if (kwNorm.split(' ').some(function(k){ return k.indexOf(q) === 0 && k !== q; })) score += 3;
-      if (score > 0) scored.push({ item: item, score: score });
+      qWords.forEach(function(qw) {
+        if (wordMatch(titleNorm, qw)) score += 10;
+        if (kwNorm.split(' ').some(function(k){ return k === qw; })) score += 8;
+        if (kwNorm.split(' ').some(function(k){ return k.indexOf(qw) === 0 && k !== qw; })) score += 3;
+      });
+      scored.push({ item: item, score: score });
     });
     scored.sort(function(a, b){ return b.score - a.score; });
     return scored.slice(0, 8).map(function(s){ return s.item; });
