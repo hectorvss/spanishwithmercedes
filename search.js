@@ -1,4 +1,8 @@
 (function () {
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css';
+  document.head.appendChild(link);
   var INDEX = [
     // ── VÍDEOS ──────────────────────────────────────────────────────────
     { es: 'Ser vs Estar — La lección más importante para principiantes', en: 'Ser vs Estar — The Most Important Lesson for Beginners', type: 'video', level: 'A1', url: 'videos.html#a1', kw: 'ser estar verbos gramática principiante ser-estar' },
@@ -39,11 +43,11 @@
   ];
 
   var TYPE_META = {
-    video:   { emoji: '▶', label: 'Vídeo',   labelEn: 'Video',   color: '#121117' },
-    pdf:     { emoji: '📄', label: 'PDF',     labelEn: 'PDF',     color: '#D4920A' },
-    dele:    { emoji: '🎓', label: 'DELE',    labelEn: 'DELE',    color: '#C8102E' },
-    cultura: { emoji: '🎭', label: 'Cultura', labelEn: 'Culture', color: '#3DDABE' },
-    juego:   { emoji: '🎮', label: 'Juego',   labelEn: 'Game',    color: '#7C5CBF' },
+    video:   { icon: 'ti-player-play', label: 'Vídeos',   labelEn: 'Videos',   color: '#121117' },
+    pdf:     { icon: 'ti-file-text',   label: 'PDFs gratuitos', labelEn: 'Free PDFs', color: '#D4920A' },
+    dele:    { icon: 'ti-school',      label: 'DELE',     labelEn: 'DELE',     color: '#C8102E' },
+    cultura: { icon: 'ti-masks-theater', label: 'Cultura', labelEn: 'Culture', color: '#3DDABE' },
+    juego:   { icon: 'ti-device-gamepad-2', label: 'Juegos', labelEn: 'Games', color: '#7C5CBF' },
   };
 
   function normalize(str) {
@@ -71,17 +75,28 @@
       container.style.display = 'block';
       return;
     }
-    var html = results.map(function (r) {
-      var m = TYPE_META[r.type] || TYPE_META.video;
-      var title = isEs() ? r.es : r.en;
-      var meta = (isEs() ? m.label : m.labelEn) + (r.level ? ' · ' + r.level : '');
-      return '<a class="search-result" href="' + r.url + '">'
-        + '<span class="search-result__dot" style="background:' + m.color + '">' + m.emoji + '</span>'
-        + '<span class="search-result__body">'
-        +   '<span class="search-result__title">' + title + '</span>'
-        +   '<span class="search-result__meta">' + meta + '</span>'
-        + '</span>'
-        + '</a>';
+    var es = isEs();
+    var groups = {};
+    var order = [];
+    results.forEach(function (r) {
+      if (!groups[r.type]) { groups[r.type] = []; order.push(r.type); }
+      groups[r.type].push(r);
+    });
+    var html = order.map(function (type) {
+      var m = TYPE_META[type] || TYPE_META.video;
+      var groupLabel = es ? m.label : m.labelEn;
+      var items = groups[type].map(function (r) {
+        var title = es ? r.es : r.en;
+        return '<a class="search-result" href="' + r.url + '">'
+          + '<i class="ti ' + m.icon + ' search-result__icon" aria-hidden="true"></i>'
+          + '<span class="search-result__title">' + title + '</span>'
+          + (r.level ? '<span class="search-result__level">' + r.level + '</span>' : '')
+          + '</a>';
+      }).join('');
+      return '<div class="search-group">'
+        + '<div class="search-group__header" style="color:' + m.color + '">' + groupLabel + '</div>'
+        + items
+        + '</div>';
     }).join('');
     container.innerHTML = html;
     container.style.display = 'block';
