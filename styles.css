@@ -153,7 +153,7 @@ body.is-spanish .lang-en-block { display: none; }
 #headerSearch { position: relative; display: flex; align-items: center; }
 .header__search-wrap { position: relative; display: flex; align-items: center; }
 #searchInput {
-  width: 170px; padding: 9px 36px 9px 14px;
+  width: 170px; box-sizing: border-box; padding: 9px 36px 9px 14px;
   border: 1.5px solid rgba(18,17,23,0.2); border-radius: 8px;
   font-size: 14px; font-weight: 500; font-family: inherit;
   outline: none; background: #fff; color: #121117;
