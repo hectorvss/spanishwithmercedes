@@ -103,10 +103,13 @@
       <button class="lang-btn active" data-lang="en">EN</button>
       <button class="lang-btn" data-lang="es">ES</button>
     </div>
-    <a class="header__subscribe" href="videos.html">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-      <span data-i18n="nav.subscribe">Watch Free</span>
-    </a>
+    <div id="headerSearch">
+      <div class="header__search-wrap">
+        <input type="text" id="searchInput" placeholder="Buscar lecciones..." autocomplete="off" spellcheck="false">
+        <svg class="header__search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+      <div id="searchResults"></div>
+    </div>
   </div>
 </header>
 
@@ -221,6 +224,7 @@
     }
   });
 </script>
+<script src="search.js"></script>
 </body>
 </html>
 
