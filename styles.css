@@ -171,26 +171,6 @@ body.is-spanish .lang-en-block { display: none; }
   border: 1px solid rgba(18,17,23,0.12); border-radius: 10px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.12); z-index: 9999; overflow: hidden;
 }
-.search-group { }
-.search-group + .search-group { border-top: 1px solid rgba(18,17,23,0.07); }
-.search-group__header {
-  font-size: 10px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase;
-  padding: 8px 14px 4px;
-}
-.search-result {
-  display: flex; align-items: center; gap: 9px; padding: 7px 14px 7px 14px;
-  text-decoration: none; color: #121117; transition: background 0.1s;
-}
-.search-result:hover { background: #faf8f3; }
-.search-result__icon { font-size: 15px; color: rgba(18,17,23,0.35); flex-shrink: 0; }
-.search-result__title {
-  font-size: 13px; font-weight: 500; flex: 1; min-width: 0;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-.search-result__level {
-  font-size: 11px; color: rgba(18,17,23,0.4); white-space: nowrap; margin-left: auto; padding-left: 8px;
-}
-.search-no-results { padding: 14px; font-size: 13px; color: rgba(18,17,23,0.5); text-align: center; }
 
 /* ─── HERO ────────────────────────────────── */
 .hero { background: #D4920A; padding: 64px 64px 64px 96px; }

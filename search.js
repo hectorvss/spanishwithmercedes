@@ -1,8 +1,17 @@
 (function () {
-  var link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.href = 'https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css';
-  document.head.appendChild(link);
+  var style = document.createElement('style');
+  style.textContent = [
+    '#searchResults{display:none;position:absolute;top:calc(100% + 8px);right:0;width:300px;background:#fff;border:1px solid rgba(0,0,0,0.12);border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.13);z-index:9999;overflow:hidden}',
+    '.sr-group-hd{font-size:10px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;padding:10px 14px 4px}',
+    '.sr-group+.sr-group{border-top:1px solid rgba(0,0,0,0.07)}',
+    '.sr-item{display:flex;align-items:center;gap:10px;padding:9px 14px;text-decoration:none;color:#121117;transition:background .1s}',
+    '.sr-item:hover{background:#faf8f3}',
+    '.sr-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}',
+    '.sr-name{font-size:13px;font-weight:500;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}',
+    '.sr-lvl{font-size:11px;color:rgba(18,17,23,.45);white-space:nowrap}',
+    '.sr-empty{padding:14px;font-size:13px;color:rgba(18,17,23,.5);text-align:center}',
+  ].join('');
+  document.head.appendChild(style);
   var INDEX = [
     // ── VÍDEOS ──────────────────────────────────────────────────────────
     { es: 'Ser vs Estar — La lección más importante para principiantes', en: 'Ser vs Estar — The Most Important Lesson for Beginners', type: 'video', level: 'A1', url: 'videos.html#a1', kw: 'ser estar verbos gramática principiante ser-estar' },
@@ -43,11 +52,11 @@
   ];
 
   var TYPE_META = {
-    video:   { icon: 'ti-player-play', label: 'Vídeos',   labelEn: 'Videos',   color: '#121117' },
-    pdf:     { icon: 'ti-file-text',   label: 'PDFs gratuitos', labelEn: 'Free PDFs', color: '#D4920A' },
-    dele:    { icon: 'ti-school',      label: 'DELE',     labelEn: 'DELE',     color: '#C8102E' },
-    cultura: { icon: 'ti-masks-theater', label: 'Cultura', labelEn: 'Culture', color: '#3DDABE' },
-    juego:   { icon: 'ti-device-gamepad-2', label: 'Juegos', labelEn: 'Games', color: '#7C5CBF' },
+    video:   { label: 'Vídeos',          labelEn: 'Videos',     color: '#121117' },
+    pdf:     { label: 'PDFs gratuitos',  labelEn: 'Free PDFs',  color: '#D4920A' },
+    dele:    { label: 'DELE',            labelEn: 'DELE',       color: '#C8102E' },
+    cultura: { label: 'Cultura',         labelEn: 'Culture',    color: '#3DDABE' },
+    juego:   { label: 'Juegos',          labelEn: 'Games',      color: '#7C5CBF' },
   };
 
   function normalize(str) {
@@ -57,9 +66,18 @@
   function doSearch(query) {
     if (!query || query.length < 2) return [];
     var q = normalize(query);
-    return INDEX.filter(function (item) {
-      return normalize(item.es + ' ' + item.en + ' ' + item.kw).indexOf(q) !== -1;
-    }).slice(0, 8);
+    var scored = [];
+    INDEX.forEach(function (item) {
+      var titleNorm = normalize(item.es + ' ' + item.en);
+      var kwNorm = normalize(item.kw);
+      var score = 0;
+      if (titleNorm.indexOf(q) !== -1) score += 10;
+      if (kwNorm.split(' ').some(function(k){ return k === q; })) score += 8;
+      if (kwNorm.indexOf(q) !== -1) score += 3;
+      if (score > 0) scored.push({ item: item, score: score });
+    });
+    scored.sort(function(a, b){ return b.score - a.score; });
+    return scored.slice(0, 8).map(function(s){ return s.item; });
   }
 
   function isEs() {
@@ -71,7 +89,7 @@
     var container = document.getElementById('searchResults');
     if (!container) return;
     if (!results.length) {
-      container.innerHTML = '<div class="search-no-results">Sin resultados para "<b>' + query + '</b>"</div>';
+      container.innerHTML = '<div class="sr-empty">Sin resultados para "<b>' + query + '</b>"</div>';
       container.style.display = 'block';
       return;
     }
@@ -87,14 +105,14 @@
       var groupLabel = es ? m.label : m.labelEn;
       var items = groups[type].map(function (r) {
         var title = es ? r.es : r.en;
-        return '<a class="search-result" href="' + r.url + '">'
-          + '<i class="ti ' + m.icon + ' search-result__icon" aria-hidden="true"></i>'
-          + '<span class="search-result__title">' + title + '</span>'
-          + (r.level ? '<span class="search-result__level">' + r.level + '</span>' : '')
+        return '<a class="sr-item" href="' + r.url + '">'
+          + '<span class="sr-dot" style="background:' + m.color + '"></span>'
+          + '<span class="sr-name">' + title + '</span>'
+          + (r.level ? '<span class="sr-lvl">' + r.level + '</span>' : '')
           + '</a>';
       }).join('');
-      return '<div class="search-group">'
-        + '<div class="search-group__header" style="color:' + m.color + '">' + groupLabel + '</div>'
+      return '<div class="sr-group">'
+        + '<div class="sr-group-hd" style="color:' + m.color + '">' + groupLabel + '</div>'
         + items
         + '</div>';
     }).join('');
