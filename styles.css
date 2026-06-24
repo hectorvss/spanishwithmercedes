@@ -160,7 +160,7 @@ body.is-spanish .lang-en-block { display: none; }
   transition: border-color 0.15s, width 0.2s;
 }
 #searchInput::placeholder { color: rgba(18,17,23,0.4); }
-#searchInput:focus { border-color: #D4920A; width: 250px; }
+#searchInput:focus { border-color: #D4920A; }
 .header__search-icon {
   position: absolute; right: 10px; pointer-events: none;
   color: rgba(18,17,23,0.4);
