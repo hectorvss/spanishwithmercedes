@@ -63,6 +63,10 @@
     return str.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
   }
 
+  function wordMatch(str, q) {
+    return str.split(/[\s,\-&]+/).some(function(w) { return w === q || w.indexOf(q) === 0; });
+  }
+
   function doSearch(query) {
     if (!query || query.length < 2) return [];
     var q = normalize(query);
@@ -71,9 +75,9 @@
       var titleNorm = normalize(item.es + ' ' + item.en);
       var kwNorm = normalize(item.kw);
       var score = 0;
-      if (titleNorm.indexOf(q) !== -1) score += 10;
+      if (wordMatch(titleNorm, q)) score += 10;
       if (kwNorm.split(' ').some(function(k){ return k === q; })) score += 8;
-      if (kwNorm.indexOf(q) !== -1) score += 3;
+      if (kwNorm.split(' ').some(function(k){ return k.indexOf(q) === 0 && k !== q; })) score += 3;
       if (score > 0) scored.push({ item: item, score: score });
     });
     scored.sort(function(a, b){ return b.score - a.score; });
