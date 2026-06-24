@@ -14,26 +14,26 @@
   document.head.appendChild(style);
   var INDEX = [
     // ── VÍDEOS ──────────────────────────────────────────────────────────
-    { es: 'Ser vs Estar — La lección más importante para principiantes', en: 'Ser vs Estar — The Most Important Lesson for Beginners', type: 'video', level: 'A1', url: 'videos.html#a1', kw: 'ser estar verbos gramática principiante ser-estar' },
-    { es: 'Saludos y Presentaciones en Español', en: 'Spanish Greetings & Introductions', type: 'video', level: 'A1', url: 'videos.html#a1', kw: 'saludos presentaciones hola buenos días gramática greetings' },
-    { es: 'Números, Días y Meses en Español', en: 'Numbers, Days & Months in Spanish', type: 'video', level: 'A1', url: 'videos.html#a1', kw: 'números días meses vocabulario numbers days months' },
-    { es: 'Tus Primeras 100 Palabras en Español', en: 'Your First 100 Spanish Words', type: 'video', level: 'A1', url: 'videos.html#a1', kw: 'palabras vocabulario principiante words vocabulary beginner' },
-    { es: 'Pedir Indicaciones en Español', en: 'Asking for Directions in Spanish', type: 'video', level: 'A2', url: 'videos.html#a2', kw: 'indicaciones direcciones conversación frases directions phrases' },
-    { es: 'Imperfecto vs Pretérito', en: 'The Imperfect vs Preterite', type: 'video', level: 'B1', url: 'videos.html#b1', kw: 'imperfecto pretérito pasado tiempos verbales gramática imperfect preterite past tense' },
-    { es: 'Hablar del Pasado en Español', en: 'Talking About the Past in Spanish', type: 'video', level: 'B1', url: 'videos.html#b1', kw: 'pasado conversación tiempo verbal past conversation' },
-    { es: 'Comprensión Lectora DELE B1', en: 'DELE B1 Reading Comprehension', type: 'video', level: 'B1', url: 'videos.html#b1', kw: 'dele b1 comprensión lectura examen reading exam' },
-    { es: 'El Subjuntivo Explicado de Una Vez Para Siempre', en: 'The Subjunctive Mood Explained', type: 'video', level: 'B2', url: 'videos.html#b2', kw: 'subjuntivo modo subjuntivo gramática subjunctive grammar' },
-    { es: 'Pedir Comida en un Restaurante Español', en: 'Ordering Food in a Spanish Restaurant', type: 'video', level: 'B2', url: 'videos.html#b2', kw: 'comida restaurante conversación pedir food restaurant order' },
-    { es: 'Modismos y Expresiones Avanzadas', en: 'Advanced Spanish Idioms & Expressions', type: 'video', level: 'C1', url: 'videos.html#c1', kw: 'modismos expresiones avanzado nativo idioms expressions advanced native' },
-    { es: 'Examen Oral DELE C1 — 10 Consejos', en: 'DELE C1 Oral Exam — 10 Tips', type: 'video', level: 'C1', url: 'videos.html#c1', kw: 'dele c1 oral examen consejos exam tips oral' },
+    { es: 'Ser vs Estar — La lección más importante para principiantes', en: 'Ser vs Estar — The Most Important Lesson for Beginners', type: 'video', level: 'A1', url: 'videos.html#video-ser-estar', kw: 'ser estar verbos gramática principiante ser-estar' },
+    { es: 'Saludos y Presentaciones en Español', en: 'Spanish Greetings & Introductions', type: 'video', level: 'A1', url: 'videos.html#video-saludos', kw: 'saludos presentaciones hola buenos días gramática greetings' },
+    { es: 'Números, Días y Meses en Español', en: 'Numbers, Days & Months in Spanish', type: 'video', level: 'A1', url: 'videos.html#video-numeros', kw: 'números días meses vocabulario numbers days months' },
+    { es: 'Tus Primeras 100 Palabras en Español', en: 'Your First 100 Spanish Words', type: 'video', level: 'A1', url: 'videos.html#video-palabras', kw: 'palabras vocabulario principiante words vocabulary beginner' },
+    { es: 'Pedir Indicaciones en Español', en: 'Asking for Directions in Spanish', type: 'video', level: 'A2', url: 'videos.html#video-indicaciones', kw: 'indicaciones direcciones conversación frases directions phrases' },
+    { es: 'Imperfecto vs Pretérito', en: 'The Imperfect vs Preterite', type: 'video', level: 'B1', url: 'videos.html#video-imperfecto', kw: 'imperfecto pretérito pasado tiempos verbales gramática imperfect preterite past tense' },
+    { es: 'Hablar del Pasado en Español', en: 'Talking About the Past in Spanish', type: 'video', level: 'B1', url: 'videos.html#video-pasado', kw: 'pasado conversación tiempo verbal past conversation' },
+    { es: 'Comprensión Lectora DELE B1', en: 'DELE B1 Reading Comprehension', type: 'video', level: 'B1', url: 'videos.html#video-dele-b1', kw: 'dele b1 comprensión lectura examen reading exam' },
+    { es: 'El Subjuntivo Explicado de Una Vez Para Siempre', en: 'The Subjunctive Mood Explained', type: 'video', level: 'B2', url: 'videos.html#video-subjuntivo', kw: 'subjuntivo modo subjuntivo gramática subjunctive grammar' },
+    { es: 'Pedir Comida en un Restaurante Español', en: 'Ordering Food in a Spanish Restaurant', type: 'video', level: 'B2', url: 'videos.html#video-comida', kw: 'comida restaurante conversación pedir food restaurant order' },
+    { es: 'Modismos y Expresiones Avanzadas', en: 'Advanced Spanish Idioms & Expressions', type: 'video', level: 'C1', url: 'videos.html#video-modismos', kw: 'modismos expresiones avanzado nativo idioms expressions advanced native' },
+    { es: 'Examen Oral DELE C1 — 10 Consejos', en: 'DELE C1 Oral Exam — 10 Tips', type: 'video', level: 'C1', url: 'videos.html#video-dele-c1', kw: 'dele c1 oral examen consejos exam tips oral' },
 
     // ── PDFs GRATUITOS ────────────────────────────────────────────────────
-    { es: 'El Sonido R en Español', en: 'The R Sound in Spanish', type: 'pdf', level: 'A1-A2', url: 'free-pdf.html#pronunciation', kw: 'r sonido pronunciación rr sound pronunciation consonante' },
-    { es: 'Presentarte en Español', en: 'Introducing Yourself in Spanish', type: 'pdf', level: 'A1-A2', url: 'free-pdf.html#grammar', kw: 'presentarse llamarse ser tener vivir presentaciones introduce yourself' },
-    { es: 'El Género en Español', en: 'Gender in Spanish', type: 'pdf', level: 'A1-B1', url: 'free-pdf.html#grammar', kw: 'género masculino femenino artículos gramática gender grammar articles' },
-    { es: 'Guía Completa de Ser y Estar', en: 'Complete Guide to Ser & Estar', type: 'pdf', level: 'A1-B1', url: 'free-pdf.html#grammar', kw: 'ser estar verbos gramática guía guide verbs grammar' },
-    { es: 'El verbo GUSTAR y verbos similares', en: 'GUSTAR & Similar Verbs', type: 'pdf', level: 'A2-B1', url: 'free-pdf.html#grammar', kw: 'gustar encantar molestar verbos pronombres verbos similares like love verbs' },
-    { es: 'Ver, Mirar y Observar', en: 'Ver, Mirar & Observar', type: 'pdf', level: 'B1-B2', url: 'free-pdf.html#vocabulary', kw: 'ver mirar observar vocabulario verbos vocabulario see look watch' },
+    { es: 'El Sonido R en Español', en: 'The R Sound in Spanish', type: 'pdf', level: 'A1-A2', url: 'free-pdf.html#card-sonido-r', kw: 'r sonido pronunciación rr sound pronunciation consonante' },
+    { es: 'Presentarte en Español', en: 'Introducing Yourself in Spanish', type: 'pdf', level: 'A1-A2', url: 'free-pdf.html#card-presentarte', kw: 'presentarse llamarse ser tener vivir presentaciones introduce yourself' },
+    { es: 'El Género en Español', en: 'Gender in Spanish', type: 'pdf', level: 'A1-B1', url: 'free-pdf.html#card-genero', kw: 'género masculino femenino artículos gramática gender grammar articles' },
+    { es: 'Guía Completa de Ser y Estar', en: 'Complete Guide to Ser & Estar', type: 'pdf', level: 'A1-B1', url: 'free-pdf.html#card-ser-estar', kw: 'ser estar verbos gramática guía guide verbs grammar' },
+    { es: 'El verbo GUSTAR y verbos similares', en: 'GUSTAR & Similar Verbs', type: 'pdf', level: 'A2-B1', url: 'free-pdf.html#card-gustar', kw: 'gustar encantar molestar verbos pronombres verbos similares like love verbs' },
+    { es: 'Ver, Mirar y Observar', en: 'Ver, Mirar & Observar', type: 'pdf', level: 'B1-B2', url: 'free-pdf.html#card-ver-mirar', kw: 'ver mirar observar vocabulario verbos vocabulario see look watch' },
 
     // ── DELE ──────────────────────────────────────────────────────────────
     { es: 'Examen de Práctica DELE B1', en: 'DELE B1 Practice Exam', type: 'dele', level: 'B1', url: 'dele.html#examenes-practica', kw: 'dele b1 examen práctica descarga pdf practice exam' },
@@ -155,11 +155,16 @@
     if (!hash) return;
     var target = document.getElementById(hash);
     if (!target) return;
-    if (target.style.display === 'none' || target.style.display === '') {
-      target.style.display = 'block';
+    // Reveal any hidden ancestor sections first
+    var el = target.parentElement;
+    while (el && el !== document.body) {
+      if (el.style.display === 'none') el.style.display = 'block';
+      el = el.parentElement;
     }
+    // Reveal the target itself if hidden
+    if (target.style.display === 'none') target.style.display = 'block';
     setTimeout(function () {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }, 80);
   }
 
