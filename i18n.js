@@ -320,13 +320,6 @@ function initMobileMenu() {
     }
   });
 
-  const subscribeBtn = document.querySelector('.header__subscribe');
-  if (subscribeBtn) {
-    const sub = subscribeBtn.cloneNode(true);
-    sub.style.cssText = 'background:#121117;color:#fff;border-color:#121117;margin-top:8px;display:block;text-align:center;';
-    mobileMenu.appendChild(sub);
-  }
-
   document.body.appendChild(mobileMenu);
 
   const header = document.querySelector('.header');

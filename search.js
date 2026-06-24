@@ -150,9 +150,24 @@
     });
   }
 
+  function revealHash() {
+    var hash = window.location.hash.slice(1);
+    if (!hash) return;
+    var target = document.getElementById(hash);
+    if (!target) return;
+    if (target.style.display === 'none' || target.style.display === '') {
+      target.style.display = 'block';
+    }
+    setTimeout(function () {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 80);
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', function () { init(); revealHash(); });
   } else {
     init();
+    revealHash();
   }
+  window.addEventListener('hashchange', revealHash);
 })();
