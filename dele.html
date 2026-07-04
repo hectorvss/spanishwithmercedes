@@ -355,7 +355,7 @@
       <div class="nav-item-dropdown">
         <a href="free-pdf.html" class="nav-item-trigger" data-i18n="nav.pdf">Free PDF</a>
         <div class="nav-dropdown">
-          <a href="free-pdf.html#grammar"><span class="lang-en">Lessons</span><span class="lang-es">Lecciones</span></a>
+          <a href="free-pdf.html#lessons"><span class="lang-en">Lessons</span><span class="lang-es">Lecciones</span></a>
           <a href="free-pdf.html#dele"><span class="lang-en">Exams</span><span class="lang-es">Exámenes</span></a>
         </div>
       </div>
@@ -992,7 +992,7 @@
     </div>
 
     <!-- LAS 4 PRUEBAS A2 -->
-    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#4D9DE0;margin-bottom:20px;"><span class="lang-en">THE FOUR SECTIONS OF DELE A2</span><span class="lang-es">LAS CUATRO PRUEBAS DEL DELE A2</span></div>
+    <div id="a2-pruebas" style="scroll-margin-top:110px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#4D9DE0;margin-bottom:20px;"><span class="lang-en">THE FOUR SECTIONS OF DELE A2</span><span class="lang-es">LAS CUATRO PRUEBAS DEL DELE A2</span></div>
 
     <!-- PRUEBA 1 A2 -->
     <div class="b2-prueba">
@@ -1168,7 +1168,7 @@
     </div>
 
     <!-- LAS 4 PRUEBAS B1 -->
-    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#3DDABE;margin-bottom:20px;"><span class="lang-en">THE FOUR SECTIONS OF DELE B1</span><span class="lang-es">LAS CUATRO PRUEBAS DEL DELE B1</span></div>
+    <div id="b1-pruebas" style="scroll-margin-top:110px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#3DDABE;margin-bottom:20px;"><span class="lang-en">THE FOUR SECTIONS OF DELE B1</span><span class="lang-es">LAS CUATRO PRUEBAS DEL DELE B1</span></div>
 
     <!-- PRUEBA 1 B1 -->
     <div class="b2-prueba">
@@ -1346,7 +1346,7 @@
     </div>
 
     <!-- LAS 4 PRUEBAS C1 -->
-    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#2885FD;margin-bottom:20px;"><span class="lang-en">THE FOUR SECTIONS OF DELE C1</span><span class="lang-es">LAS CUATRO PRUEBAS DEL DELE C1</span></div>
+    <div id="c1-pruebas" style="scroll-margin-top:110px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#2885FD;margin-bottom:20px;"><span class="lang-en">THE FOUR SECTIONS OF DELE C1</span><span class="lang-es">LAS CUATRO PRUEBAS DEL DELE C1</span></div>
 
     <!-- PRUEBA 1 C1 -->
     <div class="b2-prueba">
@@ -1535,7 +1535,7 @@
     </div>
 
     <!-- LAS 3 PRUEBAS C2 -->
-    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#C8102E;margin-bottom:20px;"><span class="lang-en">THE THREE SECTIONS OF DELE C2</span><span class="lang-es">LAS TRES PRUEBAS DEL DELE C2</span></div>
+    <div id="c2-pruebas" style="scroll-margin-top:110px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#C8102E;margin-bottom:20px;"><span class="lang-en">THE THREE SECTIONS OF DELE C2</span><span class="lang-es">LAS TRES PRUEBAS DEL DELE C2</span></div>
 
     <!-- PRUEBA 1 C2 -->
     <div class="b2-prueba">
@@ -1835,7 +1835,7 @@ function closeAllDetails(except) {
   });
 }
 
-function toggleLevel(id, defaultLabel) {
+function toggleLevel(id, defaultLabel, scrollTargetId) {
   const detail = document.getElementById(id + '-detail');
   const label  = document.getElementById(id + '-toggle-label');
   const open   = detail.style.display === 'none' || detail.style.display === '';
@@ -1851,7 +1851,8 @@ function toggleLevel(id, defaultLabel) {
       detail.style.transform = 'translateY(0)';
     });
     label.innerHTML = '⭐ <span class="lang-en">Close ↑</span><span class="lang-es">Cerrar ↑</span>';
-    setTimeout(() => detail.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+    const scrollTarget = scrollTargetId ? document.getElementById(scrollTargetId) : detail;
+    setTimeout(() => (scrollTarget || detail).scrollIntoView({ behavior: 'smooth', block: 'start' }), 380);
   } else {
     detail.style.opacity = '0';
     detail.style.transform = 'translateY(-12px)';
@@ -1861,11 +1862,11 @@ function toggleLevel(id, defaultLabel) {
 }
 
 function toggleA1() { toggleLevel('a1', LEVELS[0].defaultLabel); }
-function toggleA2() { toggleLevel('a2', LEVELS[1].defaultLabel); }
-function toggleB1() { toggleLevel('b1', LEVELS[2].defaultLabel); }
+function toggleA2() { toggleLevel('a2', LEVELS[1].defaultLabel, 'a2-pruebas'); }
+function toggleB1() { toggleLevel('b1', LEVELS[2].defaultLabel, 'b1-pruebas'); }
 function toggleB2() { toggleLevel('b2', LEVELS[3].defaultLabel); }
-function toggleC1() { toggleLevel('c1', LEVELS[4].defaultLabel); }
-function toggleC2() { toggleLevel('c2', LEVELS[5].defaultLabel); }
+function toggleC1() { toggleLevel('c1', LEVELS[4].defaultLabel, 'c1-pruebas'); }
+function toggleC2() { toggleLevel('c2', LEVELS[5].defaultLabel, 'c2-pruebas'); }
 
 // Auto-expand accordion when arriving via hash (e.g. footer links #c2)
 document.addEventListener('DOMContentLoaded', () => {
@@ -1896,7 +1897,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 </script>
-<script src="search.js"></script>
+<script src="search.js?v=4"></script>
 </body>
 </html>
 

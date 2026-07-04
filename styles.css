@@ -952,9 +952,7 @@ body.is-spanish .lang-en-block { display: none; }
 
 @keyframes scroll-left {
   0% { transform: translateX(0); }
-  50% { transform: translateX(-1800px); }
-  50.1% { transform: translateX(0); }
-  100% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* ─── MOBILE NAV ──────────────────────────── */
@@ -1227,9 +1225,7 @@ body.is-spanish .lang-en-block { display: none; }
   .carousel-item::after { width: 20px; height: 20px; }
   @keyframes scroll-left {
     0% { transform: translateX(0); }
-    50% { transform: translateX(-1200px); }
-    50.1% { transform: translateX(0); }
-    100% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
 }
 
