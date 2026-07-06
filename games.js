@@ -1495,6 +1495,101 @@ function gustarNext() {
   _renderGustarRound();
 }
 
+/* ══════════════════════════════════════════════
+   GAME 11 · TRAGAPERRAS DE LA CONCORDANCIA (GÉNERO)
+   (a slot-machine reel spins and lands on a noun
+   phrase — pick the adjective that truly agrees,
+   including the invariable -e/consonant traps and
+   the classic -o/-a exceptions from the PDF)
+══════════════════════════════════════════════ */
+
+const GENERO_ITEMS = [
+  { noun:'el coche',    correct:'rápido',      opts:['rápido','rápida','rápidos'] },
+  { noun:'la mesa',     correct:'pequeña',     opts:['pequeño','pequeña','pequeñas'] },
+  { noun:'un libro',    correct:'interesante', opts:['interesante','interesanta','interesantes'] },
+  { noun:'una ciudad',  correct:'bonita',      opts:['bonito','bonita','bonitas'] },
+  { noun:'un problema', correct:'importante',  opts:['importante','importanta','importantes'] },
+  { noun:'una lección', correct:'interesante', opts:['interesante','interesanto','interesantes'] },
+  { noun:'un examen',   correct:'difícil',     opts:['difícil','difícila','difíciles'] },
+  { noun:'una pregunta',correct:'difícil',     opts:['difícil','difícila','difíciles'] },
+  { noun:'el chico',    correct:'joven',       opts:['joven','jovena','jóvenes'] },
+  { noun:'la chica',    correct:'joven',       opts:['joven','jovena','jóvenes'] },
+  { noun:'el edificio', correct:'grande',      opts:['grande','granda','grandes'] },
+  { noun:'la casa',     correct:'grande',      opts:['grande','granda','grandes'] }
+];
+
+function playGenero() {
+  currentGameFn = playGenero;
+  const lang = L();
+  const title = lang==='es' ? 'Tragaperras de la Concordancia' : 'The Agreement Slot Machine';
+  GS = { items: _shuffle(GENERO_ITEMS), idx: 0, correct: 0, total: GENERO_ITEMS.length, answered: false, spun: false };
+  _renderGeneroRound();
+}
+
+function _renderGeneroRound() {
+  const lang = L();
+  const title = lang==='es' ? 'Tragaperras de la Concordancia' : 'The Agreement Slot Machine';
+  const { items, idx, correct, total } = GS;
+  if (idx >= total) { _end(correct, total, title); return; }
+  const item = items[idx];
+  GS.answered = false;
+  GS.spun = false;
+
+  const others = _shuffle(GENERO_ITEMS.filter(g => g !== item)).slice(0, 7).map(g => g.noun);
+  const reelList = _shuffle([...others]);
+  reelList.push(item.noun);
+  const landIndex = reelList.length - 1;
+  const reelHTML = reelList.map(n => `<div class="ge-reel-item">${n}</div>`).join('');
+  const optsShuffled = _shuffle(item.opts);
+
+  _modal(`
+    ${_progress(idx, total, correct, lang)}
+    <p class="gm-instr" style="text-align:center">${lang==='es'?'Gira el carrete… ¿qué adjetivo concuerda de verdad?':'Spin the reel… which adjective truly agrees?'}</p>
+    <div class="ge-reel-window">
+      <div class="ge-reel-strip" id="ge-strip">${reelHTML}</div>
+    </div>
+    <div class="ge-adj-row" id="ge-adj-row" style="display:none">
+      <div class="se-btns">
+        ${optsShuffled.map(o => `<button class="se-btn" onclick="generoAnswer('${o.replace(/'/g,"\\'")}')">${o}</button>`).join('')}
+      </div>
+    </div>
+    <div class="gm-feedback" id="gm-fb"></div>
+  `, title);
+
+  requestAnimationFrame(() => {
+    const strip = document.getElementById('ge-strip');
+    if (strip) strip.style.transform = `translateY(-${landIndex * 64}px)`;
+  });
+
+  setTimeout(() => {
+    const row = document.getElementById('ge-adj-row');
+    if (row) row.style.display = 'block';
+  }, 2300);
+}
+
+function generoAnswer(choice) {
+  if (GS.answered) return;
+  GS.answered = true;
+  const lang = L();
+  const item = GS.items[GS.idx];
+  const ok = choice === item.correct;
+  if (ok) GS.correct++;
+  document.querySelectorAll('#ge-adj-row .se-btn').forEach(b => {
+    b.disabled = true;
+    if (b.textContent === item.correct) b.classList.add('se-correct');
+    else if (b.textContent === choice) b.classList.add('se-wrong');
+  });
+  document.getElementById('gm-fb').innerHTML = `
+    <span class="${ok?'fb-ok':'fb-ko'}">${ok?'✓ '+(lang==='es'?'¡Concuerda perfectamente!':'Perfect agreement!'):'✗ '+(lang==='es'?'La forma correcta es':'The correct form is')+' <strong>'+item.correct+'</strong>'}</span>
+    <div class="se-fb-sentence">${item.noun} <strong>${item.correct}</strong></div>
+    <button class="gm-btn gm-btn-primary gm-next-btn" onclick="generoNext()">${lang==='es'?'Siguiente →':'Next →'}</button>`;
+}
+
+function generoNext() {
+  GS.idx++;
+  _renderGeneroRound();
+}
+
 /* ── EXPOSE GLOBALS ───────────────────────────── */
 Object.assign(window, {
   closeGame, restartGame, flipFC, fcAnswer,
@@ -1508,6 +1603,7 @@ Object.assign(window, {
   rtBuildSelect, rtBuildRemove, rtBuildClear, rtBuildCheck, rtNextCategory,
   dgSelect, dgNextScene,
   gustarAnswer, gustarNext,
+  generoAnswer, generoNext,
   playFlashcards, playSerEstar, playQuiz, playFillGaps, playWordOrder, playVerbSprint, playPresentarse,
-  playRuleta, playDialogos, playGustar
+  playRuleta, playDialogos, playGustar, playGenero
 });
