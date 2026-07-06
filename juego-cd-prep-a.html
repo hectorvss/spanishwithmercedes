@@ -210,14 +210,6 @@
 
 <script src="i18n.js?v=9"></script>
 <script src="games.js?v=23"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('autoplay') === '1' || window.location.hash === '#jugar') {
-      setTimeout(() => playCD(), 600);
-    }
-  });
-</script>
 <script src="search.js?v=4"></script>
 </body>
 </html>
