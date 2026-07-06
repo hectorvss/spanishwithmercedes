@@ -1592,6 +1592,92 @@ function generoNext() {
   _renderGeneroRound();
 }
 
+/* ══════════════════════════════════════════════
+   GAME 12 · LA CINTA DEL CD (CD Y LA PREPOSICIÓN A)
+   (sentences slide along a conveyor belt — decide
+   CON A or SIN A before each one reaches the end,
+   the personal "a" rule from the PDF)
+══════════════════════════════════════════════ */
+
+const CD_ITEMS = [
+  { es:'Veo ___ Laura.',              needsA:true,  full:'Veo a Laura.' },
+  { es:'Busco ___ mi jefe.',          needsA:true,  full:'Busco a mi jefe.' },
+  { es:'Escucho ___ la profesora.',   needsA:true,  full:'Escucho a la profesora.' },
+  { es:'Visitamos ___ mis abuelos.',  needsA:true,  full:'Visitamos a mis abuelos.' },
+  { es:'Necesito ___ mi médico.',     needsA:true,  full:'Necesito a mi médico.' },
+  { es:'Quiero ___ mi perro.',        needsA:true,  full:'Quiero a mi perro.' },
+  { es:'Llamo ___ mi madre.',         needsA:true,  full:'Llamo a mi madre.' },
+  { es:'Conozco ___ tu hermano.',     needsA:true,  full:'Conozco a tu hermano.' },
+  { es:'Veo ___ el coche.',           needsA:false, full:'Veo el coche.' },
+  { es:'Busco ___ trabajo.',          needsA:false, full:'Busco trabajo.' },
+  { es:'Escucho ___ música.',         needsA:false, full:'Escucho música.' },
+  { es:'Visitamos ___ la Sagrada Familia.', needsA:false, full:'Visitamos la Sagrada Familia.' },
+  { es:'Necesito ___ un médico.',     needsA:false, full:'Necesito un médico.' },
+  { es:'Busco ___ secretaria.',       needsA:false, full:'Busco secretaria.' }
+];
+
+function playCD() {
+  currentGameFn = playCD;
+  const lang = L();
+  const title = lang==='es' ? 'La Cinta del CD' : 'The Direct Object Conveyor';
+  GS = { items: _shuffle(CD_ITEMS).slice(0, 12), idx: 0, correct: 0, total: 12, answered: false };
+  _renderCDRound();
+}
+
+function _renderCDRound() {
+  const lang = L();
+  const title = lang==='es' ? 'La Cinta del CD' : 'The Direct Object Conveyor';
+  const { items, idx, correct, total } = GS;
+  if (idx >= total) { _end(correct, total, title); return; }
+  const item = items[idx];
+  GS.answered = false;
+  const duration = 5;
+  _modal(`
+    ${_progress(idx, total, correct, lang)}
+    <p class="gm-instr" style="text-align:center">${lang==='es'?'¿Necesita «a» o no? ¡Decide antes de que llegue al final de la cinta!':'Does it need "a" or not? Decide before it reaches the end of the belt!'}</p>
+    <div class="cd-track">
+      <div class="cd-card" id="cd-card" style="--cd-duration:${duration}s">${item.es}</div>
+      <div class="cd-belt"></div>
+    </div>
+    <div class="cd-catch-row">
+      <button class="gu-catch cd-catch-no" onclick="cdAnswer(false)">SIN A</button>
+      <button class="gu-catch cd-catch-yes" onclick="cdAnswer(true)">CON A</button>
+    </div>
+    <div class="gm-feedback" id="gm-fb"></div>
+  `, title);
+
+  if (timerInt) clearTimeout(timerInt);
+  timerInt = setTimeout(() => { if (!GS.answered) cdAnswer(null, true); }, duration * 1000);
+}
+
+function cdAnswer(guessedNeedsA, timedOut) {
+  if (GS.answered) return;
+  GS.answered = true;
+  if (timerInt) { clearTimeout(timerInt); timerInt = null; }
+  const lang = L();
+  const item = GS.items[GS.idx];
+  const card = document.getElementById('cd-card');
+  const ok = !timedOut && guessedNeedsA === item.needsA;
+  if (ok) GS.correct++;
+  document.querySelectorAll('.cd-catch-row .gu-catch').forEach(b => b.disabled = true);
+  if (card) {
+    card.style.animationPlayState = 'paused';
+    card.classList.add(ok ? 'cd-pop-ok' : 'cd-pop-ko');
+  }
+  const lead = timedOut
+    ? (lang==='es'?'⏱ ¡Llegó al final!':'⏱ It reached the end!')
+    : (ok ? '✓ '+(lang==='es'?'¡Correcto!':'Correct!') : '✗ '+(lang==='es'?'No exactamente…':'Not quite…'));
+  document.getElementById('gm-fb').innerHTML = `
+    <span class="${ok?'fb-ok':'fb-ko'}">${lead}</span>
+    <div class="se-fb-sentence">${item.full}</div>
+    <button class="gm-btn gm-btn-primary gm-next-btn" onclick="cdNext()">${lang==='es'?'Siguiente →':'Next →'}</button>`;
+}
+
+function cdNext() {
+  GS.idx++;
+  _renderCDRound();
+}
+
 /* ── EXPOSE GLOBALS ───────────────────────────── */
 Object.assign(window, {
   closeGame, restartGame, flipFC, fcAnswer,
@@ -1606,6 +1692,7 @@ Object.assign(window, {
   dgSelect, dgNextScene,
   gustarAnswer, gustarNext,
   generoAnswer, generoNext,
+  cdAnswer, cdNext,
   playFlashcards, playSerEstar, playQuiz, playFillGaps, playWordOrder, playVerbSprint, playPresentarse,
-  playRuleta, playDialogos, playGustar, playGenero
+  playRuleta, playDialogos, playGustar, playGenero, playCD
 });
