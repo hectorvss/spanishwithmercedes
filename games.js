@@ -1405,6 +1405,96 @@ function dgNextScene() {
   }
 }
 
+/* ══════════════════════════════════════════════
+   GAME 10 · ATRAPA LA CONCORDANCIA (GUSTAR)
+   (things rise as floating bubbles — catch each one
+   before it escapes by calling GUSTA or GUSTAN,
+   the #1 confusion point in the GUSTAR PDF)
+══════════════════════════════════════════════ */
+
+const GUSTAR_ITEMS = [
+  { es:'el cine', plural:false }, { es:'la música', plural:false }, { es:'el café', plural:false },
+  { es:'el ruido', plural:false }, { es:'la ópera', plural:false }, { es:'la cabeza', plural:false },
+  { es:'la paella', plural:false }, { es:'esta canción', plural:false }, { es:'el chocolate', plural:false },
+  { es:'leer', plural:false },
+  { es:'las películas', plural:true }, { es:'los viajes', plural:true }, { es:'los deportes', plural:true },
+  { es:'las gambas', plural:true }, { es:'los helados', plural:true }, { es:'las novelas históricas', plural:true },
+  { es:'los fines de semana', plural:true }, { es:'las verduras', plural:true }, { es:'los pies', plural:true },
+  { es:'las muelas', plural:true }
+];
+
+function playGustar() {
+  currentGameFn = playGustar;
+  const lang = L();
+  const title = lang==='es' ? 'Atrapa la Concordancia' : 'Catch the Agreement';
+  GS = { items: _shuffle(GUSTAR_ITEMS).slice(0, 12), idx: 0, correct: 0, total: 12, answered: false };
+  _renderGustarRound();
+}
+
+function _renderGustarRound() {
+  const lang = L();
+  const title = lang==='es' ? 'Atrapa la Concordancia' : 'Catch the Agreement';
+  const { items, idx, correct, total } = GS;
+  if (idx >= total) { _end(correct, total, title); return; }
+  const item = items[idx];
+  GS.answered = false;
+  const duration = 4.5;
+  _modal(`
+    ${_progress(idx, total, correct, lang)}
+    <p class="gm-instr" style="text-align:center">${lang==='es'?'¿GUSTA o GUSTAN? ¡Atrápalo antes de que suba del todo!':'GUSTA or GUSTAN? Catch it before it floats away!'}</p>
+    <div class="gu-scene">
+      <div class="gu-timerbar"><div class="gu-timerbar-fill" id="gu-timerfill" style="width:100%"></div></div>
+      <div class="gu-sky">
+        <span class="gu-deco gu-deco1">💭</span>
+        <span class="gu-deco gu-deco2">💭</span>
+        <span class="gu-deco gu-deco3">💭</span>
+        <div class="gu-bubble" id="gu-bubble" style="--gu-duration:${duration}s">${item.es}</div>
+      </div>
+      <div class="gu-catch-row">
+        <button class="gu-catch gu-catch-sing" onclick="gustarAnswer(false)">GUSTA</button>
+        <button class="gu-catch gu-catch-plur" onclick="gustarAnswer(true)">GUSTAN</button>
+      </div>
+    </div>
+    <div class="gm-feedback" id="gm-fb"></div>
+  `, title);
+
+  requestAnimationFrame(() => {
+    const fill = document.getElementById('gu-timerfill');
+    if (fill) { fill.style.transition = `width ${duration}s linear`; fill.style.width = '0%'; }
+  });
+
+  if (timerInt) clearTimeout(timerInt);
+  timerInt = setTimeout(() => { if (!GS.answered) gustarAnswer(null, true); }, duration * 1000);
+}
+
+function gustarAnswer(guessedPlural, timedOut) {
+  if (GS.answered) return;
+  GS.answered = true;
+  if (timerInt) { clearTimeout(timerInt); timerInt = null; }
+  const lang = L();
+  const item = GS.items[GS.idx];
+  const bubble = document.getElementById('gu-bubble');
+  const ok = !timedOut && guessedPlural === item.plural;
+  if (ok) GS.correct++;
+  document.querySelectorAll('.gu-catch').forEach(b => b.disabled = true);
+  if (bubble) {
+    bubble.style.animationPlayState = 'paused';
+    bubble.classList.add(ok ? 'gu-pop-ok' : 'gu-pop-ko');
+  }
+  const correctWord = item.plural ? 'GUSTAN' : 'GUSTA';
+  const lead = timedOut
+    ? (lang==='es'?'⏱ ¡Se escapó!':'⏱ It got away!')
+    : (ok ? '✓ '+(lang==='es'?'¡Correcto!':'Correct!') : '✗ '+(lang==='es'?'Era':'It was'));
+  document.getElementById('gm-fb').innerHTML = `
+    <span class="${ok?'fb-ok':'fb-ko'}">${lead}${!ok ? ' <strong>'+correctWord+'</strong> ("'+item.es+'")' : ''}</span>
+    <button class="gm-btn gm-btn-primary gm-next-btn" onclick="gustarNext()">${lang==='es'?'Siguiente →':'Next →'}</button>`;
+}
+
+function gustarNext() {
+  GS.idx++;
+  _renderGustarRound();
+}
+
 /* ── EXPOSE GLOBALS ───────────────────────────── */
 Object.assign(window, {
   closeGame, restartGame, flipFC, fcAnswer,
@@ -1417,6 +1507,7 @@ Object.assign(window, {
   ruletaReveal, ruletaNext,
   rtBuildSelect, rtBuildRemove, rtBuildClear, rtBuildCheck, rtNextCategory,
   dgSelect, dgNextScene,
+  gustarAnswer, gustarNext,
   playFlashcards, playSerEstar, playQuiz, playFillGaps, playWordOrder, playVerbSprint, playPresentarse,
-  playRuleta, playDialogos
+  playRuleta, playDialogos, playGustar
 });
