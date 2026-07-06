@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juegos Interactivos · Spanish Lessons With Mercedes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800;900&family=Noto+Sans:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=24">
+  <style>
+    .games-hero { background: #FEF9F1; padding: 64px 80px 56px; }
+    .games-hero__inner { max-width: 900px; margin: 0 auto; text-align: center; }
+    .games-hero__tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(212,146,10,0.12); color: #A06C00;
+      padding: 6px 16px; border-radius: 20px;
+      font-size: 13px; font-weight: 700; letter-spacing: 0.5px;
+      margin-bottom: 20px;
+    }
+    .games-hero__heading {
+      font-family: 'Noto Sans', sans-serif; font-weight: 900;
+      font-size: 48px; line-height: 1.15; color: #121117; margin-bottom: 14px;
+    }
+    .games-hero__sub { font-size: 17px; color: #4D4C5C; line-height: 1.7; max-width: 620px; margin: 0 auto; }
+    .games-body { padding: 56px 80px 80px; background: #fff; }
+    .games-body__inner { max-width: 1100px; margin: 0 auto; }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ────────────────────────────────── -->
+<header class="header">
+  <div class="header__left">
+    <a class="header__logo" href="index.html">
+      <img src="logo.png" alt="Spanish Lessons with Mercedes" class="header__logo-img">
+    </a>
+    <nav class="header__nav">
+      <div class="nav-item-dropdown">
+        <a href="index.html" class="nav-item-trigger" data-i18n="nav.home">Home</a>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="videos.html" class="nav-item-trigger" data-i18n="nav.videos">Videos</a>
+        <div class="nav-dropdown">
+          <a href="videos.html#a1">A1</a>
+          <a href="videos.html#a2">A2</a>
+          <a href="videos.html#b1">B1</a>
+          <a href="videos.html#b2">B2</a>
+          <a href="videos.html#c1">C1</a>
+          <a href="videos.html#c2">C2</a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="free-pdf.html" class="nav-item-trigger" data-i18n="nav.pdf">Free PDF</a>
+        <div class="nav-dropdown">
+          <a href="free-pdf.html#lessons"><span class="lang-en">Lessons</span><span class="lang-es">Lecciones</span></a>
+          <a href="free-pdf.html#dele"><span class="lang-en">Exams</span><span class="lang-es">Exámenes</span></a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="dele.html" class="nav-item-trigger" data-i18n="nav.dele">DELE</a>
+        <div class="nav-dropdown">
+          <a href="dele.html#a1">DELE A1</a>
+          <a href="dele.html#a2">DELE A2</a>
+          <a href="dele.html#b1">DELE B1</a>
+          <a href="dele.html#b2">DELE B2</a>
+          <a href="dele.html#c1">DELE C1</a>
+          <a href="dele.html#c2">DELE C2</a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="culture.html" class="nav-item-trigger" data-i18n="nav.culture">Culture</a>
+        <div class="nav-dropdown">
+          <a href="culture.html#literatura"><span class="lang-en">Literature</span><span class="lang-es">Literatura</span></a>
+          <a href="culture.html#cine"><span class="lang-en">Cinema</span><span class="lang-es">Cine</span></a>
+          <a href="culture.html#musica"><span class="lang-en">Music</span><span class="lang-es">Música</span></a>
+          <a href="culture.html#gastronomia"><span class="lang-en">Gastronomy</span><span class="lang-es">Gastronomía</span></a>
+          <a href="culture.html#fiestas"><span class="lang-en">Celebrations</span><span class="lang-es">Fiestas</span></a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="juegos.html" class="nav-item-trigger" data-i18n="nav.games">Games</a>
+        <div class="nav-dropdown">
+          <a href="juegos.html">Play Games</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="header__right">
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+    </div>
+    <a class="header__admin-link" href="login.html">Admin</a>
+    <div id="headerSearch">
+      <div class="header__search-wrap">
+        <input type="text" id="searchInput" placeholder="Buscar lecciones..." autocomplete="off" spellcheck="false">
+        <svg class="header__search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+      <div id="searchResults"></div>
+    </div>
+  </div>
+</header>
+
+<!-- ── HERO ──────────────────────────────────── -->
+<div class="games-hero">
+  <div class="games-hero__inner">
+    <div class="games-hero__tag">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      <span class="lang-en">Play &amp; Practice</span>
+      <span class="lang-es">Juega y Practica</span>
+    </div>
+    <h1 class="games-hero__heading">
+      <span class="lang-en">Interactive Games</span>
+      <span class="lang-es">Juegos Interactivos</span>
+    </h1>
+    <p class="games-hero__sub">
+      <span class="lang-en">Learn by playing, not just by filling in blanks. Spin wheels, match dialogues and race the clock to practice what you've studied in the free PDFs.</span>
+      <span class="lang-es">Aprende jugando, no solo rellenando huecos. Gira ruletas, empareja diálogos y compite contra el reloj para practicar lo que has estudiado en los PDFs gratuitos.</span>
+    </p>
+  </div>
+</div>
+
+<!-- ── GAMES GRID ──────────────────────────────── -->
+<div class="games-body">
+  <div class="games-body__inner">
+    <div class="pdf-grid">
+      <a class="pdf-card" href="juego-ser-estar.html" style="border-color:#D4920A; display:flex; flex-direction:column; text-decoration:none;">
+        <div class="pdf-card__icon" style="background:#D4920A;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <div class="pdf-card__level">A1 – B1 🎮</div>
+        <div class="pdf-card__title"><span class="lang-en">Ser or Estar?</span><span class="lang-es">¿Ser o Estar?</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">Choose the correct conjugated form across 4 levels, from A1 basics to tricky B1 adjectives.</span><span class="lang-es">Elige la forma conjugada correcta en 4 niveles, desde lo básico A1 hasta los adjetivos con truco de B1.</span></div>
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg><span class="lang-en">Play now</span><span class="lang-es">Jugar ahora</span></div>
+      </a>
+      <a class="pdf-card" href="juego-presentarte.html" style="border-color:#2885FD; display:flex; flex-direction:column; text-decoration:none;">
+        <div class="pdf-card__icon" style="background:#2885FD;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <div class="pdf-card__level">A1 – B1 🎮</div>
+        <div class="pdf-card__title"><span class="lang-en">Introduce Yourself</span><span class="lang-es">Preséntate en Español</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">Spin the character roulette, untangle crossed dialogues, or take the classic quiz — three ways to practice LLAMARSE, SER, TENER and VIVIR.</span><span class="lang-es">Gira la ruleta de personajes, desenreda diálogos cruzados o haz el test clásico — tres formas de practicar LLAMARSE, SER, TENER y VIVIR.</span></div>
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2885FD" stroke-width="2" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg><span class="lang-en">Play now</span><span class="lang-es">Jugar ahora</span></div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ─────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <div class="footer__col">
+        <div class="footer__col-title" data-i18n="footer.about">About</div>
+        <ul>
+          <li><a href="index.html#about"><span class="lang-en">Who is Mercedes?</span><span class="lang-es">¿Quién es Mercedes?</span></a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title" data-i18n="footer.learn">Learn Spanish</div>
+        <ul>
+          <li><a href="videos.html"><span class="lang-en">Watch free video lessons</span><span class="lang-es">Ver lecciones en vídeo gratis</span></a></li>
+          <li><a href="free-pdf.html"><span class="lang-en">Free PDF materials</span><span class="lang-es">PDFs gratuitos</span></a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title" data-i18n="footer.dele">DELE &amp; Exams</div>
+        <ul>
+          <li><a href="dele.html#a1">DELE A1</a></li>
+          <li><a href="dele.html#a2">DELE A2</a></li>
+          <li><a href="dele.html#b1">DELE B1</a></li>
+          <li><a href="dele.html#b2">DELE B2</a></li>
+          <li><a href="dele.html#c1">DELE C1</a></li>
+          <li><a href="dele.html#c2">DELE C2</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title" data-i18n="footer.culture">Culture &amp; Blog</div>
+        <ul>
+          <li><a href="culture.html#literatura"><span class="lang-en">Spanish literature</span><span class="lang-es">Literatura española</span></a></li>
+          <li><a href="culture.html#cine"><span class="lang-en">Cinema &amp; music</span><span class="lang-es">Cine y música</span></a></li>
+          <li><a href="culture.html#gastronomia"><span class="lang-en">Gastronomy</span><span class="lang-es">Gastronomía</span></a></li>
+          <li><a href="culture.html#fiestas"><span class="lang-en">Festivals &amp; traditions</span><span class="lang-es">Fiestas y tradiciones</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__divider"></div>
+    <div class="footer__bottom">
+      <div class="footer__logo-row">
+        <div class="footer__logo">
+          <img src="logo.png" alt="Spanish Lessons with Mercedes" style="height: 40px; width: auto;">
+        </div>
+      </div>
+      <div class="footer__links-row">
+        <a href="#"><span class="lang-en">Privacy policy</span><span class="lang-es">Política de privacidad</span></a>
+        <a href="#"><span class="lang-en">Terms of use</span><span class="lang-es">Términos de uso</span></a>
+        <a href="#">Cookie policy</a>
+        <a href="login.html">Admin</a>
+      </div>
+      <div class="footer__copyright">© 2025 Spanish Lessons With Mercedes. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="i18n.js?v=9"></script>
+<script>
+  document.querySelectorAll('.nav-item-dropdown').forEach(dropdown => {
+    let hideTimeout;
+    dropdown.addEventListener('mouseenter', () => {
+      clearTimeout(hideTimeout);
+      dropdown.classList.add('active');
+    });
+    dropdown.addEventListener('mouseleave', () => {
+      hideTimeout = setTimeout(() => { dropdown.classList.remove('active'); }, 100);
+    });
+  });
+</script>
+<script src="search.js?v=4"></script>
+</body>
+</html>
