@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800;900&family=Noto+Sans:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=22">
+  <link rel="stylesheet" href="styles.css?v=24">
 </head>
 <body>
 
@@ -246,6 +246,36 @@
   </div>
 </div>
 
+<!-- ── GAMES ──────────────────────────────────── -->
+<div id="games" style="padding: 64px 80px; scroll-margin-top:100px;">
+  <div style="margin-bottom:8px; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#D4920A;">
+    <span class="lang-en">PLAY &amp; PRACTICE</span><span class="lang-es">JUEGA Y PRACTICA</span>
+  </div>
+  <h2 style="font-family:'Noto Sans',sans-serif;font-weight:800;font-size:32px;color:#121117;margin-bottom:12px;">
+    <span class="lang-en">Interactive Games</span><span class="lang-es">Juegos Interactivos</span>
+  </h2>
+  <p style="font-size:16px;color:#4D4C5C;max-width:640px;margin-bottom:32px;line-height:1.6;">
+    <span class="lang-en">Learn by playing, not just by filling in blanks. Spin wheels, match dialogues and race the clock to practice what you've studied in the free PDFs.</span>
+    <span class="lang-es">Aprende jugando, no solo rellenando huecos. Gira ruletas, empareja diálogos y compite contra el reloj para practicar lo que has estudiado en los PDFs gratuitos.</span>
+  </p>
+  <div class="pdf-grid">
+    <a class="pdf-card" href="juego-ser-estar.html" style="border-color:#D4920A; display:flex; flex-direction:column; text-decoration:none;">
+      <div class="pdf-card__icon" style="background:#D4920A;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+      <div class="pdf-card__level">A1 – B1 🎮</div>
+      <div class="pdf-card__title"><span class="lang-en">Ser or Estar?</span><span class="lang-es">¿Ser o Estar?</span></div>
+      <div class="pdf-card__desc"><span class="lang-en">Choose the correct conjugated form across 4 levels, from A1 basics to tricky B1 adjectives.</span><span class="lang-es">Elige la forma conjugada correcta en 4 niveles, desde lo básico A1 hasta los adjetivos con truco de B1.</span></div>
+      <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg><span class="lang-en">Play now</span><span class="lang-es">Jugar ahora</span></div>
+    </a>
+    <a class="pdf-card" href="juego-presentarte.html" style="border-color:#2885FD; display:flex; flex-direction:column; text-decoration:none;">
+      <div class="pdf-card__icon" style="background:#2885FD;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+      <div class="pdf-card__level">A1 – B1 🎮</div>
+      <div class="pdf-card__title"><span class="lang-en">Introduce Yourself</span><span class="lang-es">Preséntate en Español</span></div>
+      <div class="pdf-card__desc"><span class="lang-en">Spin the character roulette, untangle crossed dialogues, or take the classic quiz — three ways to practice LLAMARSE, SER, TENER and VIVIR.</span><span class="lang-es">Gira la ruleta de personajes, desenreda diálogos cruzados o haz el test clásico — tres formas de practicar LLAMARSE, SER, TENER y VIVIR.</span></div>
+      <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2885FD" stroke-width="2" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg><span class="lang-en">Play now</span><span class="lang-es">Jugar ahora</span></div>
+    </a>
+  </div>
+</div>
+
 <!-- ── FOOTER ─────────────────────────────────── -->
 <footer class="footer">
   <div class="footer__inner">
@@ -305,7 +335,7 @@
 </footer>
 
 <script src="i18n.js?v=9"></script>
-<script src="games.js?v=12"></script>
+<script src="games.js?v=17"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);

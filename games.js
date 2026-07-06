@@ -190,11 +190,33 @@ const VERB_SPRINT = [
 ];
 
 /* ── HELPERS ─────────────────────────────────── */
+// Proper Fisher-Yates shuffle — sort(()=>Math.random()-0.5) is biased
+// and barely reorders small arrays, which made "order the words" games
+// sometimes show the answer already in the correct order.
+function _shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// Shuffle, but guarantee the result isn't identical to the original order
+// (matters for "put the words in order" puzzles with few tiles).
+function _shuffleScrambled(arr) {
+  if (arr.length < 2) return [...arr];
+  let a = _shuffle(arr);
+  let tries = 0;
+  while (a.every((w, i) => w === arr[i]) && tries < 10) { a = _shuffle(arr); tries++; }
+  return a;
+}
+
 // Shuffle answer options, keeping the correct answer tracked by value
 function _shuffleOpts(qs) {
   return qs.map(q => {
     const correct = q.opts[q.a];
-    const shuffled = [...q.opts].sort(() => Math.random() - 0.5);
+    const shuffled = _shuffle(q.opts);
     return { ...q, opts: shuffled, a: shuffled.indexOf(correct) };
   });
 }
@@ -269,7 +291,7 @@ function playFlashcards() {
   currentGameFn = playFlashcards;
   const lang = L();
   const title = lang === 'es' ? 'Tarjetas de Vocabulario' : 'Vocabulary Flashcards';
-  GS = { cards: [...FLASHCARDS].sort(() => Math.random() - 0.5), idx: 0, correct: 0, flipped: false };
+  GS = { cards: _shuffle(FLASHCARDS), idx: 0, correct: 0, flipped: false };
   _renderFC(lang, title);
 }
 
@@ -491,7 +513,7 @@ function playFillGaps() {
   currentGameFn = playFillGaps;
   const lang = L();
   const title = lang==='es'?'Rellena los Huecos':'Fill the Gaps';
-  GS = { qs:_shuffleOpts([...FILL_GAPS].sort(()=>Math.random()-0.5)), idx:0, correct:0, answered:false };
+  GS = { qs:_shuffleOpts(_shuffle(FILL_GAPS)), idx:0, correct:0, answered:false };
   _renderFill(lang, title);
 }
 
@@ -538,7 +560,7 @@ function playWordOrder() {
   currentGameFn = playWordOrder;
   const lang = L();
   const title = lang==='es'?'Ordena las Palabras':'Word Order';
-  GS = { qs:[...WORD_ORDER].sort(()=>Math.random()-0.5), idx:0, correct:0, selected:[], available:[] };
+  GS = { qs:_shuffle(WORD_ORDER), idx:0, correct:0, selected:[], available:[] };
   _renderWO(lang, title);
 }
 
@@ -547,7 +569,7 @@ function _renderWO(lang, title) {
   if (idx >= qs.length) { _end(correct, qs.length, title); return; }
   const q = qs[idx];
   GS.selected = [];
-  GS.available = [...q.w].sort(()=>Math.random()-0.5);
+  GS.available = _shuffleScrambled(q.w);
   const wordBtns = GS.available.map((w,i)=>`<button class="wo-word" onclick="woSelect(${i})">${w}</button>`).join('');
   _modal(`
     ${_progress(idx, qs.length, correct, lang)}
@@ -631,7 +653,7 @@ function playVerbSprint() {
   currentGameFn = playVerbSprint;
   const lang = L();
   const title = lang==='es'?'Sprint de Verbos':'Verb Sprint';
-  GS = { verbs:[...VERB_SPRINT].sort(()=>Math.random()-0.5), idx:0, correct:0, timeLeft:60, running:true };
+  GS = { verbs:_shuffle(VERB_SPRINT), idx:0, correct:0, timeLeft:60, running:true };
   _renderVS(lang, title);
 }
 
@@ -903,72 +925,113 @@ function _presResults(correct, total, key, lang, title) {
 ══════════════════════════════════════════════ */
 
 const RULETA_PERSONAJES = [
-  { country:{es:'Nigeria', en:'Nigeria'}, role:'🩺', name:'Amara', city:'Toronto', color:'#D4920A',
-    bio:{es:'¡Hola! Me llamo Amara. Soy nigeriana. Tengo 29 años. Soy enfermera y vivo en Toronto.', en:"Hi! I'm Amara. I'm Nigerian. I'm 29 years old. I'm a nurse and I live in Toronto."},
-    facts:[
-      { es:'Soy nigeriana.', en:"I'm Nigerian.", ok:true },
-      { es:'Tengo 29 años.', en:"I'm 29 years old.", ok:true },
-      { es:'Vivo en Lagos.', en:'I live in Lagos.', ok:false, fix:{es:'En realidad vive en Toronto.', en:'Actually she lives in Toronto.'} },
-      { es:'Soy enfermera.', en:"I'm a nurse.", ok:true } ] },
-  { country:{es:'Argentina', en:'Argentina'}, role:'🍳', name:'Diego', city:'Bogotá', color:'#3DDABE',
-    bio:{es:'¡Hola! Me llamo Diego. Soy argentino. Tengo 34 años. Soy chef y vivo en Bogotá.', en:"Hi! I'm Diego. I'm Argentinian. I'm 34 years old. I'm a chef and I live in Bogotá."},
-    facts:[
-      { es:'Soy argentino.', en:"I'm Argentinian.", ok:true },
-      { es:'Tengo 34 años.', en:"I'm 34 years old.", ok:true },
-      { es:'Soy camarero.', en:"I'm a waiter.", ok:false, fix:{es:'En realidad es chef.', en:'Actually he is a chef.'} },
-      { es:'Vivo en Bogotá.', en:'I live in Bogotá.', ok:true } ] },
-  { country:{es:'Suecia', en:'Sweden'}, role:'🎨', name:'Ingrid', city:'Lisboa', color:'#2885FD',
-    bio:{es:'¡Hola! Me llamo Ingrid. Soy sueca. Tengo 26 años. Soy diseñadora y vivo en Lisboa.', en:"Hi! I'm Ingrid. I'm Swedish. I'm 26 years old. I'm a designer and I live in Lisbon."},
-    facts:[
-      { es:'Soy sueca.', en:"I'm Swedish.", ok:true },
-      { es:'Vivo en Estocolmo.', en:'I live in Stockholm.', ok:false, fix:{es:'En realidad vive en Lisboa.', en:'Actually she lives in Lisbon.'} },
-      { es:'Tengo 26 años.', en:"I'm 26 years old.", ok:true },
-      { es:'Soy diseñadora.', en:"I'm a designer.", ok:true } ] },
-  { country:{es:'Marruecos', en:'Morocco'}, role:'🚕', name:'Youssef', city:'Barcelona', color:'#7C3AED',
-    bio:{es:'¡Hola! Me llamo Youssef. Soy marroquí. Tengo 41 años. Soy taxista y vivo en Barcelona.', en:"Hi! I'm Youssef. I'm Moroccan. I'm 41 years old. I'm a taxi driver and I live in Barcelona."},
-    facts:[
-      { es:'Soy marroquí.', en:"I'm Moroccan.", ok:true },
-      { es:'Tengo 41 años.', en:"I'm 41 years old.", ok:true },
-      { es:'Soy profesor.', en:"I'm a teacher.", ok:false, fix:{es:'En realidad es taxista.', en:'Actually he is a taxi driver.'} },
-      { es:'Vivo en Barcelona.', en:'I live in Barcelona.', ok:true } ] },
-  { country:{es:'Corea del Sur', en:'South Korea'}, role:'🎻', name:'Soo-ah', city:'Berlín', color:'#E8355A',
-    bio:{es:'¡Hola! Me llamo Soo-ah. Soy coreana. Tengo 23 años. Estudio música y vivo en Berlín.', en:"Hi! I'm Soo-ah. I'm Korean. I'm 23 years old. I study music and I live in Berlin."},
-    facts:[
-      { es:'Soy coreana.', en:"I'm Korean.", ok:true },
-      { es:'Vivo en Seúl.', en:'I live in Seoul.', ok:false, fix:{es:'En realidad vive en Berlín.', en:'Actually she lives in Berlin.'} },
-      { es:'Tengo 23 años.', en:"I'm 23 years old.", ok:true },
-      { es:'Estudio música.', en:'I study music.', ok:true } ] },
-  { country:{es:'Brasil', en:'Brazil'}, role:'⚖️', name:'Fernanda', city:'Miami', color:'#1A9E87',
-    bio:{es:'¡Hola! Me llamo Fernanda. Soy brasileña. Tengo 37 años. Soy abogada y vivo en Miami.', en:"Hi! I'm Fernanda. I'm Brazilian. I'm 37 years old. I'm a lawyer and I live in Miami."},
-    facts:[
-      { es:'Soy brasileña.', en:"I'm Brazilian.", ok:true },
-      { es:'Tengo 37 años.', en:"I'm 37 years old.", ok:true },
-      { es:'Soy abogada.', en:"I'm a lawyer.", ok:true },
-      { es:'Vivo en Río de Janeiro.', en:'I live in Rio de Janeiro.', ok:false, fix:{es:'En realidad vive en Miami.', en:'Actually she lives in Miami.'} } ] },
-  { country:{es:'Canadá', en:'Canada'}, role:'📚', name:'Liam', city:'Tokio', color:'#F5A800',
-    bio:{es:'¡Hola! Me llamo Liam. Soy canadiense. Tengo 30 años. Soy profesor de inglés y vivo en Tokio.', en:"Hi! I'm Liam. I'm Canadian. I'm 30 years old. I'm an English teacher and I live in Tokyo."},
-    facts:[
-      { es:'Soy canadiense.', en:"I'm Canadian.", ok:true },
-      { es:'Vivo en Tokio.', en:'I live in Tokyo.', ok:true },
-      { es:'Tengo 30 años.', en:"I'm 30 years old.", ok:true },
-      { es:'Soy médico.', en:"I'm a doctor.", ok:false, fix:{es:'En realidad es profesor de inglés.', en:'Actually he is an English teacher.'} } ] },
-  { country:{es:'Pakistán', en:'Pakistan'}, role:'🩹', name:'Zara', city:'Londres', color:'#4D9DE0',
-    bio:{es:'¡Hola! Me llamo Zara. Soy pakistaní. Tengo 45 años. Soy médica y vivo en Londres.', en:"Hi! I'm Zara. I'm Pakistani. I'm 45 years old. I'm a doctor and I live in London."},
-    facts:[
-      { es:'Soy pakistaní.', en:"I'm Pakistani.", ok:true },
-      { es:'Tengo 45 años.', en:"I'm 45 years old.", ok:true },
-      { es:'Vivo en Manchester.', en:'I live in Manchester.', ok:false, fix:{es:'En realidad vive en Londres.', en:'Actually she lives in London.'} },
-      { es:'Soy médica.', en:"I'm a doctor.", ok:true } ] }
+  { country:{es:'Nigeria', en:'Nigeria'}, role:'🩺', name:'Amara', city:'Toronto', age:29, color:'#D4920A',
+    job:{es:'Soy enfermera.', en:"I'm a nurse."} },
+  { country:{es:'Argentina', en:'Argentina'}, role:'🍳', name:'Diego', city:'Bogotá', age:34, color:'#3DDABE',
+    job:{es:'Soy chef.', en:"I'm a chef."} },
+  { country:{es:'Suecia', en:'Sweden'}, role:'🎨', name:'Ingrid', city:'Lisboa', age:26, color:'#2885FD',
+    job:{es:'Soy diseñadora.', en:"I'm a designer."} },
+  { country:{es:'Marruecos', en:'Morocco'}, role:'🚕', name:'Youssef', city:'Barcelona', age:41, color:'#7C3AED',
+    job:{es:'Soy taxista.', en:"I'm a taxi driver."} },
+  { country:{es:'Corea del Sur', en:'South Korea'}, role:'🎻', name:'Soo-ah', city:'Berlín', age:23, color:'#E8355A',
+    job:{es:'Estudio música.', en:'I study music.'} },
+  { country:{es:'Brasil', en:'Brazil'}, role:'⚖️', name:'Fernanda', city:'Miami', age:37, color:'#1A9E87',
+    job:{es:'Soy abogada.', en:"I'm a lawyer."} },
+  { country:{es:'Canadá', en:'Canada'}, role:'📚', name:'Liam', city:'Tokio', age:30, color:'#F5A800',
+    job:{es:'Soy profesor de inglés.', en:"I'm an English teacher."} },
+  { country:{es:'Pakistán', en:'Pakistan'}, role:'🩹', name:'Zara', city:'Londres', age:45, color:'#4D9DE0',
+    job:{es:'Soy médica.', en:"I'm a doctor."} }
 ];
+
+const RT_QPR = 4; // questions per round (randomly chosen out of RT_CATEGORIES)
+
+const RT_CATEGORIES = [
+  { key:'nombre', verb:'LLAMARSE',
+    variants:[
+      { tiles:['¿Cómo','te','llamas?'], q:'¿Cómo te llamas?' },
+      { tiles:['¿Cuál','es','tu','nombre?'], q:'¿Cuál es tu nombre?' }
+    ],
+    getAnswer:(c,lang)=> lang==='es' ? `Me llamo ${c.name}.` : `My name is ${c.name}.` },
+  { key:'nacionalidad', verb:'SER',
+    variants:[
+      { tiles:['¿De','dónde','eres?'], q:'¿De dónde eres?' },
+      { tiles:['¿Cuál','es','tu','nacionalidad?'], q:'¿Cuál es tu nacionalidad?' }
+    ],
+    getAnswer:(c,lang)=> lang==='es' ? `Soy de ${c.country.es}.` : `I'm from ${c.country.en}.` },
+  { key:'edad', verb:'TENER',
+    variants:[
+      { tiles:['¿Cuántos','años','tienes?'], q:'¿Cuántos años tienes?' },
+      { tiles:['¿Qué','edad','tienes?'], q:'¿Qué edad tienes?' }
+    ],
+    getAnswer:(c,lang)=> lang==='es' ? `Tengo ${c.age} años.` : `I'm ${c.age} years old.` },
+  { key:'ciudad', verb:'VIVIR',
+    variants:[
+      { tiles:['¿En','qué','ciudad','vives?'], q:'¿En qué ciudad vives?' },
+      { tiles:['¿Dónde','vives?'], q:'¿Dónde vives?' }
+    ],
+    getAnswer:(c,lang)=> lang==='es' ? `Vivo en ${c.city}.` : `I live in ${c.city}.` },
+  { key:'profesion', verb:'SER',
+    variants:[
+      { tiles:['¿A','qué','te','dedicas?'], q:'¿A qué te dedicas?' },
+      { tiles:['¿Cuál','es','tu','profesión?'], q:'¿Cuál es tu profesión?' }
+    ],
+    getAnswer:(c,lang)=> c.job[lang] }
+];
+
+const RT_CAT_LABEL = {
+  nombre:{es:'nombre', en:'name'},
+  nacionalidad:{es:'nacionalidad', en:'nationality'},
+  edad:{es:'edad', en:'age'},
+  ciudad:{es:'ciudad', en:'city'},
+  profesion:{es:'profesión', en:'profession'}
+};
+
+const RT_CAT_ICON = { nombre:'👤', nacionalidad:'🌍', edad:'🎂', ciudad:'📍', profesion:'💼' };
+
+// One rotating "bag" of variant indices per category so the same phrasing
+// never repeats before every other phrasing has been used once.
+function _rtMakeVariantBags() {
+  const bags = {};
+  RT_CATEGORIES.forEach(cat => { bags[cat.key] = { queue: [], last: -1 }; });
+  return bags;
+}
+function _rtNextVariant(bags, cat) {
+  const bag = bags[cat.key];
+  if (bag.queue.length === 0) {
+    let fresh = _shuffle(cat.variants.map((_, i) => i));
+    // avoid the refill accidentally starting with the variant just served
+    if (cat.variants.length > 1 && fresh[fresh.length - 1] === bag.last) {
+      fresh = [fresh[fresh.length - 1], ...fresh.slice(0, -1)];
+    }
+    bag.queue = fresh;
+  }
+  const idx = bag.queue.pop();
+  bag.last = idx;
+  return cat.variants[idx];
+}
 
 function playRuleta() {
   currentGameFn = playRuleta;
   const lang = L();
   const title = lang==='es' ? 'La Ruleta de Personajes' : 'The Character Roulette';
-  const chars = RULETA_PERSONAJES.map((c,i) => ({ ...c, origIndex:i }))
-    .sort(()=>Math.random()-0.5).slice(0,5)
-    .map(c => ({ ...c, factsRound: [...c.facts].sort(()=>Math.random()-0.5).slice(0,3) }));
-  GS = { chars, roundIdx:0, factIdx:0, correct:0, total: chars.length*3, spinning:true, answered:false };
+  const chars = _shuffle(RULETA_PERSONAJES.map((c,i) => ({ ...c, origIndex:i }))).slice(0,5);
+
+  // Balanced category coverage: each round skips exactly one category, and
+  // across the 5 rounds every category ends up skipped exactly once — so no
+  // category is over- or under-represented, and rounds never look identical.
+  const skipOrder = _shuffle(RT_CATEGORIES.map((_, i) => i));
+  const variantBags = _rtMakeVariantBags();
+
+  chars.forEach((c, i) => {
+    const excludeIdx = skipOrder[i % RT_CATEGORIES.length];
+    const roundCats = _shuffle(RT_CATEGORIES.filter((_, ci) => ci !== excludeIdx));
+    c.questions = roundCats.map(cat => {
+      const variant = _rtNextVariant(variantBags, cat);
+      return { key: cat.key, verb: cat.verb, tiles: variant.tiles, q: variant.q, getAnswer: cat.getAnswer };
+    });
+  });
+
+  GS = { chars, roundIdx:0, catIdx:0, correct:0, total: chars.length*RT_QPR, profile:[], answered:false };
   _renderRuletaSpin(lang, title);
 }
 
@@ -1015,110 +1078,183 @@ function ruletaReveal() {
     requestAnimationFrame(() => { wheel.style.transform = `rotate(${finalDeg}deg)`; });
   }
   setTimeout(() => {
-    GS.factIdx = 0; GS.answered = false;
-    _renderRuletaCard();
+    GS.catIdx = 0; GS.answered = false; GS.profile = [];
+    _renderRtIntro();
   }, 3400);
 }
 
-function _rtAvatar(c, size) {
-  return `<div class="rt-avatar" style="width:${size}px;height:${size}px;font-size:${size*0.46}px;background:${c.color}20;border-color:${c.color}">${c.role}</div>`;
+function _rtAvatar(c, size, revealed) {
+  const content = revealed ? c.role : '❓';
+  return `<div class="rt-avatar" style="width:${size}px;height:${size}px;font-size:${size*0.46}px;background:${c.color}20;border-color:${c.color}">${content}</div>`;
 }
 
-function _renderRuletaCard() {
+function _rtProfileHTML(lang) {
+  if (!GS.profile.length) return '';
+  return `<div class="rt-profile-list">${GS.profile.map(p =>
+    `<span class="rt-profile-pill" style="border-color:${p.color}40;color:${p.color};background:${p.color}15">${p.icon} ${p.text}</span>`
+  ).join('')}</div>`;
+}
+
+function _renderRtIntro() {
   const lang = L();
   const title = lang==='es' ? 'La Ruleta de Personajes' : 'The Character Roulette';
-  const { chars, roundIdx, factIdx, correct, total } = GS;
+  const { chars, roundIdx, catIdx, correct, total } = GS;
   const c = chars[roundIdx];
-  const globalIdx = roundIdx*3 + factIdx;
-  if (factIdx === 0) {
-    GS.peekOpen = false;
-    _modal(`
-      ${_progress(globalIdx, total, correct, lang)}
-      <p class="gm-instr" style="text-align:center">${lang==='es'?'¡Te presento a alguien nuevo! Escucha su presentación:':'Meet someone new! Listen to their introduction:'}</p>
-      <div class="rt-intro">
-        ${_rtAvatar(c, 72)}
-        <div class="rt-bubble">
-          <span class="rt-bubble-name" style="color:${c.color}">${c.name} <span class="rt-bubble-nat">· ${c.country[lang]}</span></span>
-          ${c.bio[lang]}
-        </div>
-      </div>
-      <button class="gm-btn gm-btn-primary" style="width:100%;justify-content:center" onclick="_renderRuletaFact()">
-        ${lang==='es'?'Ya me lo sé — ¡vamos! →':"Got it — let's go! →"}
-      </button>
-    `, title);
-  } else {
-    _renderRuletaFact();
-  }
+  const globalIdx = roundIdx*RT_QPR + catIdx;
+  _modal(`
+    ${_progress(globalIdx, total, correct, lang)}
+    <p class="gm-instr" style="text-align:center">${lang==='es'?'Alguien nuevo ha llegado… ¡pregúntale para conocerlo!':'Someone new has arrived… ask them to find out who they are!'}</p>
+    <div class="rt-intro">
+      ${_rtAvatar(c, 72, false)}
+      <div class="rt-bubble">${lang==='es'?'¡Hola! Pregúntame lo que quieras…':'Hi! Ask me anything…'}</div>
+    </div>
+    <button class="gm-btn gm-btn-primary" style="width:100%;justify-content:center" onclick="_renderRtQuestion()">
+      ${lang==='es'?'Empezar a preguntar →':'Start asking →'}
+    </button>
+  `, title);
 }
 
-function ruletaTogglePeek() {
-  GS.peekOpen = !GS.peekOpen;
-  _renderRuletaFact();
-}
-
-function _renderRuletaFact() {
+function _renderRtQuestion() {
   const lang = L();
   const title = lang==='es' ? 'La Ruleta de Personajes' : 'The Character Roulette';
-  const { chars, roundIdx, factIdx, correct, total } = GS;
+  const { chars, roundIdx, catIdx, correct, total } = GS;
   const c = chars[roundIdx];
-  const fact = c.factsRound[factIdx];
-  const globalIdx = roundIdx*3 + factIdx;
-  const peekBlock = GS.peekOpen
-    ? `<div class="rt-bubble rt-bubble-small">
-        <span class="rt-bubble-name" style="color:${c.color}">${c.name} <span class="rt-bubble-nat">· ${c.country[lang]}</span></span>
-        ${c.bio[lang]}
-      </div>`
-    : '';
+  const question = c.questions[catIdx];
+  const globalIdx = roundIdx*RT_QPR + catIdx;
+  GS.buildSelected = [];
+  GS.buildAvailable = _shuffleScrambled(question.tiles);
+  const wordBtns = GS.buildAvailable.map((w,i)=>`<button class="wo-word" onclick="rtBuildSelect(${i})">${w}</button>`).join('');
+  const catLabel = RT_CAT_LABEL[question.key][lang];
   _modal(`
     ${_progress(globalIdx, total, correct, lang)}
     <div class="rt-fact-header">
-      ${_rtAvatar(c, 44)}
-      <span class="rt-fact-name">${c.name}</span>
-      <button class="rt-peek-btn" onclick="ruletaTogglePeek()">${GS.peekOpen ? '🙈 ' + (lang==='es'?'Ocultar':'Hide') : '👁 ' + (lang==='es'?'Recordar su presentación':'Remember their intro')}</button>
+      ${_rtAvatar(c, 44, catIdx > 0)}
+      <span class="rt-fact-name">${catIdx > 0 ? c.name : (lang==='es'?'???':'???')}</span>
     </div>
-    ${peekBlock}
-    <p class="gm-instr" style="text-align:center">${lang==='es'?`${c.name} dice:`:`${c.name} says:`}</p>
-    <div class="gm-sentence">"${fact[lang]}"</div>
-    <div class="se-btns">
-      <button class="gm-opt tf-true" onclick="answerRuleta(true)">✓ ${lang==='es'?'Verdadero':'True'}</button>
-      <button class="gm-opt tf-false" onclick="answerRuleta(false)">✗ ${lang==='es'?'Falso':'False'}</button>
+    ${_rtProfileHTML(lang)}
+    <p class="gm-instr">${lang==='es'?`Quieres saber su ${catLabel}. Ordena las palabras para preguntar (verbo ${question.verb}):`:`You want to know their ${catLabel}. Order the words to ask (verb ${question.verb}):`}</p>
+    <div class="wo-selected-area" id="wo-sel">
+      <span class="wo-placeholder">${lang==='es'?'Tu pregunta aparecerá aquí…':'Your question will appear here…'}</span>
+    </div>
+    <div class="wo-words-area" id="wo-words">${wordBtns}</div>
+    <div class="wo-actions">
+      <button class="gm-btn gm-btn-ghost" onclick="rtBuildClear()" id="wo-clear" style="display:none">${lang==='es'?'Borrar todo':'Clear all'}</button>
+      <button class="gm-btn gm-btn-primary" onclick="rtBuildCheck()" id="wo-check" style="display:none">${lang==='es'?'Preguntar':'Ask'}</button>
     </div>
     <div class="gm-feedback" id="gm-fb"></div>
   `, title);
 }
 
-function answerRuleta(choice) {
+function rtBuildSelect(i) {
+  const btns = document.querySelectorAll('.wo-word');
+  if (btns[i].disabled) return;
+  btns[i].disabled = true;
+  btns[i].classList.add('wo-used');
+  GS.buildSelected.push({ word: GS.buildAvailable[i], i });
+  _rtRenderSelected();
+  const hasAny = GS.buildSelected.length > 0;
+  document.getElementById('wo-clear').style.display = hasAny ? 'inline-flex' : 'none';
+  document.getElementById('wo-check').style.display = hasAny ? 'inline-flex' : 'none';
+}
+
+function _rtRenderSelected() {
+  const area = document.getElementById('wo-sel');
+  if (GS.buildSelected.length === 0) {
+    area.innerHTML = `<span class="wo-placeholder">${L()==='es'?'Tu pregunta aparecerá aquí…':'Your question will appear here…'}</span>`;
+    return;
+  }
+  area.innerHTML = GS.buildSelected.map((s,j)=>
+    `<span class="wo-chip" onclick="rtBuildRemove(${j})">${s.word} <span class="wo-x">×</span></span>`
+  ).join('');
+}
+
+function rtBuildRemove(j) {
+  const removed = GS.buildSelected.splice(j, 1)[0];
+  const btns = document.querySelectorAll('.wo-word');
+  btns[removed.i].disabled = false;
+  btns[removed.i].classList.remove('wo-used');
+  _rtRenderSelected();
+  const hasAny = GS.buildSelected.length > 0;
+  document.getElementById('wo-clear').style.display = hasAny ? 'inline-flex' : 'none';
+  document.getElementById('wo-check').style.display = hasAny ? 'inline-flex' : 'none';
+}
+
+function rtBuildClear() {
+  GS.buildSelected = [];
+  document.querySelectorAll('.wo-word').forEach(b => { b.disabled = false; b.classList.remove('wo-used'); });
+  _rtRenderSelected();
+  document.getElementById('wo-clear').style.display = 'none';
+  document.getElementById('wo-check').style.display = 'none';
+}
+
+function rtBuildCheck() {
   if (GS.answered) return;
   GS.answered = true;
   const lang = L();
-  const { chars, roundIdx, factIdx } = GS;
+  const { chars, roundIdx, catIdx } = GS;
   const c = chars[roundIdx];
-  const fact = c.factsRound[factIdx];
-  const ok = choice === fact.ok;
+  const question = c.questions[catIdx];
+  const answer = GS.buildSelected.map(s => s.word).join(' ');
+  const ok = answer.toLowerCase() === question.q.toLowerCase();
   if (ok) GS.correct++;
-  document.querySelectorAll('.tf-true, .tf-false').forEach(b => b.disabled = true);
-  const correction = !fact.ok ? `<div class="se-fb-rule">📌 ${fact.fix[lang]}</div>` : '';
+  document.getElementById('wo-check').disabled = true;
+  document.getElementById('wo-clear').disabled = true;
+  const answerText = question.getAnswer(c, lang);
+  GS.profile.push({ icon: RT_CAT_ICON[question.key], text: answerText, color: c.color });
   document.getElementById('gm-fb').innerHTML = `
-    <span class="${ok?'fb-ok':'fb-ko'}">${ok?'✓ '+(lang==='es'?'¡Correcto!':'Correct!'):'✗ '+(lang==='es'?'No exactamente…':'Not quite…')}</span>
-    ${correction}
-    <button class="gm-btn gm-btn-primary gm-next-btn" onclick="ruletaNext()">${lang==='es'?'Siguiente →':'Next →'}</button>`;
+    <span class="${ok?'fb-ok':'fb-ko'}">${ok?'✓ '+(lang==='es'?'¡Pregunta perfecta!':'Perfect question!'):'✗ '+(lang==='es'?'La pregunta correcta era:':'The correct question was:')+' "'+question.q+'"'}</span>
+    <div class="rt-bubble rt-bubble-small" style="margin-top:10px">${c.name}: "${answerText}"</div>
+    <button class="gm-btn gm-btn-primary gm-next-btn" onclick="rtNextCategory()">${lang==='es'?'Siguiente →':'Next →'}</button>`;
+}
+
+function rtNextCategory() {
+  GS.catIdx++;
+  GS.answered = false;
+  if (GS.catIdx >= RT_QPR) {
+    _renderRtRoundEnd();
+    return;
+  }
+  _renderRtQuestion();
+}
+
+function _renderRtRoundEnd() {
+  const lang = L();
+  const title = lang==='es' ? 'La Ruleta de Personajes' : 'The Character Roulette';
+  const { chars, roundIdx, correct, total } = GS;
+  const c = chars[roundIdx];
+  const globalIdx = (roundIdx+1)*RT_QPR;
+  const isLast = roundIdx >= chars.length - 1;
+  const askedProfession = c.questions.some(q => q.key === 'profesion');
+  const closing = askedProfession
+    ? (lang==='es' ? '¡Ya me conoces! Ha sido un placer.' : "Now you know me! It's been a pleasure.")
+    : (lang==='es' ? `¡Ya me conoces! Ah, y una cosa más: ${c.job.es}` : `Now you know me! Oh, one more thing: ${c.job.en}`);
+  _modal(`
+    ${_progress(globalIdx, total, correct, lang)}
+    <div class="rt-intro">
+      ${_rtAvatar(c, 72, true)}
+      <div class="rt-bubble">
+        <span class="rt-bubble-name" style="color:${c.color}">${c.name} <span class="rt-bubble-nat">· ${c.country[lang]}</span></span>
+        ${closing}
+      </div>
+    </div>
+    ${_rtProfileHTML(lang)}
+    <button class="gm-btn gm-btn-primary" style="width:100%;justify-content:center" onclick="ruletaNext()">
+      ${isLast ? (lang==='es'?'Ver resultados →':'See results →') : (lang==='es'?'Girar de nuevo →':'Spin again →')}
+    </button>
+  `, title);
 }
 
 function ruletaNext() {
-  GS.factIdx++;
+  GS.roundIdx++;
+  GS.catIdx = 0;
   GS.answered = false;
-  if (GS.factIdx >= 3) {
-    GS.roundIdx++;
-    GS.factIdx = 0;
-    if (GS.roundIdx >= GS.chars.length) {
-      const lang = L();
-      _end(GS.correct, GS.total, lang==='es'?'La Ruleta de Personajes':'The Character Roulette');
-      return;
-    }
-    _renderRuletaSpin(L(), L()==='es'?'La Ruleta de Personajes':'The Character Roulette');
+  GS.profile = [];
+  if (GS.roundIdx >= GS.chars.length) {
+    const lang = L();
+    _end(GS.correct, GS.total, lang==='es'?'La Ruleta de Personajes':'The Character Roulette');
     return;
   }
-  _renderRuletaFact();
+  _renderRuletaSpin(L(), L()==='es'?'La Ruleta de Personajes':'The Character Roulette');
 }
 
 /* ══════════════════════════════════════════════
@@ -1183,7 +1319,7 @@ function _startDgScene() {
     items.push({ id:'p'+i, pairId:i, type:'p', text:pair.p });
     items.push({ id:'r'+i, pairId:i, type:'r', text:pair.r });
   });
-  GS.items = items.sort(()=>Math.random()-0.5);
+  GS.items = _shuffle(items);
   GS.matched = new Set();
   GS.selected = null;
   GS.wrongPair = null;
@@ -1278,7 +1414,8 @@ Object.assign(window, {
   woSelect, woRemove, woClear, woCheck, woNext,
   vsCheck, vsNext,
   answerPres, presNext, startPresLevel,
-  ruletaReveal, answerRuleta, ruletaNext, ruletaTogglePeek,
+  ruletaReveal, ruletaNext,
+  rtBuildSelect, rtBuildRemove, rtBuildClear, rtBuildCheck, rtNextCategory,
   dgSelect, dgNextScene,
   playFlashcards, playSerEstar, playQuiz, playFillGaps, playWordOrder, playVerbSprint, playPresentarse,
   playRuleta, playDialogos

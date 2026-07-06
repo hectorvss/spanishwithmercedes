@@ -742,17 +742,11 @@ body.is-spanish .lang-en-block { display: none; }
 .rt-bubble-small { margin-bottom: 16px; font-size: 14px; }
 .rt-fact-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
 .rt-fact-name { font-family: 'Noto Sans', sans-serif; font-weight: 800; font-size: 16px; color: #121117; }
-.rt-peek-btn {
-  margin-left: auto; font-size: 12px; font-weight: 700; color: #4D4C5C;
-  background: #F3F3F6; border: none; border-radius: 20px; padding: 7px 14px; cursor: pointer;
-  transition: background 0.15s;
+.rt-profile-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.rt-profile-pill {
+  font-size: 12.5px; font-weight: 700; padding: 5px 12px; border-radius: 20px;
+  border: 1.5px solid; animation: rtCardIn 0.35s cubic-bezier(.2,.9,.3,1.3);
 }
-.rt-peek-btn:hover { background: #e5e5ec; }
-.tf-true, .tf-false { flex: 1; font-weight: 900 !important; }
-.tf-true { color: #1A9E87 !important; border-color: #1A9E8740 !important; }
-.tf-true:hover:not(:disabled) { background: #E6F9F5 !important; border-color: #1A9E87 !important; }
-.tf-false { color: #C8102E !important; border-color: #C8102E40 !important; }
-.tf-false:hover:not(:disabled) { background: #FDECEA !important; border-color: #C8102E !important; }
 
 /* ── DIÁLOGOS CRUZADOS ───────────────────── */
 .dg-scene-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }

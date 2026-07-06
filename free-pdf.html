@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=22">
+  <link rel="stylesheet" href="styles.css?v=24">
   <style>
     .pdf-grid {
       display: grid;
@@ -417,7 +417,7 @@
       <span class="lang-es">Guías de Pronunciación</span>
     </div>
     <div class="pdf-grid">
-      <a id="card-sonido-r" class="pdf-card" href="DESCARGABLES_PDF/LA%20R/EL_SONIDO_R.pdf" target="_blank" style="border-color:#C8102E;">
+      <div id="card-sonido-r" class="pdf-card" onclick="openLesson('card-sonido-r')" style="border-color:#C8102E; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#C8102E;">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
         </div>
@@ -431,10 +431,10 @@
           <span class="lang-es">Domina la R simple y la RR vibrante — los sonidos más característicos del español. Reglas, pares mínimos y ejercicios.</span>
         </div>
         <div class="pdf-card__download">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-          <span data-i18n="pdf.download">Download free PDF</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+          <span class="lang-en">See more</span><span class="lang-es">Ver más</span>
         </div>
-      </a>
+      </div>
     </div>
   </div>
 
@@ -445,85 +445,69 @@
       <span data-i18n="pdf.grammar.heading">Grammar Guides</span>
     </div>
     <div class="pdf-grid">
-      <a id="card-gustar" class="pdf-card" href="DESCARGABLES_PDF/GUSTAR/El_verbo_GUSTAR_en_espanol.pdf" target="_blank" style="border-color:#D4920A; display:flex; flex-direction:column; text-decoration:none;">
+      <div id="card-gustar" class="pdf-card" onclick="openLesson('card-gustar')" style="border-color:#D4920A; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#D4920A;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
         <div class="pdf-card__level">A2 – B1 ⭐</div>
         <div class="pdf-card__title"><span class="lang-en">GUSTAR &amp; Similar Verbs</span><span class="lang-es">El verbo GUSTAR y verbos similares</span></div>
         <div class="pdf-card__desc"><span class="lang-en">Complete guide to GUSTAR, ENCANTAR, MOLESTAR and other similar verbs — conjugation, pronouns and exercises.</span><span class="lang-es">Guía completa del verbo GUSTAR, ENCANTAR, MOLESTAR y otros similares — conjugación, pronombres y ejercicios.</span></div>
-        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span data-i18n="pdf.download">Download free PDF</span></div>
-      </a>
-      <a id="card-genero" class="pdf-card" href="DESCARGABLES_PDF/GÉNERO/El_genero_en_espanol.pdf" target="_blank" style="border-color:#9B59B6; display:flex; flex-direction:column; text-decoration:none;">
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
+      </div>
+      <div id="card-genero" class="pdf-card" onclick="openLesson('card-genero')" style="border-color:#9B59B6; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#9B59B6;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
         <div class="pdf-card__level">A1 – B1 ⭐</div>
         <div class="pdf-card__title"><span class="lang-en">Gender in Spanish</span><span class="lang-es">El Género en Español</span></div>
         <div class="pdf-card__desc"><span class="lang-en">Complete guide to masculine and feminine nouns in Spanish — rules, exceptions and exercises to master gender from the start.</span><span class="lang-es">Guía completa del género gramatical en español — reglas, excepciones y ejercicios para dominar el género desde el principio.</span></div>
-        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span data-i18n="pdf.download">Download free PDF</span></div>
-      </a>
-      <a id="card-genero-ii" class="pdf-card" href="DESCARGABLES_PDF/GÉNERO_II/El%20género%20en%20español%20—%20Casos%20especiales.pdf" target="_blank" style="border-color:#8E44AD; display:flex; flex-direction:column; text-decoration:none;">
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
+      </div>
+      <div id="card-genero-ii" class="pdf-card" onclick="openLesson('card-genero-ii')" style="border-color:#8E44AD; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#8E44AD;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
         <div class="pdf-card__level">A2 – B1 ⭐⭐</div>
         <div class="pdf-card__title"><span class="lang-en">Gender in Spanish: Special Cases</span><span class="lang-es">El Género en Español: Casos Especiales</span></div>
         <div class="pdf-card__desc"><span class="lang-en">Advanced guide to tricky gender rules — words that change meaning with gender, irregular nouns, and common exceptions.</span><span class="lang-es">Guía avanzada de los casos especiales del género — palabras que cambian de significado, sustantivos irregulares y excepciones frecuentes.</span></div>
-        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8E44AD" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span data-i18n="pdf.download">Download free PDF</span></div>
-      </a>
-      <div id="card-ser-estar" class="pdf-card" style="border-color:#D4920A; display:flex; flex-direction:column;">
-        <div class="pdf-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
+      </div>
+      <div id="card-ser-estar" class="pdf-card" onclick="openLesson('card-ser-estar')" style="border-color:#D4920A; display:flex; flex-direction:column; cursor:pointer;">
+        <div class="pdf-card__icon" style="background:#D4920A;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
         <div class="pdf-card__level">A1 – B1 ⭐</div>
         <div class="pdf-card__title"><span class="lang-en">Complete Guide to Ser &amp; Estar</span><span class="lang-es">Guía Completa de Ser y Estar</span></div>
         <div class="pdf-card__desc"><span class="lang-en">9-page guide with 6 exercises, solutions and AI practice prompts. The 80% rule explained.</span><span class="lang-es">Guía de 9 páginas con 6 ejercicios, soluciones y prompts de práctica con IA. La regla del 80% explicada.</span></div>
-        <div style="margin-top:auto; display:flex; flex-direction:column; gap:8px; padding-top:12px;">
-          <a class="pdf-card__download" href="DESCARGABLES_PDF/SER_ESTAR/SER_ESTAR%20(1).pdf" target="_blank" style="text-decoration:none;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-            <span data-i18n="pdf.download">Download free PDF</span>
-          </a>
-          <a href="index.html?play=serEstar#games" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#7C3AED;text-decoration:none;">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-            <span class="lang-en">Practice with the game</span><span class="lang-es">Practicar con el juego</span>
-          </a>
-        </div>
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
       </div>
-      <a id="card-cd-prep-a" class="pdf-card" href="DESCARGABLES_PDF/CD_PREPOSICI%C3%B3N_A/EL%20CD%20Y%20LA%20PREPOSICI%C3%B3N%20A.pdf" target="_blank" style="border-color:#D4920A; display:flex; flex-direction:column; text-decoration:none;">
+      <div id="card-cd-prep-a" class="pdf-card" onclick="openLesson('card-cd-prep-a')" style="border-color:#D4920A; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#D4920A;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
         <div class="pdf-card__level">A2 – B1 ⭐⭐</div>
         <div class="pdf-card__title"><span class="lang-en">The Direct Object &amp; the Preposition A</span><span class="lang-es">El CD y la Preposición A</span></div>
         <div class="pdf-card__desc"><span class="lang-en">When to use the preposition A before a direct object in Spanish — rules, examples and exercises to avoid one of the most common mistakes.</span><span class="lang-es">Cuándo usar la preposición A ante el complemento directo en español — reglas, ejemplos y ejercicios para evitar uno de los errores más frecuentes.</span></div>
-        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span data-i18n="pdf.download">Download free PDF</span></div>
-      </a>
-      <a id="card-desde" class="pdf-card" href="DESCARGABLES_PDF/DESDE_DESDE%20HACE_DURANTE/DESDE_DESDE%20HACE_DURANTE.pdf" target="_blank" style="border-color:#D4920A; display:flex; flex-direction:column; text-decoration:none;">
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
+      </div>
+      <div id="card-desde" class="pdf-card" onclick="openLesson('card-desde')" style="border-color:#D4920A; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#D4920A;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
         <div class="pdf-card__level">A2 – B2 ⭐⭐</div>
         <div class="pdf-card__title"><span class="lang-en">Desde, Desde Hace &amp; Durante</span><span class="lang-es">Desde, Desde Hace y Durante</span></div>
         <div class="pdf-card__desc"><span class="lang-en">Learn when to use DESDE, DESDE HACE and DURANTE to express time in Spanish — rules, examples and common mistakes to avoid.</span><span class="lang-es">Aprende cuándo usar DESDE, DESDE HACE y DURANTE para expresar el tiempo en español — reglas, ejemplos y errores frecuentes.</span></div>
-        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span data-i18n="pdf.download">Download free PDF</span></div>
-      </a>
-      <a id="card-por-para" class="pdf-card" href="DESCARGABLES_PDF/POR_PARA_DURANTE/POR_PARA_DURANTE_PREPOSICIONES_DE_TIEMPO.pdf" target="_blank" style="border-color:#D4920A; display:flex; flex-direction:column; text-decoration:none;">
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
+      </div>
+      <div id="card-por-para" class="pdf-card" onclick="openLesson('card-por-para')" style="border-color:#D4920A; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#D4920A;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
         <div class="pdf-card__level">B1 – B2 ⭐⭐</div>
         <div class="pdf-card__title"><span class="lang-en">Por, Para &amp; Durante: Time Prepositions</span><span class="lang-es">Por, Para y Durante: Preposiciones de Tiempo</span></div>
         <div class="pdf-card__desc"><span class="lang-en">Master the difference between POR, PARA and DURANTE in time expressions — rules, contrasts and exercises to avoid the most common mistakes.</span><span class="lang-es">Domina la diferencia entre POR, PARA y DURANTE en expresiones de tiempo — reglas, contrastes y ejercicios para evitar los errores más frecuentes.</span></div>
-        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span data-i18n="pdf.download">Download free PDF</span></div>
-      </a>
-      <a id="card-carta-formal" class="pdf-card" href="DESCARGABLES_PDF/CARTA%20FORMAL/REDACTAR%20UNA%20CARTA%20FORMAL%20PARA%20EL%20DELE%20C1.pdf" target="_blank" style="border-color:#2885FD; display:flex; flex-direction:column; text-decoration:none;">
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
+      </div>
+      <div id="card-carta-formal" class="pdf-card" onclick="openLesson('card-carta-formal')" style="border-color:#2885FD; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#2885FD;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
         <div class="pdf-card__level">C1 ⭐⭐⭐</div>
         <div class="pdf-card__title"><span class="lang-en">The Formal Letter: How to Write It</span><span class="lang-es">La carta formal: cómo escribirla</span></div>
         <div class="pdf-card__desc"><span class="lang-en">Complete guide to writing a formal letter for the DELE C1 exam — structure, discourse moves, C1 grammar checklist and model letter.</span><span class="lang-es">Guía completa para redactar la carta formal del DELE C1 — estructura, movimientos discursivos, checklist gramatical C1 y carta modelo.</span></div>
-        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2885FD" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span data-i18n="pdf.download">Download free PDF</span></div>
-      </a>
-      <a id="card-presentarte" class="pdf-card" href="DESCARGABLES_PDF/PRESENTARSE/PRESENTARSE%20EN%20ESPAÑOL.pdf" target="_blank" style="border-color:#3DDABE;">
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
+      </div>
+      <div id="card-presentarte" class="pdf-card" onclick="openLesson('card-presentarte')" style="border-color:#3DDABE; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#3DDABE;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
         <div class="pdf-card__level">A1 – A2 ⭐</div>
         <div class="pdf-card__title"><span class="lang-en">Introducing Yourself in Spanish</span><span class="lang-es">Presentarte en Español</span></div>
         <div class="pdf-card__desc"><span class="lang-en">13-page guide: LLAMARSE, SER, TENER, VIVIR — the 4 verbs that build every first conversation.</span><span class="lang-es">Guía de 13 páginas: LLAMARSE, SER, TENER, VIVIR — los 4 verbos de toda primera conversación.</span></div>
-        <div class="pdf-card__download"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span data-i18n="pdf.download">Download free PDF</span></div>
-      </a>
-      <a id="card-presentarte-game" class="pdf-card" href="juego-presentarte.html" style="border-color:#2885FD; display:flex; flex-direction:column; text-decoration:none;">
-        <div class="pdf-card__icon" style="background:#2885FD;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-        <div class="pdf-card__level">A1 – B1 🎮</div>
-        <div class="pdf-card__title"><span class="lang-en">Play: Introduce Yourself</span><span class="lang-es">Juega: Preséntate en Español</span></div>
-        <div class="pdf-card__desc"><span class="lang-en">Character roulette, crossed dialogues and more — practise the content of the PDF above through play, not more worksheets.</span><span class="lang-es">Ruleta de personajes, diálogos cruzados y más — practica el contenido del PDF de arriba jugando, no con más fichas de ejercicios.</span></div>
-        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2885FD" stroke-width="2" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg><span class="lang-en">Play now</span><span class="lang-es">Jugar ahora</span></div>
-      </a>
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
+      </div>
     </div>
   </div>
 
@@ -535,27 +519,27 @@
       <span class="lang-es">Guías de Vocabulario</span>
     </div>
     <div class="pdf-grid">
-      <a id="card-profesiones" class="pdf-card" href="DESCARGABLES_PDF/LAS_PROFESIONES/LAS_PROFESIONES_DESCARGABLE.pdf" target="_blank" style="border-color:#9B59B6; display:flex; flex-direction:column; text-decoration:none;">
+      <div id="card-profesiones" class="pdf-card" onclick="openLesson('card-profesiones')" style="border-color:#9B59B6; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#9B59B6;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
         <div class="pdf-card__level">B1 – B2 ⭐⭐</div>
         <div class="pdf-card__title"><span class="lang-en">Professions: Masculine &amp; Feminine</span><span class="lang-es">Las profesiones: Masculino y Femenino</span></div>
         <div class="pdf-card__desc"><span class="lang-en">Complete guide to Spanish professions and their gender forms — rules, exceptions and vocabulary to talk about work.</span><span class="lang-es">Guía completa de las profesiones en español y sus formas de género — reglas, excepciones y vocabulario para hablar del trabajo.</span></div>
-        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9B59B6" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span data-i18n="pdf.download">Download free PDF</span></div>
-      </a>
-      <a id="card-mundo-laboral" class="pdf-card" href="DESCARGABLES_PDF/EL%20MUNDO%20LABORAL/HABLEMOS_DEL_MUNDO_LABORAL_DESCARGABLE.pdf" target="_blank" style="border-color:#3DDABE; display:flex; flex-direction:column; text-decoration:none;">
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
+      </div>
+      <div id="card-mundo-laboral" class="pdf-card" onclick="openLesson('card-mundo-laboral')" style="border-color:#3DDABE; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#3DDABE;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
         <div class="pdf-card__level">B1 – B2 ⭐⭐</div>
         <div class="pdf-card__title"><span class="lang-en">Let's Talk About Work</span><span class="lang-es">Hablemos del Mundo Laboral</span></div>
         <div class="pdf-card__desc"><span class="lang-en">Essential vocabulary to talk about work, jobs, and the professional world in Spanish — verbs, expressions and useful phrases.</span><span class="lang-es">Vocabulario esencial para hablar del trabajo y el mundo profesional en español — verbos, expresiones y frases útiles.</span></div>
-        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3DDABE" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span data-i18n="pdf.download">Download free PDF</span></div>
-      </a>
-      <a id="card-ver-mirar" class="pdf-card" href="DESCARGABLES_PDF/VER_MIRAR/VER%20MIRAR%20OBSERVAR.pdf" target="_blank" style="border-color:#4D9DE0; display:flex; flex-direction:column; text-decoration:none;">
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
+      </div>
+      <div id="card-ver-mirar" class="pdf-card" onclick="openLesson('card-ver-mirar')" style="border-color:#4D9DE0; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#D4920A;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
         <div class="pdf-card__level">B1 ⭐⭐</div>
         <div class="pdf-card__title"><span class="lang-en">Ver, Mirar &amp; Observar</span><span class="lang-es">Ver, Mirar y Observar</span></div>
         <div class="pdf-card__desc"><span class="lang-en">Master the difference between VER, MIRAR and OBSERVAR — three verbs Spanish learners confuse most. With examples and exercises.</span><span class="lang-es">Domina la diferencia entre VER, MIRAR y OBSERVAR — tres verbos que confunden a la mayoría de estudiantes. Con ejemplos y ejercicios.</span></div>
-        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span data-i18n="pdf.download">Download free PDF</span></div>
-      </a>
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
+      </div>
     </div>
   </div>
 
@@ -688,6 +672,161 @@
     </div>
   </div>
 </footer>
+
+<!-- ── LESSON DETAIL MODAL ─────────────────────── -->
+<div id="lesson-modal" class="game-modal" role="dialog" aria-modal="true" onclick="if(event.target===this)closeLesson()">
+  <div class="gm-box" style="width:640px;">
+    <div class="gm-header">
+      <span id="lm-title" class="gm-title" style="font-size:24px;"></span>
+      <button class="gm-close" onclick="closeLesson()" aria-label="Close">✕</button>
+    </div>
+    <div id="lm-body" style="padding:30px 36px 36px;"></div>
+  </div>
+</div>
+
+<script>
+  var LESSONS = {
+    'card-sonido-r': {
+      color:'#C8102E', level:'A1 – A2',
+      icon:'<path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/>',
+      title:{en:'The R Sound in Spanish', es:'El Sonido R en Español'},
+      desc:{en:'A focused guide to the two R sounds that trip up almost every learner: the tapped R (pero, cara) and the trilled RR (perro, carro). You will find the mouth-position rules, minimal pairs to hear the difference, and practice exercises to train your pronunciation step by step.',
+            es:'Guía centrada en los dos sonidos de la R que más cuesta a los estudiantes: la R suave (pero, cara) y la RR vibrante (perro, carro). Incluye las reglas de posición de la boca, pares mínimos para distinguir el sonido y ejercicios prácticos para entrenar la pronunciación paso a paso.'},
+      pdf:'DESCARGABLES_PDF/LA%20R/EL_SONIDO_R.pdf'
+    },
+    'card-gustar': {
+      color:'#D4920A', level:'A2 – B1',
+      icon:'<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>',
+      title:{en:'GUSTAR & Similar Verbs', es:'El verbo GUSTAR y verbos similares'},
+      desc:{en:'GUSTAR does not work like "to like" in English — the grammar is reversed. This guide breaks down the indirect-object pronouns (me, te, le…), shows why it is "me gustan" and not "me gusta" with plurals, and extends the same pattern to ENCANTAR, MOLESTAR, INTERESAR and more, with plenty of examples.',
+            es:'GUSTAR no funciona como "to like" en inglés — la estructura está invertida. Esta guía explica los pronombres de objeto indirecto (me, te, le…), por qué se dice "me gustan" y no "me gusta" con plurales, y extiende el mismo patrón a ENCANTAR, MOLESTAR, INTERESAR y otros, con muchos ejemplos.'},
+      pdf:'DESCARGABLES_PDF/GUSTAR/El_verbo_GUSTAR_en_espanol.pdf'
+    },
+    'card-genero': {
+      color:'#9B59B6', level:'A1 – B1',
+      icon:'<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>',
+      title:{en:'Gender in Spanish', es:'El Género en Español'},
+      desc:{en:'Every Spanish noun is masculine or feminine, and the ending is usually — but not always — a reliable clue. This guide covers the core rules (-o/-a and beyond), the most common exceptions (la mano, el día, el problema…), and exercises to build the instinct for choosing el or la correctly.',
+            es:'Todo sustantivo en español es masculino o femenino, y la terminación suele ser —pero no siempre— una pista fiable. Esta guía cubre las reglas principales (-o/-a y más), las excepciones más frecuentes (la mano, el día, el problema…) y ejercicios para desarrollar el instinto de elegir bien el o la.'},
+      pdf:'DESCARGABLES_PDF/GÉNERO/El_genero_en_espanol.pdf'
+    },
+    'card-genero-ii': {
+      color:'#8E44AD', level:'A2 – B1',
+      icon:'<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>',
+      title:{en:'Gender in Spanish: Special Cases', es:'El Género en Español: Casos Especiales'},
+      desc:{en:'The follow-up to the gender basics: words that change meaning depending on the article (el capital vs la capital), nouns that look feminine but take el (el agua, el águila), and other irregular patterns native speakers use without thinking. A step up for students who already know the main rules.',
+            es:'La continuación de las reglas básicas del género: palabras que cambian de significado según el artículo (el capital vs la capital), sustantivos que parecen femeninos pero llevan el (el agua, el águila), y otros patrones irregulares que los nativos usan sin pensar. Un paso más para quienes ya dominan las reglas principales.'},
+      pdf:'DESCARGABLES_PDF/GÉNERO_II/El%20género%20en%20español%20—%20Casos%20especiales.pdf'
+    },
+    'card-ser-estar': {
+      color:'#D4920A', level:'A1 – B1',
+      icon:'<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>',
+      title:{en:'Complete Guide to Ser & Estar', es:'Guía Completa de Ser y Estar'},
+      desc:{en:'The topic that confuses every Spanish learner, fully explained: the 80% rule to decide fast, the adjectives that change meaning depending on the verb (ser malo vs estar malo), 6 exercises with solutions, and ready-to-use AI prompts to keep practicing after you finish the PDF.',
+            es:'El tema que más confunde a cualquier estudiante de español, explicado a fondo: la regla del 80% para decidir rápido, los adjetivos que cambian de significado según el verbo (ser malo vs estar malo), 6 ejercicios con soluciones y prompts de IA listos para seguir practicando.'},
+      pdf:'DESCARGABLES_PDF/SER_ESTAR/SER_ESTAR%20(1).pdf',
+      game:'index.html?play=serEstar#games'
+    },
+    'card-cd-prep-a': {
+      color:'#D4920A', level:'A2 – B1',
+      icon:'<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>',
+      title:{en:'The Direct Object & the Preposition A', es:'El CD y la Preposición A'},
+      desc:{en:'A grammar point most textbooks skip too fast: the "personal a" before a direct object referring to a person or pet (Veo a María, not Veo María). This guide explains exactly when it appears, when it does not, and gives targeted exercises to fix one of the most common mistakes among learners.',
+            es:'Un punto gramatical que muchos libros explican demasiado rápido: la "a personal" ante un complemento directo que se refiere a una persona o mascota (Veo a María, no Veo María). Esta guía explica exactamente cuándo aparece, cuándo no, y da ejercicios específicos para corregir uno de los errores más frecuentes.'},
+      pdf:'DESCARGABLES_PDF/CD_PREPOSICI%C3%B3N_A/EL%20CD%20Y%20LA%20PREPOSICI%C3%B3N%20A.pdf'
+    },
+    'card-desde': {
+      color:'#D4920A', level:'A2 – B2',
+      icon:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
+      title:{en:'Desde, Desde Hace & Durante', es:'Desde, Desde Hace y Durante'},
+      desc:{en:'Three ways to talk about time that get mixed up constantly: DESDE for a starting point (vivo aquí desde 2020), DESDE HACE / LLEVAR for an ongoing duration (vivo aquí desde hace 5 años), and DURANTE for a closed period (viajé durante un mes). Clear rules, real examples and common mistakes to avoid.',
+            es:'Tres formas de hablar del tiempo que se confunden constantemente: DESDE para un punto de inicio (vivo aquí desde 2020), DESDE HACE / LLEVAR para una duración que continúa (vivo aquí desde hace 5 años), y DURANTE para un periodo cerrado (viajé durante un mes). Reglas claras, ejemplos reales y errores frecuentes.'},
+      pdf:'DESCARGABLES_PDF/DESDE_DESDE%20HACE_DURANTE/DESDE_DESDE%20HACE_DURANTE.pdf'
+    },
+    'card-por-para': {
+      color:'#D4920A', level:'B1 – B2',
+      icon:'<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>',
+      title:{en:'Por, Para & Durante: Time Prepositions', es:'Por, Para y Durante: Preposiciones de Tiempo'},
+      desc:{en:'POR and PARA are two of the hardest prepositions in Spanish, and this guide isolates their time-related uses: POR for an approximate or indefinite period (por la mañana, por dos días), PARA for a deadline (para el lunes), and DURANTE for the full length of an event. Contrasts and exercises included.',
+            es:'POR y PARA son dos de las preposiciones más difíciles del español, y esta guía se centra en sus usos temporales: POR para un periodo aproximado o indefinido (por la mañana, por dos días), PARA para una fecha límite (para el lunes), y DURANTE para la duración completa de un evento. Incluye contrastes y ejercicios.'},
+      pdf:'DESCARGABLES_PDF/POR_PARA_DURANTE/POR_PARA_DURANTE_PREPOSICIONES_DE_TIEMPO.pdf'
+    },
+    'card-carta-formal': {
+      color:'#2885FD', level:'C1',
+      icon:'<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>',
+      title:{en:'The Formal Letter: How to Write It', es:'La carta formal: cómo escribirla'},
+      desc:{en:'Everything you need for the DELE C1 writing task: the fixed structure examiners expect (heading, opening, body, closing), the discourse connectors that raise your register, a C1-level grammar checklist to self-correct, and a full model letter you can study line by line.',
+            es:'Todo lo necesario para la prueba escrita del DELE C1: la estructura fija que esperan los examinadores (encabezado, apertura, cuerpo, cierre), los conectores discursivos que elevan el registro, un checklist gramatical de nivel C1 para autocorregirte, y una carta modelo completa para estudiar línea a línea.'},
+      pdf:'DESCARGABLES_PDF/CARTA%20FORMAL/REDACTAR%20UNA%20CARTA%20FORMAL%20PARA%20EL%20DELE%20C1.pdf'
+    },
+    'card-presentarte': {
+      color:'#3DDABE', level:'A1 – A2',
+      icon:'<path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>',
+      title:{en:'Introducing Yourself in Spanish', es:'Presentarte en Español'},
+      desc:{en:'Everything you need for your very first conversation: the 4 essential verbs (LLAMARSE, SER, TENER, VIVIR), the alphabet to spell your name, numbers to say your age, the tú vs usted distinction by country, survival phrases, real dialogues, and practice exercises with solutions.',
+            es:'Todo lo necesario para tu primera conversación: los 4 verbos esenciales (LLAMARSE, SER, TENER, VIVIR), el alfabeto para deletrear tu nombre, los números para decir tu edad, la distinción tú/usted según el país, frases de supervivencia, diálogos reales y ejercicios prácticos con soluciones.'},
+      pdf:'DESCARGABLES_PDF/PRESENTARSE/PRESENTARSE%20EN%20ESPAÑOL.pdf',
+      game:'juego-presentarte.html'
+    },
+    'card-profesiones': {
+      color:'#9B59B6', level:'B1 – B2',
+      icon:'<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>',
+      title:{en:'Professions: Masculine & Feminine', es:'Las profesiones: Masculino y Femenino'},
+      desc:{en:'Not every profession follows the -o/-a pattern (el médico / la médica), and some do not change at all (el/la periodista). This guide organizes Spanish professions by gender pattern, flags the exceptions, and builds the vocabulary you need to talk naturally about jobs and careers.',
+            es:'No todas las profesiones siguen el patrón -o/-a (el médico / la médica), y algunas no cambian nunca (el/la periodista). Esta guía organiza las profesiones en español según su patrón de género, señala las excepciones y construye el vocabulario necesario para hablar con naturalidad del trabajo y la carrera profesional.'},
+      pdf:'DESCARGABLES_PDF/LAS_PROFESIONES/LAS_PROFESIONES_DESCARGABLE.pdf'
+    },
+    'card-mundo-laboral': {
+      color:'#3DDABE', level:'B1 – B2',
+      icon:'<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>',
+      title:{en:"Let's Talk About Work", es:'Hablemos del Mundo Laboral'},
+      desc:{en:'The vocabulary and expressions you need for job interviews, meetings and everyday office conversations: how to talk about your role, your experience, your schedule, and common workplace situations, all with natural example sentences.',
+            es:'El vocabulario y las expresiones que necesitas para entrevistas de trabajo, reuniones y conversaciones de oficina del día a día: cómo hablar de tu cargo, tu experiencia, tu horario y situaciones laborales frecuentes, todo con frases de ejemplo naturales.'},
+      pdf:'DESCARGABLES_PDF/EL%20MUNDO%20LABORAL/HABLEMOS_DEL_MUNDO_LABORAL_DESCARGABLE.pdf'
+    },
+    'card-ver-mirar': {
+      color:'#4D9DE0', level:'B1',
+      icon:'<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>',
+      title:{en:'Ver, Mirar & Observar', es:'Ver, Mirar y Observar'},
+      desc:{en:'Three verbs that all translate as "to see/look" in English but are not interchangeable in Spanish: VER for involuntary perception, MIRAR for a deliberate, directed look, and OBSERVAR for careful, sustained attention. Explained with clear contrasts and practice exercises.',
+            es:'Tres verbos que en inglés se traducen como "to see/look" pero que no son intercambiables en español: VER para la percepción involuntaria, MIRAR para una mirada deliberada y dirigida, y OBSERVAR para una atención cuidadosa y sostenida. Explicado con contrastes claros y ejercicios prácticos.'},
+      pdf:'DESCARGABLES_PDF/VER_MIRAR/VER%20MIRAR%20OBSERVAR.pdf'
+    }
+  };
+
+  function openLesson(id) {
+    var l = LESSONS[id];
+    if (!l) return;
+    var isEs = document.body.classList.contains('is-spanish');
+    document.getElementById('lm-title').textContent = isEs ? l.title.es : l.title.en;
+    var gameBtn = l.game
+      ? '<a href="' + l.game + '" class="gm-btn" style="justify-content:center;text-decoration:none;background:#121117;color:#fff;font-size:15.5px;padding:14px 22px;">🎮 <span class="lang-en">Play to practice</span><span class="lang-es">Jugar para practicar</span></a>'
+      : '';
+    document.getElementById('lm-body').innerHTML =
+      '<div style="display:flex;align-items:center;gap:18px;margin-bottom:22px;">' +
+        '<div style="width:64px;height:64px;border-radius:16px;background:' + l.color + ';display:flex;align-items:center;justify-content:center;flex-shrink:0;">' +
+          '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + l.icon + '</svg>' +
+        '</div>' +
+        '<span style="font-size:13.5px;font-weight:700;background:' + l.color + '20;color:' + l.color + ';padding:5px 14px;border-radius:20px;">' + l.level + '</span>' +
+      '</div>' +
+      '<p style="font-size:16.5px;line-height:1.75;color:#4D4C5C;margin-bottom:28px;"><span class="lang-en">' + l.desc.en + '</span><span class="lang-es">' + l.desc.es + '</span></p>' +
+      '<div style="display:flex;flex-direction:column;gap:12px;">' +
+        '<a href="' + l.pdf + '" target="_blank" class="gm-btn gm-btn-primary" style="justify-content:center;text-decoration:none;font-size:15.5px;padding:14px 22px;">📥 <span class="lang-en">Download free PDF</span><span class="lang-es">Descargar PDF gratis</span></a>' +
+        gameBtn +
+      '</div>';
+    var m = document.getElementById('lesson-modal');
+    m.style.display = 'flex';
+    requestAnimationFrame(function(){ m.classList.add('gm--open'); });
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLesson() {
+    var m = document.getElementById('lesson-modal');
+    m.classList.remove('gm--open');
+    setTimeout(function(){ m.style.display = 'none'; }, 220);
+    document.body.style.overflow = '';
+  }
+</script>
 
 <script src="i18n.js?v=9"></script>
 <script>
