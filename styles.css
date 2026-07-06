@@ -852,10 +852,11 @@ body.is-spanish .lang-en-block { display: none; }
 .cd-belt {
   position: absolute; left: 0; right: 0; bottom: 0; height: 14px;
   background: repeating-linear-gradient(-45deg, #DCDCE5, #DCDCE5 8px, #F0F0F5 8px, #F0F0F5 16px);
-  background-size: 200% 100%; animation: cdBelt 1.4s linear infinite;
+  background-size: 200% 100%; animation: cdBelt 2.4s linear infinite;
 }
 @keyframes cdBelt { from { background-position: 0 0; } to { background-position: -32px 0; } }
 .cd-catch-row { display: flex; gap: 12px; }
+.cd-catch-row .gu-catch { font-size: 15px; padding: 14px 10px; }
 .cd-catch-no:hover:not(:disabled) { border-color: #9B9AAB; background: #F3F3F6; }
 .cd-catch-yes:hover:not(:disabled) { border-color: #D4920A; background: #FDF3DC; }
 

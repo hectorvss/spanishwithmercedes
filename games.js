@@ -1631,7 +1631,7 @@ function _renderCDRound() {
   if (idx >= total) { _end(correct, total, title); return; }
   const item = items[idx];
   GS.answered = false;
-  const duration = 5;
+  const duration = 8;
   _modal(`
     ${_progress(idx, total, correct, lang)}
     <p class="gm-instr" style="text-align:center">${lang==='es'?'¿Necesita «a» o no? ¡Decide antes de que llegue al final de la cinta!':'Does it need "a" or not? Decide before it reaches the end of the belt!'}</p>
@@ -1640,8 +1640,8 @@ function _renderCDRound() {
       <div class="cd-belt"></div>
     </div>
     <div class="cd-catch-row">
-      <button class="gu-catch cd-catch-no" onclick="cdAnswer(false)">SIN A</button>
-      <button class="gu-catch cd-catch-yes" onclick="cdAnswer(true)">CON A</button>
+      <button class="gu-catch cd-catch-no" onclick="cdAnswer(false)">${lang==='es'?'Sin preposición "a"':'Without preposition "a"'}</button>
+      <button class="gu-catch cd-catch-yes" onclick="cdAnswer(true)">${lang==='es'?'Con preposición "a"':'With preposition "a"'}</button>
     </div>
     <div class="gm-feedback" id="gm-fb"></div>
   `, title);
