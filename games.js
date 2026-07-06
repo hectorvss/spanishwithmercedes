@@ -1413,14 +1413,14 @@ function dgNextScene() {
 ══════════════════════════════════════════════ */
 
 const GUSTAR_ITEMS = [
-  { es:'el cine', plural:false }, { es:'la música', plural:false }, { es:'el café', plural:false },
-  { es:'el ruido', plural:false }, { es:'la ópera', plural:false }, { es:'la cabeza', plural:false },
-  { es:'la paella', plural:false }, { es:'esta canción', plural:false }, { es:'el chocolate', plural:false },
-  { es:'leer', plural:false },
-  { es:'las películas', plural:true }, { es:'los viajes', plural:true }, { es:'los deportes', plural:true },
-  { es:'las gambas', plural:true }, { es:'los helados', plural:true }, { es:'las novelas históricas', plural:true },
-  { es:'los fines de semana', plural:true }, { es:'las verduras', plural:true }, { es:'los pies', plural:true },
-  { es:'las muelas', plural:true }
+  { es:'el cine', plural:false, pron:'Me' }, { es:'la música', plural:false, pron:'Te' }, { es:'el café', plural:false, pron:'Le' },
+  { es:'el ruido', plural:false, pron:'Nos' }, { es:'la ópera', plural:false, pron:'Os' }, { es:'la cabeza', plural:false, pron:'Les' },
+  { es:'la paella', plural:false, pron:'Me' }, { es:'esta canción', plural:false, pron:'Te' }, { es:'el chocolate', plural:false, pron:'Le' },
+  { es:'leer', plural:false, pron:'Nos' },
+  { es:'las películas', plural:true, pron:'Os' }, { es:'los viajes', plural:true, pron:'Les' }, { es:'los deportes', plural:true, pron:'Me' },
+  { es:'las gambas', plural:true, pron:'Te' }, { es:'los helados', plural:true, pron:'Le' }, { es:'las novelas históricas', plural:true, pron:'Nos' },
+  { es:'los fines de semana', plural:true, pron:'Os' }, { es:'las verduras', plural:true, pron:'Les' }, { es:'los pies', plural:true, pron:'Me' },
+  { es:'las muelas', plural:true, pron:'Te' }
 ];
 
 function playGustar() {
@@ -1448,7 +1448,7 @@ function _renderGustarRound() {
         <span class="gu-deco gu-deco1">💭</span>
         <span class="gu-deco gu-deco2">💭</span>
         <span class="gu-deco gu-deco3">💭</span>
-        <div class="gu-bubble" id="gu-bubble" style="--gu-duration:${duration}s">${item.es}</div>
+        <div class="gu-bubble" id="gu-bubble" style="--gu-duration:${duration}s">${item.pron} <span class="gm-blank">___</span> ${item.es}</div>
       </div>
       <div class="gu-catch-row">
         <button class="gu-catch gu-catch-sing" onclick="gustarAnswer(false)">GUSTA</button>
@@ -1482,11 +1482,13 @@ function gustarAnswer(guessedPlural, timedOut) {
     bubble.classList.add(ok ? 'gu-pop-ok' : 'gu-pop-ko');
   }
   const correctWord = item.plural ? 'GUSTAN' : 'GUSTA';
+  const fullSentence = `${item.pron} ${item.plural ? 'gustan' : 'gusta'} ${item.es}.`;
   const lead = timedOut
     ? (lang==='es'?'⏱ ¡Se escapó!':'⏱ It got away!')
-    : (ok ? '✓ '+(lang==='es'?'¡Correcto!':'Correct!') : '✗ '+(lang==='es'?'Era':'It was'));
+    : (ok ? '✓ '+(lang==='es'?'¡Correcto!':'Correct!') : '✗ '+(lang==='es'?'Era':'It was')+' <strong>'+correctWord+'</strong>');
   document.getElementById('gm-fb').innerHTML = `
-    <span class="${ok?'fb-ok':'fb-ko'}">${lead}${!ok ? ' <strong>'+correctWord+'</strong> ("'+item.es+'")' : ''}</span>
+    <span class="${ok?'fb-ok':'fb-ko'}">${lead}</span>
+    <div class="se-fb-sentence">${fullSentence}</div>
     <button class="gm-btn gm-btn-primary gm-next-btn" onclick="gustarNext()">${lang==='es'?'Siguiente →':'Next →'}</button>`;
 }
 
