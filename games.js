@@ -689,7 +689,7 @@ function vsNext() {
 
 const PRES_LEVELS = {
   a1: {
-    label: { en: 'A1 · First Words', es: 'A1 · Primeras Palabras' },
+    label: { en: 'First Words', es: 'Primeras Palabras' },
     color: '#3DDABE',
     qs: [
       { s:'Yo ___ Ana.',              opts:['me llamo','te llamas','se llama'],    a:0, e:{en:'LLAMARSE (yo) → me llamo',             es:'LLAMARSE (yo) → me llamo'} },
@@ -705,7 +705,7 @@ const PRES_LEVELS = {
     ]
   },
   a2: {
-    label: { en: 'A2 · Complete Sentences', es: 'A2 · Frases Completas' },
+    label: { en: 'Complete Sentences', es: 'Frases Completas' },
     color: '#D4920A',
     qs: [
       { s:'Soy profesora ___ español.',          opts:['de','en','del'],                  a:0, e:{en:'"Profesora de español" → always DE',     es:'"Profesora de español" → siempre DE'} },
@@ -721,7 +721,7 @@ const PRES_LEVELS = {
     ]
   },
   b1: {
-    label: { en: 'B1 · Advanced', es: 'B1 · Avanzado' },
+    label: { en: 'Going Deeper', es: 'En Profundidad' },
     color: '#2885FD',
     qs: [
       { s:'Me ___ en filología hispánica.',                        opts:['licencié','llamé','presenté'],           a:0, e:{en:'LICENCIARSE (yo) → me licencié = I graduated in',   es:'LICENCIARSE (yo) → me licencié en'} },
@@ -797,8 +797,7 @@ function _presSelectLevel(lang, title) {
   const btns = levels.map(l => {
     const lv = PRES_LEVELS[l.key];
     return `<button class="se-lvl-btn" onclick="startPresLevel('${l.key}')" style="--lvl-color:${l.color}">
-      <span class="se-lvl-badge" style="background:${l.color}20;color:${l.color};border:1.5px solid ${l.color}40">${lv.label[lang].split('·')[0].trim()}</span>
-      <span class="se-lvl-name">${lv.label[lang].split('·').slice(1).join('·').trim()}</span>
+      <span class="se-lvl-name">${lv.label[lang]}</span>
       <span class="se-lvl-count">${l.count} ${lang==='es'?'preguntas':'questions'}</span>
       <svg class="se-lvl-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
     </button>`;
@@ -897,6 +896,379 @@ function _presResults(correct, total, key, lang, title) {
     </div>`;
 }
 
+/* ══════════════════════════════════════════════
+   GAME 8 · LA RULETA DE PERSONAJES
+   (character roulette — read a 3rd-person bio,
+   judge true/false statements about who they are)
+══════════════════════════════════════════════ */
+
+const RULETA_PERSONAJES = [
+  { country:{es:'Nigeria', en:'Nigeria'}, role:'🩺', name:'Amara', city:'Toronto', color:'#D4920A',
+    bio:{es:'¡Hola! Me llamo Amara. Soy nigeriana. Tengo 29 años. Soy enfermera y vivo en Toronto.', en:"Hi! I'm Amara. I'm Nigerian. I'm 29 years old. I'm a nurse and I live in Toronto."},
+    facts:[
+      { es:'Soy nigeriana.', en:"I'm Nigerian.", ok:true },
+      { es:'Tengo 29 años.', en:"I'm 29 years old.", ok:true },
+      { es:'Vivo en Lagos.', en:'I live in Lagos.', ok:false, fix:{es:'En realidad vive en Toronto.', en:'Actually she lives in Toronto.'} },
+      { es:'Soy enfermera.', en:"I'm a nurse.", ok:true } ] },
+  { country:{es:'Argentina', en:'Argentina'}, role:'🍳', name:'Diego', city:'Bogotá', color:'#3DDABE',
+    bio:{es:'¡Hola! Me llamo Diego. Soy argentino. Tengo 34 años. Soy chef y vivo en Bogotá.', en:"Hi! I'm Diego. I'm Argentinian. I'm 34 years old. I'm a chef and I live in Bogotá."},
+    facts:[
+      { es:'Soy argentino.', en:"I'm Argentinian.", ok:true },
+      { es:'Tengo 34 años.', en:"I'm 34 years old.", ok:true },
+      { es:'Soy camarero.', en:"I'm a waiter.", ok:false, fix:{es:'En realidad es chef.', en:'Actually he is a chef.'} },
+      { es:'Vivo en Bogotá.', en:'I live in Bogotá.', ok:true } ] },
+  { country:{es:'Suecia', en:'Sweden'}, role:'🎨', name:'Ingrid', city:'Lisboa', color:'#2885FD',
+    bio:{es:'¡Hola! Me llamo Ingrid. Soy sueca. Tengo 26 años. Soy diseñadora y vivo en Lisboa.', en:"Hi! I'm Ingrid. I'm Swedish. I'm 26 years old. I'm a designer and I live in Lisbon."},
+    facts:[
+      { es:'Soy sueca.', en:"I'm Swedish.", ok:true },
+      { es:'Vivo en Estocolmo.', en:'I live in Stockholm.', ok:false, fix:{es:'En realidad vive en Lisboa.', en:'Actually she lives in Lisbon.'} },
+      { es:'Tengo 26 años.', en:"I'm 26 years old.", ok:true },
+      { es:'Soy diseñadora.', en:"I'm a designer.", ok:true } ] },
+  { country:{es:'Marruecos', en:'Morocco'}, role:'🚕', name:'Youssef', city:'Barcelona', color:'#7C3AED',
+    bio:{es:'¡Hola! Me llamo Youssef. Soy marroquí. Tengo 41 años. Soy taxista y vivo en Barcelona.', en:"Hi! I'm Youssef. I'm Moroccan. I'm 41 years old. I'm a taxi driver and I live in Barcelona."},
+    facts:[
+      { es:'Soy marroquí.', en:"I'm Moroccan.", ok:true },
+      { es:'Tengo 41 años.', en:"I'm 41 years old.", ok:true },
+      { es:'Soy profesor.', en:"I'm a teacher.", ok:false, fix:{es:'En realidad es taxista.', en:'Actually he is a taxi driver.'} },
+      { es:'Vivo en Barcelona.', en:'I live in Barcelona.', ok:true } ] },
+  { country:{es:'Corea del Sur', en:'South Korea'}, role:'🎻', name:'Soo-ah', city:'Berlín', color:'#E8355A',
+    bio:{es:'¡Hola! Me llamo Soo-ah. Soy coreana. Tengo 23 años. Estudio música y vivo en Berlín.', en:"Hi! I'm Soo-ah. I'm Korean. I'm 23 years old. I study music and I live in Berlin."},
+    facts:[
+      { es:'Soy coreana.', en:"I'm Korean.", ok:true },
+      { es:'Vivo en Seúl.', en:'I live in Seoul.', ok:false, fix:{es:'En realidad vive en Berlín.', en:'Actually she lives in Berlin.'} },
+      { es:'Tengo 23 años.', en:"I'm 23 years old.", ok:true },
+      { es:'Estudio música.', en:'I study music.', ok:true } ] },
+  { country:{es:'Brasil', en:'Brazil'}, role:'⚖️', name:'Fernanda', city:'Miami', color:'#1A9E87',
+    bio:{es:'¡Hola! Me llamo Fernanda. Soy brasileña. Tengo 37 años. Soy abogada y vivo en Miami.', en:"Hi! I'm Fernanda. I'm Brazilian. I'm 37 years old. I'm a lawyer and I live in Miami."},
+    facts:[
+      { es:'Soy brasileña.', en:"I'm Brazilian.", ok:true },
+      { es:'Tengo 37 años.', en:"I'm 37 years old.", ok:true },
+      { es:'Soy abogada.', en:"I'm a lawyer.", ok:true },
+      { es:'Vivo en Río de Janeiro.', en:'I live in Rio de Janeiro.', ok:false, fix:{es:'En realidad vive en Miami.', en:'Actually she lives in Miami.'} } ] },
+  { country:{es:'Canadá', en:'Canada'}, role:'📚', name:'Liam', city:'Tokio', color:'#F5A800',
+    bio:{es:'¡Hola! Me llamo Liam. Soy canadiense. Tengo 30 años. Soy profesor de inglés y vivo en Tokio.', en:"Hi! I'm Liam. I'm Canadian. I'm 30 years old. I'm an English teacher and I live in Tokyo."},
+    facts:[
+      { es:'Soy canadiense.', en:"I'm Canadian.", ok:true },
+      { es:'Vivo en Tokio.', en:'I live in Tokyo.', ok:true },
+      { es:'Tengo 30 años.', en:"I'm 30 years old.", ok:true },
+      { es:'Soy médico.', en:"I'm a doctor.", ok:false, fix:{es:'En realidad es profesor de inglés.', en:'Actually he is an English teacher.'} } ] },
+  { country:{es:'Pakistán', en:'Pakistan'}, role:'🩹', name:'Zara', city:'Londres', color:'#4D9DE0',
+    bio:{es:'¡Hola! Me llamo Zara. Soy pakistaní. Tengo 45 años. Soy médica y vivo en Londres.', en:"Hi! I'm Zara. I'm Pakistani. I'm 45 years old. I'm a doctor and I live in London."},
+    facts:[
+      { es:'Soy pakistaní.', en:"I'm Pakistani.", ok:true },
+      { es:'Tengo 45 años.', en:"I'm 45 years old.", ok:true },
+      { es:'Vivo en Manchester.', en:'I live in Manchester.', ok:false, fix:{es:'En realidad vive en Londres.', en:'Actually she lives in London.'} },
+      { es:'Soy médica.', en:"I'm a doctor.", ok:true } ] }
+];
+
+function playRuleta() {
+  currentGameFn = playRuleta;
+  const lang = L();
+  const title = lang==='es' ? 'La Ruleta de Personajes' : 'The Character Roulette';
+  const chars = RULETA_PERSONAJES.map((c,i) => ({ ...c, origIndex:i }))
+    .sort(()=>Math.random()-0.5).slice(0,5)
+    .map(c => ({ ...c, factsRound: [...c.facts].sort(()=>Math.random()-0.5).slice(0,3) }));
+  GS = { chars, roundIdx:0, factIdx:0, correct:0, total: chars.length*3, spinning:true, answered:false };
+  _renderRuletaSpin(lang, title);
+}
+
+function _wheelHTML() {
+  const n = RULETA_PERSONAJES.length;
+  const seg = 360 / n;
+  const gradient = RULETA_PERSONAJES.map((c,i) => `${c.color} ${i*seg}deg ${(i+1)*seg}deg`).join(', ');
+  const labels = RULETA_PERSONAJES.map((c,i) => {
+    const angle = i*seg + seg/2;
+    return `<div class="rt-wheel-label" style="transform:rotate(${angle}deg)">
+      <span style="transform:rotate(${-angle}deg)">${c.role}</span>
+    </div>`;
+  }).join('');
+  return `
+    <div class="rt-wheel-pointer">▼</div>
+    <div class="rt-wheel2" id="rt-wheel" style="background:conic-gradient(from 0deg, ${gradient})">
+      ${labels}
+      <div class="rt-wheel-hub">🎯</div>
+    </div>`;
+}
+
+function _renderRuletaSpin(lang, title) {
+  _modal(`
+    <p class="gm-instr" style="text-align:center">${lang==='es'?'Gira la ruleta y descubre a tu próximo personaje…':'Spin the wheel and meet your next character…'}</p>
+    <div class="rt-wheel-wrap">${_wheelHTML()}</div>
+    <button class="gm-btn gm-btn-primary" id="rt-spin-btn" style="width:100%;justify-content:center" onclick="ruletaReveal()">
+      ${lang==='es'?'🎡 Girar la ruleta':'🎡 Spin the wheel'}
+    </button>
+  `, title);
+}
+
+function ruletaReveal() {
+  const btn = document.getElementById('rt-spin-btn');
+  if (btn) btn.disabled = true;
+  const wheel = document.getElementById('rt-wheel');
+  const target = GS.chars[GS.roundIdx];
+  const n = RULETA_PERSONAJES.length;
+  const seg = 360 / n;
+  const centerAngle = target.origIndex * seg + seg/2;
+  const jitter = (Math.random() - 0.5) * (seg * 0.6);
+  const spins = 5;
+  const finalDeg = spins*360 + (360 - centerAngle - jitter);
+  if (wheel) {
+    requestAnimationFrame(() => { wheel.style.transform = `rotate(${finalDeg}deg)`; });
+  }
+  setTimeout(() => {
+    GS.factIdx = 0; GS.answered = false;
+    _renderRuletaCard();
+  }, 3400);
+}
+
+function _rtAvatar(c, size) {
+  return `<div class="rt-avatar" style="width:${size}px;height:${size}px;font-size:${size*0.46}px;background:${c.color}20;border-color:${c.color}">${c.role}</div>`;
+}
+
+function _renderRuletaCard() {
+  const lang = L();
+  const title = lang==='es' ? 'La Ruleta de Personajes' : 'The Character Roulette';
+  const { chars, roundIdx, factIdx, correct, total } = GS;
+  const c = chars[roundIdx];
+  const globalIdx = roundIdx*3 + factIdx;
+  if (factIdx === 0) {
+    GS.peekOpen = false;
+    _modal(`
+      ${_progress(globalIdx, total, correct, lang)}
+      <p class="gm-instr" style="text-align:center">${lang==='es'?'¡Te presento a alguien nuevo! Escucha su presentación:':'Meet someone new! Listen to their introduction:'}</p>
+      <div class="rt-intro">
+        ${_rtAvatar(c, 72)}
+        <div class="rt-bubble">
+          <span class="rt-bubble-name" style="color:${c.color}">${c.name} <span class="rt-bubble-nat">· ${c.country[lang]}</span></span>
+          ${c.bio[lang]}
+        </div>
+      </div>
+      <button class="gm-btn gm-btn-primary" style="width:100%;justify-content:center" onclick="_renderRuletaFact()">
+        ${lang==='es'?'Ya me lo sé — ¡vamos! →':"Got it — let's go! →"}
+      </button>
+    `, title);
+  } else {
+    _renderRuletaFact();
+  }
+}
+
+function ruletaTogglePeek() {
+  GS.peekOpen = !GS.peekOpen;
+  _renderRuletaFact();
+}
+
+function _renderRuletaFact() {
+  const lang = L();
+  const title = lang==='es' ? 'La Ruleta de Personajes' : 'The Character Roulette';
+  const { chars, roundIdx, factIdx, correct, total } = GS;
+  const c = chars[roundIdx];
+  const fact = c.factsRound[factIdx];
+  const globalIdx = roundIdx*3 + factIdx;
+  const peekBlock = GS.peekOpen
+    ? `<div class="rt-bubble rt-bubble-small">
+        <span class="rt-bubble-name" style="color:${c.color}">${c.name} <span class="rt-bubble-nat">· ${c.country[lang]}</span></span>
+        ${c.bio[lang]}
+      </div>`
+    : '';
+  _modal(`
+    ${_progress(globalIdx, total, correct, lang)}
+    <div class="rt-fact-header">
+      ${_rtAvatar(c, 44)}
+      <span class="rt-fact-name">${c.name}</span>
+      <button class="rt-peek-btn" onclick="ruletaTogglePeek()">${GS.peekOpen ? '🙈 ' + (lang==='es'?'Ocultar':'Hide') : '👁 ' + (lang==='es'?'Recordar su presentación':'Remember their intro')}</button>
+    </div>
+    ${peekBlock}
+    <p class="gm-instr" style="text-align:center">${lang==='es'?`${c.name} dice:`:`${c.name} says:`}</p>
+    <div class="gm-sentence">"${fact[lang]}"</div>
+    <div class="se-btns">
+      <button class="gm-opt tf-true" onclick="answerRuleta(true)">✓ ${lang==='es'?'Verdadero':'True'}</button>
+      <button class="gm-opt tf-false" onclick="answerRuleta(false)">✗ ${lang==='es'?'Falso':'False'}</button>
+    </div>
+    <div class="gm-feedback" id="gm-fb"></div>
+  `, title);
+}
+
+function answerRuleta(choice) {
+  if (GS.answered) return;
+  GS.answered = true;
+  const lang = L();
+  const { chars, roundIdx, factIdx } = GS;
+  const c = chars[roundIdx];
+  const fact = c.factsRound[factIdx];
+  const ok = choice === fact.ok;
+  if (ok) GS.correct++;
+  document.querySelectorAll('.tf-true, .tf-false').forEach(b => b.disabled = true);
+  const correction = !fact.ok ? `<div class="se-fb-rule">📌 ${fact.fix[lang]}</div>` : '';
+  document.getElementById('gm-fb').innerHTML = `
+    <span class="${ok?'fb-ok':'fb-ko'}">${ok?'✓ '+(lang==='es'?'¡Correcto!':'Correct!'):'✗ '+(lang==='es'?'No exactamente…':'Not quite…')}</span>
+    ${correction}
+    <button class="gm-btn gm-btn-primary gm-next-btn" onclick="ruletaNext()">${lang==='es'?'Siguiente →':'Next →'}</button>`;
+}
+
+function ruletaNext() {
+  GS.factIdx++;
+  GS.answered = false;
+  if (GS.factIdx >= 3) {
+    GS.roundIdx++;
+    GS.factIdx = 0;
+    if (GS.roundIdx >= GS.chars.length) {
+      const lang = L();
+      _end(GS.correct, GS.total, lang==='es'?'La Ruleta de Personajes':'The Character Roulette');
+      return;
+    }
+    _renderRuletaSpin(L(), L()==='es'?'La Ruleta de Personajes':'The Character Roulette');
+    return;
+  }
+  _renderRuletaFact();
+}
+
+/* ══════════════════════════════════════════════
+   GAME 9 · DIÁLOGOS CRUZADOS
+   (match the mixed-up dialogue lines by scene —
+   register recognition: tú vs usted in context)
+══════════════════════════════════════════════ */
+
+const DIALOGOS_ESCENAS = [
+  { icon:'🏨', register:'usted',
+    title:{en:'At the hotel front desk', es:'En la recepción del hotel'},
+    note:{en:'Formal register with strangers in professional service settings — always usted.', es:'Registro formal con desconocidos en un contexto de servicio profesional — siempre usted.'},
+    pairs:[
+      { p:'Buenas tardes, ¿tiene usted una reserva a su nombre?', r:'Sí, buenas tardes. Está a nombre de Zara Ahmed.' },
+      { p:'¿Me permite su pasaporte, por favor?',                 r:'Claro, aquí lo tiene.' },
+      { p:'¿De dónde es usted?',                                  r:'Soy de Pakistán, pero vivo en Londres.' },
+      { p:'¿Cuántas noches se queda con nosotros?',               r:'Me quedo tres noches, hasta el jueves.' }
+    ] },
+  { icon:'🎉', register:'tú',
+    title:{en:'At a birthday party', es:'En una fiesta de cumpleaños'},
+    note:{en:'Informal register with peers at a casual social event — tú from the very first question.', es:'Registro informal entre personas de tu edad en un evento social — tú desde la primera pregunta.'},
+    pairs:[
+      { p:'¡Hola! No nos conocemos, ¿verdad? ¿Cómo te llamas?',   r:'Me llamo Diego, soy amigo del cumpleañero.' },
+      { p:'¿Y de dónde eres, Diego?',                              r:'Soy argentino, pero ahora vivo en Bogotá.' },
+      { p:'¿A qué te dedicas?',                                    r:'Soy chef — trabajo en un restaurante del centro.' },
+      { p:'¿Cuántos años tienes, si no es indiscreción?',          r:'Tengo 34. ¿Y tú?' }
+    ] },
+  { icon:'💻', register:'usted',
+    title:{en:'International work video call', es:'Videollamada de trabajo internacional'},
+    note:{en:'Formal register in professional/corporate contexts, even between colleagues of similar age.', es:'Registro formal en contextos profesionales o corporativos, incluso entre colegas de edad similar.'},
+    pairs:[
+      { p:'Buenos días. Disculpe, ¿cómo se llama usted?',          r:'Buenos días, me llamo Ingrid Berg.' },
+      { p:'¿Podría decirme desde dónde se conecta hoy?',           r:'Sí, me conecto desde Lisboa, aunque soy sueca.' },
+      { p:'¿Cuál es su especialidad profesional?',                 r:'Soy diseñadora gráfica, especializada en branding.' },
+      { p:'Un placer, señora Berg. Empezamos enseguida.',          r:'Perfecto, muchas gracias por la puntualidad.' }
+    ] },
+  { icon:'🚕', register:'tú',
+    title:{en:'Small talk with a taxi driver', es:'Charla con el taxista'},
+    note:{en:'In Spain, taxi drivers usually address tourists informally (tú), even on a first meeting.', es:'En España, los taxistas suelen tratar de tú a los turistas, incluso en un primer encuentro.'},
+    pairs:[
+      { p:'¿Es tu primera vez en Barcelona?',                      r:'Sí, es la primera vez. Estoy aquí de vacaciones.' },
+      { p:'¿De dónde vienes?',                                     r:'Vengo de Corea del Sur, pero vivo en Berlín.' },
+      { p:'¿Cuánto tiempo te quedas en la ciudad?',                r:'Me quedo una semana, hasta el domingo.' },
+      { p:'Pues que disfrutes mucho de tu viaje.',                 r:'¡Muchas gracias! Seguro que sí.' }
+    ] }
+];
+
+function playDialogos() {
+  currentGameFn = playDialogos;
+  const lang = L();
+  const title = lang==='es' ? 'Diálogos Cruzados' : 'Crossed Dialogues';
+  GS = { scenes: [...DIALOGOS_ESCENAS], sceneIdx:0, mistakes:0, matchedTotal:0,
+         totalPairs: DIALOGOS_ESCENAS.reduce((n,s)=>n+s.pairs.length,0) };
+  _startDgScene();
+}
+
+function _startDgScene() {
+  const { scenes, sceneIdx } = GS;
+  const scene = scenes[sceneIdx];
+  const items = [];
+  scene.pairs.forEach((pair, i) => {
+    items.push({ id:'p'+i, pairId:i, type:'p', text:pair.p });
+    items.push({ id:'r'+i, pairId:i, type:'r', text:pair.r });
+  });
+  GS.items = items.sort(()=>Math.random()-0.5);
+  GS.matched = new Set();
+  GS.selected = null;
+  GS.wrongPair = null;
+  _renderDialogos();
+}
+
+function _renderDialogos() {
+  const lang = L();
+  const title = lang==='es' ? 'Diálogos Cruzados' : 'Crossed Dialogues';
+  const { scenes, sceneIdx, items, matched, selected, wrongPair, mistakes, totalPairs, matchedTotal } = GS;
+  const scene = scenes[sceneIdx];
+  const sceneDone = matched.size === scene.pairs.length * 2;
+
+  const bubbles = items.map(it => {
+    const isMatched = matched.has(it.id);
+    const isSelected = selected === it.id;
+    const isWrong = wrongPair && wrongPair.includes(it.id);
+    let cls = 'dg-bubble';
+    if (it.type === 'r') cls += ' dg-bubble--response';
+    if (isMatched) cls += ' dg-bubble--matched';
+    if (isSelected) cls += ' dg-bubble--selected';
+    if (isWrong) cls += ' dg-bubble--wrong';
+    return `<button class="${cls}" ${isMatched?'disabled':''} onclick="dgSelect('${it.id}')">${it.text}</button>`;
+  }).join('');
+
+  const regLabel = scene.register === 'usted'
+    ? (lang==='es'?'Formal · usted':'Formal · usted')
+    : (lang==='es'?'Informal · tú':'Informal · tú');
+
+  const doneBlock = sceneDone ? `
+    <div class="se-fb-rule" style="margin-top:14px">📌 ${scene.note[lang]}</div>
+    <button class="gm-btn gm-btn-primary gm-next-btn" onclick="dgNextScene()">
+      ${sceneIdx < scenes.length-1 ? (lang==='es'?'Siguiente escena →':'Next scene →') : (lang==='es'?'Ver resultados →':'See results →')}
+    </button>` : '';
+
+  _modal(`
+    ${_progress(sceneIdx, scenes.length, matched.size/2 + (scenes.slice(0,sceneIdx).reduce((n,s)=>n+s.pairs.length,0)), lang)}
+    <div class="dg-scene-header">
+      <span class="dg-scene-icon">${scene.icon}</span>
+      <span class="dg-scene-title">${scene.title[lang]}</span>
+      <span class="se-level-pill" style="background:${scene.register==='usted'?'#2885FD20':'#1A9E8720'};color:${scene.register==='usted'?'#1450AA':'#1A9E87'};border:1px solid ${scene.register==='usted'?'#2885FD40':'#1A9E8740'}">${regLabel}</span>
+    </div>
+    <p class="gm-instr">${lang==='es'?'Toca una pregunta y su respuesta correcta para emparejarlas:':'Tap a question and its matching reply to pair them:'}</p>
+    <div class="dg-grid">${bubbles}</div>
+    ${!sceneDone ? `<div class="gm-hint-line">${lang==='es'?'Errores en esta partida':'Mistakes so far'}: ${mistakes}</div>` : ''}
+    ${doneBlock}
+  `, title);
+}
+
+function dgSelect(id) {
+  if (GS.wrongPair) return;
+  const { items, matched } = GS;
+  if (matched.has(id)) return;
+  if (!GS.selected) { GS.selected = id; _renderDialogos(); return; }
+  if (GS.selected === id) { GS.selected = null; _renderDialogos(); return; }
+
+  const a = items.find(i => i.id === GS.selected);
+  const b = items.find(i => i.id === id);
+  const isPair = a.pairId === b.pairId && a.type !== b.type;
+
+  if (isPair) {
+    GS.matched.add(a.id); GS.matched.add(b.id);
+    GS.matchedTotal++;
+    GS.selected = null;
+    _renderDialogos();
+  } else {
+    GS.mistakes++;
+    GS.wrongPair = [a.id, b.id];
+    _renderDialogos();
+    setTimeout(() => { GS.wrongPair = null; GS.selected = null; _renderDialogos(); }, 700);
+  }
+}
+
+function dgNextScene() {
+  const lang = L();
+  if (GS.sceneIdx < GS.scenes.length - 1) {
+    GS.sceneIdx++;
+    _startDgScene();
+  } else {
+    const pct = Math.max(0, 100 - GS.mistakes*5);
+    const correctEquivalent = Math.round(pct/100 * GS.totalPairs);
+    _end(correctEquivalent, GS.totalPairs, lang==='es'?'Diálogos Cruzados':'Crossed Dialogues');
+  }
+}
+
 /* ── EXPOSE GLOBALS ───────────────────────────── */
 Object.assign(window, {
   closeGame, restartGame, flipFC, fcAnswer,
@@ -906,5 +1278,8 @@ Object.assign(window, {
   woSelect, woRemove, woClear, woCheck, woNext,
   vsCheck, vsNext,
   answerPres, presNext, startPresLevel,
-  playFlashcards, playSerEstar, playQuiz, playFillGaps, playWordOrder, playVerbSprint, playPresentarse
+  ruletaReveal, answerRuleta, ruletaNext, ruletaTogglePeek,
+  dgSelect, dgNextScene,
+  playFlashcards, playSerEstar, playQuiz, playFillGaps, playWordOrder, playVerbSprint, playPresentarse,
+  playRuleta, playDialogos
 });

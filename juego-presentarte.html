@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preséntate en Español — Juegos Interactivos · Spanish Lessons With Mercedes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=22">
+  <style>
+    .game-hero { background: #FEF9F1; padding: 64px 80px 56px; }
+    .game-hero__inner { max-width: 900px; margin: 0 auto; text-align: center; }
+    .game-hero__tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(61,218,190,0.14); color: #1A9E87;
+      padding: 6px 16px; border-radius: 20px;
+      font-size: 13px; font-weight: 700; letter-spacing: 0.5px;
+      margin-bottom: 20px;
+    }
+    .game-hero__heading {
+      font-family: 'Noto Sans', sans-serif; font-weight: 900;
+      font-size: 52px; line-height: 1.1; color: #121117; margin-bottom: 12px;
+    }
+    .game-hero__heading em { font-style: normal; color: #3DDABE; }
+    .game-hero__sub { font-size: 18px; color: #4D4C5C; line-height: 1.7; max-width: 640px; margin: 0 auto 32px; }
+    .game-hero__levels { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+    .game-hero__level { padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 700; border: 1.5px solid; color:#1A9E87; border-color:#3DDABE40; background:#3DDABE15; }
+
+    .game-choice { padding: 56px 80px; background: #fff; }
+    .game-choice__inner { max-width: 780px; margin: 0 auto; }
+    .game-choice__title { font-family: 'Noto Sans', sans-serif; font-weight: 700; font-size: 22px; color: #121117; margin-bottom: 22px; text-align: center; }
+    .gc-cards { display: flex; flex-direction: column; gap: 14px; margin-bottom: 48px; }
+    .gc-card {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 22px; border-radius: 12px; border: 1.5px solid #DCDCE5;
+      background: #fff; cursor: pointer; text-align: left; transition: border-color 0.15s, background 0.15s, transform 0.1s;
+    }
+    .gc-card:hover { border-color: var(--gc-color, #3DDABE); background: #FAFAFA; transform: translateX(3px); }
+    .gc-emoji { font-size: 32px; flex-shrink: 0; }
+    .gc-text strong { display: block; font-family:'Noto Sans', sans-serif; font-weight: 700; font-size: 16px; color: #121117; margin-bottom: 3px; }
+    .gc-text span { font-size: 13px; color: #4D4C5C; line-height: 1.5; }
+    .gc-arrow { margin-left: auto; color: #9B9AAB; flex-shrink: 0; transition: transform 0.15s; }
+    .gc-card:hover .gc-arrow { transform: translateX(3px); color: var(--gc-color, #3DDABE); }
+
+    .game-pdf-link {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 24px; border: 1.5px solid #DCDCE5; border-radius: 10px;
+      text-decoration: none; color: inherit; transition: border-color 0.2s;
+      background: #F9F9FB;
+    }
+    .game-pdf-link:hover { border-color: #3DDABE; }
+    .game-pdf-link__icon {
+      width: 44px; height: 44px; background: #3DDABE; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .game-pdf-link__text strong { display: block; font-size: 15px; color: #121117; margin-bottom: 2px; }
+    .game-pdf-link__text span { font-size: 13px; color: #9B9AAB; }
+    .game-pdf-link__cta { margin-left: auto; font-size: 13px; font-weight: 700; color: #3DDABE; white-space: nowrap; }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ──────────────────────────────────── -->
+<header class="header">
+  <div class="header__left">
+    <a class="header__logo" href="index.html">
+      <img src="logo.png" alt="Spanish Lessons with Mercedes" class="header__logo-img">
+    </a>
+    <nav class="header__nav">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="videos.html" data-i18n="nav.videos">Videos</a>
+      <a href="free-pdf.html" data-i18n="nav.pdf">Free PDF</a>
+      <a href="dele.html" data-i18n="nav.dele">DELE</a>
+      <a href="culture.html" data-i18n="nav.culture">Culture</a>
+      <a href="index.html#games" data-i18n="nav.games">Games</a>
+    </nav>
+  </div>
+  <div class="header__right">
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+    </div>
+    <div id="headerSearch">
+      <div class="header__search-wrap">
+        <input type="text" id="searchInput" placeholder="Buscar lecciones..." autocomplete="off" spellcheck="false">
+        <svg class="header__search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+      <div id="searchResults"></div>
+    </div>
+  </div>
+</header>
+
+<!-- ── GAME HERO ───────────────────────────────── -->
+<div class="game-hero">
+  <div class="game-hero__inner">
+    <div class="game-hero__tag">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      <span class="lang-en">Interactive Games</span>
+      <span class="lang-es">Juegos Interactivos</span>
+    </div>
+    <h1 class="game-hero__heading">
+      <span class="lang-en">Practise <em>introducing yourself</em></span>
+      <span class="lang-es">Practica <em>presentarte</em></span>
+    </h1>
+    <p class="game-hero__sub">
+      <span class="lang-en">Beyond the PDF exercises: spin the wheel to meet someone new, listen to how they introduce themselves, and untangle mixed-up real-life dialogues to master LLAMARSE, SER, TENER and VIVIR while having fun.</span>
+      <span class="lang-es">Más allá de los ejercicios del PDF: gira la ruleta, conoce a alguien nuevo, escucha cómo se presenta y desenreda diálogos reales mezclados para dominar LLAMARSE, SER, TENER y VIVIR jugando.</span>
+    </p>
+    <div class="game-hero__levels">
+      <span class="game-hero__level">A1 – B1</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── GAME CHOICE ─────────────────────────────── -->
+<div class="game-choice">
+  <div class="game-choice__inner">
+    <div class="game-choice__title">
+      <span class="lang-en">Choose a game</span>
+      <span class="lang-es">Elige un juego</span>
+    </div>
+    <div class="gc-cards">
+      <button class="gc-card" style="--gc-color:#D4920A" onclick="playRuleta()">
+        <span class="gc-emoji">🎡</span>
+        <span class="gc-text">
+          <strong><span class="lang-en">The Character Roulette</span><span class="lang-es">La Ruleta de Personajes</span></strong>
+          <span><span class="lang-en">Spin the wheel, listen to someone introduce themselves in Spanish, and guess which facts about them are true.</span><span class="lang-es">Gira la ruleta, escucha cómo alguien se presenta en español y adivina qué datos son verdad.</span></span>
+        </span>
+        <svg class="gc-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+      </button>
+      <button class="gc-card" style="--gc-color:#2885FD" onclick="playDialogos()">
+        <span class="gc-emoji">🗨️</span>
+        <span class="gc-text">
+          <strong><span class="lang-en">Crossed Dialogues</span><span class="lang-es">Diálogos Cruzados</span></strong>
+          <span><span class="lang-en">Four real-life scenes got their lines mixed up — a hotel check-in, a birthday party, a work call, a taxi ride. Match each question to its reply.</span><span class="lang-es">Cuatro escenas reales se han mezclado — un hotel, una fiesta, una videollamada de trabajo, un taxi. Empareja cada pregunta con su respuesta.</span></span>
+        </span>
+        <svg class="gc-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+      </button>
+      <button class="gc-card" style="--gc-color:#3DDABE" onclick="playPresentarse()">
+        <span class="gc-emoji">📝</span>
+        <span class="gc-text">
+          <strong><span class="lang-en">Grammar Practice</span><span class="lang-es">Práctica de Gramática</span></strong>
+          <span><span class="lang-en">Classic multiple-choice quiz across 4 levels, from first words to real work situations.</span><span class="lang-es">Test clásico de opción múltiple en 4 niveles, desde las primeras palabras hasta situaciones laborales reales.</span></span>
+        </span>
+        <svg class="gc-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+      </button>
+    </div>
+
+    <!-- PDF LINK -->
+    <a class="game-pdf-link" href="DESCARGABLES_PDF/PRESENTARSE/PRESENTARSE%20EN%20ESPAÑOL.pdf" target="_blank" download>
+      <div class="game-pdf-link__icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      </div>
+      <div class="game-pdf-link__text">
+        <strong><span class="lang-en">Download the complete PDF guide — Introducing Yourself</span><span class="lang-es">Descarga la guía PDF completa — Presentarte en Español</span></strong>
+        <span><span class="lang-en">13 pages · alphabet · numbers · tú vs usted · dialogues · exercises · A1–A2</span><span class="lang-es">13 páginas · alfabeto · números · tú vs usted · diálogos · ejercicios · A1–A2</span></span>
+      </div>
+      <span class="game-pdf-link__cta">
+        <span class="lang-en">↓ Free PDF</span>
+        <span class="lang-es">↓ PDF Gratis</span>
+      </span>
+    </a>
+  </div>
+</div>
+
+<!-- ── GAME MODAL ──────────────────────────────── -->
+<div id="game-modal" class="game-modal" role="dialog" aria-modal="true">
+  <div class="gm-box">
+    <div class="gm-header">
+      <span id="gm-title" class="gm-title"></span>
+      <button class="gm-close" onclick="closeGame()" aria-label="Close">✕</button>
+    </div>
+    <div id="gm-body"></div>
+  </div>
+</div>
+
+<script src="i18n.js?v=8"></script>
+<script src="games.js?v=12"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('play') === 'ruleta')    setTimeout(() => playRuleta(),    600);
+    if (params.get('play') === 'dialogos')  setTimeout(() => playDialogos(),  600);
+  });
+</script>
+<script src="search.js?v=4"></script>
+</body>
+</html>
