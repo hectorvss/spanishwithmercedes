@@ -1414,13 +1414,13 @@ function dgNextScene() {
 
 const GUSTAR_ITEMS = [
   { es:'el cine', plural:false, pron:'Me' }, { es:'la música', plural:false, pron:'Te' }, { es:'el café', plural:false, pron:'Le' },
-  { es:'el ruido', plural:false, pron:'Nos' }, { es:'la ópera', plural:false, pron:'Os' }, { es:'la cabeza', plural:false, pron:'Les' },
+  { es:'el fútbol', plural:false, pron:'Nos' }, { es:'la ópera', plural:false, pron:'Os' }, { es:'la playa', plural:false, pron:'Les' },
   { es:'la paella', plural:false, pron:'Me' }, { es:'esta canción', plural:false, pron:'Te' }, { es:'el chocolate', plural:false, pron:'Le' },
   { es:'leer', plural:false, pron:'Nos' },
   { es:'las películas', plural:true, pron:'Os' }, { es:'los viajes', plural:true, pron:'Les' }, { es:'los deportes', plural:true, pron:'Me' },
   { es:'las gambas', plural:true, pron:'Te' }, { es:'los helados', plural:true, pron:'Le' }, { es:'las novelas históricas', plural:true, pron:'Nos' },
-  { es:'los fines de semana', plural:true, pron:'Os' }, { es:'las verduras', plural:true, pron:'Les' }, { es:'los pies', plural:true, pron:'Me' },
-  { es:'las muelas', plural:true, pron:'Te' }
+  { es:'los fines de semana', plural:true, pron:'Os' }, { es:'las verduras', plural:true, pron:'Les' }, { es:'los perros', plural:true, pron:'Me' },
+  { es:'las series', plural:true, pron:'Te' }
 ];
 
 function playGustar() {
