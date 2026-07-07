@@ -1678,6 +1678,98 @@ function cdNext() {
   _renderCDRound();
 }
 
+/* ══════════════════════════════════════════════
+   GAME 13 · LA LÍNEA DEL TIEMPO (DESDE/DESDE HACE/DURANTE)
+   (pick the right time expression, then watch a
+   timeline draw itself to reveal whether the action
+   reaches "HOY" — still ongoing — or stops short —
+   a closed, finished period)
+══════════════════════════════════════════════ */
+
+const DESDE_ITEMS = [
+  { es:'Vivo en Barcelona ___ 2020.',              correct:'DESDE',       full:'Vivo en Barcelona desde 2020.',              ongoing:true,  fill:94 },
+  { es:'Trabajo en esta empresa ___ marzo.',       correct:'DESDE',       full:'Trabajo en esta empresa desde marzo.',       ongoing:true,  fill:88 },
+  { es:'Estudio español ___ 2019.',                correct:'DESDE',       full:'Estudio español desde 2019.',                ongoing:true,  fill:96 },
+  { es:'Vivo en esta ciudad ___ el verano pasado.',correct:'DESDE',       full:'Vivo en esta ciudad desde el verano pasado.',ongoing:true,  fill:82 },
+  { es:'Vivo en Barcelona ___ cinco años.',        correct:'DESDE HACE',  full:'Vivo en Barcelona desde hace cinco años.',   ongoing:true,  fill:90 },
+  { es:'Trabajo en esta empresa ___ ocho meses.',  correct:'DESDE HACE',  full:'Trabajo en esta empresa desde hace ocho meses.', ongoing:true, fill:72 },
+  { es:'Estudio español ___ tres años.',           correct:'DESDE HACE',  full:'Estudio español desde hace tres años.',      ongoing:true,  fill:78 },
+  { es:'Conozco a Laura ___ diez años.',           correct:'DESDE HACE',  full:'Conozco a Laura desde hace diez años.',      ongoing:true,  fill:97 },
+  { es:'Estudié piano ___ seis años.',             correct:'DURANTE',     full:'Estudié piano durante seis años.',           ongoing:false, fill:55 },
+  { es:'Trabajé en esa empresa ___ dos años.',     correct:'DURANTE',     full:'Trabajé en esa empresa durante dos años.',   ongoing:false, fill:40 },
+  { es:'Viví en Londres ___ cuatro años.',         correct:'DURANTE',     full:'Viví en Londres durante cuatro años.',       ongoing:false, fill:50 },
+  { es:'Viajé por Europa ___ un mes.',             correct:'DURANTE',     full:'Viajé por Europa durante un mes.',           ongoing:false, fill:28 }
+];
+
+function playDesde() {
+  currentGameFn = playDesde;
+  const lang = L();
+  const title = lang==='es' ? 'La Línea del Tiempo' : 'The Timeline';
+  GS = { items: _shuffle(DESDE_ITEMS), idx: 0, correct: 0, total: DESDE_ITEMS.length, answered: false };
+  _renderDesdeRound();
+}
+
+function _renderDesdeRound() {
+  const lang = L();
+  const title = lang==='es' ? 'La Línea del Tiempo' : 'The Timeline';
+  const { items, idx, correct, total } = GS;
+  if (idx >= total) { _end(correct, total, title); return; }
+  const item = items[idx];
+  GS.answered = false;
+  const opts = _shuffle(['DESDE', 'DESDE HACE', 'DURANTE']);
+
+  _modal(`
+    ${_progress(idx, total, correct, lang)}
+    <p class="gm-instr" style="text-align:center">${lang==='es'?'¿Continúa hoy o ya terminó? Elige la expresión correcta:':'Does it continue today, or has it ended? Choose the right expression:'}</p>
+    <div class="gm-sentence">${item.es}</div>
+    <div class="se-btns">
+      ${opts.map(o => `<button class="se-btn" onclick="desdeAnswer('${o}')">${o}</button>`).join('')}
+    </div>
+    <div class="ds-timeline-wrap" id="ds-timeline" style="display:none">
+      <div class="ds-timeline-track">
+        <div class="ds-timeline-fill" id="ds-timeline-fill"></div>
+      </div>
+      <div class="ds-timeline-hoy"><span class="ds-timeline-dot"></span>HOY</div>
+    </div>
+    <div class="gm-feedback" id="gm-fb"></div>
+  `, title);
+}
+
+function desdeAnswer(choice) {
+  if (GS.answered) return;
+  GS.answered = true;
+  const lang = L();
+  const item = GS.items[GS.idx];
+  const ok = choice === item.correct;
+  if (ok) GS.correct++;
+  document.querySelectorAll('.se-btn').forEach(b => {
+    b.disabled = true;
+    if (b.textContent === item.correct) b.classList.add('se-correct');
+    else if (b.textContent === choice) b.classList.add('se-wrong');
+  });
+
+  const wrap = document.getElementById('ds-timeline');
+  const fill = document.getElementById('ds-timeline-fill');
+  if (wrap) {
+    wrap.style.display = 'block';
+    wrap.classList.toggle('ds-finished', !item.ongoing);
+    requestAnimationFrame(() => { if (fill) fill.style.width = item.fill + '%'; });
+  }
+
+  document.getElementById('gm-fb').innerHTML = `
+    <span class="${ok?'fb-ok':'fb-ko'}">${ok?'✓ '+(lang==='es'?'¡Correcto!':'Correct!'):'✗ '+(lang==='es'?'La forma correcta es':'The correct form is')+' <strong>'+item.correct+'</strong>'}</span>
+    <div class="se-fb-sentence">${item.full}</div>
+    <div class="se-fb-rule">📌 ${item.ongoing
+      ? (lang==='es'?'La acción sigue ocurriendo hoy — por eso llega hasta HOY.':'The action is still happening today — that\'s why it reaches HOY.')
+      : (lang==='es'?'La acción ya terminó — por eso el periodo se cierra antes de HOY.':'The action has already ended — that\'s why the period closes before HOY.')}</div>
+    <button class="gm-btn gm-btn-primary gm-next-btn" onclick="desdeNext()">${lang==='es'?'Siguiente →':'Next →'}</button>`;
+}
+
+function desdeNext() {
+  GS.idx++;
+  _renderDesdeRound();
+}
+
 /* ── EXPOSE GLOBALS ───────────────────────────── */
 Object.assign(window, {
   closeGame, restartGame, flipFC, fcAnswer,
@@ -1693,6 +1785,7 @@ Object.assign(window, {
   gustarAnswer, gustarNext,
   generoAnswer, generoNext,
   cdAnswer, cdNext,
+  desdeAnswer, desdeNext,
   playFlashcards, playSerEstar, playQuiz, playFillGaps, playWordOrder, playVerbSprint, playPresentarse,
-  playRuleta, playDialogos, playGustar, playGenero, playCD
+  playRuleta, playDialogos, playGustar, playGenero, playCD, playDesde
 });
