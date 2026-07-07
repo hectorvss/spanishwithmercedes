@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>La Cinta del CD — Juego de la Preposición A · Spanish Lessons With Mercedes</title>
+  <title>La Moneda del Género — Juego de Género II · Spanish Lessons With Mercedes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=40">
   <style>
-    .game-hero { background: #FEF3E5; padding: 64px 80px 56px; }
+    .game-hero { background: #FBF6E8; padding: 64px 80px 56px; }
     .game-hero__inner { max-width: 900px; margin: 0 auto; text-align: center; }
     .game-hero__tag {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(212,146,10,0.14); color: #A06C00;
+      background: rgba(184,134,11,0.16); color: #8A6508;
       padding: 6px 16px; border-radius: 20px;
       font-size: 13px; font-weight: 700; letter-spacing: 0.5px;
       margin-bottom: 20px;
     }
     .game-hero__heading {
       font-family: 'Noto Sans', sans-serif; font-weight: 900;
-      font-size: 46px; line-height: 1.1; color: #121117; margin-bottom: 12px;
+      font-size: 44px; line-height: 1.1; color: #121117; margin-bottom: 12px;
     }
-    .game-hero__heading em { font-style: normal; color: #D4920A; }
+    .game-hero__heading em { font-style: normal; color: #B8860B; }
     .game-hero__sub {
       font-size: 20px; color: #4D4C5C; line-height: 1.7;
       max-width: 640px; margin: 0 auto 32px;
@@ -52,14 +52,14 @@
       text-decoration: none; color: inherit; transition: border-color 0.2s;
       background: #F9F9FB;
     }
-    .game-pdf-link:hover { border-color: #D4920A; }
+    .game-pdf-link:hover { border-color: #B8860B; }
     .game-pdf-link__icon {
-      width: 44px; height: 44px; background: #D4920A; border-radius: 8px;
+      width: 44px; height: 44px; background: #B8860B; border-radius: 8px;
       display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
     .game-pdf-link__text strong { display: block; font-size: 16px; color: #121117; margin-bottom: 2px; }
     .game-pdf-link__text span { font-size: 14px; color: #9B9AAB; }
-    .game-pdf-link__cta { margin-left: auto; font-size: 14px; font-weight: 700; color: #D4920A; white-space: nowrap; }
+    .game-pdf-link__cta { margin-left: auto; font-size: 14px; font-weight: 700; color: #B8860B; white-space: nowrap; }
 
     .other-games { margin-top: 32px; text-align: center; }
     .other-games p { font-size: 14px; color: #9B9AAB; margin-bottom: 14px; }
@@ -113,14 +113,14 @@
       <span class="lang-es">Juego Interactivo</span>
     </div>
     <h1 class="game-hero__heading">
-      <span class="lang-en">The Direct Object <em>Conveyor</em></span>
-      <span class="lang-es">La Cinta del <em>CD</em></span>
+      <span class="lang-en">The Gender <em>Coin</em></span>
+      <span class="lang-es">La Moneda del <em>Género</em></span>
     </h1>
     <p class="game-hero__sub">
-      <span class="lang-en">Sentences slide along a conveyor belt — decide whether each one needs the preposition "a" before it reaches the end. Train the personal "a" rule until you no longer have to think about it.</span>
-      <span class="lang-es">Las frases se deslizan por una cinta transportadora — decide si cada una lleva la preposición "a" antes de que llegue al final. Entrena la "a" personal hasta que ya no tengas que pensarla.</span>
+      <span class="lang-en">Choose EL or LA and watch a coin flip in 3D — it always lands on the face that matches the real meaning of the word.</span>
+      <span class="lang-es">Elige EL o LA y observa cómo gira una moneda en 3D — siempre cae en la cara que corresponde al significado real de la palabra.</span>
     </p>
-    <button class="game-hero__cta" onclick="playCD()">
+    <button class="game-hero__cta" onclick="playGeneroII()">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
       <span class="lang-en">Start game</span>
       <span class="lang-es">Empezar juego</span>
@@ -133,48 +133,48 @@
   <div class="game-info__inner">
     <div class="game-info__grid">
       <div class="game-info__card">
-        <div class="game-info__icon">🏭</div>
+        <div class="game-info__icon">🪙</div>
         <div class="game-info__title">
-          <span class="lang-en">A belt that never stops</span>
-          <span class="lang-es">Una cinta que no para</span>
+          <span class="lang-en">A coin that really flips</span>
+          <span class="lang-es">Una moneda que gira de verdad</span>
         </div>
         <div class="game-info__desc">
-          <span class="lang-en">Every sentence slides past in real time — sort it before it reaches the end of the line.</span>
-          <span class="lang-es">Cada frase se desliza en tiempo real — clasifícala antes de que llegue al final de la línea.</span>
+          <span class="lang-en">Every flip spins in 3D and lands showing the icon that matches the correct meaning.</span>
+          <span class="lang-es">Cada giro es en 3D y termina mostrando el icono que corresponde al significado correcto.</span>
         </div>
       </div>
       <div class="game-info__card">
-        <div class="game-info__icon">🧍</div>
+        <div class="game-info__icon">🎭</div>
         <div class="game-info__title">
-          <span class="lang-en">Person or thing?</span>
-          <span class="lang-es">¿Persona o cosa?</span>
+          <span class="lang-en">Same word, two meanings</span>
+          <span class="lang-es">Misma palabra, dos significados</span>
         </div>
         <div class="game-info__desc">
-          <span class="lang-en">The classic trap: a concrete person needs "a", a generic category or an object never does.</span>
-          <span class="lang-es">La trampa clásica: una persona concreta lleva "a", una categoría genérica o una cosa nunca.</span>
+          <span class="lang-en">El capital (money) vs la capital (city). El cura (priest) vs la cura (treatment). The article changes everything.</span>
+          <span class="lang-es">El capital (dinero) frente a la capital (ciudad). El cura (sacerdote) frente a la cura (tratamiento). El artículo lo cambia todo.</span>
         </div>
       </div>
       <div class="game-info__card">
-        <div class="game-info__icon">⚡</div>
+        <div class="game-info__icon">✔️</div>
         <div class="game-info__title">
           <span class="lang-en">12 real sentences</span>
           <span class="lang-es">12 frases reales</span>
         </div>
         <div class="game-info__desc">
-          <span class="lang-en">From "veo a Laura" to "busco secretaria" — the exact contrasts that trip up every learner.</span>
-          <span class="lang-es">Desde "veo a Laura" hasta "busco secretaria" — los contrastes exactos que confunden a cualquier estudiante.</span>
+          <span class="lang-en">From "el menú" to "me duele la frente" — the exact patterns from the PDF's special cases.</span>
+          <span class="lang-es">Desde "el menú" hasta "me duele la frente" — los patrones exactos de los casos especiales del PDF.</span>
         </div>
       </div>
     </div>
 
     <!-- PDF LINK -->
-    <a class="game-pdf-link" href="DESCARGABLES_PDF/CD_PREPOSICI%C3%B3N_A/EL%20CD%20Y%20LA%20PREPOSICI%C3%B3N%20A.pdf" target="_blank" download>
+    <a class="game-pdf-link" href="DESCARGABLES_PDF/GÉNERO_II/El género en español — Casos especiales.pdf" target="_blank" download>
       <div class="game-pdf-link__icon">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
       </div>
       <div class="game-pdf-link__text">
-        <strong><span class="lang-en">Download the complete PDF guide — The Direct Object &amp; Preposition A</span><span class="lang-es">Descarga la guía PDF completa — El CD y la Preposición A</span></strong>
-        <span><span class="lang-en">Pronoun trick · personal "a" · neutral "lo" · exercises · A2</span><span class="lang-es">Truco del pronombre · "a" personal · "lo" neutro · ejercicios · A2</span></span>
+        <strong><span class="lang-en">Download the complete PDF guide — Gender in Spanish: Special Cases</span><span class="lang-es">Descarga la guía PDF completa — El Género en Español: Casos Especiales</span></strong>
+        <span><span class="lang-en">Tilde words · -MA words · invariable professions · words that change meaning</span><span class="lang-es">Palabras con tilde · palabras en -MA · profesiones invariables · palabras que cambian de significado</span></span>
       </div>
       <span class="game-pdf-link__cta">
         <span class="lang-en">↓ Free PDF</span>
@@ -192,12 +192,14 @@
         <a href="juego-ser-estar.html">🎮 <span class="lang-en">Ser or Estar?</span><span class="lang-es">¿Ser o Estar?</span></a>
         <a href="juego-presentarte.html">🎮 <span class="lang-en">Introduce Yourself</span><span class="lang-es">Preséntate en Español</span></a>
         <a href="juego-gustar.html">🎮 <span class="lang-en">Catch the Agreement</span><span class="lang-es">Atrapa la Concordancia</span></a>
-        <a href="juego-profesiones.html">🎮 <span class="lang-en">The Profession Elevator</span><span class="lang-es">El Ascensor de las Profesiones</span></a>
         <a href="juego-genero.html">🎮 <span class="lang-en">The Agreement Reel</span><span class="lang-es">El Carrete de la Concordancia</span></a>
-              <a href="juego-ver-mirar.html">🎮 <span class="lang-en">The Camera Lens</span><span class="lang-es">El Objetivo de la Cámara</span></a>
-              <a href="juego-mundo-laboral.html">🎮 <span class="lang-en">The Work Time Clock</span><span class="lang-es">La Ponchadora del Trabajo</span></a>
-              <a href="juego-sonido-r.html">🎮 <span class="lang-en">The Vibration Meter</span><span class="lang-es">El Vibrómetro</span></a>
-              <a href="juego-genero-ii.html">🎮 <span class="lang-en">The Gender Coin</span><span class="lang-es">La Moneda del Género</span></a>
+        <a href="juego-cd-prep-a.html">🎮 <span class="lang-en">The Direct Object Conveyor</span><span class="lang-es">La Cinta del CD</span></a>
+        <a href="juego-desde.html">🎮 <span class="lang-en">The Timeline</span><span class="lang-es">La Línea del Tiempo</span></a>
+        <a href="juego-por-para.html">🎮 <span class="lang-en">The Preposition Dartboard</span><span class="lang-es">La Diana de las Preposiciones</span></a>
+        <a href="juego-profesiones.html">🎮 <span class="lang-en">The Profession Elevator</span><span class="lang-es">El Ascensor de las Profesiones</span></a>
+        <a href="juego-ver-mirar.html">🎮 <span class="lang-en">The Camera Lens</span><span class="lang-es">El Objetivo de la Cámara</span></a>
+        <a href="juego-mundo-laboral.html">🎮 <span class="lang-en">The Work Time Clock</span><span class="lang-es">La Ponchadora del Trabajo</span></a>
+        <a href="juego-sonido-r.html">🎮 <span class="lang-en">The Vibration Meter</span><span class="lang-es">El Vibrómetro</span></a>
       </div>
     </div>
   </div>

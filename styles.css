@@ -1144,6 +1144,35 @@ body.is-spanish .lang-en-block { display: none; }
 .rr-btn.rr-correct { border-color: #1A9E87; background: #E6F9F5; }
 .rr-btn.rr-wrong { border-color: #C8102E; background: #FDECEA; }
 
+/* ── LA MONEDA DEL GÉNERO (GÉNERO II — CASOS ESPECIALES) ── */
+.cn-coin-wrap { display: flex; justify-content: center; margin: 18px 0 6px; perspective: 700px; }
+.cn-coin {
+  position: relative; width: 150px; height: 150px; transform-style: preserve-3d;
+  transition: transform 1s cubic-bezier(.3,.7,.4,1);
+}
+.cn-face {
+  position: absolute; inset: 0; border-radius: 50%; backface-visibility: hidden;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  border: 4px solid #121117; font-family: 'Noto Sans', sans-serif; font-weight: 900;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+}
+.cn-face-el { background: #FBF6E8; color: #121117; transform: rotateY(0deg); }
+.cn-face-la { background: #FBF6E8; color: #121117; transform: rotateY(180deg); }
+.cn-face-icon { font-size: 42px; }
+.cn-face-label { font-size: 16px; letter-spacing: 0.5px; }
+.cn-coin.cn-spin-el { transform: rotateY(720deg); }
+.cn-coin.cn-spin-la { transform: rotateY(900deg); }
+.cn-btn-row { display: flex; gap: 12px; justify-content: center; margin-top: 16px; }
+.cn-btn {
+  padding: 14px 34px; border-radius: 10px; border: 1.5px solid #DCDCE5; background: #fff;
+  cursor: pointer; font-family: 'Noto Sans', sans-serif; font-weight: 800; font-size: 16px;
+  color: #121117; transition: transform 0.15s, border-color 0.15s, background 0.15s;
+}
+.cn-btn:hover:not(:disabled) { transform: scale(1.04); border-color: #B8860B; }
+.cn-btn:disabled { cursor: default; }
+.cn-btn.cn-correct { border-color: #1A9E87; background: #E6F9F5; }
+.cn-btn.cn-wrong { border-color: #C8102E; background: #FDECEA; }
+
 /* ── GAME PAGES · BACK TO ALL GAMES LINK ── */
 .game-hero__back {
   display: inline-flex; align-items: center; gap: 6px;

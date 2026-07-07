@@ -2400,6 +2400,128 @@ function rrNext() {
   _renderRRRound();
 }
 
+/* ══════════════════════════════════════════════
+   GAME 19 · LA MONEDA DEL GÉNERO
+   (GÉNERO II — CASOS ESPECIALES) — pick EL or LA
+   and watch a coin flip in 3D to land on the face
+   that matches the correct meaning. Covers words
+   that are always masculine (tilde final, -MA) and
+   the striking case where the article completely
+   changes the meaning (capital, cura, frente...)
+══════════════════════════════════════════════ */
+
+const CN_ITEMS = [
+  { blank:'___ menú del día incluye bebida y postre.', correct:'EL', word:'menú', icon:'📋',
+    full:'El menú del día incluye bebida y postre.',
+    note:{en:'Words stressed on the last vowel (tilde) are almost always masculine.', es:'Las palabras agudas terminadas en vocal con tilde son casi siempre masculinas.'} },
+  { blank:'Necesito comprar ___ champú nuevo.', correct:'EL', word:'champú', icon:'🧴',
+    full:'Necesito comprar un champú nuevo.',
+    note:{en:'Words stressed on the last vowel (tilde) are almost always masculine.', es:'Las palabras agudas terminadas en vocal con tilde son casi siempre masculinas.'} },
+  { blank:'___ esquí es muy ligero.', correct:'EL', word:'esquí', icon:'⛷️',
+    full:'El esquí es muy ligero.',
+    note:{en:'Words stressed on the last vowel (tilde) are almost always masculine.', es:'Las palabras agudas terminadas en vocal con tilde son casi siempre masculinas.'} },
+  { blank:'___ idioma español es precioso.', correct:'EL', word:'idioma', icon:'🗣️',
+    full:'El idioma español es precioso.',
+    note:{en:'Words ending in -MA from Greek are masculine (el problema, el sistema...).', es:'Las palabras en -MA de origen griego son masculinas (el problema, el sistema...).'} },
+  { blank:'___ planeta Tierra es único.', correct:'EL', word:'planeta', icon:'🪐',
+    full:'El planeta Tierra es único.',
+    note:{en:'Words ending in -MA from Greek are masculine (el problema, el sistema...).', es:'Las palabras en -MA de origen griego son masculinas (el problema, el sistema...).'} },
+  { blank:'Dicen que esa casa tiene ___ fantasma.', correct:'EL', word:'fantasma', icon:'👻',
+    full:'Dicen que esa casa tiene un fantasma.',
+    note:{en:'Words ending in -MA from Greek are masculine (el problema, el sistema...).', es:'Las palabras en -MA de origen griego son masculinas (el problema, el sistema...).'} },
+  { blank:'Madrid es ___ capital de España.', correct:'LA', word:'capital', icon:'🏙️',
+    full:'Madrid es la capital de España.',
+    note:{en:'LA capital = the city. EL capital = money, investment. Same word, different meaning.', es:'LA capital = la ciudad. EL capital = el dinero, la inversión. Misma palabra, distinto significado.'} },
+  { blank:'___ capital de la empresa ha crecido mucho.', correct:'EL', word:'capital', icon:'💰',
+    full:'El capital de la empresa ha crecido mucho.',
+    note:{en:'EL capital = money, investment. LA capital = the city. Same word, different meaning.', es:'EL capital = el dinero, la inversión. LA capital = la ciudad. Misma palabra, distinto significado.'} },
+  { blank:'___ cura llegó antes de la ceremonia.', correct:'EL', word:'cura', icon:'⛪',
+    full:'El cura llegó antes de la ceremonia.',
+    note:{en:'EL cura = the priest. LA cura = the medical treatment. Same word, different meaning.', es:'EL cura = el sacerdote. LA cura = el tratamiento médico. Misma palabra, distinto significado.'} },
+  { blank:'___ cura fue muy rápida.', correct:'LA', word:'cura', icon:'💊',
+    full:'La cura fue muy rápida.',
+    note:{en:'LA cura = the medical treatment. EL cura = the priest. Same word, different meaning.', es:'LA cura = el tratamiento médico. EL cura = el sacerdote. Misma palabra, distinto significado.'} },
+  { blank:'Los soldados avanzaron hacia ___ frente.', correct:'EL', word:'frente', icon:'⚔️',
+    full:'Los soldados avanzaron hacia el frente.',
+    note:{en:'EL frente = the combat zone. LA frente = your forehead. Same word, different meaning.', es:'EL frente = la zona de combate. LA frente = la parte de la cara. Misma palabra, distinto significado.'} },
+  { blank:'Me duele ___ frente.', correct:'LA', word:'frente', icon:'🤕',
+    full:'Me duele la frente.',
+    note:{en:'LA frente = your forehead. EL frente = the combat zone. Same word, different meaning.', es:'LA frente = la parte de la cara. EL frente = la zona de combate. Misma palabra, distinto significado.'} }
+];
+
+function playGeneroII() {
+  currentGameFn = playGeneroII;
+  const lang = L();
+  const title = lang==='es' ? 'La Moneda del Género' : 'The Gender Coin';
+  GS = { items: _shuffle(CN_ITEMS), idx: 0, correct: 0, total: CN_ITEMS.length, answered: false };
+  _renderCNRound();
+}
+
+function _renderCNRound() {
+  const lang = L();
+  const title = lang==='es' ? 'La Moneda del Género' : 'The Gender Coin';
+  const { items, idx, correct, total } = GS;
+  if (idx >= total) { _end(correct, total, title); return; }
+  const item = items[idx];
+  GS.answered = false;
+
+  _modal(`
+    ${_progress(idx, total, correct, lang)}
+    <p class="gm-instr" style="text-align:center">${lang==='es'?'¿EL o LA? Elige el artículo correcto y observa cómo cae la moneda.':'EL or LA? Choose the right article and watch the coin land.'}</p>
+    <div class="gm-sentence">${item.blank}</div>
+    <div class="cn-coin-wrap">
+      <div class="cn-coin" id="cn-coin">
+        <div class="cn-face cn-face-el">
+          <span class="cn-face-icon" id="cn-face-el-icon">?</span>
+          <span class="cn-face-label">EL</span>
+        </div>
+        <div class="cn-face cn-face-la">
+          <span class="cn-face-icon" id="cn-face-la-icon">?</span>
+          <span class="cn-face-label">LA</span>
+        </div>
+      </div>
+    </div>
+    <div class="cn-btn-row">
+      <button class="cn-btn" data-key="EL" onclick="cnAnswer('EL')">EL</button>
+      <button class="cn-btn" data-key="LA" onclick="cnAnswer('LA')">LA</button>
+    </div>
+    <div class="gm-feedback" id="gm-fb"></div>
+  `, title);
+}
+
+function cnAnswer(key) {
+  if (GS.answered) return;
+  GS.answered = true;
+  const lang = L();
+  const item = GS.items[GS.idx];
+  const ok = key === item.correct;
+  if (ok) GS.correct++;
+
+  document.querySelectorAll('.cn-btn').forEach(b => {
+    b.disabled = true;
+    if (b.dataset.key === item.correct) b.classList.add('cn-correct');
+    else if (b.dataset.key === key && !ok) b.classList.add('cn-wrong');
+  });
+
+  const iconEl = document.getElementById(item.correct === 'EL' ? 'cn-face-el-icon' : 'cn-face-la-icon');
+  if (iconEl) iconEl.textContent = item.icon;
+  const coin = document.getElementById('cn-coin');
+  if (coin) coin.classList.add(item.correct === 'EL' ? 'cn-spin-el' : 'cn-spin-la');
+
+  setTimeout(() => {
+    document.getElementById('gm-fb').innerHTML = `
+      <span class="${ok?'fb-ok':'fb-ko'}">${ok?'✓ '+(lang==='es'?'¡Correcto!':'Correct!'):'✗ '+(lang==='es'?'Es':'It is')+' <strong>'+item.correct+'</strong>'}</span>
+      <div class="se-fb-sentence">${item.full}</div>
+      <div class="pf-note">${item.note[lang]}</div>
+      <button class="gm-btn gm-btn-primary gm-next-btn" onclick="cnNext()">${lang==='es'?'Siguiente →':'Next →'}</button>`;
+  }, 1100);
+}
+
+function cnNext() {
+  GS.idx++;
+  _renderCNRound();
+}
+
 /* ── EXPOSE GLOBALS ───────────────────────────── */
 Object.assign(window, {
   closeGame, restartGame, toggleGameFullscreen, flipFC, fcAnswer,
@@ -2421,6 +2543,7 @@ Object.assign(window, {
   vmAnswer, vmNext,
   wkAnswer, wkNext,
   rrAnswer, rrNext,
+  cnAnswer, cnNext,
   playFlashcards, playSerEstar, playQuiz, playFillGaps, playWordOrder, playVerbSprint, playPresentarse,
-  playRuleta, playDialogos, playGustar, playGenero, playCD, playDesde, playPorPara, playProfesiones, playVerMirar, playTrabajo, playSonidoR
+  playRuleta, playDialogos, playGustar, playGenero, playCD, playDesde, playPorPara, playProfesiones, playVerMirar, playTrabajo, playSonidoR, playGeneroII
 });
