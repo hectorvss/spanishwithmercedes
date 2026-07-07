@@ -2011,6 +2011,134 @@ function profNext() {
   _renderProfRound();
 }
 
+/* ══════════════════════════════════════════════
+   GAME 16 · EL OBJETIVO DE LA CÁMARA
+   (VER / MIRAR / OBSERVAR) — choose the right verb
+   and watch a camera lens act out its meaning: VER
+   blinks open passively, MIRAR snaps a crosshair
+   onto the target on purpose, OBSERVAR zooms in
+   and frames the detail with focus brackets
+══════════════════════════════════════════════ */
+
+const VM_ITEMS = [
+  { blank:'___ un avión en el cielo.', correct:'VER', full:'Veo un avión en el cielo.', emoji:'✈️',
+    note:{en:'VER = to perceive without seeking it — it just reaches your eyes.', es:'VER = percibir sin buscarlo — simplemente te llega a los ojos.'} },
+  { blank:'___ el reloj para saber la hora.', correct:'MIRAR', full:'Miro el reloj para saber la hora.', emoji:'⏰',
+    note:{en:'MIRAR = to direct your gaze on purpose.', es:'MIRAR = dirigir la vista de forma consciente.'} },
+  { blank:'___ el experimento para entenderlo mejor.', correct:'OBSERVAR', full:'Observo el experimento para entenderlo mejor.', emoji:'🔬',
+    note:{en:'OBSERVAR = to look closely and analyze the details.', es:'OBSERVAR = mirar con atención y analizar los detalles.'} },
+  { blank:'___ la televisión todas las noches.', correct:'VER', full:'Veo la televisión todas las noches.', emoji:'📺',
+    note:{en:'TV, series, films, YouTube, Netflix → always VER, never MIRAR.', es:'TV, series, películas, YouTube, Netflix → siempre VER, nunca MIRAR.'} },
+  { blank:'El científico ___ los insectos bajo el microscopio.', correct:'OBSERVAR', full:'El científico observa los insectos bajo el microscopio.', emoji:'🔬',
+    note:{en:'Careful, detailed analysis → OBSERVAR.', es:'Análisis detallado y minucioso → OBSERVAR.'} },
+  { blank:'¿___ al profesor cuando habla?', correct:'MIRAR', full:'¿Miras al profesor cuando habla?', emoji:'🧑‍🏫',
+    note:{en:'You consciously direct your eyes at a person → MIRAR.', es:'Diriges los ojos de forma consciente hacia una persona → MIRAR.'} },
+  { blank:'Desde el tren ___ campos y montañas.', correct:'VER', full:'Desde el tren veo campos y montañas.', emoji:'🚆',
+    note:{en:'The landscape reaches your eyes without effort → VER.', es:'El paisaje te llega a los ojos sin esfuerzo → VER.'} },
+  { blank:'Voy a ___ una película en Netflix esta noche.', correct:'VER', full:'Voy a ver una película en Netflix esta noche.', emoji:'🎬',
+    note:{en:'Streaming and films → always VER.', es:'Streaming y películas → siempre VER.'} },
+  { blank:'El detective ___ cada detalle con calma.', correct:'OBSERVAR', full:'El detective observa cada detalle con calma.', emoji:'🕵️',
+    note:{en:'Looking for details to draw conclusions → OBSERVAR.', es:'Buscar detalles para sacar conclusiones → OBSERVAR.'} },
+  { blank:'¡___ aquí! Tengo algo que mostrarte.', correct:'MIRAR', full:'¡Mira aquí! Tengo algo que mostrarte.', emoji:'👀',
+    note:{en:'An order to direct someone’s gaze somewhere → MIRAR.', es:'Una orden para dirigir la vista a un sitio → MIRAR.'} },
+  { blank:'Ella ___ su reflejo en el espejo.', correct:'MIRAR', full:'Ella mira su reflejo en el espejo.', emoji:'🪞',
+    note:{en:'You deliberately direct your eyes at the mirror → MIRAR.', es:'Diriges la vista de forma intencional al espejo → MIRAR.'} },
+  { blank:'La profesora ___ el comportamiento de los alumnos durante el examen.', correct:'OBSERVAR', full:'La profesora observa el comportamiento de los alumnos durante el examen.', emoji:'📝',
+    note:{en:'Watching closely to analyze behavior → OBSERVAR.', es:'Mirar con atención para analizar el comportamiento → OBSERVAR.'} }
+];
+
+function playVerMirar() {
+  currentGameFn = playVerMirar;
+  const lang = L();
+  const title = lang==='es' ? 'El Objetivo de la Cámara' : 'The Camera Lens';
+  GS = { items: _shuffle(VM_ITEMS), idx: 0, correct: 0, total: VM_ITEMS.length, answered: false };
+  _renderVMRound();
+}
+
+function _renderVMRound() {
+  const lang = L();
+  const title = lang==='es' ? 'El Objetivo de la Cámara' : 'The Camera Lens';
+  const { items, idx, correct, total } = GS;
+  if (idx >= total) { _end(correct, total, title); return; }
+  const item = items[idx];
+  GS.answered = false;
+
+  const btns = [
+    { key:'VER',      icon:'👁️' },
+    { key:'MIRAR',    icon:'🎯' },
+    { key:'OBSERVAR', icon:'🔍' }
+  ];
+  const btnsHTML = btns.map(b => `
+    <button class="vm-btn" data-key="${b.key}" onclick="vmAnswer('${b.key}')">
+      <span class="vm-btn-icon">${b.icon}</span>${b.key}
+    </button>`).join('');
+
+  _modal(`
+    ${_progress(idx, total, correct, lang)}
+    <p class="gm-instr" style="text-align:center">${lang==='es'?'¿VER, MIRAR u OBSERVAR? Elige el verbo correcto y mira por el objetivo.':'VER, MIRAR or OBSERVAR? Choose the right verb and look through the lens.'}</p>
+    <div class="gm-sentence">${item.blank}</div>
+    <div class="vm-scene">
+      <div class="vm-viewfinder" id="vm-viewfinder">
+        <span class="vm-subject">${item.emoji}</span>
+        <div class="vm-crosshair" id="vm-crosshair"></div>
+        <div class="vm-grid" id="vm-grid">
+          <span class="vm-corner vm-corner-tl"></span>
+          <span class="vm-corner vm-corner-tr"></span>
+          <span class="vm-corner vm-corner-bl"></span>
+          <span class="vm-corner vm-corner-br"></span>
+        </div>
+        <div class="vm-aperture" id="vm-aperture"></div>
+      </div>
+    </div>
+    <div class="vm-btn-row">${btnsHTML}</div>
+    <div class="gm-feedback" id="gm-fb"></div>
+  `, title);
+}
+
+function vmAnswer(key) {
+  if (GS.answered) return;
+  GS.answered = true;
+  const lang = L();
+  const item = GS.items[GS.idx];
+  const ok = key === item.correct;
+  if (ok) GS.correct++;
+
+  document.querySelectorAll('.vm-btn').forEach(b => {
+    b.disabled = true;
+    if (b.dataset.key === item.correct) b.classList.add('vm-correct');
+    else if (b.dataset.key === key && !ok) b.classList.add('vm-wrong');
+  });
+
+  const aperture = document.getElementById('vm-aperture');
+  const crosshair = document.getElementById('vm-crosshair');
+  const grid = document.getElementById('vm-grid');
+  const viewfinder = document.getElementById('vm-viewfinder');
+
+  if (item.correct === 'VER') {
+    if (aperture) aperture.classList.add('vm-anim-blink');
+  } else if (item.correct === 'MIRAR') {
+    if (aperture) aperture.classList.add('vm-anim-focus');
+    requestAnimationFrame(() => { if (crosshair) crosshair.classList.add('vm-show'); });
+  } else {
+    if (aperture) aperture.classList.add('vm-anim-focus');
+    if (viewfinder) viewfinder.classList.add('vm-zoom');
+    requestAnimationFrame(() => { if (grid) grid.classList.add('vm-show'); });
+  }
+
+  setTimeout(() => {
+    document.getElementById('gm-fb').innerHTML = `
+      <span class="${ok?'fb-ok':'fb-ko'}">${ok?'✓ '+(lang==='es'?'¡Correcto!':'Correct!'):'✗ '+(lang==='es'?'El verbo correcto es':'The correct verb is')+' <strong>'+item.correct+'</strong>'}</span>
+      <div class="se-fb-sentence">${item.full}</div>
+      <div class="pf-note">${item.note[lang]}</div>
+      <button class="gm-btn gm-btn-primary gm-next-btn" onclick="vmNext()">${lang==='es'?'Siguiente →':'Next →'}</button>`;
+  }, 950);
+}
+
+function vmNext() {
+  GS.idx++;
+  _renderVMRound();
+}
+
 /* ── EXPOSE GLOBALS ───────────────────────────── */
 Object.assign(window, {
   closeGame, restartGame, flipFC, fcAnswer,
@@ -2029,6 +2157,7 @@ Object.assign(window, {
   desdeAnswer, desdeNext,
   ppAnswer, ppNext,
   profAnswer, profNext,
+  vmAnswer, vmNext,
   playFlashcards, playSerEstar, playQuiz, playFillGaps, playWordOrder, playVerbSprint, playPresentarse,
-  playRuleta, playDialogos, playGustar, playGenero, playCD, playDesde, playPorPara, playProfesiones
+  playRuleta, playDialogos, playGustar, playGenero, playCD, playDesde, playPorPara, playProfesiones, playVerMirar
 });

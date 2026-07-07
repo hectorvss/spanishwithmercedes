@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>La Línea del Tiempo — Juego DESDE/DESDE HACE/DURANTE · Spanish Lessons With Mercedes</title>
+  <title>El Objetivo de la Cámara — Juego VER/MIRAR/OBSERVAR · Spanish Lessons With Mercedes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=36">
   <style>
-    .game-hero { background: #EAF7F3; padding: 64px 80px 56px; }
+    .game-hero { background: #FDECF1; padding: 64px 80px 56px; }
     .game-hero__inner { max-width: 900px; margin: 0 auto; text-align: center; }
     .game-hero__tag {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(26,158,135,0.12); color: #147A67;
+      background: rgba(214,51,108,0.14); color: #A3134F;
       padding: 6px 16px; border-radius: 20px;
       font-size: 13px; font-weight: 700; letter-spacing: 0.5px;
       margin-bottom: 20px;
@@ -22,7 +22,7 @@
       font-family: 'Noto Sans', sans-serif; font-weight: 900;
       font-size: 44px; line-height: 1.1; color: #121117; margin-bottom: 12px;
     }
-    .game-hero__heading em { font-style: normal; color: #1A9E87; }
+    .game-hero__heading em { font-style: normal; color: #D6336C; }
     .game-hero__sub {
       font-size: 20px; color: #4D4C5C; line-height: 1.7;
       max-width: 640px; margin: 0 auto 32px;
@@ -52,14 +52,14 @@
       text-decoration: none; color: inherit; transition: border-color 0.2s;
       background: #F9F9FB;
     }
-    .game-pdf-link:hover { border-color: #1A9E87; }
+    .game-pdf-link:hover { border-color: #D6336C; }
     .game-pdf-link__icon {
-      width: 44px; height: 44px; background: #1A9E87; border-radius: 8px;
+      width: 44px; height: 44px; background: #D6336C; border-radius: 8px;
       display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
     .game-pdf-link__text strong { display: block; font-size: 16px; color: #121117; margin-bottom: 2px; }
     .game-pdf-link__text span { font-size: 14px; color: #9B9AAB; }
-    .game-pdf-link__cta { margin-left: auto; font-size: 14px; font-weight: 700; color: #1A9E87; white-space: nowrap; }
+    .game-pdf-link__cta { margin-left: auto; font-size: 14px; font-weight: 700; color: #D6336C; white-space: nowrap; }
 
     .other-games { margin-top: 32px; text-align: center; }
     .other-games p { font-size: 14px; color: #9B9AAB; margin-bottom: 14px; }
@@ -113,14 +113,14 @@
       <span class="lang-es">Juego Interactivo</span>
     </div>
     <h1 class="game-hero__heading">
-      <span class="lang-en">The <em>Timeline</em></span>
-      <span class="lang-es">La Línea del <em>Tiempo</em></span>
+      <span class="lang-en">The Camera <em>Lens</em></span>
+      <span class="lang-es">El Objetivo de la <em>Cámara</em></span>
     </h1>
     <p class="game-hero__sub">
-      <span class="lang-en">Choose DESDE, DESDE HACE or DURANTE — then watch a timeline draw itself to reveal whether the action still reaches today, or closed in the past.</span>
-      <span class="lang-es">Elige DESDE, DESDE HACE o DURANTE — y observa cómo se dibuja una línea del tiempo que revela si la acción llega hasta hoy o se cerró en el pasado.</span>
+      <span class="lang-en">Choose VER, MIRAR or OBSERVAR and watch a camera lens act it out — a passing blink, a deliberate crosshair, or a slow, focused zoom.</span>
+      <span class="lang-es">Elige VER, MIRAR u OBSERVAR y observa cómo el objetivo de una cámara lo representa — un parpadeo pasajero, una mira que se fija con intención, o un zoom lento y enfocado.</span>
     </p>
-    <button class="game-hero__cta" onclick="playDesde()">
+    <button class="game-hero__cta" onclick="playVerMirar()">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
       <span class="lang-en">Start game</span>
       <span class="lang-es">Empezar juego</span>
@@ -133,48 +133,48 @@
   <div class="game-info__inner">
     <div class="game-info__grid">
       <div class="game-info__card">
-        <div class="game-info__icon">📈</div>
+        <div class="game-info__icon">📷</div>
         <div class="game-info__title">
-          <span class="lang-en">A timeline that draws itself</span>
-          <span class="lang-es">Una línea que se dibuja sola</span>
+          <span class="lang-en">A lens that reacts to meaning</span>
+          <span class="lang-es">Un objetivo que reacciona al significado</span>
         </div>
         <div class="game-info__desc">
-          <span class="lang-en">Every answer reveals an animated bar — does it reach the pulsing "HOY" dot, or stop short?</span>
-          <span class="lang-es">Cada respuesta revela una barra animada — ¿llega hasta el punto que late en "HOY", o se detiene antes?</span>
+          <span class="lang-en">VER blinks open on its own, MIRAR snaps a crosshair onto the target, OBSERVAR zooms in and frames the detail.</span>
+          <span class="lang-es">VER se abre solo con un parpadeo, MIRAR fija una mira sobre el objetivo, OBSERVAR hace zoom y enmarca el detalle.</span>
         </div>
       </div>
       <div class="game-info__card">
-        <div class="game-info__icon">🤔</div>
+        <div class="game-info__icon">📺</div>
         <div class="game-info__title">
-          <span class="lang-en">Three options, one instinct</span>
-          <span class="lang-es">Tres opciones, un solo instinto</span>
+          <span class="lang-en">The #1 mistake: "miro la tele"</span>
+          <span class="lang-es">El error número uno: "miro la tele"</span>
         </div>
         <div class="game-info__desc">
-          <span class="lang-en">DESDE for a starting point, DESDE HACE for an ongoing duration, DURANTE for a closed one. Train the difference until it's automatic.</span>
-          <span class="lang-es">DESDE para un punto de inicio, DESDE HACE para una duración que continúa, DURANTE para una ya cerrada. Entrena la diferencia hasta que sea automática.</span>
+          <span class="lang-en">TV, series, films and streaming always take VER in Spanish, never MIRAR — no matter what your native language says.</span>
+          <span class="lang-es">TV, series, películas y streaming siempre llevan VER en español, nunca MIRAR — sin importar lo que diga tu idioma nativo.</span>
         </div>
       </div>
       <div class="game-info__card">
-        <div class="game-info__icon">⚡</div>
+        <div class="game-info__icon">🔍</div>
         <div class="game-info__title">
           <span class="lang-en">12 real sentences</span>
           <span class="lang-es">12 frases reales</span>
         </div>
         <div class="game-info__desc">
-          <span class="lang-en">From "vivo aquí desde 2020" to "estudié piano durante seis años" — the exact contrasts from the PDF.</span>
-          <span class="lang-es">Desde "vivo aquí desde 2020" hasta "estudié piano durante seis años" — los contrastes exactos del PDF.</span>
+          <span class="lang-en">From "veo un avión" to "el detective observa cada detalle" — the exact contrasts explained in the PDF.</span>
+          <span class="lang-es">Desde "veo un avión" hasta "el detective observa cada detalle" — los contrastes exactos explicados en el PDF.</span>
         </div>
       </div>
     </div>
 
     <!-- PDF LINK -->
-    <a class="game-pdf-link" href="DESCARGABLES_PDF/DESDE_DESDE%20HACE_DURANTE/DESDE_DESDE%20HACE_DURANTE.pdf" target="_blank" download>
+    <a class="game-pdf-link" href="DESCARGABLES_PDF/VER_MIRAR/VER MIRAR OBSERVAR.pdf" target="_blank" download>
       <div class="game-pdf-link__icon">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
       </div>
       <div class="game-pdf-link__text">
-        <strong><span class="lang-en">Download the complete PDF guide — Desde, Desde Hace &amp; Durante</span><span class="lang-es">Descarga la guía PDF completa — Desde, Desde Hace y Durante</span></strong>
-        <span><span class="lang-en">Continues vs finished · verb tenses · B2 aspectual nuance · exercises · A2–B2</span><span class="lang-es">Continúa vs terminó · tiempos verbales · matiz aspectual B2 · ejercicios · A2–B2</span></span>
+        <strong><span class="lang-en">Download the complete PDF guide — Ver, Mirar &amp; Observar</span><span class="lang-es">Descarga la guía PDF completa — Ver, Mirar y Observar</span></strong>
+        <span><span class="lang-en">Meaning differences · the TV rule · natural phrases · exercises · B1</span><span class="lang-es">Diferencias de significado · la regla de la tele · frases naturales · ejercicios · B1</span></span>
       </div>
       <span class="game-pdf-link__cta">
         <span class="lang-en">↓ Free PDF</span>
@@ -193,9 +193,10 @@
         <a href="juego-presentarte.html">🎮 <span class="lang-en">Introduce Yourself</span><span class="lang-es">Preséntate en Español</span></a>
         <a href="juego-gustar.html">🎮 <span class="lang-en">Catch the Agreement</span><span class="lang-es">Atrapa la Concordancia</span></a>
         <a href="juego-genero.html">🎮 <span class="lang-en">The Agreement Reel</span><span class="lang-es">El Carrete de la Concordancia</span></a>
-        <a href="juego-profesiones.html">🎮 <span class="lang-en">The Profession Elevator</span><span class="lang-es">El Ascensor de las Profesiones</span></a>
         <a href="juego-cd-prep-a.html">🎮 <span class="lang-en">The Direct Object Conveyor</span><span class="lang-es">La Cinta del CD</span></a>
-              <a href="juego-ver-mirar.html">🎮 <span class="lang-en">The Camera Lens</span><span class="lang-es">El Objetivo de la Cámara</span></a>
+        <a href="juego-desde.html">🎮 <span class="lang-en">The Timeline</span><span class="lang-es">La Línea del Tiempo</span></a>
+        <a href="juego-por-para.html">🎮 <span class="lang-en">The Preposition Dartboard</span><span class="lang-es">La Diana de las Preposiciones</span></a>
+        <a href="juego-profesiones.html">🎮 <span class="lang-en">The Profession Elevator</span><span class="lang-es">El Ascensor de las Profesiones</span></a>
       </div>
     </div>
   </div>
