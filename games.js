@@ -1726,10 +1726,14 @@ function _renderDesdeRound() {
       ${opts.map(o => `<button class="se-btn" onclick="desdeAnswer('${o}')">${o}</button>`).join('')}
     </div>
     <div class="ds-timeline-wrap" id="ds-timeline" style="display:none">
-      <div class="ds-timeline-track">
-        <div class="ds-timeline-fill" id="ds-timeline-fill"></div>
+      <div class="ds-timeline-labels">
+        <span class="ds-timeline-start">${lang==='es'?'Pasado':'Past'}</span>
+        <div class="ds-timeline-hoy"><span class="ds-timeline-dot"></span>HOY</div>
       </div>
-      <div class="ds-timeline-hoy"><span class="ds-timeline-dot"></span>HOY</div>
+      <div class="ds-timeline-track">
+        <div class="ds-timeline-fill" id="ds-timeline-fill"><span class="ds-timeline-marker" id="ds-timeline-marker"></span></div>
+      </div>
+      <div class="ds-timeline-caption" id="ds-timeline-caption"></div>
     </div>
     <div class="gm-feedback" id="gm-fb"></div>
   `, title);
@@ -1750,18 +1754,21 @@ function desdeAnswer(choice) {
 
   const wrap = document.getElementById('ds-timeline');
   const fill = document.getElementById('ds-timeline-fill');
+  const marker = document.getElementById('ds-timeline-marker');
+  const caption = document.getElementById('ds-timeline-caption');
   if (wrap) {
     wrap.style.display = 'block';
     wrap.classList.toggle('ds-finished', !item.ongoing);
+    if (marker) marker.textContent = item.ongoing ? '' : '⏹';
+    if (caption) caption.textContent = item.ongoing
+      ? (lang==='es' ? '👉 La acción llega hasta hoy — todavía continúa.' : '👉 The action reaches today — it\'s still going on.')
+      : (lang==='es' ? '👉 La acción se detiene aquí, en el pasado — ya terminó.' : '👉 The action stops here, in the past — it already ended.');
     requestAnimationFrame(() => { if (fill) fill.style.width = item.fill + '%'; });
   }
 
   document.getElementById('gm-fb').innerHTML = `
     <span class="${ok?'fb-ok':'fb-ko'}">${ok?'✓ '+(lang==='es'?'¡Correcto!':'Correct!'):'✗ '+(lang==='es'?'La forma correcta es':'The correct form is')+' <strong>'+item.correct+'</strong>'}</span>
     <div class="se-fb-sentence">${item.full}</div>
-    <div class="se-fb-rule">📌 ${item.ongoing
-      ? (lang==='es'?'La acción sigue ocurriendo hoy — por eso llega hasta HOY.':'The action is still happening today — that\'s why it reaches HOY.')
-      : (lang==='es'?'La acción ya terminó — por eso el periodo se cierra antes de HOY.':'The action has already ended — that\'s why the period closes before HOY.')}</div>
     <button class="gm-btn gm-btn-primary gm-next-btn" onclick="desdeNext()">${lang==='es'?'Siguiente →':'Next →'}</button>`;
 }
 
