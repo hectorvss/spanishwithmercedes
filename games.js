@@ -1523,14 +1523,14 @@ const GENERO_ITEMS = [
 function playGenero() {
   currentGameFn = playGenero;
   const lang = L();
-  const title = lang==='es' ? 'Tragaperras de la Concordancia' : 'The Agreement Slot Machine';
+  const title = lang==='es' ? 'El Carrete de la Concordancia' : 'The Agreement Reel';
   GS = { items: _shuffle(GENERO_ITEMS), idx: 0, correct: 0, total: GENERO_ITEMS.length, answered: false, spun: false };
   _renderGeneroRound();
 }
 
 function _renderGeneroRound() {
   const lang = L();
-  const title = lang==='es' ? 'Tragaperras de la Concordancia' : 'The Agreement Slot Machine';
+  const title = lang==='es' ? 'El Carrete de la Concordancia' : 'The Agreement Reel';
   const { items, idx, correct, total } = GS;
   if (idx >= total) { _end(correct, total, title); return; }
   const item = items[idx];
