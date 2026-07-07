@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=36">
+  <link rel="stylesheet" href="styles.css?v=37">
   <style>
     .game-hero { background: #EAF4FF; padding: 64px 80px 56px; }
     .game-hero__inner { max-width: 900px; margin: 0 auto; text-align: center; }
@@ -204,14 +204,19 @@
   <div class="gm-box">
     <div class="gm-header">
       <span id="gm-title" class="gm-title"></span>
-      <button class="gm-close" onclick="closeGame()" aria-label="Close">✕</button>
+      <div class="gm-header-actions">
+        <button class="gm-fullscreen" id="gm-fullscreen-btn" onclick="toggleGameFullscreen()" aria-label="Full screen">
+          <svg id="gm-fullscreen-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+        </button>
+        <button class="gm-close" onclick="closeGame()" aria-label="Close">✕</button>
+      </div>
     </div>
     <div id="gm-body"></div>
   </div>
 </div>
 
 <script src="i18n.js?v=9"></script>
-<script src="games.js?v=32"></script>
+<script src="games.js?v=33"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);

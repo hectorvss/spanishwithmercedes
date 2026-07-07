@@ -221,6 +221,28 @@ function _shuffleOpts(qs) {
   });
 }
 
+// Shuffle two groups (split by a boolean predicate) and interleave them so
+// the same group never appears more than twice in a row — a plain shuffle
+// of the combined array can randomly clump all of one type together.
+function _interleaveByGroup(arr, isGroupB) {
+  const a = _shuffle(arr.filter(x => !isGroupB(x)));
+  const b = _shuffle(arr.filter(isGroupB));
+  const result = [];
+  let lastB = null, streak = 0;
+  while (a.length || b.length) {
+    let takeB;
+    if (!a.length) takeB = true;
+    else if (!b.length) takeB = false;
+    else if (streak >= 2) takeB = !lastB;
+    else takeB = Math.random() < 0.5;
+    const pool = takeB ? b : a;
+    result.push(pool.shift());
+    streak = (takeB === lastB) ? streak + 1 : 1;
+    lastB = takeB;
+  }
+  return result;
+}
+
 /* ── STATE ────────────────────────────────────── */
 let GS = {};
 let timerInt = null;
@@ -239,12 +261,30 @@ function _modal(bodyHTML, title) {
 
 function closeGame() {
   const m = document.getElementById('game-modal');
+  if (document.fullscreenElement === m) document.exitFullscreen();
   m.classList.remove('gm--open');
   setTimeout(() => { m.style.display = 'none'; }, 220);
   document.body.style.overflow = '';
   if (timerInt) { clearInterval(timerInt); timerInt = null; }
   GS = {};
 }
+
+/* ── FULLSCREEN TOGGLE ────────────────────────── */
+function toggleGameFullscreen() {
+  const m = document.getElementById('game-modal');
+  if (!document.fullscreenElement) {
+    if (m.requestFullscreen) m.requestFullscreen().catch(() => {});
+  } else {
+    document.exitFullscreen().catch(() => {});
+  }
+}
+document.addEventListener('fullscreenchange', () => {
+  const icon = document.getElementById('gm-fullscreen-icon');
+  if (!icon) return;
+  icon.innerHTML = document.fullscreenElement
+    ? '<path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/>'
+    : '<path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>';
+});
 
 /* ── SHARED END SCREEN ────────────────────────── */
 function _end(correct, total, title) {
@@ -1427,7 +1467,9 @@ function playGustar() {
   currentGameFn = playGustar;
   const lang = L();
   const title = lang==='es' ? 'Atrapa la Concordancia' : 'Catch the Agreement';
-  GS = { items: _shuffle(GUSTAR_ITEMS).slice(0, 12), idx: 0, correct: 0, total: 12, answered: false };
+  // Interleave singular/plural items so they alternate instead of coming
+  // in two clumped blocks (a plain shuffle can randomly group them).
+  GS = { items: _interleaveByGroup(GUSTAR_ITEMS, i => i.plural).slice(0, 12), idx: 0, correct: 0, total: 12, answered: false };
   _renderGustarRound();
 }
 
@@ -1438,13 +1480,14 @@ function _renderGustarRound() {
   if (idx >= total) { _end(correct, total, title); return; }
   const item = items[idx];
   GS.answered = false;
-  // Speed ramps up gently round after round, then plateaus so there's
-  // always enough time to read the sentence — never drops below 3.4s.
+  // The bubble's rise (and the time to read it) only ramps up gently and
+  // plateaus at a readable minimum. The background clouds are purely
+  // decorative, so they ramp up faster and much more noticeably.
   const duration = Math.max(3.4, 4.6 - idx * 0.15);
-  const speedRatio = duration / 4.6;
+  const cloudSpeed = Math.max(0.4, 1 - idx * 0.06);
   const cloudBase = [7, 9, 5.5];
   const cloudDelay = [0, 1.5, 0.7];
-  const cloudsHTML = cloudBase.map((d, i) => `<span class="gu-deco gu-deco${i+1}" style="animation-duration:${(d*speedRatio).toFixed(2)}s; animation-delay:${(cloudDelay[i]*speedRatio).toFixed(2)}s">☁️</span>`).join('');
+  const cloudsHTML = cloudBase.map((d, i) => `<span class="gu-deco gu-deco${i+1}" style="animation-duration:${(d*cloudSpeed).toFixed(2)}s; animation-delay:${(cloudDelay[i]*cloudSpeed).toFixed(2)}s">☁️</span>`).join('');
   _modal(`
     ${_progress(idx, total, correct, lang)}
     <p class="gm-instr" style="text-align:center">${lang==='es'?'¿GUSTA o GUSTAN? ¡Atrápalo antes de que suba del todo!':'GUSTA or GUSTAN? Catch it before it floats away!'}</p>
@@ -2141,7 +2184,7 @@ function vmNext() {
 
 /* ── EXPOSE GLOBALS ───────────────────────────── */
 Object.assign(window, {
-  closeGame, restartGame, flipFC, fcAnswer,
+  closeGame, restartGame, toggleGameFullscreen, flipFC, fcAnswer,
   answerSE, seNext, startSELevel,
   answerQuiz, quizNext,
   answerFill, fillNext,
