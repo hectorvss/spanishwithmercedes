@@ -1880,6 +1880,128 @@ function ppNext() {
   _renderPPRound();
 }
 
+/* ══════════════════════════════════════════════
+   GAME 15 · EL ASCENSOR DE LAS PROFESIONES
+   (LAS PROFESIONES — masculino/femenino, las 4
+   reglas del género) — send the elevator to the
+   floor that matches the gender rule, then watch
+   the doors open to reveal if you were right
+══════════════════════════════════════════════ */
+
+const PF_FLOORS = [
+  { key:'IRR',   n:4, percent:'80%', label:{en:'Irregular',           es:'Irregular'} },
+  { key:'INV',   n:3, percent:'56%', label:{en:'Invariable (-E/-ISTA)', es:'Invariable (-E/-ISTA)'} },
+  { key:'ORORA', n:2, percent:'32%', label:{en:'-OR → -ORA',          es:'-OR → -ORA'} },
+  { key:'OA',    n:1, percent:'8%',  label:{en:'-O → -A',             es:'-O → -A'} }
+];
+
+const PROF_ITEMS = [
+  { masc:'el médico',     fem:'la médica',     floor:'OA',    note:{en:'Ends in -O → change to -A.',                                es:'Termina en -O → cambia a -A.'} },
+  { masc:'el cocinero',   fem:'la cocinera',   floor:'OA',    note:{en:'Ends in -O → change to -A.',                                es:'Termina en -O → cambia a -A.'} },
+  { masc:'el abogado',    fem:'la abogada',    floor:'OA',    note:{en:'Ends in -O → change to -A.',                                es:'Termina en -O → cambia a -A.'} },
+  { masc:'el director',   fem:'la directora',  floor:'ORORA', note:{en:'Ends in -OR → add -A (directora).',                         es:'Termina en -OR → añade -A (directora).'} },
+  { masc:'el profesor',   fem:'la profesora',  floor:'ORORA', note:{en:'Ends in -OR → add -A (profesora).',                         es:'Termina en -OR → añade -A (profesora).'} },
+  { masc:'el escritor',   fem:'la escritora',  floor:'ORORA', note:{en:'Ends in -OR → add -A (escritora).',                         es:'Termina en -OR → añade -A (escritora).'} },
+  { masc:'el periodista', fem:'la periodista', floor:'INV',   note:{en:'Ends in -ISTA → same word, only the article changes.',      es:'Termina en -ISTA → misma palabra, solo cambia el artículo.'} },
+  { masc:'el dentista',   fem:'la dentista',   floor:'INV',   note:{en:'Ends in -ISTA → same word, only the article changes.',      es:'Termina en -ISTA → misma palabra, solo cambia el artículo.'} },
+  { masc:'el estudiante', fem:'la estudiante', floor:'INV',   note:{en:'Ends in -E → invariable, only the article changes.',        es:'Termina en -E → invariable, solo cambia el artículo.'} },
+  { masc:'el actor',      fem:'la actriz',     floor:'IRR',   note:{en:'Irregular — a completely different word.',                  es:'Irregular — palabra completamente distinta.'} },
+  { masc:'el rey',        fem:'la reina',      floor:'IRR',   note:{en:'Irregular — a completely different word.',                  es:'Irregular — palabra completamente distinta.'} },
+  { masc:'el policía',    fem:'la policía',    floor:'IRR',   note:{en:'Irregular type — same word, only the article changes.',     es:'Tipo irregular — misma palabra, solo cambia el artículo.'} }
+];
+
+function playProfesiones() {
+  currentGameFn = playProfesiones;
+  const lang = L();
+  const title = lang==='es' ? 'El Ascensor de las Profesiones' : 'The Profession Elevator';
+  GS = { items: _shuffle(PROF_ITEMS), idx: 0, correct: 0, total: PROF_ITEMS.length, answered: false };
+  _renderProfRound();
+}
+
+function _renderProfRound() {
+  const lang = L();
+  const title = lang==='es' ? 'El Ascensor de las Profesiones' : 'The Profession Elevator';
+  const { items, idx, correct, total } = GS;
+  if (idx >= total) { _end(correct, total, title); return; }
+  const item = items[idx];
+  GS.answered = false;
+
+  const panelHTML = PF_FLOORS.map(f => `
+    <button class="pf-btn" data-key="${f.key}" onclick="profAnswer('${f.key}')">
+      <span class="pf-btn-n">${f.n}</span>
+      <span class="pf-btn-label">${f.label[lang]}</span>
+    </button>`).join('');
+
+  _modal(`
+    ${_progress(idx, total, correct, lang)}
+    <p class="gm-instr" style="text-align:center">${lang==='es'?'Mira la profesión en masculino. ¿A qué piso pertenece según la regla del género? Pulsa el botón del ascensor.':'Look at the profession in the masculine form. Which floor does it belong to, by gender rule? Press the elevator button.'}</p>
+    <div class="gm-sentence">${item.masc}</div>
+    <div class="pf-wrap">
+      <div class="pf-shaft">
+        <div class="pf-floor-marks">
+          <div class="pf-floor-mark">4</div>
+          <div class="pf-floor-mark">3</div>
+          <div class="pf-floor-mark">2</div>
+          <div class="pf-floor-mark">1</div>
+        </div>
+        <div class="pf-car" id="pf-car">
+          <div class="pf-car-doors">
+            <div class="pf-door pf-door-left"></div>
+            <div class="pf-door pf-door-right"></div>
+          </div>
+          <div class="pf-car-content" id="pf-car-content"></div>
+        </div>
+      </div>
+      <div class="pf-panel">${panelHTML}</div>
+    </div>
+    <div class="gm-feedback" id="gm-fb"></div>
+  `, title);
+}
+
+function profAnswer(key) {
+  if (GS.answered) return;
+  GS.answered = true;
+  const lang = L();
+  const item = GS.items[GS.idx];
+  const ok = key === item.floor;
+  if (ok) GS.correct++;
+
+  document.querySelectorAll('.pf-btn').forEach(b => {
+    b.disabled = true;
+    if (b.dataset.key === item.floor) b.classList.add('pf-correct');
+    else if (b.dataset.key === key && !ok) b.classList.add('pf-wrong');
+  });
+
+  const target = PF_FLOORS.find(f => f.key === key);
+  const correctFloor = PF_FLOORS.find(f => f.key === item.floor);
+  const car = document.getElementById('pf-car');
+  const content = document.getElementById('pf-car-content');
+  if (car) {
+    car.style.bottom = target.percent;
+    setTimeout(() => {
+      car.classList.add('pf-open');
+      if (content) {
+        content.innerHTML = ok
+          ? `<strong>${item.fem}</strong>`
+          : `<strong>${item.fem}</strong><small>${lang==='es'?'Piso correcto: ':'Correct floor: '}${correctFloor.n}</small>`;
+      }
+    }, 1150);
+  }
+
+  setTimeout(() => {
+    document.getElementById('gm-fb').innerHTML = `
+      <span class="${ok?'fb-ok':'fb-ko'}">${ok?'✓ '+(lang==='es'?'¡Piso correcto!':'Right floor!'):'✗ '+(lang==='es'?'Ese no era el piso':'Wrong floor')}</span>
+      <div class="se-fb-sentence">${item.masc} → ${item.fem}</div>
+      <div class="pf-note">${item.note[lang]}</div>
+      <button class="gm-btn gm-btn-primary gm-next-btn" onclick="profNext()">${lang==='es'?'Siguiente →':'Next →'}</button>`;
+  }, 1400);
+}
+
+function profNext() {
+  GS.idx++;
+  _renderProfRound();
+}
+
 /* ── EXPOSE GLOBALS ───────────────────────────── */
 Object.assign(window, {
   closeGame, restartGame, flipFC, fcAnswer,
@@ -1897,6 +2019,7 @@ Object.assign(window, {
   cdAnswer, cdNext,
   desdeAnswer, desdeNext,
   ppAnswer, ppNext,
+  profAnswer, profNext,
   playFlashcards, playSerEstar, playQuiz, playFillGaps, playWordOrder, playVerbSprint, playPresentarse,
-  playRuleta, playDialogos, playGustar, playGenero, playCD, playDesde, playPorPara
+  playRuleta, playDialogos, playGustar, playGenero, playCD, playDesde, playPorPara, playProfesiones
 });
