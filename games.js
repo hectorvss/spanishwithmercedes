@@ -1784,30 +1784,34 @@ function desdeNext() {
 /* ══════════════════════════════════════════════
    GAME 14 · LA DIANA DE LAS PREPOSICIONES
    (POR / PARA / DURANTE) — throw the answer at the
-   right target: causa (POR), finalidad (PARA) or
-   duración (DURANTE), the three-way distinction
-   English "for" collapses into one word
+   right target. POR and PARA each cover several
+   real uses from the PDF (causa, medio, recorrido,
+   periodicidad, intercambio · finalidad,
+   destinatario, destino, plazo) — DURANTE is
+   always duración
 ══════════════════════════════════════════════ */
 
 const PP_ITEMS = [
-  { es:'Viví en Londres ___ cinco años.',   correct:'DURANTE', full:'Viví en Londres durante cinco años.' },
-  { es:'Estudié ___ tres horas seguidas.',  correct:'DURANTE', full:'Estudié durante tres horas seguidas.' },
-  { es:'Llovió ___ toda la noche.',         correct:'DURANTE', full:'Llovió durante toda la noche.' },
-  { es:'Estuve enfermo ___ una semana.',    correct:'DURANTE', full:'Estuve enfermo durante una semana.' },
-  { es:'Este regalo es ___ ti.',            correct:'PARA',    full:'Este regalo es para ti.' },
-  { es:'Necesito el informe ___ el viernes.', correct:'PARA',  full:'Necesito el informe para el viernes.' },
-  { es:'Estudio español ___ trabajar.',     correct:'PARA',    full:'Estudio español para trabajar.' },
-  { es:'Lo necesito ___ mañana.',           correct:'PARA',    full:'Lo necesito para mañana.' },
-  { es:'Lo hice ___ ti, no por dinero.',    correct:'POR',     full:'Lo hice por ti, no por dinero.' },
-  { es:'Te llamo ___ teléfono.',            correct:'POR',     full:'Te llamo por teléfono.' },
-  { es:'Voy al gimnasio tres veces ___ semana.', correct:'POR', full:'Voy al gimnasio tres veces por semana.' },
-  { es:'Pasé ___ Zaragoza de camino a casa.', correct:'POR',   full:'Pasé por Zaragoza de camino a casa.' }
+  { es:'Viví en Londres ___ cinco años.',   correct:'DURANTE', full:'Viví en Londres durante cinco años.',   sense:{en:'duration — how long the action lasted',   es:'duración — cuánto duró la acción'} },
+  { es:'Estudié ___ tres horas seguidas.',  correct:'DURANTE', full:'Estudié durante tres horas seguidas.',  sense:{en:'duration — how long the action lasted',   es:'duración — cuánto duró la acción'} },
+  { es:'Llovió ___ toda la noche.',         correct:'DURANTE', full:'Llovió durante toda la noche.',         sense:{en:'duration — how long the action lasted',   es:'duración — cuánto duró la acción'} },
+  { es:'Estuve enfermo ___ una semana.',    correct:'DURANTE', full:'Estuve enfermo durante una semana.',    sense:{en:'duration — how long the action lasted',   es:'duración — cuánto duró la acción'} },
+  { es:'Este regalo es ___ ti.',            correct:'PARA',    full:'Este regalo es para ti.',               sense:{en:'recipient — who it is for',               es:'destinatario — a quién va dirigido'} },
+  { es:'Necesito el informe ___ el viernes.', correct:'PARA',  full:'Necesito el informe para el viernes.',  sense:{en:'deadline — the time limit',               es:'plazo — la fecha límite'} },
+  { es:'Estudio español ___ trabajar.',     correct:'PARA',    full:'Estudio español para trabajar.',        sense:{en:'purpose — the goal',                      es:'finalidad — el objetivo'} },
+  { es:'Lo necesito ___ mañana.',           correct:'PARA',    full:'Lo necesito para mañana.',              sense:{en:'deadline — the time limit',               es:'plazo — la fecha límite'} },
+  { es:'Salimos ___ Madrid mañana.',        correct:'PARA',    full:'Salimos para Madrid mañana.',           sense:{en:'destination — where you are headed',      es:'destino — hacia dónde vas'} },
+  { es:'Lo hice ___ ti, no por dinero.',    correct:'POR',     full:'Lo hice por ti, no por dinero.',        sense:{en:'cause — the reason why',                  es:'causa — el motivo'} },
+  { es:'Te llamo ___ teléfono.',            correct:'POR',     full:'Te llamo por teléfono.',                sense:{en:'means — how it is done',                  es:'medio — cómo se hace'} },
+  { es:'Voy al gimnasio tres veces ___ semana.', correct:'POR', full:'Voy al gimnasio tres veces por semana.', sense:{en:'frequency — how often',                  es:'periodicidad — con qué frecuencia'} },
+  { es:'Pasé ___ Zaragoza de camino a casa.', correct:'POR',   full:'Pasé por Zaragoza de camino a casa.',   sense:{en:'route — the place you pass through',      es:'recorrido — el lugar por donde pasas'} },
+  { es:'Te lo cambio ___ el tuyo.',          correct:'POR',    full:'Te lo cambio por el tuyo.',             sense:{en:'exchange — what for what',                es:'intercambio — a cambio de qué'} }
 ];
 
 const PP_TARGETS = [
-  { key:'POR',     icon:'❓', label:{en:'cause',   es:'causa'} },
-  { key:'PARA',    icon:'🎁', label:{en:'purpose', es:'finalidad'} },
-  { key:'DURANTE', icon:'⏳', label:{en:'duration', es:'duración'} }
+  { key:'POR',     icon:'❓', label:{en:'several meanings', es:'varios usos'} },
+  { key:'PARA',    icon:'🎁', label:{en:'several meanings', es:'varios usos'} },
+  { key:'DURANTE', icon:'⏳', label:{en:'duration',         es:'duración'} }
 ];
 
 function playPorPara() {
@@ -1834,7 +1838,7 @@ function _renderPPRound() {
 
   _modal(`
     ${_progress(idx, total, correct, lang)}
-    <p class="gm-instr" style="text-align:center">${lang==='es'?'¿Causa, finalidad o duración? ¡Lanza tu respuesta a la diana correcta!':'Cause, purpose or duration? Throw your answer at the right target!'}</p>
+    <p class="gm-instr" style="text-align:center">${lang==='es'?'¿POR, PARA o DURANTE? ¡Lanza tu respuesta a la diana correcta!':'POR, PARA or DURANTE? Throw your answer at the right target!'}</p>
     <div class="gm-sentence">${item.es}</div>
     <div class="pp-arena">
       <div class="pp-targets">${targetsHTML}</div>
@@ -1875,6 +1879,7 @@ function ppAnswer(key) {
     document.getElementById('gm-fb').innerHTML = `
       <span class="${ok?'fb-ok':'fb-ko'}">${ok?'✓ '+(lang==='es'?'¡Diana!':'Bullseye!'):'✗ '+(lang==='es'?'La respuesta correcta es':'The correct answer is')+' <strong>'+item.correct+'</strong>'}</span>
       <div class="se-fb-sentence">${item.full}</div>
+      <div class="pf-note">${item.sense[lang]}</div>
       <button class="gm-btn gm-btn-primary gm-next-btn" onclick="ppNext()">${lang==='es'?'Siguiente →':'Next →'}</button>`;
   }, 480);
 }
