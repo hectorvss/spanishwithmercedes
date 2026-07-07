@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>La Cinta del CD — Juego de la Preposición A · Spanish Lessons With Mercedes</title>
+  <title>La Diana de las Preposiciones — Juego POR/PARA/DURANTE · Spanish Lessons With Mercedes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
     }
     .game-hero__heading {
       font-family: 'Noto Sans', sans-serif; font-weight: 900;
-      font-size: 46px; line-height: 1.1; color: #121117; margin-bottom: 12px;
+      font-size: 44px; line-height: 1.1; color: #121117; margin-bottom: 12px;
     }
     .game-hero__heading em { font-style: normal; color: #D4920A; }
     .game-hero__sub {
@@ -112,14 +112,14 @@
       <span class="lang-es">Juego Interactivo</span>
     </div>
     <h1 class="game-hero__heading">
-      <span class="lang-en">The Direct Object <em>Conveyor</em></span>
-      <span class="lang-es">La Cinta del <em>CD</em></span>
+      <span class="lang-en">The Preposition <em>Dartboard</em></span>
+      <span class="lang-es">La Diana de las <em>Preposiciones</em></span>
     </h1>
     <p class="game-hero__sub">
-      <span class="lang-en">Sentences slide along a conveyor belt — decide whether each one needs the preposition "a" before it reaches the end. Train the personal "a" rule until you no longer have to think about it.</span>
-      <span class="lang-es">Las frases se deslizan por una cinta transportadora — decide si cada una lleva la preposición "a" antes de que llegue al final. Entrena la "a" personal hasta que ya no tengas que pensarla.</span>
+      <span class="lang-en">One English word, three Spanish targets. Throw each sentence at POR (cause), PARA (purpose) or DURANTE (duration) and watch it fly.</span>
+      <span class="lang-es">Una sola palabra en inglés, tres dianas en español. Lanza cada frase a POR (causa), PARA (finalidad) o DURANTE (duración) y observa cómo vuela.</span>
     </p>
-    <button class="game-hero__cta" onclick="playCD()">
+    <button class="game-hero__cta" onclick="playPorPara()">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
       <span class="lang-en">Start game</span>
       <span class="lang-es">Empezar juego</span>
@@ -132,25 +132,25 @@
   <div class="game-info__inner">
     <div class="game-info__grid">
       <div class="game-info__card">
-        <div class="game-info__icon">🏭</div>
+        <div class="game-info__icon">🎯</div>
         <div class="game-info__title">
-          <span class="lang-en">A belt that never stops</span>
-          <span class="lang-es">Una cinta que no para</span>
+          <span class="lang-en">A real throw, not a click</span>
+          <span class="lang-es">Un lanzamiento de verdad</span>
         </div>
         <div class="game-info__desc">
-          <span class="lang-en">Every sentence slides past in real time — sort it before it reaches the end of the line.</span>
-          <span class="lang-es">Cada frase se desliza en tiempo real — clasifícala antes de que llegue al final de la línea.</span>
+          <span class="lang-en">Your answer flies across the screen to the target you choose — a satisfying hit or a miss you'll remember.</span>
+          <span class="lang-es">Tu respuesta vuela por la pantalla hasta la diana que elijas — un acierto que se siente bien o un fallo que no olvidarás.</span>
         </div>
       </div>
       <div class="game-info__card">
-        <div class="game-info__icon">🧍</div>
+        <div class="game-info__icon">🇬🇧</div>
         <div class="game-info__title">
-          <span class="lang-en">Person or thing?</span>
-          <span class="lang-es">¿Persona o cosa?</span>
+          <span class="lang-en">Why "for" is the enemy</span>
+          <span class="lang-es">Por qué "for" es el enemigo</span>
         </div>
         <div class="game-info__desc">
-          <span class="lang-en">The classic trap: a concrete person needs "a", a generic category or an object never does.</span>
-          <span class="lang-es">La trampa clásica: una persona concreta lleva "a", una categoría genérica o una cosa nunca.</span>
+          <span class="lang-en">English "for" covers three different ideas in Spanish. This game trains you to tell them apart instantly.</span>
+          <span class="lang-es">El "for" del inglés cubre tres ideas distintas en español. Este juego te entrena para distinguirlas al instante.</span>
         </div>
       </div>
       <div class="game-info__card">
@@ -160,20 +160,20 @@
           <span class="lang-es">12 frases reales</span>
         </div>
         <div class="game-info__desc">
-          <span class="lang-en">From "veo a Laura" to "busco secretaria" — the exact contrasts that trip up every learner.</span>
-          <span class="lang-es">Desde "veo a Laura" hasta "busco secretaria" — los contrastes exactos que confunden a cualquier estudiante.</span>
+          <span class="lang-en">From "estudié durante tres horas" to "lo necesito para mañana" — the exact contrasts from the PDF.</span>
+          <span class="lang-es">Desde "estudié durante tres horas" hasta "lo necesito para mañana" — los contrastes exactos del PDF.</span>
         </div>
       </div>
     </div>
 
     <!-- PDF LINK -->
-    <a class="game-pdf-link" href="DESCARGABLES_PDF/CD_PREPOSICI%C3%B3N_A/EL%20CD%20Y%20LA%20PREPOSICI%C3%B3N%20A.pdf" target="_blank" download>
+    <a class="game-pdf-link" href="DESCARGABLES_PDF/POR_PARA_DURANTE/POR_PARA_DURANTE_PREPOSICIONES_DE_TIEMPO.pdf" target="_blank" download>
       <div class="game-pdf-link__icon">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
       </div>
       <div class="game-pdf-link__text">
-        <strong><span class="lang-en">Download the complete PDF guide — The Direct Object &amp; Preposition A</span><span class="lang-es">Descarga la guía PDF completa — El CD y la Preposición A</span></strong>
-        <span><span class="lang-en">Pronoun trick · personal "a" · neutral "lo" · exercises · A2</span><span class="lang-es">Truco del pronombre · "a" personal · "lo" neutro · ejercicios · A2</span></span>
+        <strong><span class="lang-en">Download the complete PDF guide — Por, Para &amp; Durante</span><span class="lang-es">Descarga la guía PDF completa — Por, Para y Durante</span></strong>
+        <span><span class="lang-en">Duration · purpose · cause · English interference · exercises · B1–B2</span><span class="lang-es">Duración · finalidad · causa · interferencia del inglés · ejercicios · B1–B2</span></span>
       </div>
       <span class="game-pdf-link__cta">
         <span class="lang-en">↓ Free PDF</span>
@@ -192,6 +192,8 @@
         <a href="juego-presentarte.html">🎮 <span class="lang-en">Introduce Yourself</span><span class="lang-es">Preséntate en Español</span></a>
         <a href="juego-gustar.html">🎮 <span class="lang-en">Catch the Agreement</span><span class="lang-es">Atrapa la Concordancia</span></a>
         <a href="juego-genero.html">🎮 <span class="lang-en">The Agreement Slot Machine</span><span class="lang-es">Tragaperras de la Concordancia</span></a>
+        <a href="juego-cd-prep-a.html">🎮 <span class="lang-en">The Direct Object Conveyor</span><span class="lang-es">La Cinta del CD</span></a>
+        <a href="juego-desde.html">🎮 <span class="lang-en">The Timeline</span><span class="lang-es">La Línea del Tiempo</span></a>
       </div>
     </div>
   </div>

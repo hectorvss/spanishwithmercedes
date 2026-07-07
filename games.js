@@ -1777,6 +1777,109 @@ function desdeNext() {
   _renderDesdeRound();
 }
 
+/* ══════════════════════════════════════════════
+   GAME 14 · LA DIANA DE LAS PREPOSICIONES
+   (POR / PARA / DURANTE) — throw the answer at the
+   right target: causa (POR), finalidad (PARA) or
+   duración (DURANTE), the three-way distinction
+   English "for" collapses into one word
+══════════════════════════════════════════════ */
+
+const PP_ITEMS = [
+  { es:'Viví en Londres ___ cinco años.',   correct:'DURANTE', full:'Viví en Londres durante cinco años.' },
+  { es:'Estudié ___ tres horas seguidas.',  correct:'DURANTE', full:'Estudié durante tres horas seguidas.' },
+  { es:'Llovió ___ toda la noche.',         correct:'DURANTE', full:'Llovió durante toda la noche.' },
+  { es:'Estuve enfermo ___ una semana.',    correct:'DURANTE', full:'Estuve enfermo durante una semana.' },
+  { es:'Este regalo es ___ ti.',            correct:'PARA',    full:'Este regalo es para ti.' },
+  { es:'Necesito el informe ___ el viernes.', correct:'PARA',  full:'Necesito el informe para el viernes.' },
+  { es:'Estudio español ___ trabajar.',     correct:'PARA',    full:'Estudio español para trabajar.' },
+  { es:'Lo necesito ___ mañana.',           correct:'PARA',    full:'Lo necesito para mañana.' },
+  { es:'Lo hice ___ ti, no por dinero.',    correct:'POR',     full:'Lo hice por ti, no por dinero.' },
+  { es:'Te llamo ___ teléfono.',            correct:'POR',     full:'Te llamo por teléfono.' },
+  { es:'Voy al gimnasio tres veces ___ semana.', correct:'POR', full:'Voy al gimnasio tres veces por semana.' },
+  { es:'Pasé ___ Zaragoza de camino a casa.', correct:'POR',   full:'Pasé por Zaragoza de camino a casa.' }
+];
+
+const PP_TARGETS = [
+  { key:'POR',     icon:'❓', label:{en:'cause',   es:'causa'} },
+  { key:'PARA',    icon:'🎁', label:{en:'purpose', es:'finalidad'} },
+  { key:'DURANTE', icon:'⏳', label:{en:'duration', es:'duración'} }
+];
+
+function playPorPara() {
+  currentGameFn = playPorPara;
+  const lang = L();
+  const title = lang==='es' ? 'La Diana de las Preposiciones' : 'The Preposition Dartboard';
+  GS = { items: _shuffle(PP_ITEMS), idx: 0, correct: 0, total: PP_ITEMS.length, answered: false };
+  _renderPPRound();
+}
+
+function _renderPPRound() {
+  const lang = L();
+  const title = lang==='es' ? 'La Diana de las Preposiciones' : 'The Preposition Dartboard';
+  const { items, idx, correct, total } = GS;
+  if (idx >= total) { _end(correct, total, title); return; }
+  const item = items[idx];
+  GS.answered = false;
+
+  const targetsHTML = PP_TARGETS.map(t => `
+    <button class="pp-target" data-key="${t.key}" onclick="ppAnswer('${t.key}')">
+      <span class="pp-target-icon">${t.icon}</span>
+      <span class="pp-target-label">${t.key}<br><small>${t.label[lang]}</small></span>
+    </button>`).join('');
+
+  _modal(`
+    ${_progress(idx, total, correct, lang)}
+    <p class="gm-instr" style="text-align:center">${lang==='es'?'¿Causa, finalidad o duración? ¡Lanza tu respuesta a la diana correcta!':'Cause, purpose or duration? Throw your answer at the right target!'}</p>
+    <div class="gm-sentence">${item.es}</div>
+    <div class="pp-arena">
+      <div class="pp-targets">${targetsHTML}</div>
+      <div class="pp-dart" id="pp-dart" style="display:none">📍</div>
+    </div>
+    <div class="gm-feedback" id="gm-fb"></div>
+  `, title);
+}
+
+function ppAnswer(key) {
+  if (GS.answered) return;
+  GS.answered = true;
+  const lang = L();
+  const item = GS.items[GS.idx];
+  const ok = key === item.correct;
+  if (ok) GS.correct++;
+
+  const targets = document.querySelectorAll('.pp-target');
+  targets.forEach(t => t.disabled = true);
+  const clickedBtn = document.querySelector(`.pp-target[data-key="${key}"]`);
+  const correctBtn = document.querySelector(`.pp-target[data-key="${item.correct}"]`);
+  const dart = document.getElementById('pp-dart');
+  const arena = document.querySelector('.pp-arena');
+
+  if (dart && arena && clickedBtn) {
+    const arenaRect = arena.getBoundingClientRect();
+    const btnRect = clickedBtn.getBoundingClientRect();
+    const dx = (btnRect.left + btnRect.width / 2) - (arenaRect.left + arenaRect.width / 2);
+    dart.style.display = 'flex';
+    requestAnimationFrame(() => {
+      dart.style.transform = `translate(calc(-50% + ${dx}px), -130px) scale(1.1) rotate(20deg)`;
+    });
+  }
+
+  setTimeout(() => {
+    if (clickedBtn) clickedBtn.classList.add(ok ? 'pp-hit' : 'pp-miss');
+    if (!ok && correctBtn) correctBtn.classList.add('pp-hit');
+    document.getElementById('gm-fb').innerHTML = `
+      <span class="${ok?'fb-ok':'fb-ko'}">${ok?'✓ '+(lang==='es'?'¡Diana!':'Bullseye!'):'✗ '+(lang==='es'?'La respuesta correcta es':'The correct answer is')+' <strong>'+item.correct+'</strong>'}</span>
+      <div class="se-fb-sentence">${item.full}</div>
+      <button class="gm-btn gm-btn-primary gm-next-btn" onclick="ppNext()">${lang==='es'?'Siguiente →':'Next →'}</button>`;
+  }, 480);
+}
+
+function ppNext() {
+  GS.idx++;
+  _renderPPRound();
+}
+
 /* ── EXPOSE GLOBALS ───────────────────────────── */
 Object.assign(window, {
   closeGame, restartGame, flipFC, fcAnswer,
@@ -1793,6 +1896,7 @@ Object.assign(window, {
   generoAnswer, generoNext,
   cdAnswer, cdNext,
   desdeAnswer, desdeNext,
+  ppAnswer, ppNext,
   playFlashcards, playSerEstar, playQuiz, playFillGaps, playWordOrder, playVerbSprint, playPresentarse,
-  playRuleta, playDialogos, playGustar, playGenero, playCD, playDesde
+  playRuleta, playDialogos, playGustar, playGenero, playCD, playDesde, playPorPara
 });
