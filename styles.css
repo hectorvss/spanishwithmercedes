@@ -773,10 +773,10 @@ body.is-spanish .lang-en-block { display: none; }
   position: relative; height: 190px; background: linear-gradient(180deg, #EAF4FF, #FFFFFF);
   border-radius: 14px; overflow: hidden; margin-bottom: 16px; border: 1.5px solid #DCDCE5;
 }
-.gu-deco { position: absolute; font-size: 26px; opacity: 0.22; animation: guDrift 7s ease-in-out infinite; }
-.gu-deco1 { left: 10%; bottom: -10px; animation-duration: 7s; }
-.gu-deco2 { left: 58%; bottom: -20px; animation-duration: 9s; animation-delay: 1.5s; }
-.gu-deco3 { left: 82%; bottom: -6px; animation-duration: 5.5s; animation-delay: 0.7s; }
+.gu-deco { position: absolute; font-size: 28px; opacity: 0.38; animation-name: guDrift; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
+.gu-deco1 { left: 10%; bottom: -10px; }
+.gu-deco2 { left: 58%; bottom: -20px; }
+.gu-deco3 { left: 82%; bottom: -6px; }
 @keyframes guDrift {
   0% { transform: translateY(0) translateX(0); }
   50% { transform: translateY(-140px) translateX(15px); }

@@ -1438,16 +1438,20 @@ function _renderGustarRound() {
   if (idx >= total) { _end(correct, total, title); return; }
   const item = items[idx];
   GS.answered = false;
-  const duration = 4.5;
+  // Speed ramps up gently round after round, then plateaus so there's
+  // always enough time to read the sentence — never drops below 3.4s.
+  const duration = Math.max(3.4, 4.6 - idx * 0.15);
+  const speedRatio = duration / 4.6;
+  const cloudBase = [7, 9, 5.5];
+  const cloudDelay = [0, 1.5, 0.7];
+  const cloudsHTML = cloudBase.map((d, i) => `<span class="gu-deco gu-deco${i+1}" style="animation-duration:${(d*speedRatio).toFixed(2)}s; animation-delay:${(cloudDelay[i]*speedRatio).toFixed(2)}s">☁️</span>`).join('');
   _modal(`
     ${_progress(idx, total, correct, lang)}
     <p class="gm-instr" style="text-align:center">${lang==='es'?'¿GUSTA o GUSTAN? ¡Atrápalo antes de que suba del todo!':'GUSTA or GUSTAN? Catch it before it floats away!'}</p>
     <div class="gu-scene">
       <div class="gu-timerbar"><div class="gu-timerbar-fill" id="gu-timerfill" style="width:100%"></div></div>
       <div class="gu-sky">
-        <span class="gu-deco gu-deco1">💭</span>
-        <span class="gu-deco gu-deco2">💭</span>
-        <span class="gu-deco gu-deco3">💭</span>
+        ${cloudsHTML}
         <div class="gu-bubble" id="gu-bubble" style="--gu-duration:${duration}s">${item.pron} <span class="gm-blank">___</span> ${item.es}</div>
       </div>
       <div class="gu-catch-row">
