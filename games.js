@@ -2182,6 +2182,126 @@ function vmNext() {
   _renderVMRound();
 }
 
+/* ══════════════════════════════════════════════
+   GAME 17 · LA PONCHADORA DEL TRABAJO
+   (HABLEMOS DEL MUNDO LABORAL — SER, TRABAJAR EN,
+   TRABAJAR COMO, DEDICARSE A) — pick the right
+   verb and a time-clock card slides up into the
+   machine, then a stamp arm slams down to mark it
+   right or wrong
+══════════════════════════════════════════════ */
+
+const WK_ITEMS = [
+  { blank:'___ ingeniero.', correct:'SER', full:'Soy ingeniero.', emoji:'🧑‍💼',
+    note:{en:'SER + profession, never with an article.', es:'SER + profesión, nunca con artículo.'} },
+  { blank:'___ periodista.', correct:'SER', full:'Soy periodista.', emoji:'📰',
+    note:{en:'SER + profession, never with an article.', es:'SER + profesión, nunca con artículo.'} },
+  { blank:'¿___ profesora?', correct:'SER', full:'¿Eres profesora?', emoji:'🍎',
+    note:{en:'SER + profession, never with an article.', es:'SER + profesión, nunca con artículo.'} },
+  { blank:'___ un hospital.', correct:'TRABAJAR_EN', full:'Trabajo en un hospital.', emoji:'🏥',
+    note:{en:'TRABAJAR EN + place — the location, not the role.', es:'TRABAJAR EN + lugar — el sitio, no el puesto.'} },
+  { blank:'___ una empresa de diseño.', correct:'TRABAJAR_EN', full:'Trabajo en una empresa de diseño.', emoji:'🏢',
+    note:{en:'TRABAJAR EN + place — the location, not the role.', es:'TRABAJAR EN + lugar — el sitio, no el puesto.'} },
+  { blank:'¿___ en un laboratorio o en una clínica?', correct:'TRABAJAR_EN', full:'¿Trabajas en un laboratorio o en una clínica?', emoji:'🔬',
+    note:{en:'TRABAJAR EN + place — the location, not the role.', es:'TRABAJAR EN + lugar — el sitio, no el puesto.'} },
+  { blank:'Ana ___ periodista en un diario digital.', correct:'TRABAJAR_COMO', full:'Ana trabaja como periodista en un diario digital.', emoji:'💻',
+    note:{en:'TRABAJAR COMO + role — the job title you perform.', es:'TRABAJAR COMO + puesto — la función que desempeñas.'} },
+  { blank:'Ella ___ diseñadora en un estudio de moda.', correct:'TRABAJAR_COMO', full:'Ella trabaja como diseñadora en un estudio de moda.', emoji:'✂️',
+    note:{en:'TRABAJAR COMO + role — the job title you perform.', es:'TRABAJAR COMO + puesto — la función que desempeñas.'} },
+  { blank:'___ camarero los fines de semana.', correct:'TRABAJAR_COMO', full:'Trabajo como camarero los fines de semana.', emoji:'🍽️',
+    note:{en:'TRABAJAR COMO + role — the job title you perform.', es:'TRABAJAR COMO + puesto — la función que desempeñas.'} },
+  { blank:'Luis ___ la hostelería desde hace diez años.', correct:'DEDICARSE_A', full:'Luis se dedica a la hostelería desde hace diez años.', emoji:'🏨',
+    note:{en:'DEDICARSE A + sector, never a profession — always with the preposition A.', es:'DEDICARSE A + sector, nunca una profesión — siempre con la preposición A.'} },
+  { blank:'Mi padre ___ la educación toda su vida.', correct:'DEDICARSE_A', full:'Mi padre se dedica a la educación toda su vida.', emoji:'🎓',
+    note:{en:'DEDICARSE A + sector, never a profession — always with the preposition A.', es:'DEDICARSE A + sector, nunca una profesión — siempre con la preposición A.'} },
+  { blank:'___ al turismo.', correct:'DEDICARSE_A', full:'Me dedico al turismo.', emoji:'🧳',
+    note:{en:'DEDICARSE A + sector, never a profession — always with the preposition A.', es:'DEDICARSE A + sector, nunca una profesión — siempre con la preposición A.'} }
+];
+
+function playTrabajo() {
+  currentGameFn = playTrabajo;
+  const lang = L();
+  const title = lang==='es' ? 'La Ponchadora del Trabajo' : 'The Work Time Clock';
+  GS = { items: _shuffle(WK_ITEMS), idx: 0, correct: 0, total: WK_ITEMS.length, answered: false };
+  _renderWKRound();
+}
+
+function _renderWKRound() {
+  const lang = L();
+  const title = lang==='es' ? 'La Ponchadora del Trabajo' : 'The Work Time Clock';
+  const { items, idx, correct, total } = GS;
+  if (idx >= total) { _end(correct, total, title); return; }
+  const item = items[idx];
+  GS.answered = false;
+
+  const btns = [
+    { key:'SER',            label:'SER' },
+    { key:'TRABAJAR_EN',    label:'TRABAJAR EN' },
+    { key:'TRABAJAR_COMO',  label:'TRABAJAR COMO' },
+    { key:'DEDICARSE_A',    label:'DEDICARSE A' }
+  ];
+  const btnsHTML = btns.map(b => `<button class="wk-btn" data-key="${b.key}" onclick="wkAnswer('${b.key}')">${b.label}</button>`).join('');
+
+  _modal(`
+    ${_progress(idx, total, correct, lang)}
+    <p class="gm-instr" style="text-align:center">${lang==='es'?'¿SER, TRABAJAR EN, TRABAJAR COMO o DEDICARSE A? Elige el verbo y poncha la tarjeta.':'SER, TRABAJAR EN, TRABAJAR COMO or DEDICARSE A? Choose the verb and punch the card.'}</p>
+    <div class="gm-sentence">${item.blank}</div>
+    <div class="wk-scene">
+      <div class="wk-machine">
+        <div class="wk-slot"></div>
+        <div class="wk-stamp" id="wk-stamp"></div>
+        <div class="wk-card" id="wk-card">
+          <span class="wk-card-emoji">${item.emoji}</span>
+          <span class="wk-card-mark" id="wk-card-mark"></span>
+        </div>
+      </div>
+    </div>
+    <div class="wk-btn-row">${btnsHTML}</div>
+    <div class="gm-feedback" id="gm-fb"></div>
+  `, title);
+}
+
+function wkAnswer(key) {
+  if (GS.answered) return;
+  GS.answered = true;
+  const lang = L();
+  const item = GS.items[GS.idx];
+  const ok = key === item.correct;
+  if (ok) GS.correct++;
+
+  document.querySelectorAll('.wk-btn').forEach(b => {
+    b.disabled = true;
+    if (b.dataset.key === item.correct) b.classList.add('wk-correct');
+    else if (b.dataset.key === key && !ok) b.classList.add('wk-wrong');
+  });
+
+  const card = document.getElementById('wk-card');
+  const stamp = document.getElementById('wk-stamp');
+  const mark = document.getElementById('wk-card-mark');
+
+  if (card) card.classList.add('wk-inserted');
+  setTimeout(() => {
+    if (stamp) stamp.classList.add('wk-hit');
+    setTimeout(() => {
+      if (mark) { mark.textContent = ok ? '✓' : '✗'; mark.classList.add(ok ? 'wk-mark-ok' : 'wk-mark-ko'); }
+      if (card) card.classList.add('wk-stamped');
+    }, 260);
+  }, 550);
+
+  setTimeout(() => {
+    document.getElementById('gm-fb').innerHTML = `
+      <span class="${ok?'fb-ok':'fb-ko'}">${ok?'✓ '+(lang==='es'?'¡Fichado correcto!':'Correctly clocked in!'):'✗ '+(lang==='es'?'El verbo correcto es':'The correct verb is')+' <strong>'+item.correct.replace('_',' ')+'</strong>'}</span>
+      <div class="se-fb-sentence">${item.full}</div>
+      <div class="pf-note">${item.note[lang]}</div>
+      <button class="gm-btn gm-btn-primary gm-next-btn" onclick="wkNext()">${lang==='es'?'Siguiente →':'Next →'}</button>`;
+  }, 1200);
+}
+
+function wkNext() {
+  GS.idx++;
+  _renderWKRound();
+}
+
 /* ── EXPOSE GLOBALS ───────────────────────────── */
 Object.assign(window, {
   closeGame, restartGame, toggleGameFullscreen, flipFC, fcAnswer,
@@ -2201,6 +2321,7 @@ Object.assign(window, {
   ppAnswer, ppNext,
   profAnswer, profNext,
   vmAnswer, vmNext,
+  wkAnswer, wkNext,
   playFlashcards, playSerEstar, playQuiz, playFillGaps, playWordOrder, playVerbSprint, playPresentarse,
-  playRuleta, playDialogos, playGustar, playGenero, playCD, playDesde, playPorPara, playProfesiones, playVerMirar
+  playRuleta, playDialogos, playGustar, playGenero, playCD, playDesde, playPorPara, playProfesiones, playVerMirar, playTrabajo
 });

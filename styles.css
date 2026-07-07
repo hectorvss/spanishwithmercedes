@@ -1048,6 +1048,55 @@ body.is-spanish .lang-en-block { display: none; }
 .vm-btn.vm-correct { border-color: #1A9E87; background: #E6F9F5; }
 .vm-btn.vm-wrong { border-color: #C8102E; background: #FDECEA; }
 
+/* ── LA PONCHADORA DEL TRABAJO (MUNDO LABORAL) ── */
+.wk-scene { display: flex; justify-content: center; margin: 18px 0 6px; padding-bottom: 60px; }
+.wk-machine {
+  position: relative; width: 220px; height: 150px; background: #2A2A3A;
+  border-radius: 16px 16px 34px 34px; padding-top: 18px;
+}
+.wk-slot {
+  position: relative; z-index: 2; width: 140px; height: 10px; margin: 0 auto;
+  background: #121117; border-radius: 4px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
+}
+.wk-stamp {
+  position: absolute; top: 20px; left: 50%; width: 16px; height: 60px; z-index: 3;
+  background: #9B9AAB; border-radius: 4px; transform-origin: top center;
+  transform: translateX(-50%) rotate(-45deg); transition: transform 0.3s cubic-bezier(.6,0,.85,1);
+}
+.wk-stamp::after {
+  content: ''; position: absolute; bottom: -6px; left: 50%; width: 34px; height: 14px;
+  background: #6B6A78; border-radius: 3px; transform: translateX(-50%);
+}
+.wk-stamp.wk-hit { transform: translateX(-50%) rotate(4deg); }
+.wk-card {
+  position: absolute; bottom: -86px; left: 50%; transform: translateX(-50%); z-index: 1;
+  width: 150px; height: 96px; background: #F4E9D8; border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3); display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 4px;
+  transition: bottom 0.55s cubic-bezier(.3,.8,.4,1.15);
+}
+.wk-card.wk-inserted { bottom: 26px; }
+.wk-card-emoji { font-size: 30px; }
+.wk-card-mark {
+  font-size: 26px; font-weight: 900; opacity: 0; transform: scale(1.6);
+  transition: opacity 0.2s, transform 0.2s;
+}
+.wk-card-mark.wk-mark-ok { opacity: 1; transform: scale(1); color: #1A9E87; }
+.wk-card-mark.wk-mark-ko { opacity: 1; transform: scale(1); color: #C8102E; }
+.wk-btn-row {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+  margin-top: 14px; max-width: 420px; margin-left: auto; margin-right: auto;
+}
+.wk-btn {
+  padding: 14px 10px; border-radius: 10px; border: 1.5px solid #DCDCE5; background: #fff;
+  cursor: pointer; font-family: 'Noto Sans', sans-serif; font-weight: 800; font-size: 14px;
+  color: #121117; transition: transform 0.15s, border-color 0.15s, background 0.15s;
+}
+.wk-btn:hover:not(:disabled) { transform: scale(1.03); border-color: #8B5E34; }
+.wk-btn:disabled { cursor: default; }
+.wk-btn.wk-correct { border-color: #1A9E87; background: #E6F9F5; }
+.wk-btn.wk-wrong { border-color: #C8102E; background: #FDECEA; }
+
 /* ── GAME PAGES · BACK TO ALL GAMES LINK ── */
 .game-hero__back {
   display: inline-flex; align-items: center; gap: 6px;
