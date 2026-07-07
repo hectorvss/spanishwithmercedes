@@ -2302,6 +2302,104 @@ function wkNext() {
   _renderWKRound();
 }
 
+/* ══════════════════════════════════════════════
+   GAME 18 · EL VIBRÓMETRO
+   (LA R — R suave vs RR fuerte) — pick which sound
+   the word uses and watch a gauge needle react: a
+   single quick swing for R suave, a rapid multi-step
+   vibration before settling for RR fuerte
+══════════════════════════════════════════════ */
+
+const RR_ITEMS = [
+  { word:'pirata',    correct:'SUAVE',  note:{en:'A single R between vowels → one quick tap of the tongue.', es:'Una sola R entre vocales → un golpe rápido de la lengua.'} },
+  { word:'corazón',   correct:'SUAVE',  note:{en:'A single R between vowels → one quick tap of the tongue.', es:'Una sola R entre vocales → un golpe rápido de la lengua.'} },
+  { word:'verano',    correct:'SUAVE',  note:{en:'A single R between vowels → one quick tap of the tongue.', es:'Una sola R entre vocales → un golpe rápido de la lengua.'} },
+  { word:'corona',    correct:'SUAVE',  note:{en:'A single R between vowels → one quick tap of the tongue.', es:'Una sola R entre vocales → un golpe rápido de la lengua.'} },
+  { word:'pera',      correct:'SUAVE',  note:{en:'A single R between vowels → one quick tap of the tongue.', es:'Una sola R entre vocales → un golpe rápido de la lengua.'} },
+  { word:'mariposa',  correct:'SUAVE',  note:{en:'A single R between vowels → one quick tap of the tongue.', es:'Una sola R entre vocales → un golpe rápido de la lengua.'} },
+  { word:'cerradura', correct:'FUERTE', note:{en:'Written RR between vowels → the tongue vibrates several times.', es:'RR escrita entre vocales → la lengua vibra varias veces.'} },
+  { word:'barrio',    correct:'FUERTE', note:{en:'Written RR between vowels → the tongue vibrates several times.', es:'RR escrita entre vocales → la lengua vibra varias veces.'} },
+  { word:'marrón',    correct:'FUERTE', note:{en:'Written RR between vowels → the tongue vibrates several times.', es:'RR escrita entre vocales → la lengua vibra varias veces.'} },
+  { word:'terrible',  correct:'FUERTE', note:{en:'Written RR between vowels → the tongue vibrates several times.', es:'RR escrita entre vocales → la lengua vibra varias veces.'} },
+  { word:'rico',      correct:'FUERTE', note:{en:'R at the start of a word is always the strong R.', es:'La R al principio de palabra siempre es fuerte.'} },
+  { word:'alrededor', correct:'FUERTE', note:{en:'R right after L is always the strong R.', es:'La R justo después de L siempre es fuerte.'} }
+];
+
+function playSonidoR() {
+  currentGameFn = playSonidoR;
+  const lang = L();
+  const title = lang==='es' ? 'El Vibrómetro' : 'The Vibration Meter';
+  GS = { items: _shuffle(RR_ITEMS), idx: 0, correct: 0, total: RR_ITEMS.length, answered: false };
+  _renderRRRound();
+}
+
+function _renderRRRound() {
+  const lang = L();
+  const title = lang==='es' ? 'El Vibrómetro' : 'The Vibration Meter';
+  const { items, idx, correct, total } = GS;
+  if (idx >= total) { _end(correct, total, title); return; }
+  const item = items[idx];
+  GS.answered = false;
+
+  _modal(`
+    ${_progress(idx, total, correct, lang)}
+    <p class="gm-instr" style="text-align:center">${lang==='es'?'¿R suave (un golpe) o RR fuerte (vibra)? Elige el sonido correcto.':'R suave (one tap) or RR fuerte (vibrates)? Choose the right sound.'}</p>
+    <div class="gm-sentence">${item.word}</div>
+    <div class="rr-scene">
+      <div class="rr-gauge-face">
+        <span class="rr-gauge-label rr-gauge-label-left">R SUAVE</span>
+        <span class="rr-gauge-label rr-gauge-label-right">RR FUERTE</span>
+        <div class="rr-needle" id="rr-needle"></div>
+        <div class="rr-pivot"></div>
+      </div>
+    </div>
+    <div class="rr-btn-row">
+      <button class="rr-btn" data-key="SUAVE" onclick="rrAnswer('SUAVE')">R suave</button>
+      <button class="rr-btn" data-key="FUERTE" onclick="rrAnswer('FUERTE')">RR fuerte</button>
+    </div>
+    <div class="gm-feedback" id="gm-fb"></div>
+  `, title);
+}
+
+function rrAnswer(key) {
+  if (GS.answered) return;
+  GS.answered = true;
+  const lang = L();
+  const item = GS.items[GS.idx];
+  const ok = key === item.correct;
+  if (ok) GS.correct++;
+
+  document.querySelectorAll('.rr-btn').forEach(b => {
+    b.disabled = true;
+    if (b.dataset.key === item.correct) b.classList.add('rr-correct');
+    else if (b.dataset.key === key && !ok) b.classList.add('rr-wrong');
+  });
+
+  const needle = document.getElementById('rr-needle');
+  if (needle) {
+    if (item.correct === 'FUERTE') {
+      needle.classList.add('rr-anim-fuerte');
+    } else {
+      needle.classList.add('rr-anim-suave');
+      requestAnimationFrame(() => { needle.style.transform = 'translateX(-50%) rotate(-55deg)'; });
+    }
+  }
+
+  setTimeout(() => {
+    const label = item.correct === 'SUAVE' ? (lang==='es'?'R suave':'R suave') : (lang==='es'?'RR fuerte':'RR fuerte');
+    document.getElementById('gm-fb').innerHTML = `
+      <span class="${ok?'fb-ok':'fb-ko'}">${ok?'✓ '+(lang==='es'?'¡Correcto!':'Correct!'):'✗ '+(lang==='es'?'Es':'It is')+' <strong>'+label+'</strong>'}</span>
+      <div class="se-fb-sentence">${item.word}</div>
+      <div class="pf-note">${item.note[lang]}</div>
+      <button class="gm-btn gm-btn-primary gm-next-btn" onclick="rrNext()">${lang==='es'?'Siguiente →':'Next →'}</button>`;
+  }, 1000);
+}
+
+function rrNext() {
+  GS.idx++;
+  _renderRRRound();
+}
+
 /* ── EXPOSE GLOBALS ───────────────────────────── */
 Object.assign(window, {
   closeGame, restartGame, toggleGameFullscreen, flipFC, fcAnswer,
@@ -2322,6 +2420,7 @@ Object.assign(window, {
   profAnswer, profNext,
   vmAnswer, vmNext,
   wkAnswer, wkNext,
+  rrAnswer, rrNext,
   playFlashcards, playSerEstar, playQuiz, playFillGaps, playWordOrder, playVerbSprint, playPresentarse,
-  playRuleta, playDialogos, playGustar, playGenero, playCD, playDesde, playPorPara, playProfesiones, playVerMirar, playTrabajo
+  playRuleta, playDialogos, playGustar, playGenero, playCD, playDesde, playPorPara, playProfesiones, playVerMirar, playTrabajo, playSonidoR
 });

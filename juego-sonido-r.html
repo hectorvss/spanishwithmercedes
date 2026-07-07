@@ -3,47 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ser o Estar — Juego Interactivo · Spanish Lessons With Mercedes</title>
+  <title>El Vibrómetro — Juego del Sonido R · Spanish Lessons With Mercedes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=39">
   <style>
-    .game-hero {
-      background: #FEF9F1; padding: 64px 80px 56px;
-    }
-    .game-hero__inner {
-      max-width: 900px; margin: 0 auto; text-align: center;
-    }
+    .game-hero { background: #FDF0EE; padding: 64px 80px 56px; }
+    .game-hero__inner { max-width: 900px; margin: 0 auto; text-align: center; }
     .game-hero__tag {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(212,146,10,0.12); color: #A06C00;
+      background: rgba(192,57,43,0.14); color: #A02B1E;
       padding: 6px 16px; border-radius: 20px;
       font-size: 13px; font-weight: 700; letter-spacing: 0.5px;
       margin-bottom: 20px;
     }
     .game-hero__heading {
       font-family: 'Noto Sans', sans-serif; font-weight: 900;
-      font-size: 52px; line-height: 1.1; color: #121117; margin-bottom: 12px;
+      font-size: 44px; line-height: 1.1; color: #121117; margin-bottom: 12px;
     }
-    .game-hero__heading em { font-style: normal; color: #D4920A; }
+    .game-hero__heading em { font-style: normal; color: #C0392B; }
     .game-hero__sub {
       font-size: 20px; color: #4D4C5C; line-height: 1.7;
       max-width: 640px; margin: 0 auto 32px;
     }
-    .game-hero__levels {
-      display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;
-      margin-bottom: 36px;
-    }
-    .game-hero__level {
-      padding: 6px 16px; border-radius: 20px;
-      font-size: 14px; font-weight: 700;
-      border: 1.5px solid;
-    }
-    .game-hero__level--a1 { color:#1A9E87; border-color:#3DDABE40; background:#3DDABE15; }
-    .game-hero__level--a2 { color:#A06C00; border-color:#D4920A40; background:#D4920A15; }
-    .game-hero__level--b1 { color:#1450AA; border-color:#2885FD40; background:#2885FD15; }
-    .game-hero__level--adj { color:#5B21B6; border-color:#7C3AED40; background:#7C3AED15; }
     .game-hero__cta {
       display: inline-flex; align-items: center; gap: 10px;
       background: #121117; color: #fff;
@@ -58,9 +41,7 @@
     .game-info__grid {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 48px;
     }
-    .game-info__card {
-      padding: 24px; border: 1px solid #DCDCE5; border-radius: 10px;
-    }
+    .game-info__card { padding: 24px; border: 1px solid #DCDCE5; border-radius: 10px; }
     .game-info__icon { font-size: 28px; margin-bottom: 10px; }
     .game-info__title { font-family: 'Noto Sans', sans-serif; font-weight: 700; font-size: 17px; color: #121117; margin-bottom: 6px; }
     .game-info__desc { font-size: 15px; color: #4D4C5C; line-height: 1.6; }
@@ -71,14 +52,23 @@
       text-decoration: none; color: inherit; transition: border-color 0.2s;
       background: #F9F9FB;
     }
-    .game-pdf-link:hover { border-color: #D4920A; }
+    .game-pdf-link:hover { border-color: #C0392B; }
     .game-pdf-link__icon {
-      width: 44px; height: 44px; background: #D4920A; border-radius: 8px;
+      width: 44px; height: 44px; background: #C0392B; border-radius: 8px;
       display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
     .game-pdf-link__text strong { display: block; font-size: 16px; color: #121117; margin-bottom: 2px; }
     .game-pdf-link__text span { font-size: 14px; color: #9B9AAB; }
-    .game-pdf-link__cta { margin-left: auto; font-size: 14px; font-weight: 700; color: #D4920A; white-space: nowrap; }
+    .game-pdf-link__cta { margin-left: auto; font-size: 14px; font-weight: 700; color: #C0392B; white-space: nowrap; }
+
+    .other-games { margin-top: 32px; text-align: center; }
+    .other-games p { font-size: 14px; color: #9B9AAB; margin-bottom: 14px; }
+    .other-games__row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .other-games__row a {
+      display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px;
+      border: 1.5px solid #DCDCE5; border-radius: 20px; text-decoration: none;
+      color: #121117; font-size: 13px; font-weight: 600;
+    }
   </style>
 </head>
 <body>
@@ -123,23 +113,14 @@
       <span class="lang-es">Juego Interactivo</span>
     </div>
     <h1 class="game-hero__heading">
-      <span class="lang-en"><em>Ser</em> or <em>Estar</em>?</span>
-      <span class="lang-es">¿<em>Ser</em> o <em>Estar</em>?</span>
+      <span class="lang-en">The Vibration <em>Meter</em></span>
+      <span class="lang-es">El <em>Vibrómetro</em></span>
     </h1>
     <p class="game-hero__sub">
-      <span class="lang-en">Master the most confusing topic in Spanish. Choose the correct conjugated form — with 4 levels, from A1 beginner to B1, plus a special Adjectives section.</span>
-      <span class="lang-es">Domina el tema que más confunde en español. Elige la forma conjugada correcta — con 4 niveles, desde A1 hasta B1, más una sección especial de adjetivos.</span>
+      <span class="lang-en">Choose R suave or RR fuerte and watch a gauge needle react — a single quick swing, or a rapid vibration before it settles.</span>
+      <span class="lang-es">Elige R suave o RR fuerte y observa cómo reacciona la aguja de un medidor — un golpe rápido y firme, o una vibración antes de fijarse.</span>
     </p>
-    <div class="game-hero__levels">
-      <span class="game-hero__level game-hero__level--a1">A1</span>
-      <span class="game-hero__level game-hero__level--a2">A2</span>
-      <span class="game-hero__level game-hero__level--b1">B1</span>
-      <span class="game-hero__level game-hero__level--adj">
-        <span class="lang-en">Adjectives</span>
-        <span class="lang-es">Adjetivos</span>
-      </span>
-    </div>
-    <button class="game-hero__cta" onclick="playSerEstar()">
+    <button class="game-hero__cta" onclick="playSonidoR()">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
       <span class="lang-en">Start game</span>
       <span class="lang-es">Empezar juego</span>
@@ -152,58 +133,78 @@
   <div class="game-info__inner">
     <div class="game-info__grid">
       <div class="game-info__card">
-        <div class="game-info__icon">🎯</div>
+        <div class="game-info__icon">🎛️</div>
         <div class="game-info__title">
-          <span class="lang-en">Conjugated verbs</span>
-          <span class="lang-es">Verbos conjugados</span>
+          <span class="lang-en">A needle that feels the sound</span>
+          <span class="lang-es">Una aguja que siente el sonido</span>
         </div>
         <div class="game-info__desc">
-          <span class="lang-en">Choose the real conjugated form — soy/estoy, es/está, somos/estamos — not just the infinitive.</span>
-          <span class="lang-es">Elige la forma conjugada real — soy/estoy, es/está, somos/estamos — no solo el infinitivo.</span>
+          <span class="lang-en">R suave gets one smooth swing. RR fuerte makes the needle vibrate rapidly before it settles — just like your tongue.</span>
+          <span class="lang-es">R suave recibe un golpe suave y firme. RR fuerte hace que la aguja vibre varias veces antes de fijarse — igual que tu lengua.</span>
         </div>
       </div>
       <div class="game-info__card">
-        <div class="game-info__icon">📈</div>
+        <div class="game-info__icon">👅</div>
         <div class="game-info__title">
-          <span class="lang-en">4 levels of difficulty</span>
-          <span class="lang-es">4 niveles de dificultad</span>
+          <span class="lang-en">The rule behind the sound</span>
+          <span class="lang-es">La regla detrás del sonido</span>
         </div>
         <div class="game-info__desc">
-          <span class="lang-en">Progress from A1 basics to B1 nuances. Each level focuses on specific grammar rules from the PDF.</span>
-          <span class="lang-es">Progresa desde los conceptos A1 hasta los matices B1. Cada nivel trabaja reglas específicas del PDF.</span>
+          <span class="lang-en">RR fuerte appears with written RR, at the start of a word, or after N, L or S. Everywhere else between vowels, it's R suave.</span>
+          <span class="lang-es">RR fuerte aparece con RR escrita, al principio de palabra, o después de N, L o S. En el resto de casos entre vocales, es R suave.</span>
         </div>
       </div>
       <div class="game-info__card">
-        <div class="game-info__icon">✨</div>
+        <div class="game-info__icon">🗣️</div>
         <div class="game-info__title">
-          <span class="lang-en">Adjectives that change meaning</span>
-          <span class="lang-es">Adjetivos que cambian de significado</span>
+          <span class="lang-en">12 real words</span>
+          <span class="lang-es">12 palabras reales</span>
         </div>
         <div class="game-info__desc">
-          <span class="lang-en">Ser malo â‰  estar malo. Practise all the tricky adjective pairs: bueno, listo, rico, seguro, aburrido…</span>
-          <span class="lang-es">Ser malo â‰  estar malo. Practica todos los pares: bueno, listo, rico, seguro, aburrido…</span>
+          <span class="lang-en">From "pirata" to "alrededor" — the exact words and rules from the PDF's listening exercise.</span>
+          <span class="lang-es">Desde "pirata" hasta "alrededor" — las palabras y reglas exactas del ejercicio de audición del PDF.</span>
         </div>
       </div>
     </div>
 
     <!-- PDF LINK -->
-    <a class="game-pdf-link" href="DESCARGABLES_PDF/SER_ESTAR/SER_ESTAR%20(1).pdf" target="_blank" download>
+    <a class="game-pdf-link" href="DESCARGABLES_PDF/LA R/EL_SONIDO_R.pdf" target="_blank" download>
       <div class="game-pdf-link__icon">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
       </div>
       <div class="game-pdf-link__text">
-        <strong><span class="lang-en">Download the complete PDF guide — SER y ESTAR</span><span class="lang-es">Descarga la guía PDF completa — SER y ESTAR</span></strong>
-        <span><span class="lang-en">9 pages · 6 exercises · solutions · AI practice prompts · A1–B1</span><span class="lang-es">9 páginas · 6 ejercicios · soluciones · prompts de IA · A1–B1</span></span>
+        <strong><span class="lang-en">Download the complete PDF guide — La R en Español</span><span class="lang-es">Descarga la guía PDF completa — La R en Español</span></strong>
+        <span><span class="lang-en">R suave vs RR fuerte · minimal pairs · tongue twisters · exercises</span><span class="lang-es">R suave vs RR fuerte · pares mínimos · trabalenguas · ejercicios</span></span>
       </div>
       <span class="game-pdf-link__cta">
         <span class="lang-en">↓ Free PDF</span>
         <span class="lang-es">↓ PDF Gratis</span>
       </span>
     </a>
+
+    <!-- OTHER GAMES -->
+    <div class="other-games">
+      <p>
+        <span class="lang-en">Want to try a different game? Jump in whenever you like — no need to finish this one first.</span>
+        <span class="lang-es">¿Quieres probar otro juego? Empieza el que quieras — no hace falta terminar este primero.</span>
+      </p>
+      <div class="other-games__row">
+        <a href="juego-ser-estar.html">🎮 <span class="lang-en">Ser or Estar?</span><span class="lang-es">¿Ser o Estar?</span></a>
+        <a href="juego-presentarte.html">🎮 <span class="lang-en">Introduce Yourself</span><span class="lang-es">Preséntate en Español</span></a>
+        <a href="juego-gustar.html">🎮 <span class="lang-en">Catch the Agreement</span><span class="lang-es">Atrapa la Concordancia</span></a>
+        <a href="juego-genero.html">🎮 <span class="lang-en">The Agreement Reel</span><span class="lang-es">El Carrete de la Concordancia</span></a>
+        <a href="juego-cd-prep-a.html">🎮 <span class="lang-en">The Direct Object Conveyor</span><span class="lang-es">La Cinta del CD</span></a>
+        <a href="juego-desde.html">🎮 <span class="lang-en">The Timeline</span><span class="lang-es">La Línea del Tiempo</span></a>
+        <a href="juego-por-para.html">🎮 <span class="lang-en">The Preposition Dartboard</span><span class="lang-es">La Diana de las Preposiciones</span></a>
+        <a href="juego-profesiones.html">🎮 <span class="lang-en">The Profession Elevator</span><span class="lang-es">El Ascensor de las Profesiones</span></a>
+        <a href="juego-ver-mirar.html">🎮 <span class="lang-en">The Camera Lens</span><span class="lang-es">El Objetivo de la Cámara</span></a>
+        <a href="juego-mundo-laboral.html">🎮 <span class="lang-en">The Work Time Clock</span><span class="lang-es">La Ponchadora del Trabajo</span></a>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- ── GAME MODAL ─────────────────────────────── -->
+<!-- ── GAME MODAL ──────────────────────────────── -->
 <div id="game-modal" class="game-modal" role="dialog" aria-modal="true">
   <div class="gm-box">
     <div class="gm-header">
@@ -219,18 +220,8 @@
   </div>
 </div>
 
-<script src="i18n.js?v=8"></script>
+<script src="i18n.js?v=9"></script>
 <script src="games.js?v=35"></script>
-<script>
-  // Auto-open game if URL has ?play=serEstar or #serEstar
-  document.addEventListener('DOMContentLoaded', () => {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('autoplay') === '1' || window.location.hash === '#jugar') {
-      setTimeout(() => playSerEstar(), 600);
-    }
-  });
-</script>
 <script src="search.js?v=4"></script>
 </body>
 </html>
-
