@@ -979,6 +979,15 @@ body.is-spanish .lang-en-block { display: none; }
 .pf-btn.pf-wrong .pf-btn-n { background: #C8102E; }
 .pf-note { font-size: 13px; color: #4D4C5C; background: #F9F9FB; border-radius: 8px; padding: 8px 12px; margin-top: 6px; }
 
+/* ── GAME PAGES · BACK TO ALL GAMES LINK ── */
+.game-hero__back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Figtree', sans-serif; font-size: 14px; font-weight: 600; color: #4D4C5C;
+  text-decoration: none; margin-bottom: 22px; transition: color 0.15s, transform 0.15s;
+}
+.game-hero__back:hover { color: #121117; transform: translateX(-2px); }
+.game-hero__back svg { flex-shrink: 0; }
+
 /* ─── GUARANTEE ──────────────────────────── */
 .guarantee { background: #D4920A; padding: 48px 24px; text-align: center; }
 .guarantee__heading {
