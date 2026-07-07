@@ -1687,14 +1687,14 @@ function cdNext() {
 ══════════════════════════════════════════════ */
 
 const DESDE_ITEMS = [
-  { es:'Vivo en Barcelona ___ 2020.',              correct:'DESDE',       full:'Vivo en Barcelona desde 2020.',              ongoing:true,  fill:94 },
-  { es:'Trabajo en esta empresa ___ marzo.',       correct:'DESDE',       full:'Trabajo en esta empresa desde marzo.',       ongoing:true,  fill:88 },
-  { es:'Estudio español ___ 2019.',                correct:'DESDE',       full:'Estudio español desde 2019.',                ongoing:true,  fill:96 },
-  { es:'Vivo en esta ciudad ___ el verano pasado.',correct:'DESDE',       full:'Vivo en esta ciudad desde el verano pasado.',ongoing:true,  fill:82 },
-  { es:'Vivo en Barcelona ___ cinco años.',        correct:'DESDE HACE',  full:'Vivo en Barcelona desde hace cinco años.',   ongoing:true,  fill:90 },
-  { es:'Trabajo en esta empresa ___ ocho meses.',  correct:'DESDE HACE',  full:'Trabajo en esta empresa desde hace ocho meses.', ongoing:true, fill:72 },
-  { es:'Estudio español ___ tres años.',           correct:'DESDE HACE',  full:'Estudio español desde hace tres años.',      ongoing:true,  fill:78 },
-  { es:'Conozco a Laura ___ diez años.',           correct:'DESDE HACE',  full:'Conozco a Laura desde hace diez años.',      ongoing:true,  fill:97 },
+  { es:'Vivo en Barcelona ___ 2020.',              correct:'DESDE',       full:'Vivo en Barcelona desde 2020.',              ongoing:true,  fill:100 },
+  { es:'Trabajo en esta empresa ___ marzo.',       correct:'DESDE',       full:'Trabajo en esta empresa desde marzo.',       ongoing:true,  fill:100 },
+  { es:'Estudio español ___ 2019.',                correct:'DESDE',       full:'Estudio español desde 2019.',                ongoing:true,  fill:100 },
+  { es:'Vivo en esta ciudad ___ el verano pasado.',correct:'DESDE',       full:'Vivo en esta ciudad desde el verano pasado.',ongoing:true,  fill:100 },
+  { es:'Vivo en Barcelona ___ cinco años.',        correct:'DESDE HACE',  full:'Vivo en Barcelona desde hace cinco años.',   ongoing:true,  fill:100 },
+  { es:'Trabajo en esta empresa ___ ocho meses.',  correct:'DESDE HACE',  full:'Trabajo en esta empresa desde hace ocho meses.', ongoing:true, fill:100 },
+  { es:'Estudio español ___ tres años.',           correct:'DESDE HACE',  full:'Estudio español desde hace tres años.',      ongoing:true,  fill:100 },
+  { es:'Conozco a Laura ___ diez años.',           correct:'DESDE HACE',  full:'Conozco a Laura desde hace diez años.',      ongoing:true,  fill:100 },
   { es:'Estudié piano ___ seis años.',             correct:'DURANTE',     full:'Estudié piano durante seis años.',           ongoing:false, fill:55 },
   { es:'Trabajé en esa empresa ___ dos años.',     correct:'DURANTE',     full:'Trabajé en esa empresa durante dos años.',   ongoing:false, fill:40 },
   { es:'Viví en Londres ___ cuatro años.',         correct:'DURANTE',     full:'Viví en Londres durante cuatro años.',       ongoing:false, fill:50 },
