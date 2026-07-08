@@ -57,7 +57,18 @@
     .game-pdf-link__text strong { display: block; font-size: 16px; color: #121117; margin-bottom: 2px; }
     .game-pdf-link__text span { font-size: 14px; color: #9B9AAB; }
     .game-pdf-link__cta { margin-left: auto; font-size: 14px; font-weight: 700; color: #3DDABE; white-space: nowrap; }
-  </style>
+  
+    @media (max-width: 640px) {
+      .game-hero { padding: 48px 20px 40px; }
+      .game-hero__heading { font-size: 32px; }
+      .game-hero__sub { font-size: 17px; }
+      .game-hero__cta { padding: 14px 28px; font-size: 16px; }
+      .game-info { padding: 40px 20px; }
+      .game-info__grid { grid-template-columns: 1fr; gap: 16px; }
+      .game-pdf-link { flex-wrap: wrap; }
+      .game-pdf-link__cta { margin-left: 0; }
+    }
+</style>
 </head>
 <body>
 

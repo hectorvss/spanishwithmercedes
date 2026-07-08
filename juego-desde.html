@@ -69,7 +69,18 @@
       border: 1.5px solid #DCDCE5; border-radius: 20px; text-decoration: none;
       color: #121117; font-size: 13px; font-weight: 600;
     }
-  </style>
+  
+    @media (max-width: 640px) {
+      .game-hero { padding: 48px 20px 40px; }
+      .game-hero__heading { font-size: 32px; }
+      .game-hero__sub { font-size: 17px; }
+      .game-hero__cta { padding: 14px 28px; font-size: 16px; }
+      .game-info { padding: 40px 20px; }
+      .game-info__grid { grid-template-columns: 1fr; gap: 16px; }
+      .game-pdf-link { flex-wrap: wrap; }
+      .game-pdf-link__cta { margin-left: 0; }
+    }
+</style>
 </head>
 <body>
 
