@@ -384,7 +384,7 @@ function fcAnswer(ok) {
 function playSerEstar() {
   currentGameFn = playSerEstar;
   const lang = L();
-  const title = lang === 'es' ? '¿Ser o Estar?' : 'Ser or Estar?';
+  const title = lang === 'es' ? '¿Ser o estar?' : 'Ser or Estar?';
   _seSelectLevel(lang, title);
 }
 
@@ -418,7 +418,7 @@ function _seSelectLevel(lang, title) {
 
 function startSELevel(key) {
   const lang = L();
-  const title = lang === 'es' ? '¿Ser o Estar?' : 'Ser or Estar?';
+  const title = lang === 'es' ? '¿Ser o estar?' : 'Ser or Estar?';
   const qs = _shuffleOpts([...SE_LEVELS[key].qs]);
   GS = { key, qs, idx: 0, correct: 0, answered: false };
   _renderSE(lang, title);
@@ -472,7 +472,7 @@ function answerSE(choiceIdx) {
 function seNext() {
   const lang = L();
   GS.idx++; GS.answered = false;
-  _renderSE(lang, lang==='es'?'¿Ser o Estar?':'Ser or Estar?');
+  _renderSE(lang, lang==='es'?'¿Ser o estar?':'Ser or Estar?');
 }
 
 function _seResults(correct, total, key, lang, title) {
@@ -845,7 +845,7 @@ const PRES_LEVELS = {
 function playPresentarse() {
   currentGameFn = playPresentarse;
   const lang = L();
-  const title = lang === 'es' ? 'Preséntate en Español' : 'Introduce Yourself';
+  const title = lang === 'es' ? 'Preséntate en español' : 'Introduce Yourself';
   _presSelectLevel(lang, title);
 }
 
@@ -878,7 +878,7 @@ function _presSelectLevel(lang, title) {
 
 function startPresLevel(key) {
   const lang = L();
-  const title = lang === 'es' ? 'Preséntate en Español' : 'Introduce Yourself';
+  const title = lang === 'es' ? 'Preséntate en español' : 'Introduce Yourself';
   const qs = _shuffleOpts([...PRES_LEVELS[key].qs]);
   GS = { key, qs, idx: 0, correct: 0, answered: false };
   _renderPres(lang, title);
@@ -929,7 +929,7 @@ function answerPres(choiceIdx) {
 function presNext() {
   const lang = L();
   GS.idx++; GS.answered = false;
-  _renderPres(lang, lang==='es'?'Preséntate en Español':'Introduce Yourself');
+  _renderPres(lang, lang==='es'?'Preséntate en español':'Introduce Yourself');
 }
 
 function _presResults(correct, total, key, lang, title) {
@@ -1466,7 +1466,7 @@ const GUSTAR_ITEMS = [
 function playGustar() {
   currentGameFn = playGustar;
   const lang = L();
-  const title = lang==='es' ? 'Atrapa la Concordancia' : 'Catch the Agreement';
+  const title = lang==='es' ? 'Atrapa la concordancia' : 'Catch the Agreement';
   // Interleave singular/plural items so they alternate instead of coming
   // in two clumped blocks (a plain shuffle can randomly group them).
   GS = { items: _interleaveByGroup(GUSTAR_ITEMS, i => i.plural).slice(0, 12), idx: 0, correct: 0, total: 12, answered: false };
@@ -1475,7 +1475,7 @@ function playGustar() {
 
 function _renderGustarRound() {
   const lang = L();
-  const title = lang==='es' ? 'Atrapa la Concordancia' : 'Catch the Agreement';
+  const title = lang==='es' ? 'Atrapa la concordancia' : 'Catch the Agreement';
   const { items, idx, correct, total } = GS;
   if (idx >= total) { _end(correct, total, title); return; }
   const item = items[idx];
@@ -1570,14 +1570,14 @@ const GENERO_ITEMS = [
 function playGenero() {
   currentGameFn = playGenero;
   const lang = L();
-  const title = lang==='es' ? 'El Carrete de la Concordancia' : 'The Agreement Reel';
+  const title = lang==='es' ? 'El carrete de la concordancia' : 'The Agreement Reel';
   GS = { items: _shuffle(GENERO_ITEMS), idx: 0, correct: 0, total: GENERO_ITEMS.length, answered: false, spun: false };
   _renderGeneroRound();
 }
 
 function _renderGeneroRound() {
   const lang = L();
-  const title = lang==='es' ? 'El Carrete de la Concordancia' : 'The Agreement Reel';
+  const title = lang==='es' ? 'El carrete de la concordancia' : 'The Agreement Reel';
   const { items, idx, correct, total } = GS;
   if (idx >= total) { _end(correct, total, title); return; }
   const item = items[idx];
@@ -1666,14 +1666,14 @@ const CD_ITEMS = [
 function playCD() {
   currentGameFn = playCD;
   const lang = L();
-  const title = lang==='es' ? 'La Cinta del CD' : 'The Direct Object Conveyor';
+  const title = lang==='es' ? 'La cinta del CD' : 'The Direct Object Conveyor';
   GS = { items: _shuffle(CD_ITEMS).slice(0, 12), idx: 0, correct: 0, total: 12, answered: false };
   _renderCDRound();
 }
 
 function _renderCDRound() {
   const lang = L();
-  const title = lang==='es' ? 'La Cinta del CD' : 'The Direct Object Conveyor';
+  const title = lang==='es' ? 'La cinta del CD' : 'The Direct Object Conveyor';
   const { items, idx, correct, total } = GS;
   if (idx >= total) { _end(correct, total, title); return; }
   const item = items[idx];
@@ -1751,14 +1751,14 @@ const DESDE_ITEMS = [
 function playDesde() {
   currentGameFn = playDesde;
   const lang = L();
-  const title = lang==='es' ? 'La Línea del Tiempo' : 'The Timeline';
+  const title = lang==='es' ? 'La línea del tiempo' : 'The Timeline';
   GS = { items: _shuffle(DESDE_ITEMS), idx: 0, correct: 0, total: DESDE_ITEMS.length, answered: false };
   _renderDesdeRound();
 }
 
 function _renderDesdeRound() {
   const lang = L();
-  const title = lang==='es' ? 'La Línea del Tiempo' : 'The Timeline';
+  const title = lang==='es' ? 'La línea del tiempo' : 'The Timeline';
   const { items, idx, correct, total } = GS;
   if (idx >= total) { _end(correct, total, title); return; }
   const item = items[idx];
@@ -1860,14 +1860,14 @@ const PP_TARGETS = [
 function playPorPara() {
   currentGameFn = playPorPara;
   const lang = L();
-  const title = lang==='es' ? 'La Diana de las Preposiciones' : 'The Preposition Dartboard';
+  const title = lang==='es' ? 'La diana de las preposiciones' : 'The Preposition Dartboard';
   GS = { items: _shuffle(PP_ITEMS), idx: 0, correct: 0, total: PP_ITEMS.length, answered: false };
   _renderPPRound();
 }
 
 function _renderPPRound() {
   const lang = L();
-  const title = lang==='es' ? 'La Diana de las Preposiciones' : 'The Preposition Dartboard';
+  const title = lang==='es' ? 'La diana de las preposiciones' : 'The Preposition Dartboard';
   const { items, idx, correct, total } = GS;
   if (idx >= total) { _end(correct, total, title); return; }
   const item = items[idx];
@@ -1965,14 +1965,14 @@ const PROF_ITEMS = [
 function playProfesiones() {
   currentGameFn = playProfesiones;
   const lang = L();
-  const title = lang==='es' ? 'El Ascensor de las Profesiones' : 'The Profession Elevator';
+  const title = lang==='es' ? 'El ascensor de las profesiones' : 'The Profession Elevator';
   GS = { items: _shuffle(PROF_ITEMS), idx: 0, correct: 0, total: PROF_ITEMS.length, answered: false };
   _renderProfRound();
 }
 
 function _renderProfRound() {
   const lang = L();
-  const title = lang==='es' ? 'El Ascensor de las Profesiones' : 'The Profession Elevator';
+  const title = lang==='es' ? 'El ascensor de las profesiones' : 'The Profession Elevator';
   const { items, idx, correct, total } = GS;
   if (idx >= total) { _end(correct, total, title); return; }
   const item = items[idx];
@@ -2093,14 +2093,14 @@ const VM_ITEMS = [
 function playVerMirar() {
   currentGameFn = playVerMirar;
   const lang = L();
-  const title = lang==='es' ? 'El Objetivo de la Cámara' : 'The Camera Lens';
+  const title = lang==='es' ? 'El objetivo de la cámara' : 'The Camera Lens';
   GS = { items: _shuffle(VM_ITEMS), idx: 0, correct: 0, total: VM_ITEMS.length, answered: false };
   _renderVMRound();
 }
 
 function _renderVMRound() {
   const lang = L();
-  const title = lang==='es' ? 'El Objetivo de la Cámara' : 'The Camera Lens';
+  const title = lang==='es' ? 'El objetivo de la cámara' : 'The Camera Lens';
   const { items, idx, correct, total } = GS;
   if (idx >= total) { _end(correct, total, title); return; }
   const item = items[idx];
@@ -2221,14 +2221,14 @@ const WK_ITEMS = [
 function playTrabajo() {
   currentGameFn = playTrabajo;
   const lang = L();
-  const title = lang==='es' ? 'La Ponchadora del Trabajo' : 'The Work Time Clock';
+  const title = lang==='es' ? 'La ponchadora del trabajo' : 'The Work Time Clock';
   GS = { items: _shuffle(WK_ITEMS), idx: 0, correct: 0, total: WK_ITEMS.length, answered: false };
   _renderWKRound();
 }
 
 function _renderWKRound() {
   const lang = L();
-  const title = lang==='es' ? 'La Ponchadora del Trabajo' : 'The Work Time Clock';
+  const title = lang==='es' ? 'La ponchadora del trabajo' : 'The Work Time Clock';
   const { items, idx, correct, total } = GS;
   if (idx >= total) { _end(correct, total, title); return; }
   const item = items[idx];
@@ -2328,14 +2328,14 @@ const RR_ITEMS = [
 function playSonidoR() {
   currentGameFn = playSonidoR;
   const lang = L();
-  const title = lang==='es' ? 'El Vibrómetro' : 'The Vibration Meter';
+  const title = lang==='es' ? 'El vibrómetro' : 'The Vibration Meter';
   GS = { items: _shuffle(RR_ITEMS), idx: 0, correct: 0, total: RR_ITEMS.length, answered: false };
   _renderRRRound();
 }
 
 function _renderRRRound() {
   const lang = L();
-  const title = lang==='es' ? 'El Vibrómetro' : 'The Vibration Meter';
+  const title = lang==='es' ? 'El vibrómetro' : 'The Vibration Meter';
   const { items, idx, correct, total } = GS;
   if (idx >= total) { _end(correct, total, title); return; }
   const item = items[idx];
@@ -2452,14 +2452,15 @@ const CN_ITEMS = [
 function playGeneroII() {
   currentGameFn = playGeneroII;
   const lang = L();
-  const title = lang==='es' ? 'La Moneda del Género' : 'The Gender Coin';
-  GS = { items: _shuffle(CN_ITEMS), idx: 0, correct: 0, total: CN_ITEMS.length, answered: false };
+  const title = lang==='es' ? 'La moneda del género' : 'The Gender Coin';
+  // Interleave EL/LA answers so they alternate instead of coming in two clumped blocks.
+  GS = { items: _interleaveByGroup(CN_ITEMS, i => i.correct === 'LA'), idx: 0, correct: 0, total: CN_ITEMS.length, answered: false };
   _renderCNRound();
 }
 
 function _renderCNRound() {
   const lang = L();
-  const title = lang==='es' ? 'La Moneda del Género' : 'The Gender Coin';
+  const title = lang==='es' ? 'La moneda del género' : 'The Gender Coin';
   const { items, idx, correct, total } = GS;
   if (idx >= total) { _end(correct, total, title); return; }
   const item = items[idx];
@@ -2522,6 +2523,108 @@ function cnNext() {
   _renderCNRound();
 }
 
+/* ══════════════════════════════════════════════
+   GAME 20 · EL CAMBIO DE VÍAS
+   (CONSTRUCCIONES TEMPORALES — antes de que, en
+   cuanto, mientras, hasta que...) — B2. Pick the
+   correctly conjugated verb form (infinitivo,
+   indicativo or subjuntivo) and a train travels
+   down that track to its station. Tests the real
+   B2 skill: reasoning about subject and tense, not
+   just filling a gap
+══════════════════════════════════════════════ */
+
+const TK_ITEMS = [
+  { blank:'Antes de ___ (yo/salir), apagué la luz.', options:['salir','salga','salí'], correct:'salir', mood:'INFINITIVO',
+    full:'Antes de salir, apagué la luz.', note:{en:'Same subject in both parts (yo/yo) → infinitive, no "que" needed.', es:'Mismo sujeto en las dos partes (yo/yo) → infinitivo, sin "que".'} },
+  { blank:'En cuanto ___ (tú/llegar) mañana, te llamaré.', options:['llegues','llegar','llegarás'], correct:'llegues', mood:'SUBJUNTIVO',
+    full:'En cuanto llegues mañana, te llamaré.', note:{en:'A future moment that hasn\'t happened yet is never a fact → subjunctive, never future tense.', es:'Un momento futuro que todavía no ha pasado nunca es un hecho → subjuntivo, nunca futuro.'} },
+  { blank:'Mientras ___ (yo/estudiar), escuchaba música.', options:['estudiaba','estudiar','estudie'], correct:'estudiaba', mood:'INDICATIVO',
+    full:'Mientras estudiaba, escuchaba música.', note:{en:'Two simultaneous actions, already real in the past → indicative.', es:'Dos acciones simultáneas, ya reales en el pasado → indicativo.'} },
+  { blank:'Cada vez que ___ (yo/ver) esa serie, me emociono.', options:['veo','ver','vea'], correct:'veo', mood:'INDICATIVO',
+    full:'Cada vez que veo esa serie, me emociono.', note:{en:'A repeated habit, a real and known pattern → indicative.', es:'Un hábito repetido, un patrón real y conocido → indicativo.'} },
+  { blank:'Esperaré hasta que ___ (tú/terminar).', options:['termines','terminas','terminar'], correct:'termines', mood:'SUBJUNTIVO',
+    full:'Esperaré hasta que termines.', note:{en:'The finishing hasn\'t happened yet — not a fact → subjunctive.', es:'Todavía no ha terminado — no es un hecho → subjuntivo.'} },
+  { blank:'Después de ___ (nosotros/cenar), vimos una película.', options:['cenar','cenemos','cenamos'], correct:'cenar', mood:'INFINITIVO',
+    full:'Después de cenar, vimos una película.', note:{en:'Same subject in both parts (nosotros/nosotros) → infinitive, no "que".', es:'Mismo sujeto en las dos partes (nosotros/nosotros) → infinitivo, sin "que".'} },
+  { blank:'Antes de que tú ___ (salir), revisa las ventanas.', options:['salgas','sales','salir'], correct:'salgas', mood:'SUBJUNTIVO',
+    full:'Antes de que salgas, revisa las ventanas.', note:{en:'Two different subjects → "que" introduces a new clause, which needs subjunctive.', es:'Dos sujetos distintos → el "que" introduce una oración nueva, que necesita subjuntivo.'} },
+  { blank:'Después de que ellos ___ (terminar), empezó la fiesta.', options:['terminaron','terminen','terminar'], correct:'terminaron', mood:'INDICATIVO',
+    full:'Después de que terminaron, empezó la fiesta.', note:{en:'Different subjects, but it\'s already a real, completed past fact → indicative.', es:'Sujetos distintos, pero ya es un hecho real y terminado en el pasado → indicativo.'} },
+  { blank:'Una vez que ___ (nosotros/terminar) el proyecto, celebraremos.', options:['terminemos','terminamos','terminar'], correct:'terminemos', mood:'SUBJUNTIVO',
+    full:'Una vez que terminemos el proyecto, celebraremos.', note:{en:'A future moment that hasn\'t happened yet — not a fact → subjunctive.', es:'Un momento futuro que todavía no ha pasado — no es un hecho → subjuntivo.'} },
+  { blank:'A medida que ___ (yo/practicar), mejoraba mi pronunciación.', options:['practicaba','practique','practicar'], correct:'practicaba', mood:'INDICATIVO',
+    full:'A medida que practicaba, mejoraba mi pronunciación.', note:{en:'A gradual progression, already real in the past → indicative.', es:'Una progresión gradual, ya real en el pasado → indicativo.'} },
+  { blank:'En cuanto ___ (él/llegar), me llamó.', options:['llegó','llegue','llegar'], correct:'llegó', mood:'INDICATIVO',
+    full:'En cuanto llegó, me llamó.', note:{en:'It already happened — a real, completed past fact → indicative.', es:'Ya sucedió — un hecho real y terminado en el pasado → indicativo.'} },
+  { blank:'Esperé hasta que ___ (tú/llegar).', options:['llegaste','llegues','llegar'], correct:'llegaste', mood:'INDICATIVO',
+    full:'Esperé hasta que llegaste.', note:{en:'It already happened — a real, completed past fact → indicative.', es:'Ya sucedió — un hecho real y terminado en el pasado → indicativo.'} }
+];
+
+function playConectores() {
+  currentGameFn = playConectores;
+  const lang = L();
+  const title = lang==='es' ? 'El cambio de vías' : 'The Track Switch';
+  GS = { items: _shuffle(TK_ITEMS), idx: 0, correct: 0, total: TK_ITEMS.length, answered: false };
+  _renderTKRound();
+}
+
+function _renderTKRound() {
+  const lang = L();
+  const title = lang==='es' ? 'El cambio de vías' : 'The Track Switch';
+  const { items, idx, correct, total } = GS;
+  if (idx >= total) { _end(correct, total, title); return; }
+  const item = items[idx];
+  GS.answered = false;
+
+  const lanesHTML = item.options.map((opt, i) => `
+    <button class="tk-lane" data-idx="${i}" onclick="tkAnswer(${i})">
+      <span class="tk-rail"></span>
+      <span class="tk-loco" id="tk-loco-${i}">🚂</span>
+      <span class="tk-lane-label">${opt}</span>
+    </button>`).join('');
+
+  _modal(`
+    ${_progress(idx, total, correct, lang)}
+    <p class="gm-instr" style="text-align:center">${lang==='es'?'¿Infinitivo, indicativo o subjuntivo? Elige la vía correcta para el tren.':'Infinitive, indicative or subjunctive? Choose the right track for the train.'}</p>
+    <div class="gm-sentence">${item.blank}</div>
+    <div class="tk-yard">${lanesHTML}</div>
+    <div class="gm-feedback" id="gm-fb"></div>
+  `, title);
+}
+
+function tkAnswer(idx) {
+  if (GS.answered) return;
+  GS.answered = true;
+  const lang = L();
+  const item = GS.items[GS.idx];
+  const correctIdx = item.options.indexOf(item.correct);
+  const ok = idx === correctIdx;
+  if (ok) GS.correct++;
+
+  document.querySelectorAll('.tk-lane').forEach((el, i) => {
+    el.disabled = true;
+    if (i === correctIdx) el.classList.add('tk-lane--correct');
+    else if (i === idx && !ok) el.classList.add('tk-lane--wrong');
+  });
+
+  const lanes = document.querySelectorAll('.tk-lane');
+  if (lanes[correctIdx]) lanes[correctIdx].classList.add('tk-active');
+
+  setTimeout(() => {
+    document.getElementById('gm-fb').innerHTML = `
+      <span class="${ok?'fb-ok':'fb-ko'}">${ok?'✓ '+(lang==='es'?'¡Vía correcta!':'Right track!'):'✗ '+(lang==='es'?'La forma correcta es':'The correct form is')+' <strong>'+item.correct+'</strong>'}</span>
+      <div class="se-fb-sentence">${item.full}</div>
+      <div class="pf-note">${item.note[lang]}</div>
+      <button class="gm-btn gm-btn-primary gm-next-btn" onclick="tkNext()">${lang==='es'?'Siguiente →':'Next →'}</button>`;
+  }, 1150);
+}
+
+function tkNext() {
+  GS.idx++;
+  _renderTKRound();
+}
+
 /* ── EXPOSE GLOBALS ───────────────────────────── */
 Object.assign(window, {
   closeGame, restartGame, toggleGameFullscreen, flipFC, fcAnswer,
@@ -2544,6 +2647,7 @@ Object.assign(window, {
   wkAnswer, wkNext,
   rrAnswer, rrNext,
   cnAnswer, cnNext,
+  tkAnswer, tkNext,
   playFlashcards, playSerEstar, playQuiz, playFillGaps, playWordOrder, playVerbSprint, playPresentarse,
-  playRuleta, playDialogos, playGustar, playGenero, playCD, playDesde, playPorPara, playProfesiones, playVerMirar, playTrabajo, playSonidoR, playGeneroII
+  playRuleta, playDialogos, playGustar, playGenero, playCD, playDesde, playPorPara, playProfesiones, playVerMirar, playTrabajo, playSonidoR, playGeneroII, playConectores
 });

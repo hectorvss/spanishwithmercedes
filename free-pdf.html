@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=40">
+  <link rel="stylesheet" href="styles.css?v=41">
   <style>
     .pdf-grid {
       display: grid;
@@ -508,6 +508,13 @@
         <div class="pdf-card__desc"><span class="lang-en">13-page guide: LLAMARSE, SER, TENER, VIVIR — the 4 verbs that build every first conversation.</span><span class="lang-es">Guía de 13 páginas: LLAMARSE, SER, TENER, VIVIR — los 4 verbos de toda primera conversación.</span></div>
         <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
       </div>
+      <div id="card-conectores" class="pdf-card" onclick="openLesson('card-conectores')" style="border-color:#2E86AB; display:flex; flex-direction:column; cursor:pointer;">
+        <div class="pdf-card__icon" style="background:#2E86AB;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="pdf-card__level">B2 ⭐⭐⭐</div>
+        <div class="pdf-card__title"><span class="lang-en">Temporal Connectors: Infinitive, Indicative or Subjunctive</span><span class="lang-es">Las construcciones temporales: infinitivo, indicativo o subjuntivo</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">Antes de que, en cuanto, mientras, hasta que — the logic behind choosing infinitive, indicative or subjunctive, not a list to memorize.</span><span class="lang-es">Antes de que, en cuanto, mientras, hasta que — la lógica para elegir infinitivo, indicativo o subjuntivo, no una lista para memorizar.</span></div>
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
+      </div>
     </div>
   </div>
 
@@ -774,6 +781,15 @@
             es:'Todo lo necesario para tu primera conversación: los 4 verbos esenciales (LLAMARSE, SER, TENER, VIVIR), el alfabeto para deletrear tu nombre, los números para decir tu edad, la distinción tú/usted según el país, frases de supervivencia, diálogos reales y ejercicios prácticos con soluciones.'},
       pdf:'DESCARGABLES_PDF/PRESENTARSE/PRESENTARSE%20EN%20ESPAÑOL.pdf',
       game:'juego-presentarte.html'
+    },
+    'card-conectores': {
+      color:'#2E86AB', level:'B2',
+      icon:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
+      title:{en:'Temporal Connectors: Infinitive, Indicative or Subjunctive', es:'Las construcciones temporales: infinitivo, indicativo o subjuntivo'},
+      desc:{en:'The logic behind Spanish temporal connectors (antes de que, en cuanto, mientras, hasta que) — not a list to memorize, but a system to understand. Learn why Spanish sometimes needs the infinitive, and other times the subjunctive, depending on who does the action and whether it has already happened.',
+            es:'La lógica detrás de los conectores temporales en español (antes de que, en cuanto, mientras, hasta que) — no una lista para memorizar, sino un sistema para entender. Aprende por qué el español a veces necesita el infinitivo y otras veces el subjuntivo, según quién hace la acción y si ya ha ocurrido.'},
+      pdf:'DESCARGABLES_PDF/CONSTRUCCIONES%20TEMPORALES-CONECTORES/CONSTRUCCIONES_TEMPORALES_CONECTORES_B2.pdf',
+      game:'juego-conectores.html'
     },
     'card-profesiones': {
       color:'#9B59B6', level:'B1 – B2',

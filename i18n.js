@@ -183,8 +183,8 @@ const translations = {
     'games.card3.title': 'Rellena los Huecos', 'games.card3.desc': 'Completa frases reales en español y entrena tu intuición gramatical.',
     'games.card4.title': 'Ordena las Palabras', 'games.card4.desc': 'Reordena palabras mezcladas para construir frases correctas en español.',
     'games.card5.title': 'Sprint de Verbos', 'games.card5.desc': 'Conjuga verbos españoles correctamente antes de que se acabe el tiempo.',
-    'games.card6.title': '¿Ser o Estar?', 'games.card6.desc': 'El reto clásico del español. Elige el verbo correcto antes de que acabe el contador.',
-    'games.card7.title': 'Preséntate en Español', 'games.card7.desc': 'Domina LLAMARSE, SER, TENER y VIVIR. Desde las primeras palabras hasta el contexto laboral.',
+    'games.card6.title': '¿Ser o estar?', 'games.card6.desc': 'El reto clásico del español. Elige el verbo correcto antes de que acabe el contador.',
+    'games.card7.title': 'Preséntate en español', 'games.card7.desc': 'Domina LLAMARSE, SER, TENER y VIVIR. Desde las primeras palabras hasta el contexto laboral.',
     'games.play': 'Jugar ahora', 'games.coming': 'Próximamente',
     // Footer
     'footer.about': 'Acerca de', 'footer.learn': 'Aprende Español', 'footer.dele': 'DELE y Exámenes', 'footer.culture': 'Cultura y Blog',

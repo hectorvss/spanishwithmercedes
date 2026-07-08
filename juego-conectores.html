@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>La ponchadora del trabajo — Juego del mundo laboral · Spanish Lessons With Mercedes</title>
+  <title>El cambio de vías — Juego de construcciones temporales · Spanish Lessons With Mercedes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=41">
   <style>
-    .game-hero { background: #F5EDE3; padding: 64px 80px 56px; }
+    .game-hero { background: #EAF3F7; padding: 64px 80px 56px; }
     .game-hero__inner { max-width: 900px; margin: 0 auto; text-align: center; }
     .game-hero__tag {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(139,94,52,0.16); color: #6B4423;
+      background: rgba(46,134,171,0.14); color: #205F79;
       padding: 6px 16px; border-radius: 20px;
       font-size: 13px; font-weight: 700; letter-spacing: 0.5px;
       margin-bottom: 20px;
@@ -22,7 +22,7 @@
       font-family: 'Noto Sans', sans-serif; font-weight: 900;
       font-size: 44px; line-height: 1.1; color: #121117; margin-bottom: 12px;
     }
-    .game-hero__heading em { font-style: normal; color: #8B5E34; }
+    .game-hero__heading em { font-style: normal; color: #2E86AB; }
     .game-hero__sub {
       font-size: 20px; color: #4D4C5C; line-height: 1.7;
       max-width: 640px; margin: 0 auto 32px;
@@ -52,14 +52,14 @@
       text-decoration: none; color: inherit; transition: border-color 0.2s;
       background: #F9F9FB;
     }
-    .game-pdf-link:hover { border-color: #8B5E34; }
+    .game-pdf-link:hover { border-color: #2E86AB; }
     .game-pdf-link__icon {
-      width: 44px; height: 44px; background: #8B5E34; border-radius: 8px;
+      width: 44px; height: 44px; background: #2E86AB; border-radius: 8px;
       display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
     .game-pdf-link__text strong { display: block; font-size: 16px; color: #121117; margin-bottom: 2px; }
     .game-pdf-link__text span { font-size: 14px; color: #9B9AAB; }
-    .game-pdf-link__cta { margin-left: auto; font-size: 14px; font-weight: 700; color: #8B5E34; white-space: nowrap; }
+    .game-pdf-link__cta { margin-left: auto; font-size: 14px; font-weight: 700; color: #2E86AB; white-space: nowrap; }
 
     .other-games { margin-top: 32px; text-align: center; }
     .other-games p { font-size: 14px; color: #9B9AAB; margin-bottom: 14px; }
@@ -69,7 +69,7 @@
       border: 1.5px solid #DCDCE5; border-radius: 20px; text-decoration: none;
       color: #121117; font-size: 13px; font-weight: 600;
     }
-  
+
     @media (max-width: 640px) {
       .game-hero { padding: 48px 20px 40px; }
       .game-hero__heading { font-size: 32px; }
@@ -80,7 +80,7 @@
       .game-pdf-link { flex-wrap: wrap; }
       .game-pdf-link__cta { margin-left: 0; }
     }
-</style>
+  </style>
 </head>
 <body>
 
@@ -124,14 +124,14 @@
       <span class="lang-es">Juego Interactivo</span>
     </div>
     <h1 class="game-hero__heading">
-      <span class="lang-en">The Work <em>Time Clock</em></span>
-      <span class="lang-es">La ponchadora del <em>trabajo</em></span>
+      <span class="lang-en">The Track <em>Switch</em></span>
+      <span class="lang-es">El cambio de <em>vías</em></span>
     </h1>
     <p class="game-hero__sub">
-      <span class="lang-en">Choose SER, TRABAJAR EN, TRABAJAR COMO or DEDICARSE A, then watch your card slide into the time clock and get stamped right or wrong.</span>
-      <span class="lang-es">Elige SER, TRABAJAR EN, TRABAJAR COMO o DEDICARSE A y observa cómo tu tarjeta entra en la ponchadora y queda marcada como correcta o incorrecta.</span>
+      <span class="lang-en">Choose the correctly conjugated verb — infinitive, indicative or subjunctive — and watch a train travel down the right track to its station.</span>
+      <span class="lang-es">Elige el verbo bien conjugado — infinitivo, indicativo o subjuntivo — y observa cómo un tren viaja por la vía correcta hasta su estación.</span>
     </p>
-    <button class="game-hero__cta" onclick="playTrabajo()">
+    <button class="game-hero__cta" onclick="playConectores()">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
       <span class="lang-en">Start game</span>
       <span class="lang-es">Empezar juego</span>
@@ -144,48 +144,48 @@
   <div class="game-info__inner">
     <div class="game-info__grid">
       <div class="game-info__card">
-        <div class="game-info__icon">🕰️</div>
+        <div class="game-info__icon">🚂</div>
         <div class="game-info__title">
-          <span class="lang-en">A real punch clock</span>
-          <span class="lang-es">Una ponchadora de verdad</span>
+          <span class="lang-en">A train that really moves</span>
+          <span class="lang-es">Un tren que se mueve de verdad</span>
         </div>
         <div class="game-info__desc">
-          <span class="lang-en">Your card slides into the machine and a stamp arm slams down to mark it right or wrong.</span>
-          <span class="lang-es">Tu tarjeta se desliza dentro de la máquina y un brazo de sello cae para marcarla correcta o incorrecta.</span>
+          <span class="lang-en">Each track leads to a different verb form. Pick one and watch the train travel there — arriving safely, or missing the station.</span>
+          <span class="lang-es">Cada vía lleva a una forma verbal distinta. Elige una y observa cómo viaja el tren — llegando bien, o fallando la estación.</span>
         </div>
       </div>
       <div class="game-info__card">
-        <div class="game-info__icon">🗂️</div>
+        <div class="game-info__icon">🧠</div>
         <div class="game-info__title">
-          <span class="lang-en">4 verbs, 4 structures</span>
-          <span class="lang-es">4 verbos, 4 estructuras</span>
+          <span class="lang-en">Real B2 reasoning</span>
+          <span class="lang-es">Razonamiento real de nivel B2</span>
         </div>
         <div class="game-info__desc">
-          <span class="lang-en">SER + profession, TRABAJAR EN + place, TRABAJAR COMO + role, DEDICARSE A + sector — none of them are interchangeable.</span>
-          <span class="lang-es">SER + profesión, TRABAJAR EN + lugar, TRABAJAR COMO + puesto, DEDICARSE A + sector — no son intercambiables.</span>
+          <span class="lang-en">Same subject or different? Already a fact, or a future not yet lived? Those two questions decide infinitive, indicative or subjunctive.</span>
+          <span class="lang-es">¿Mismo sujeto o distinto? ¿Ya es un hecho, o un futuro todavía no vivido? Esas dos preguntas deciden entre infinitivo, indicativo o subjuntivo.</span>
         </div>
       </div>
       <div class="game-info__card">
-        <div class="game-info__icon">💼</div>
+        <div class="game-info__icon">🔗</div>
         <div class="game-info__title">
           <span class="lang-en">12 real sentences</span>
           <span class="lang-es">12 frases reales</span>
         </div>
         <div class="game-info__desc">
-          <span class="lang-en">From "soy ingeniero" to "se dedica a la hostelería" — the exact structures explained in the PDF.</span>
-          <span class="lang-es">Desde "soy ingeniero" hasta "se dedica a la hostelería" — las estructuras exactas explicadas en el PDF.</span>
+          <span class="lang-en">Antes de que, en cuanto, mientras, hasta que, una vez que — the exact connectors and contrasts from the PDF.</span>
+          <span class="lang-es">Antes de que, en cuanto, mientras, hasta que, una vez que — los conectores y contrastes exactos del PDF.</span>
         </div>
       </div>
     </div>
 
     <!-- PDF LINK -->
-    <a class="game-pdf-link" href="DESCARGABLES_PDF/EL MUNDO LABORAL/HABLEMOS_DEL_MUNDO_LABORAL_DESCARGABLE.pdf" target="_blank" download>
+    <a class="game-pdf-link" href="DESCARGABLES_PDF/CONSTRUCCIONES TEMPORALES-CONECTORES/CONSTRUCCIONES_TEMPORALES_CONECTORES_B2.pdf" target="_blank" download>
       <div class="game-pdf-link__icon">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
       </div>
       <div class="game-pdf-link__text">
-        <strong><span class="lang-en">Download the complete PDF guide — Hablemos del Mundo Laboral</span><span class="lang-es">Descarga la guía PDF completa — Hablemos del Mundo Laboral</span></strong>
-        <span><span class="lang-en">Work verbs · types of jobs · lexical collocations · exercises · B1–B2</span><span class="lang-es">Verbos del trabajo · tipos de trabajo · combinaciones léxicas · ejercicios · B1–B2</span></span>
+        <strong><span class="lang-en">Download the complete PDF guide — Temporal Connectors</span><span class="lang-es">Descarga la guía PDF completa — Las construcciones temporales</span></strong>
+        <span><span class="lang-en">Infinitive vs. indicative vs. subjunctive · same subject rule · exercises · B2</span><span class="lang-es">Infinitivo vs. indicativo vs. subjuntivo · regla del mismo sujeto · ejercicios · B2</span></span>
       </div>
       <span class="game-pdf-link__cta">
         <span class="lang-en">↓ Free PDF</span>
@@ -209,9 +209,9 @@
         <a href="juego-por-para.html">🎮 <span class="lang-en">The Preposition Dartboard</span><span class="lang-es">La diana de las preposiciones</span></a>
         <a href="juego-profesiones.html">🎮 <span class="lang-en">The Profession Elevator</span><span class="lang-es">El ascensor de las profesiones</span></a>
         <a href="juego-ver-mirar.html">🎮 <span class="lang-en">The Camera Lens</span><span class="lang-es">El objetivo de la cámara</span></a>
+        <a href="juego-mundo-laboral.html">🎮 <span class="lang-en">The Work Time Clock</span><span class="lang-es">La ponchadora del trabajo</span></a>
         <a href="juego-sonido-r.html">🎮 <span class="lang-en">The Vibration Meter</span><span class="lang-es">El vibrómetro</span></a>
-              <a href="juego-genero-ii.html">🎮 <span class="lang-en">The Gender Coin</span><span class="lang-es">La moneda del género</span></a>
-              <a href="juego-conectores.html">🎮 <span class="lang-en">The Track Switch</span><span class="lang-es">El cambio de vías</span></a>
+        <a href="juego-genero-ii.html">🎮 <span class="lang-en">The Gender Coin</span><span class="lang-es">La moneda del género</span></a>
       </div>
     </div>
   </div>
