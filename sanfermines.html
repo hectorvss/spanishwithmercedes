@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>San Fermín: aprender español corriendo — Spanish Lessons With Mercedes</title>
+  <link rel="stylesheet" href="styles.css?v=41">
+  <script>
+    const savedLang = localStorage.getItem('slwm_lang') || 'en';
+    if (savedLang === 'es') {
+      document.documentElement.classList.add('is-spanish');
+      document.documentElement.style.colorScheme = 'light';
+    }
+  </script>
+  <style>
+    html { font-size: 16px; }
+    .lang-en { display: inline; font-style: normal; }
+    .lang-es { display: none; font-style: normal; }
+    html.is-spanish .lang-en { display: none !important; }
+    html.is-spanish .lang-es { display: inline !important; font-style: normal; }
+    body { margin: 0; padding: 0; }
+
+    .article-hero {
+      background: #fff; padding: 60px 40px 48px; border-bottom: 2px solid #D4920A;
+    }
+    .article-hero__inner { max-width: 900px; margin: 0 auto; }
+    .article-hero__breadcrumb {
+      font-size: 13px; color: #9B9AAB; margin-bottom: 20px;
+      text-transform: uppercase; letter-spacing: 1px;
+    }
+    .article-hero__breadcrumb a { color: #6B6A7A; text-decoration: none; }
+    .article-hero__breadcrumb a:hover { color: #D4920A; }
+    .article-hero__tag {
+      display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: 0.8px;
+      text-transform: uppercase; color: #D4920A; margin-bottom: 14px;
+    }
+    .article-hero__title {
+      font-family: 'Noto Sans', sans-serif; font-weight: 900; font-size: 44px;
+      line-height: 1.15; color: #121117; margin: 0 0 16px;
+    }
+    .article-hero__subtitle {
+      font-size: 18px; color: #4D4C5C; line-height: 1.7; margin: 0; max-width: 70ch;
+    }
+
+    .article-guide { background: #fff; padding: 0; }
+    .article-guide__container { max-width: 780px; margin: 0 auto; padding: 56px 24px 72px; }
+    .article-guide__section { margin-bottom: 56px; }
+    .article-guide__section:last-child { margin-bottom: 0; }
+    .article-guide__heading {
+      font-family: 'Noto Sans', sans-serif; font-size: 26px; font-weight: 800;
+      color: #1C2A4A; margin-bottom: 20px; line-height: 1.25;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .article-guide__heading::before {
+      content: ''; width: 4px; height: 24px; background: #D4920A; border-radius: 2px; flex-shrink: 0;
+    }
+    .article-guide__section > p {
+      font-size: 17px; line-height: 1.8; color: #2d3440; margin: 0 0 20px; max-width: 68ch;
+    }
+    .article-guide__section > p:last-child { margin-bottom: 0; }
+    .article-guide__section h3 {
+      font-family: 'Noto Sans', sans-serif; font-size: 19px; font-weight: 800;
+      color: #102652; margin: 28px 0 10px;
+    }
+    .article-guide__section h3:first-child { margin-top: 0; }
+
+    .article-guide__themes { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 12px; }
+    .article-guide__themes li {
+      padding: 14px 18px; font-size: 15px; line-height: 1.65; color: #3f4654;
+      background: #FAFAFA; border-radius: 8px; border: 1px solid #F0F0F0;
+      border-left: 3px solid #D4920A;
+    }
+
+    .article-quote {
+      margin: 28px 0; padding: 20px 24px; border-left: 3px solid #D4920A;
+      background: #FAFAFA; border-radius: 0 8px 8px 0;
+    }
+    .article-quote p {
+      font-size: 17px; font-style: italic; color: #1C2A4A; line-height: 1.7; margin: 0 0 8px !important;
+    }
+    .article-quote cite {
+      font-size: 13px; font-style: normal; color: #9B9AAB; font-weight: 600;
+    }
+
+    .article-guide__vocab { display: grid; gap: 14px; margin-top: 20px; }
+    .vocab-item {
+      padding: 16px 20px; background: #FAFAFA; border-radius: 8px;
+      border: 1px solid #F0F0F0; border-left: 3px solid #D4920A;
+    }
+    .vocab-item strong { display: block; font-size: 15px; font-weight: 800; color: #1C2A4A; margin-bottom: 4px; }
+    .vocab-item span { display: block; font-size: 14px; color: #6B6A7A; line-height: 1.6; }
+
+    .article-guide__section--final {
+      background: linear-gradient(135deg, rgba(212,146,10,0.05) 0%, rgba(43,191,168,0.05) 100%);
+      padding: 32px; border-radius: 12px; border: 1px solid #D4920A; border-left: 4px solid #D4920A;
+    }
+    .article-guide__section--final h3 { font-size: 16px; margin: 0 0 4px; color: #1C2A4A; }
+    .article-guide__section--final p { font-size: 15px; color: #4D4C5C; line-height: 1.7; margin: 0 0 20px !important; }
+    .article-guide__resources { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+    .article-guide__resources li { font-size: 15px; line-height: 1.6; color: #2d3440; }
+    .article-guide__resources li strong { display: block; color: #1C2A4A; margin-bottom: 2px; }
+    .article-guide__credit {
+      margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(212,146,10,0.25);
+      font-size: 13px; color: #9B9AAB; font-style: italic;
+    }
+
+    @media (max-width: 640px) {
+      .article-hero { padding: 40px 20px 36px; }
+      .article-hero__title { font-size: 30px; }
+      .article-hero__subtitle { font-size: 16px; }
+      .article-guide__container { padding: 40px 18px 56px; }
+      .article-guide__heading { font-size: 21px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header__left">
+    <a class="header__logo" href="index.html">
+      <img src="logo.png" alt="Spanish Lessons with Mercedes" class="header__logo-img">
+    </a>
+    <nav class="header__nav">
+      <div class="nav-item-dropdown">
+        <a href="index.html" class="nav-item-trigger" data-i18n="nav.home">Home</a>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="videos.html" class="nav-item-trigger" data-i18n="nav.videos">Videos</a>
+        <div class="nav-dropdown">
+          <a href="videos.html#a1">A1</a><a href="videos.html#a2">A2</a><a href="videos.html#b1">B1</a><a href="videos.html#b2">B2</a><a href="videos.html#c1">C1</a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="free-pdf.html" class="nav-item-trigger" data-i18n="nav.pdf">Free PDF</a>
+        <div class="nav-dropdown">
+          <a href="free-pdf.html#lessons"><span class="lang-en">Lessons</span><span class="lang-es">Lecciones</span></a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="dele.html" class="nav-item-trigger" data-i18n="nav.dele">DELE</a>
+        <div class="nav-dropdown">
+          <a href="dele.html#a2">DELE A2</a><a href="dele.html#b1">DELE B1</a><a href="dele.html#b2">DELE B2</a><a href="dele.html#c1">DELE C1</a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="culture.html" class="nav-item-trigger" data-i18n="nav.culture">Culture</a>
+        <div class="nav-dropdown">
+          <a href="culture.html#literatura"><span class="lang-en">Literature</span><span class="lang-es">Literatura</span></a>
+          <a href="culture.html#cine"><span class="lang-en">Cinema</span><span class="lang-es">Cine</span></a>
+          <a href="culture.html#musica"><span class="lang-en">Music</span><span class="lang-es">Música</span></a>
+          <a href="culture.html#gastronomia"><span class="lang-en">Gastronomy</span><span class="lang-es">Gastronomía</span></a>
+          <a href="culture.html#fiestas"><span class="lang-en">Celebrations</span><span class="lang-es">Fiestas</span></a>
+        </div>
+      </div>
+      <div class="nav-item-dropdown">
+        <a href="juegos.html" class="nav-item-trigger" data-i18n="nav.games">Games</a>
+        <div class="nav-dropdown"><a href="juegos.html">Play Games</a></div>
+      </div>
+    </nav>
+  </div>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="header__right">
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+    </div>
+    <div id="headerSearch">
+      <div class="header__search-wrap">
+        <input type="text" id="searchInput" placeholder="Buscar lecciones..." autocomplete="off" spellcheck="false">
+        <svg class="header__search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+      <div id="searchResults"></div>
+    </div>
+  </div>
+</header>
+
+<section class="article-hero">
+  <div class="article-hero__inner">
+    <div class="article-hero__breadcrumb">
+      <a href="index.html"><span class="lang-en">Home</span><span class="lang-es">Inicio</span></a> /
+      <a href="culture.html"><span class="lang-en">Culture</span><span class="lang-es">Cultura</span></a> /
+      <a href="culture.html#fiestas"><span class="lang-en">Festivals</span><span class="lang-es">Fiestas</span></a>
+    </div>
+    <div class="article-hero__tag"><span class="lang-en">Festivals of Spain</span><span class="lang-es">Fiestas de España</span></div>
+    <h1 class="article-hero__title">
+      <span class="lang-en">San Fermín: your chance to learn Spanish on the run (literally)</span>
+      <span class="lang-es">San Fermín: tu oportunidad para aprender español corriendo (literalmente)</span>
+    </h1>
+    <p class="article-hero__subtitle">
+      <span class="lang-en">Every July 6th, Pamplona is transformed. For nine days, the whole city moves to the rhythm of the running of the bulls, live music and the red neckerchief. Beyond the party, San Fermín is a full immersion in Spanish — with all its intensity, its humour and its very own vocabulary.</span>
+      <span class="lang-es">Cada 6 de julio, Pamplona se transforma. Durante nueve días, la ciudad entera vive al ritmo de los encierros, la música y el pañuelo rojo. Pero más allá de la fiesta, San Fermín es una inmersión total en español — con toda su intensidad, su humor y su vocabulario propio.</span>
+    </p>
+  </div>
+</section>
+
+<div class="article-guide">
+  <div class="article-guide__container">
+
+    <div class="article-guide__section">
+      <h2 class="article-guide__heading"><span class="lang-en">Why is San Fermín ideal for learning Spanish?</span><span class="lang-es">¿Por qué San Fermín es ideal para aprender español?</span></h2>
+      <ul class="article-guide__themes">
+        <li><span class="lang-en">Direct contact with native speakers from all over Spain, not only from Navarre</span><span class="lang-es">Contacto directo con hablantes nativos de toda España, no solo navarros</span></li>
+        <li><span class="lang-en">Very specific vocabulary that never appears in textbooks (<em>encierro</em>, <em>chupinazo</em>, <em>peña</em>)</span><span class="lang-es">Vocabulario muy específico que no aparece en los libros de texto (<em>encierro</em>, <em>chupinazo</em>, <em>peña</em>)</span></li>
+        <li><span class="lang-en">An informal atmosphere, perfect for practising without fear of making mistakes — everyone shouts, sings and talks at once</span><span class="lang-es">Ambiente informal perfecto para practicar sin miedo a equivocarte — todo el mundo grita, canta y habla a la vez</span></li>
+        <li><span class="lang-en">Expressions used only during these days, which surprise even Spanish speakers from other regions</span><span class="lang-es">Expresiones que solo se usan estos días y que sorprenden incluso a hispanohablantes de otras regiones</span></li>
+      </ul>
+    </div>
+
+    <div class="article-guide__section">
+      <h2 class="article-guide__heading"><span class="lang-en">The origin of the festival</span><span class="lang-es">El origen de la fiesta</span></h2>
+      <p>
+        <span class="lang-en">San Fermín has its roots in religious devotion to the patron saint of Navarre, combined with the old cattle fairs held in Pamplona. The <em>chupinazo</em> — the rocket launched on July 6th at 12:00 from the balcony of the town hall — marks the official start. From that moment on, the city barely sleeps for over a week.</span>
+        <span class="lang-es">San Fermín tiene su origen en la devoción religiosa al patrón de Navarra, combinada con las antiguas ferias ganaderas de Pamplona. El chupinazo —el cohete que se lanza el 6 de julio a las 12:00 desde el balcón del ayuntamiento— marca el inicio oficial. A partir de ahí, la ciudad apenas duerme durante más de una semana.</span>
+      </p>
+    </div>
+
+    <div class="article-guide__section">
+      <h2 class="article-guide__heading"><span class="lang-en">The running of the bulls: the most famous moment</span><span class="lang-es">El encierro: el momento más conocido</span></h2>
+      <p>
+        <span class="lang-en">Every morning at 8:00, a group of bulls runs through the streets of the old town alongside the runners, in a route that lasts barely a few minutes but carries maximum tension. Runners wear the traditional white outfit with the red neckerchief around their neck.</span>
+        <span class="lang-es">Cada mañana a las 8:00, un grupo de toros recorre las calles del casco antiguo junto a los corredores, en un trayecto de apenas unos minutos pero de máxima tensión. Los corredores llevan la ropa blanca tradicional con el pañuelo rojo al cuello.</span>
+      </p>
+    </div>
+
+    <div class="article-guide__section">
+      <h2 class="article-guide__heading"><span class="lang-en">Hemingway and San Fermín: the festival that won over a Nobel laureate</span><span class="lang-es">Hemingway y San Fermín: la fiesta que conquistó a un premio Nobel</span></h2>
+      <p>
+        <span class="lang-en">American writer Ernest Hemingway discovered San Fermín in 1923 and was so captivated that he kept coming back, year after year. In 1926 he published <em>Fiesta</em> (<em>The Sun Also Rises</em>), the novel that turned the running of the bulls in Pamplona into an international myth. For Hemingway, the festival represented an intense, authentic way of living — the exact opposite of the lost generation he portrayed in his books.</span>
+        <span class="lang-es">El escritor estadounidense Ernest Hemingway descubrió San Fermín en 1923 y quedó tan fascinado que volvió año tras año. En 1926 publicó <em>Fiesta</em> (<em>The Sun Also Rises</em>), la novela que convirtió los encierros de Pamplona en un mito internacional. Para Hemingway, la fiesta representaba una forma de vida intensa y auténtica — todo lo contrario a la generación perdida que retrataba en sus libros.</span>
+      </p>
+      <p>
+        <span class="lang-en">Pamplona has not forgotten that bond: there is a statue of him facing the bullring, and one of the best-known streets of the Feria del Toro bears his name (Paseo Hemingway). Every year, many American visitors arrive at San Fermín following his literary footsteps, chasing the same emotion he described almost a century ago.</span>
+        <span class="lang-es">Pamplona no olvida ese vínculo: hay una estatua suya frente a la plaza de toros, y una de las calles más conocidas de la Feria del Toro lleva su nombre (Paseo Hemingway). Cada año, muchos turistas americanos llegan a San Fermín siguiendo sus pasos literarios, buscando la misma emoción que él describió hace casi un siglo.</span>
+      </p>
+      <div class="article-quote">
+        <p>"Nobody goes to bed in Pamplona during San Fermín."</p>
+        <cite><span class="lang-en">Ernest Hemingway — still just as true today</span><span class="lang-es">Ernest Hemingway — algo que hoy en día sigue siendo completamente cierto</span></cite>
+      </div>
+    </div>
+
+    <div class="article-guide__section">
+      <h2 class="article-guide__heading"><span class="lang-en">Vocabulary you'll learn in context</span><span class="lang-es">Vocabulario que aprenderás en contexto</span></h2>
+      <div class="article-guide__vocab">
+        <div class="vocab-item">
+          <strong>el encierro</strong>
+          <span><span class="lang-en">the moment when people run in front of the bulls</span><span class="lang-es">el momento en que corren delante de los toros</span></span>
+        </div>
+        <div class="vocab-item">
+          <strong>la peña</strong>
+          <span><span class="lang-en">a group of friends organised to experience the festival together</span><span class="lang-es">grupo de amigos organizados para vivir la fiesta juntos</span></span>
+        </div>
+        <div class="vocab-item">
+          <strong>el chupinazo</strong>
+          <span><span class="lang-en">the rocket that opens the festivities</span><span class="lang-es">el cohete que abre las fiestas</span></span>
+        </div>
+        <div class="vocab-item">
+          <strong>el pañuelico</strong> <span class="lang-en">(Navarrese diminutive)</span><span class="lang-es">(así, en diminutivo navarro)</span>
+          <span><span class="lang-en">the red neckerchief</span><span class="lang-es">el pañuelo rojo</span></span>
+        </div>
+        <div class="vocab-item">
+          <strong>"¡Viva San Fermín!"</strong>
+          <span><span class="lang-en">the shout you'll hear constantly</span><span class="lang-es">el grito que escucharás constantemente</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="article-guide__section">
+      <h2 class="article-guide__heading"><span class="lang-en">A phrase you'll definitely hear</span><span class="lang-es">Una frase que seguro oirás</span></h2>
+      <p>
+        <span class="lang-en">"¿Vas a correr el encierro este año?" (Are you going to run with the bulls this year?)</span>
+        <span class="lang-es">"¿Vas a correr el encierro este año?" (¿Vas a participar corriendo delante de los toros?)</span>
+      </p>
+      <p>
+        <span class="lang-en">It's a common question between locals from Pamplona and visitors, and a great way to understand the verb "correr" used in a context very different from playing sport.</span>
+        <span class="lang-es">Es una pregunta habitual entre pamplonicas y visitantes, y una buena forma de entender el uso del verbo "correr" en un contexto muy distinto al de hacer deporte.</span>
+      </p>
+    </div>
+
+    <div class="article-guide__section">
+      <h2 class="article-guide__heading"><span class="lang-en">Beyond the running of the bulls</span><span class="lang-es">Más allá del encierro</span></h2>
+      <p>
+        <span class="lang-en">San Fermín is also brass-band music filling the streets, endless dinners with the <em>peña</em>, fireworks every night, and the emotional <em>Pobre de mí</em> that closes the festival at midnight on July 14th — an almost melancholic song that contrasts with the euphoria of the days before. It's the moment when Pamplona, for a few seconds, falls silent before going back to its everyday rhythm — until next year's chupinazo.</span>
+        <span class="lang-es">San Fermín también es música de charanga por las calles, cenas interminables de peña, fuegos artificiales cada noche y el emotivo <em>Pobre de mí</em> que cierra las fiestas el 14 de julio a medianoche — un canto casi melancólico que contrasta con la euforia de los días anteriores. Es el momento en que Pamplona, durante unos segundos, se queda en silencio antes de volver a su ritmo de cada día — hasta el chupinazo del año que viene.</span>
+      </p>
+    </div>
+
+    <div class="article-guide__section article-guide__section--final">
+      <h2 class="article-guide__heading" style="margin-bottom:20px;"><span class="lang-en">To keep learning</span><span class="lang-es">Para seguir aprendiendo</span></h2>
+      <ul class="article-guide__resources">
+        <li>
+          <strong><span class="lang-en">Official San Fermín programme</span><span class="lang-es">Programa oficial de San Fermín</span></strong>
+          <span class="lang-en">A real, day-by-day example of how the festival is organised (running times, concerts, children's events). [Add the exact link when you have it.]</span>
+          <span class="lang-es">Un buen ejemplo real de cómo se organiza la fiesta día a día (horarios de encierros, conciertos, actos infantiles). [Añade aquí el enlace exacto cuando lo tengas.]</span>
+        </li>
+        <li>
+          <strong><span class="lang-en">"San Fermín: everything you need to know"</span><span class="lang-es">"San Fermín: todo lo que debes saber"</span></strong>
+          <span class="lang-en">A Spanish-language article, B1 level, with the origin of the festival and the key dates. [Add the exact link when you have it.]</span>
+          <span class="lang-es">Artículo en español, nivel B1, con el origen de la fiesta y las fechas clave. [Añade aquí el enlace exacto cuando lo tengas.]</span>
+        </li>
+        <li>
+          <strong><span class="lang-en">Watch it live</span><span class="lang-es">Míralo en directo</span></strong>
+          <span class="lang-en">Search "encierros San Fermín" on RTVE Play or YouTube to see the atmosphere first-hand and practise listening comprehension with authentic Spanish accents.</span>
+          <span class="lang-es">Busca "encierros San Fermín" en RTVE Play o YouTube para ver el ambiente en directo y practicar comprensión oral con acento español auténtico.</span>
+        </li>
+      </ul>
+      <p class="article-guide__credit"><span class="lang-en">Article written by Spanish Lessons with Mercedes</span><span class="lang-es">Artículo elaborado por Spanish Lessons with Mercedes</span></p>
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <div class="footer__col"><div class="footer__col-title" data-i18n="footer.about">About</div><ul><li><a href="index.html#about"><span data-i18n="footer.who">Who is Mercedes?</span></a></li></ul></div>
+      <div class="footer__col"><div class="footer__col-title" data-i18n="footer.learn">Learn Spanish</div><ul><li><a href="videos.html"><span data-i18n="footer.allvideos">All videos</span></a></li><li><a href="free-pdf.html"><span data-i18n="footer.freepdfs">Free PDFs</span></a></li></ul></div>
+      <div class="footer__col"><div class="footer__col-title" data-i18n="footer.dele">DELE</div><ul><li><a href="dele.html#a1">DELE A1</a></li><li><a href="dele.html#a2">DELE A2</a></li><li><a href="dele.html#b1">DELE B1</a></li><li><a href="dele.html#b2">DELE B2</a></li><li><a href="dele.html#c1">DELE C1</a></li><li><a href="dele.html#c2">DELE C2</a></li></ul></div>
+      <div class="footer__col"><div class="footer__col-title" data-i18n="footer.culture">Culture</div><ul>
+        <li><a href="culture.html#literatura"><span class="lang-en">Literature</span><span class="lang-es">Literatura</span></a></li>
+        <li><a href="culture.html#cine"><span class="lang-en">Cinema &amp; Music</span><span class="lang-es">Cine y Música</span></a></li>
+        <li><a href="culture.html#gastronomia"><span class="lang-en">Gastronomy</span><span class="lang-es">Gastronomía</span></a></li>
+        <li><a href="culture.html#fiestas"><span class="lang-en">Festivals</span><span class="lang-es">Fiestas</span></a></li>
+      </ul></div>
+    </div>
+    <div class="footer__divider"></div>
+    <div class="footer__bottom">
+      <div class="footer__logo-row">
+        <div class="footer__logo"></div>
+        <div class="footer__social-apps">
+          <div class="footer__social">
+            <a class="footer__social-link" href="https://youtube.com/@spanishwithmercedes" target="_blank"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
+            <a class="footer__social-link" href="https://instagram.com/spanishwithmercedes_" target="_blank"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a class="footer__social-link" href="https://tiktok.com/@spanishwithmercedes" target="_blank"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V9.35a8.16 8.16 0 004.77 1.52V7.42a4.85 4.85 0 01-1-.73z"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__copyright" data-i18n="footer.copyright">© 2025 Spanish Lessons With Mercedes. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="i18n.js?v=9"></script>
+<script src="search.js?v=4"></script>
+</body>
+</html>
