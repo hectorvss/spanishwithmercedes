@@ -97,6 +97,12 @@
       width: 100%; height: auto; border-radius: 10px; display: block;
       box-shadow: 0 6px 20px rgba(0,0,0,0.08);
     }
+    .article-guide__figure--wide img {
+      height: 320px; object-fit: cover; object-position: center 30%;
+    }
+    @media (max-width: 640px) {
+      .article-guide__figure--wide img { height: 220px; }
+    }
     .article-guide__figure figcaption {
       font-size: 12px; color: #9B9AAB; margin-top: 8px; line-height: 1.5;
     }
@@ -208,11 +214,11 @@
 <div class="article-guide">
   <div class="article-guide__container">
 
-    <figure class="article-guide__figure">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/Chupinazo_pamplona.jpg" alt="Multitud vestida de blanco y rojo lanzando confeti en el chupinazo, vista desde abajo del balcón del ayuntamiento de Pamplona">
+    <figure class="article-guide__figure article-guide__figure--wide">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Panorama_of_Crowd_Awaiting_Bull_Run_-_San_Fermin_Festival_-_Pamplona_-_Navarra_-_Spain_%2814610977375%29.jpg" alt="Multitud vestida de blanco y rojo abarrotando una calle de Pamplona a la espera del encierro">
       <figcaption>
-        <span class="lang-en">The moment San Fermín explodes into life: confetti and cheers at the chupinazo, seen from below the town hall balcony. Photo: Sergio Alvarez, <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener">CC BY-SA 2.0</a>, via Wikimedia Commons.</span>
-        <span class="lang-es">El momento en que San Fermín estalla: confeti y gritos en el chupinazo, visto desde abajo del balcón del ayuntamiento. Foto: Sergio Alvarez, <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener">CC BY-SA 2.0</a>, vía Wikimedia Commons.</span>
+        <span class="lang-en">A sea of white and red fills the street, waiting for the bulls to run. Photo: Adam Jones, <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener">CC BY-SA 2.0</a>, via Wikimedia Commons.</span>
+        <span class="lang-es">Un mar de blanco y rojo llena la calle, a la espera de que corran los toros. Foto: Adam Jones, <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener">CC BY-SA 2.0</a>, vía Wikimedia Commons.</span>
       </figcaption>
     </figure>
 
