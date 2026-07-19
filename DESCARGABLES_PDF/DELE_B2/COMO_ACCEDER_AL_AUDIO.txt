@@ -1,0 +1,41 @@
+╔════════════════════════════════════════════════════════════════╗
+║         CÓMO ACCEDER AL AUDIO DEL EXAMEN DELE B2             ║
+╚════════════════════════════════════════════════════════════════╝
+
+IMPORTANTE: Descarga TODOS los archivos juntos en la misma carpeta:
+  • EXAMEN_PRACTICA_DELE_B2.pdf
+  • PRUEBA_2_TAREA_1.mp3
+  • COMO_ACCEDER_AL_AUDIO.txt (este archivo)
+
+════════════════════════════════════════════════════════════════
+
+OPCIÓN 1 - Adobe Reader o Lectores PDF Avanzados:
+──────────────────────────────────────────────────
+1. Abre el PDF en Adobe Reader
+2. Busca la página 10 (Prueba 2 - Comprensión Auditiva)
+3. Verás un botón AZUL que dice "ESCUCHAR AUDIO"
+4. Haz click en el botón para reproducir el audio
+
+OPCIÓN 2 - Si el botón no funciona:
+──────────────────────────────────────
+• Abre el archivo PRUEBA_2_TAREA_1.mp3 directamente
+• Escucha el audio mientras completas las preguntas en el PDF
+• Usa este archivo para la Prueba 2 - Comprensión Auditiva - Tarea 1
+
+════════════════════════════════════════════════════════════════
+
+ESTRUCTURA DE ARCHIVOS NECESARIA:
+Mi Carpeta DELE B2/
+├── EXAMEN_PRACTICA_DELE_B2.pdf
+├── PRUEBA_2_TAREA_1.mp3
+└── COMO_ACCEDER_AL_AUDIO.txt (este archivo)
+
+════════════════════════════════════════════════════════════════
+
+¿Problemas con el audio?
+• Verifica que el archivo .mp3 está en la MISMA CARPETA que el PDF
+• Intenta abrir el PDF en Adobe Reader (versión reciente)
+• Como alternativa, reproduce el .mp3 en tu reproductor de música
+  mientras resuelves el examen
+
+════════════════════════════════════════════════════════════════
