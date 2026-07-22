@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=58">
+  <link rel="stylesheet" href="styles.css?v=59">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
   <style>
     /* ── DELE HERO ── */
@@ -1909,12 +1909,12 @@ function toggleLevel(id, defaultLabel, scrollTargetId) {
   }
 }
 
-function toggleA1() { toggleLevel('a1', LEVELS[0].defaultLabel, 'a1-pruebas'); }
-function toggleA2() { toggleLevel('a2', LEVELS[1].defaultLabel, 'a2-pruebas'); }
-function toggleB1() { toggleLevel('b1', LEVELS[2].defaultLabel, 'b1-pruebas'); }
-function toggleB2() { toggleLevel('b2', LEVELS[3].defaultLabel, 'b2-pruebas'); }
-function toggleC1() { toggleLevel('c1', LEVELS[4].defaultLabel, 'c1-pruebas'); }
-function toggleC2() { toggleLevel('c2', LEVELS[5].defaultLabel, 'c2-pruebas'); }
+function toggleA1() { toggleLevel('a1', LEVELS[0].defaultLabel); }
+function toggleA2() { toggleLevel('a2', LEVELS[1].defaultLabel); }
+function toggleB1() { toggleLevel('b1', LEVELS[2].defaultLabel); }
+function toggleB2() { toggleLevel('b2', LEVELS[3].defaultLabel); }
+function toggleC1() { toggleLevel('c1', LEVELS[4].defaultLabel); }
+function toggleC2() { toggleLevel('c2', LEVELS[5].defaultLabel); }
 
 // Auto-expand accordion when arriving via hash (e.g. footer links #c2)
 document.addEventListener('DOMContentLoaded', () => {
