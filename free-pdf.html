@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=42">
+  <link rel="stylesheet" href="styles.css?v=43">
   <style>
     .pdf-grid {
       display: grid;
@@ -912,6 +912,20 @@
     setTimeout(function(){ m.style.display = 'none'; }, 220);
     document.body.style.overflow = '';
   }
+
+  // Deep link support: free-pdf.html#card-gustar opens that lesson's modal directly
+  document.addEventListener('DOMContentLoaded', function () {
+    var hash = window.location.hash.replace('#', '');
+    if (!hash || !LESSONS[hash]) return;
+    var card = document.getElementById(hash);
+    if (!card) return;
+    var category = card.closest('.pdf-category');
+    if (category) category.style.display = 'block';
+    setTimeout(function () {
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      openLesson(hash);
+    }, 50);
+  });
 </script>
 
 <script src="i18n.js?v=9"></script>
