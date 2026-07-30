@@ -2876,6 +2876,125 @@ function htlNext() {
   _renderHTLRound();
 }
 
+/* ══════════════════════════════════════════════
+   GAME 21 · EL CALENDARIO DE LAS FECHAS
+   (LAS FECHAS EN ESPAÑOL — SER/ESTAR + fecha, DE/EN/A,
+   EL vs LOS con días de la semana) — complete the real
+   sentence from the guide; a correct answer flips a
+   desk-calendar page forward one month, wrong keeps
+   the page stuck and shakes it
+══════════════════════════════════════════════ */
+
+const CAL_MONTHS = ['ENERO','FEBRERO','MARZO','ABRIL','MAYO','JUNIO','JULIO','AGOSTO','SEPTIEMBRE','OCTUBRE','NOVIEMBRE','DICIEMBRE'];
+
+const CAL_ITEMS = [
+  { blank:'Hoy es ___ 5 de marzo.', correct:'—', opts:['EL','—','UN','LA'],
+    note:{en:'No article before a date in Spanish — never "el 5 de marzo" after ser.', es:'En español no se usa artículo ante la fecha — nunca "el 5 de marzo" después de ser.'} },
+  { blank:'Estamos ___ abril.', correct:'EN', opts:['EN','A','DE','POR'],
+    note:{en:'EN + month to say what month it is.', es:'EN + mes para decir en qué mes estamos.'} },
+  { blank:'___ lunes tengo clase todas las semanas.', correct:'LOS', opts:['LOS','EL','UN','—'],
+    note:{en:'LOS + day (plural form) = habitual, repeated action.', es:'LOS + día = acción habitual, que se repite.'} },
+  { blank:'Hoy ___ 24 de septiembre.', correct:'ES', opts:['ES','ESTÁ','SOY','ESTOY'],
+    note:{en:'SER + date is the most common, neutral way to say the date.', es:'SER + fecha es la forma más frecuente y neutra de decir la fecha.'} },
+  { blank:'A ___ de mayo empieza el buen tiempo.', correct:'PRINCIPIOS', opts:['PRINCIPIOS','LOS PRINCIPIOS','PRINCIPIO','INICIOS'],
+    note:{en:'A PRINCIPIOS DE + month = at the beginning of the month.', es:'A PRINCIPIOS DE + mes = al inicio del mes.'} },
+  { blank:'Hoy ___ 3 de febrero.', correct:'ES', opts:['ES','ESTOY','SOY','ESTAMOS'],
+    note:{en:'SER + date, third person singular: "hoy es".', es:'SER + fecha, tercera persona singular: "hoy es".'} },
+  { blank:'___ verano hace mucho calor.', correct:'EN', opts:['EN','DE','A','POR'],
+    note:{en:'EN + season to say when something happens.', es:'EN + estación para situar algo en el tiempo.'} },
+  { blank:'Hoy estamos ___ 15 de junio.', correct:'A', opts:['A','EN','DE','POR'],
+    note:{en:'ESTAR + date always needs the preposition A.', es:'ESTAR + fecha necesita siempre la preposición A.'} },
+  { blank:'Estamos ___ marzo.', correct:'EN', opts:['EN','A','DE','—'],
+    note:{en:'EN + month, not A — that rule is only for ESTAR + full date.', es:'EN + mes, no A — esa regla es solo para ESTAR + fecha completa.'} },
+  { blank:'A finales ___ agosto nos vamos de vacaciones.', correct:'DE', opts:['DE','EN','A','POR'],
+    note:{en:'A FINALES DE + month = at the end of the month.', es:'A FINALES DE + mes = al final del mes.'} },
+  { blank:'___ jueves voy al gimnasio.', correct:'LOS', opts:['LOS','EL','UN','ESE'],
+    note:{en:'LOS + day = habitual action, every Thursday.', es:'LOS + día = acción habitual, todos los jueves.'} },
+  { blank:'___ lunes tengo una cita médica.', correct:'EL', opts:['EL','LOS','UN','ESTE'],
+    note:{en:'EL + day = one specific, concrete day.', es:'EL + día = un día concreto, no habitual.'} }
+];
+
+function playFechas() {
+  currentGameFn = playFechas;
+  GS = { items: _shuffleOpts(_shuffle(CAL_ITEMS).map(it => ({ ...it, a: it.opts.indexOf(it.correct) }))), idx: 0, correct: 0, total: CAL_ITEMS.length, answered: false, month: 0 };
+  _renderCALRound();
+}
+
+function _calCardHTML(month) {
+  return `
+    <div class="cal-scene">
+      <div class="cal-block">
+        <div class="cal-block-top">2026</div>
+        <div class="cal-page" id="cal-page">
+          <span class="cal-page-month" id="cal-page-month">${CAL_MONTHS[month]}</span>
+        </div>
+      </div>
+    </div>`;
+}
+
+function _renderCALRound() {
+  const lang = L();
+  const title = lang==='es' ? 'El calendario de las fechas' : 'The Dates Calendar';
+  const { items, idx, correct, total, month } = GS;
+  if (idx >= total) { _end(correct, total, title); return; }
+  const item = items[idx];
+  GS.answered = false;
+
+  const btnsHTML = item.opts.map((o, i) => `<button class="cal-btn" data-idx="${i}" onclick="calAnswer(${i})">${o}</button>`).join('');
+
+  _modal(`
+    ${_progress(idx, total, correct, lang)}
+    <p class="gm-instr" style="text-align:center">${lang==='es'?'Completa la frase real sobre las fechas. Si aciertas, el calendario pasa de mes.':'Complete the real sentence about dates. Get it right and the calendar flips to the next month.'}</p>
+    <div class="gm-sentence">${item.blank}</div>
+    ${_calCardHTML(month)}
+    <div class="cal-btn-row">${btnsHTML}</div>
+    <div class="gm-feedback" id="gm-fb"></div>
+  `, title);
+}
+
+function calAnswer(i) {
+  if (GS.answered) return;
+  GS.answered = true;
+  const lang = L();
+  const item = GS.items[GS.idx];
+  const ok = i === item.a;
+  if (ok) GS.correct++;
+
+  document.querySelectorAll('.cal-btn').forEach((b, bi) => {
+    b.disabled = true;
+    if (bi === item.a) b.classList.add('cal-correct');
+    else if (bi === i && !ok) b.classList.add('cal-wrong');
+  });
+
+  const page = document.getElementById('cal-page');
+  if (ok) {
+    GS.month = (GS.month + 1) % 12;
+    if (page) {
+      page.classList.add('cal-flip');
+      setTimeout(() => {
+        const label = document.getElementById('cal-page-month');
+        if (label) label.textContent = CAL_MONTHS[GS.month];
+        page.classList.remove('cal-flip');
+      }, 320);
+    }
+  } else if (page) {
+    page.classList.add('cal-shake');
+    setTimeout(() => page.classList.remove('cal-shake'), 400);
+  }
+
+  setTimeout(() => {
+    document.getElementById('gm-fb').innerHTML = `
+      <span class="${ok?'fb-ok':'fb-ko'}">${ok?'✓ '+(lang==='es'?'¡Página pasada!':'Page turned!'):'✗ '+(lang==='es'?'La respuesta correcta es':'The correct answer is')+' <strong>'+item.correct+'</strong>'}</span>
+      <div class="pf-note">${item.note[lang]}</div>
+      <button class="gm-btn gm-btn-primary gm-next-btn" onclick="calNext()">${lang==='es'?'Siguiente →':'Next →'}</button>`;
+  }, 500);
+}
+
+function calNext() {
+  GS.idx++;
+  _renderCALRound();
+}
+
 /* ── EXPOSE GLOBALS ───────────────────────────── */
 Object.assign(window, {
   closeGame, restartGame, toggleGameFullscreen, flipFC, fcAnswer,
@@ -2901,7 +3020,8 @@ Object.assign(window, {
   tkAnswer, tkNext,
   smAnswer, smNext,
   htlAnswer, htlNext,
+  calAnswer, calNext,
   playFlashcards, playSerEstar, playQuiz, playFillGaps, playWordOrder, playVerbSprint, playPresentarse,
   playRuleta, playDialogos, playGustar, playGenero, playCD, playDesde, playPorPara, playProfesiones, playVerMirar, playTrabajo, playSonidoR, playGeneroII, playConectores,
-  playSobremesa, playHotel
+  playSobremesa, playHotel, playFechas
 });

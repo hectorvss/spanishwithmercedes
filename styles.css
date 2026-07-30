@@ -1167,6 +1167,33 @@ body.is-spanish .lang-en-block { display: none; }
 .htl-btn.htl-correct { border-color: #1A9E87; background: #E6F9F5; }
 .htl-btn.htl-wrong { border-color: #C8102E; background: #FDECEA; }
 
+/* ── EL CALENDARIO DE LAS FECHAS ──────────────── */
+.cal-scene { display: flex; justify-content: center; margin: 18px 0 6px; perspective: 700px; }
+.cal-block { width: 160px; border-radius: 10px; overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,0.15); }
+.cal-block-top { background: #C8102E; color: #fff; text-align: center; font-family: 'Noto Sans', sans-serif; font-weight: 800; font-size: 13px; padding: 6px 0; letter-spacing: 1px; }
+.cal-page {
+  background: #F9F9FB; padding: 26px 10px; text-align: center;
+  transform-origin: top center; transition: transform 0.32s ease-in;
+}
+.cal-page.cal-flip { transform: rotateX(90deg); }
+.cal-page.cal-shake { animation: calShake 0.4s; }
+@keyframes calShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+.cal-page-month { font-family: 'Noto Sans', sans-serif; font-weight: 900; font-size: 16px; color: #121117; letter-spacing: 0.5px; }
+.cal-btn-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 14px; max-width: 420px; margin-left: auto; margin-right: auto; }
+.cal-btn {
+  padding: 14px 10px; border-radius: 10px; border: 1.5px solid #DCDCE5; background: #fff;
+  cursor: pointer; font-family: 'Noto Sans', sans-serif; font-weight: 800; font-size: 14px;
+  color: #121117; transition: transform 0.15s, border-color 0.15s, background 0.15s;
+}
+.cal-btn:hover:not(:disabled) { transform: scale(1.03); border-color: #4D9DE0; }
+.cal-btn:disabled { cursor: default; }
+.cal-btn.cal-correct { border-color: #1A9E87; background: #E6F9F5; }
+.cal-btn.cal-wrong { border-color: #C8102E; background: #FDECEA; }
+
 /* ── EL VIBRÓMETRO (LA R — R suave / RR fuerte) ── */
 .rr-scene { display: flex; justify-content: center; margin: 18px 0 6px; }
 .rr-gauge-face {

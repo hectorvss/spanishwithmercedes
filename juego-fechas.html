@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>El cambio de vías — Juego de construcciones temporales · Spanish Lessons With Mercedes</title>
+  <title>El calendario de las fechas — Juego de gramática · Spanish Lessons With Mercedes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=45">
   <style>
-    .game-hero { background: #EAF3F7; padding: 64px 80px 56px; }
+    .game-hero { background: #EAF3FC; padding: 64px 80px 56px; }
     .game-hero__inner { max-width: 900px; margin: 0 auto; text-align: center; }
     .game-hero__tag {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(46,134,171,0.14); color: #205F79;
+      background: rgba(77,157,224,0.18); color: #2C6698;
       padding: 6px 16px; border-radius: 20px;
       font-size: 13px; font-weight: 700; letter-spacing: 0.5px;
       margin-bottom: 20px;
@@ -22,7 +22,7 @@
       font-family: 'Noto Sans', sans-serif; font-weight: 900;
       font-size: 44px; line-height: 1.1; color: #121117; margin-bottom: 12px;
     }
-    .game-hero__heading em { font-style: normal; color: #2E86AB; }
+    .game-hero__heading em { font-style: normal; color: #4D9DE0; }
     .game-hero__sub {
       font-size: 20px; color: #4D4C5C; line-height: 1.7;
       max-width: 640px; margin: 0 auto 32px;
@@ -52,14 +52,14 @@
       text-decoration: none; color: inherit; transition: border-color 0.2s;
       background: #F9F9FB;
     }
-    .game-pdf-link:hover { border-color: #2E86AB; }
+    .game-pdf-link:hover { border-color: #4D9DE0; }
     .game-pdf-link__icon {
-      width: 44px; height: 44px; background: #2E86AB; border-radius: 8px;
+      width: 44px; height: 44px; background: #4D9DE0; border-radius: 8px;
       display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
     .game-pdf-link__text strong { display: block; font-size: 16px; color: #121117; margin-bottom: 2px; }
     .game-pdf-link__text span { font-size: 14px; color: #9B9AAB; }
-    .game-pdf-link__cta { margin-left: auto; font-size: 14px; font-weight: 700; color: #2E86AB; white-space: nowrap; }
+    .game-pdf-link__cta { margin-left: auto; font-size: 14px; font-weight: 700; color: #2C6698; white-space: nowrap; }
 
     .other-games { margin-top: 32px; text-align: center; }
     .other-games p { font-size: 14px; color: #9B9AAB; margin-bottom: 14px; }
@@ -80,7 +80,7 @@
       .game-pdf-link { flex-wrap: wrap; }
       .game-pdf-link__cta { margin-left: 0; }
     }
-  </style>
+</style>
 </head>
 <body>
 
@@ -124,14 +124,14 @@
       <span class="lang-es">Juego Interactivo</span>
     </div>
     <h1 class="game-hero__heading">
-      <span class="lang-en">The Track <em>Switch</em></span>
-      <span class="lang-es">El cambio de <em>vías</em></span>
+      <span class="lang-en">The Dates <em>Calendar</em></span>
+      <span class="lang-es">El Calendario de las <em>Fechas</em></span>
     </h1>
     <p class="game-hero__sub">
-      <span class="lang-en">Choose the correctly conjugated verb — infinitive, indicative or subjunctive — and watch a train travel down the right track to its station.</span>
-      <span class="lang-es">Elige el verbo bien conjugado — infinitivo, indicativo o subjuntivo — y observa cómo un tren viaja por la vía correcta hasta su estación.</span>
+      <span class="lang-en">Complete real sentences about dates — SER or ESTAR, DE, EN or A, EL or LOS. Get it right and the calendar flips to the next month.</span>
+      <span class="lang-es">Completa frases reales sobre fechas — SER o ESTAR, DE, EN o A, EL o LOS. Si aciertas, el calendario pasa al mes siguiente.</span>
     </p>
-    <button class="game-hero__cta" onclick="playConectores()">
+    <button class="game-hero__cta" onclick="playFechas()">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
       <span class="lang-en">Start game</span>
       <span class="lang-es">Empezar juego</span>
@@ -144,48 +144,48 @@
   <div class="game-info__inner">
     <div class="game-info__grid">
       <div class="game-info__card">
-        <div class="game-info__icon">🚂</div>
+        <div class="game-info__icon">📅</div>
         <div class="game-info__title">
-          <span class="lang-en">A train that really moves</span>
-          <span class="lang-es">Un tren que se mueve de verdad</span>
+          <span class="lang-en">A calendar that really flips</span>
+          <span class="lang-es">Un calendario que pasa hojas de verdad</span>
         </div>
         <div class="game-info__desc">
-          <span class="lang-en">Each track leads to a different verb form. Pick one and watch the train travel there — arriving safely, or missing the station.</span>
-          <span class="lang-es">Cada vía lleva a una forma verbal distinta. Elige una y observa cómo viaja el tren — llegando bien, o fallando la estación.</span>
+          <span class="lang-en">Every correct answer flips the desk calendar forward one month — 12 rounds, one full year.</span>
+          <span class="lang-es">Cada acierto pasa la hoja del calendario un mes — 12 rondas, un año completo.</span>
         </div>
       </div>
       <div class="game-info__card">
-        <div class="game-info__icon">🧠</div>
+        <div class="game-info__icon">🗓️</div>
         <div class="game-info__title">
-          <span class="lang-en">Real B2 reasoning</span>
-          <span class="lang-es">Razonamiento real de nivel B2</span>
+          <span class="lang-en">SER, ESTAR, DE, EN, A</span>
+          <span class="lang-es">SER, ESTAR, DE, EN, A</span>
         </div>
         <div class="game-info__desc">
-          <span class="lang-en">Same subject or different? Already a fact, or a future not yet lived? Those two questions decide infinitive, indicative or subjunctive.</span>
-          <span class="lang-es">¿Mismo sujeto o distinto? ¿Ya es un hecho, o un futuro todavía no vivido? Esas dos preguntas deciden entre infinitivo, indicativo o subjuntivo.</span>
+          <span class="lang-en">Practise the exact verb and preposition choices from the guide — no infinitives, only real conjugated forms.</span>
+          <span class="lang-es">Practica las mismas decisiones de verbo y preposición de la guía — nada de infinitivos, solo formas conjugadas reales.</span>
         </div>
       </div>
       <div class="game-info__card">
-        <div class="game-info__icon">🔗</div>
+        <div class="game-info__icon">📖</div>
         <div class="game-info__title">
           <span class="lang-en">12 real sentences</span>
           <span class="lang-es">12 frases reales</span>
         </div>
         <div class="game-info__desc">
-          <span class="lang-en">Antes de que, en cuanto, mientras, hasta que, una vez que — the exact connectors and contrasts from the PDF.</span>
-          <span class="lang-es">Antes de que, en cuanto, mientras, hasta que, una vez que — los conectores y contrastes exactos del PDF.</span>
+          <span class="lang-en">Every sentence is taken from the PDF guide's explanations and exercises — including el lunes vs los lunes.</span>
+          <span class="lang-es">Cada frase sale de las explicaciones y ejercicios de la guía PDF — incluido el lunes frente a los lunes.</span>
         </div>
       </div>
     </div>
 
     <!-- PDF LINK -->
-    <a class="game-pdf-link" href="DESCARGABLES_PDF/CONSTRUCCIONES TEMPORALES-CONECTORES/CONSTRUCCIONES_TEMPORALES_CONECTORES_B2.pdf" target="_blank" download>
+    <a class="game-pdf-link" href="DESCARGABLES_PDF/FECHAS/fechas_espanol_mercedes_8.pdf" target="_blank" download>
       <div class="game-pdf-link__icon">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
       </div>
       <div class="game-pdf-link__text">
-        <strong><span class="lang-en">Download the complete PDF guide — Temporal Connectors</span><span class="lang-es">Descarga la guía PDF completa — Las construcciones temporales</span></strong>
-        <span><span class="lang-en">Infinitive vs. indicative vs. subjunctive · same subject rule · exercises · B2</span><span class="lang-es">Infinitivo vs. indicativo vs. subjuntivo · regla del mismo sujeto · ejercicios · B2</span></span>
+        <strong><span class="lang-en">Download the complete PDF guide — Dates in Spanish</span><span class="lang-es">Descarga la guía PDF completa — Las fechas en español</span></strong>
+        <span><span class="lang-en">Days · months · seasons · errors by native language · A1–A2</span><span class="lang-es">Días · meses · estaciones · errores por idioma nativo · A1–A2</span></span>
       </div>
       <span class="game-pdf-link__cta">
         <span class="lang-en">↓ Free PDF</span>
@@ -212,9 +212,9 @@
         <a href="juego-mundo-laboral.html">🎮 <span class="lang-en">Introduce Yourself at Work</span><span class="lang-es">Preséntate en tu Trabajo</span></a>
         <a href="juego-sonido-r.html">🎮 <span class="lang-en">The Vibration Meter</span><span class="lang-es">El vibrómetro</span></a>
         <a href="juego-genero-ii.html">🎮 <span class="lang-en">The Gender Coin</span><span class="lang-es">La moneda del género</span></a>
+        <a href="juego-conectores.html">🎮 <span class="lang-en">The Track Switch</span><span class="lang-es">El cambio de vías</span></a>
         <a href="juego-sobremesa.html">🎮 <span class="lang-en">The Sobremesa Clock</span><span class="lang-es">El reloj de la sobremesa</span></a>
         <a href="juego-en-el-hotel.html">🎮 <span class="lang-en">The Hotel Room Door</span><span class="lang-es">La puerta del hotel</span></a>
-        <a href="juego-fechas.html">🎮 <span class="lang-en">The Dates Calendar</span><span class="lang-es">El calendario de las fechas</span></a>
       </div>
     </div>
   </div>
@@ -236,7 +236,7 @@
   </div>
 </div>
 
-<script src="i18n.js?v=9"></script>
+<script src="i18n.js?v=10"></script>
 <script src="games.js?v=42"></script>
 <script src="search.js?v=4"></script>
 </body>
