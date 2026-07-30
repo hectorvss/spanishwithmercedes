@@ -2191,54 +2191,61 @@ function vmNext() {
    right or wrong
 ══════════════════════════════════════════════ */
 
+const WK_CONJ = {
+  yo: { SER:'SOY',   TRABAJAR_EN:'TRABAJO EN',  TRABAJAR_COMO:'TRABAJO COMO',  DEDICARSE_A:'ME DEDICO A' },
+  tu: { SER:'ERES',  TRABAJAR_EN:'TRABAJAS EN', TRABAJAR_COMO:'TRABAJAS COMO', DEDICARSE_A:'TE DEDICAS A' },
+  el: { SER:'ES',    TRABAJAR_EN:'TRABAJA EN',  TRABAJAR_COMO:'TRABAJA COMO',  DEDICARSE_A:'SE DEDICA A' }
+};
+
 const WK_ITEMS = [
-  { blank:'___ ingeniero.', correct:'SER', full:'Soy ingeniero.', emoji:'🧑‍💼',
+  { blank:'___ ingeniero.', correct:'SER', person:'yo', full:'Soy ingeniero.', emoji:'🧑‍💼',
     note:{en:'SER + profession, never with an article.', es:'SER + profesión, nunca con artículo.'} },
-  { blank:'___ periodista.', correct:'SER', full:'Soy periodista.', emoji:'📰',
+  { blank:'___ periodista.', correct:'SER', person:'yo', full:'Soy periodista.', emoji:'📰',
     note:{en:'SER + profession, never with an article.', es:'SER + profesión, nunca con artículo.'} },
-  { blank:'¿___ profesora?', correct:'SER', full:'¿Eres profesora?', emoji:'🍎',
+  { blank:'¿___ profesora?', correct:'SER', person:'tu', full:'¿Eres profesora?', emoji:'🍎',
     note:{en:'SER + profession, never with an article.', es:'SER + profesión, nunca con artículo.'} },
-  { blank:'___ un hospital.', correct:'TRABAJAR_EN', full:'Trabajo en un hospital.', emoji:'🏥',
+  { blank:'___ un hospital.', correct:'TRABAJAR_EN', person:'yo', full:'Trabajo en un hospital.', emoji:'🏥',
     note:{en:'TRABAJAR EN + place — the location, not the role.', es:'TRABAJAR EN + lugar — el sitio, no el puesto.'} },
-  { blank:'___ una empresa de diseño.', correct:'TRABAJAR_EN', full:'Trabajo en una empresa de diseño.', emoji:'🏢',
+  { blank:'___ una empresa de diseño.', correct:'TRABAJAR_EN', person:'yo', full:'Trabajo en una empresa de diseño.', emoji:'🏢',
     note:{en:'TRABAJAR EN + place — the location, not the role.', es:'TRABAJAR EN + lugar — el sitio, no el puesto.'} },
-  { blank:'¿___ en un laboratorio o en una clínica?', correct:'TRABAJAR_EN', full:'¿Trabajas en un laboratorio o en una clínica?', emoji:'🔬',
+  { blank:'¿___ en un laboratorio o en una clínica?', correct:'TRABAJAR_EN', person:'tu', full:'¿Trabajas en un laboratorio o en una clínica?', emoji:'🔬',
     note:{en:'TRABAJAR EN + place — the location, not the role.', es:'TRABAJAR EN + lugar — el sitio, no el puesto.'} },
-  { blank:'Ana ___ periodista en un diario digital.', correct:'TRABAJAR_COMO', full:'Ana trabaja como periodista en un diario digital.', emoji:'💻',
+  { blank:'Ana ___ periodista en un diario digital.', correct:'TRABAJAR_COMO', person:'el', full:'Ana trabaja como periodista en un diario digital.', emoji:'💻',
     note:{en:'TRABAJAR COMO + role — the job title you perform.', es:'TRABAJAR COMO + puesto — la función que desempeñas.'} },
-  { blank:'Ella ___ diseñadora en un estudio de moda.', correct:'TRABAJAR_COMO', full:'Ella trabaja como diseñadora en un estudio de moda.', emoji:'✂️',
+  { blank:'Ella ___ diseñadora en un estudio de moda.', correct:'TRABAJAR_COMO', person:'el', full:'Ella trabaja como diseñadora en un estudio de moda.', emoji:'✂️',
     note:{en:'TRABAJAR COMO + role — the job title you perform.', es:'TRABAJAR COMO + puesto — la función que desempeñas.'} },
-  { blank:'___ camarero los fines de semana.', correct:'TRABAJAR_COMO', full:'Trabajo como camarero los fines de semana.', emoji:'🍽️',
+  { blank:'___ camarero los fines de semana.', correct:'TRABAJAR_COMO', person:'yo', full:'Trabajo como camarero los fines de semana.', emoji:'🍽️',
     note:{en:'TRABAJAR COMO + role — the job title you perform.', es:'TRABAJAR COMO + puesto — la función que desempeñas.'} },
-  { blank:'Luis ___ la hostelería desde hace diez años.', correct:'DEDICARSE_A', full:'Luis se dedica a la hostelería desde hace diez años.', emoji:'🏨',
+  { blank:'Luis ___ la hostelería desde hace diez años.', correct:'DEDICARSE_A', person:'el', full:'Luis se dedica a la hostelería desde hace diez años.', emoji:'🏨',
     note:{en:'DEDICARSE A + sector, never a profession — always with the preposition A.', es:'DEDICARSE A + sector, nunca una profesión — siempre con la preposición A.'} },
-  { blank:'Mi padre ___ la educación toda su vida.', correct:'DEDICARSE_A', full:'Mi padre se dedica a la educación toda su vida.', emoji:'🎓',
+  { blank:'Mi padre ___ la educación toda su vida.', correct:'DEDICARSE_A', person:'el', full:'Mi padre se dedica a la educación toda su vida.', emoji:'🎓',
     note:{en:'DEDICARSE A + sector, never a profession — always with the preposition A.', es:'DEDICARSE A + sector, nunca una profesión — siempre con la preposición A.'} },
-  { blank:'___ al turismo.', correct:'DEDICARSE_A', full:'Me dedico al turismo.', emoji:'🧳',
+  { blank:'___ al turismo.', correct:'DEDICARSE_A', person:'yo', full:'Me dedico al turismo.', emoji:'🧳',
     note:{en:'DEDICARSE A + sector, never a profession — always with the preposition A.', es:'DEDICARSE A + sector, nunca una profesión — siempre con la preposición A.'} }
 ];
 
 function playTrabajo() {
   currentGameFn = playTrabajo;
   const lang = L();
-  const title = lang==='es' ? 'La ponchadora del trabajo' : 'The Work Time Clock';
+  const title = lang==='es' ? 'Preséntate en tu trabajo' : 'Introduce Yourself at Work';
   GS = { items: _shuffle(WK_ITEMS), idx: 0, correct: 0, total: WK_ITEMS.length, answered: false };
   _renderWKRound();
 }
 
 function _renderWKRound() {
   const lang = L();
-  const title = lang==='es' ? 'La ponchadora del trabajo' : 'The Work Time Clock';
+  const title = lang==='es' ? 'Preséntate en tu trabajo' : 'Introduce Yourself at Work';
   const { items, idx, correct, total } = GS;
   if (idx >= total) { _end(correct, total, title); return; }
   const item = items[idx];
   GS.answered = false;
 
+  const conj = WK_CONJ[item.person];
   const btns = [
-    { key:'SER',            label:'SER' },
-    { key:'TRABAJAR_EN',    label:'TRABAJAR EN' },
-    { key:'TRABAJAR_COMO',  label:'TRABAJAR COMO' },
-    { key:'DEDICARSE_A',    label:'DEDICARSE A' }
+    { key:'SER',            label:conj.SER },
+    { key:'TRABAJAR_EN',    label:conj.TRABAJAR_EN },
+    { key:'TRABAJAR_COMO',  label:conj.TRABAJAR_COMO },
+    { key:'DEDICARSE_A',    label:conj.DEDICARSE_A }
   ];
   const btnsHTML = btns.map(b => `<button class="wk-btn" data-key="${b.key}" onclick="wkAnswer('${b.key}')">${b.label}</button>`).join('');
 
@@ -2290,7 +2297,7 @@ function wkAnswer(key) {
 
   setTimeout(() => {
     document.getElementById('gm-fb').innerHTML = `
-      <span class="${ok?'fb-ok':'fb-ko'}">${ok?'✓ '+(lang==='es'?'¡Fichado correcto!':'Correctly clocked in!'):'✗ '+(lang==='es'?'El verbo correcto es':'The correct verb is')+' <strong>'+item.correct.replace('_',' ')+'</strong>'}</span>
+      <span class="${ok?'fb-ok':'fb-ko'}">${ok?'✓ '+(lang==='es'?'¡Fichado correcto!':'Correctly clocked in!'):'✗ '+(lang==='es'?'La forma correcta es':'The correct form is')+' <strong>'+WK_CONJ[item.person][item.correct]+'</strong>'}</span>
       <div class="se-fb-sentence">${item.full}</div>
       <div class="pf-note">${item.note[lang]}</div>
       <button class="gm-btn gm-btn-primary gm-next-btn" onclick="wkNext()">${lang==='es'?'Siguiente →':'Next →'}</button>`;
@@ -2625,6 +2632,250 @@ function tkNext() {
   _renderTKRound();
 }
 
+/* ══════════════════════════════════════════════
+   GAME 19 · EL RELOJ DE LA SOBREMESA
+   (LA SOBREMESA — hacer sobremesa, quedarse de
+   sobremesa, una sobremesa animada, alargar la
+   sobremesa, sobremesa interminable) — read the
+   real example sentence and pick the expression
+   it illustrates; a clock face starting at 3pm
+   spins its hands forward on every correct answer,
+   as if the sobremesa itself keeps getting longer
+══════════════════════════════════════════════ */
+
+const SM_EXPR = [
+  { key:'HACER',     label:'HACER SOBREMESA' },
+  { key:'QUEDARSE',  label:'QUEDARSE DE SOBREMESA' },
+  { key:'ANIMADA',   label:'UNA SOBREMESA ANIMADA' },
+  { key:'ALARGAR',   label:'ALARGAR LA SOBREMESA' },
+  { key:'INTERMINABLE', label:'SOBREMESA INTERMINABLE' }
+];
+
+const SM_ITEMS = [
+  { sentence:'"Después de comer, siempre hacemos sobremesa."', correct:'HACER',
+    note:{en:'HACER SOBREMESA = to stay chatting at the table after eating.', es:'HACER SOBREMESA = quedarse charlando en la mesa después de comer.'} },
+  { sentence:'"Los domingos, mi familia siempre hace sobremesa después de la paella."', correct:'HACER',
+    note:{en:'HACER SOBREMESA = to stay chatting at the table after eating.', es:'HACER SOBREMESA = quedarse charlando en la mesa después de comer.'} },
+  { sentence:'"Nos quedamos de sobremesa hasta las cuatro."', correct:'QUEDARSE',
+    note:{en:'QUEDARSE DE SOBREMESA = to remain at the table talking.', es:'QUEDARSE DE SOBREMESA = permanecer en la mesa charlando.'} },
+  { sentence:'"Ayer nos quedamos de sobremesa más de dos horas."', correct:'QUEDARSE',
+    note:{en:'QUEDARSE DE SOBREMESA = to remain at the table talking.', es:'QUEDARSE DE SOBREMESA = permanecer en la mesa charlando.'} },
+  { sentence:'"Tuvimos una sobremesa muy animada ayer."', correct:'ANIMADA',
+    note:{en:'UNA SOBREMESA ANIMADA = a lively, fun conversation.', es:'UNA SOBREMESA ANIMADA = una conversación viva y divertida.'} },
+  { sentence:'"En el cumpleaños de mi tío, la sobremesa fue muy animada."', correct:'ANIMADA',
+    note:{en:'UNA SOBREMESA ANIMADA = a lively, fun conversation.', es:'UNA SOBREMESA ANIMADA = una conversación viva y divertida.'} },
+  { sentence:'"Nadie quería alargar la sobremesa."', correct:'ALARGAR',
+    note:{en:'ALARGAR LA SOBREMESA = to make it last longer.', es:'ALARGAR LA SOBREMESA = hacer que dure más tiempo.'} },
+  { sentence:'"Decidimos alargar la sobremesa con un café más."', correct:'ALARGAR',
+    note:{en:'ALARGAR LA SOBREMESA = to make it last longer.', es:'ALARGAR LA SOBREMESA = hacer que dure más tiempo.'} },
+  { sentence:'"En Navidad, la sobremesa es interminable."', correct:'INTERMINABLE',
+    note:{en:'SOBREMESA INTERMINABLE = a very long sobremesa.', es:'SOBREMESA INTERMINABLE = una sobremesa muy larga.'} },
+  { sentence:'"Con mis abuelos, la sobremesa siempre es interminable."', correct:'INTERMINABLE',
+    note:{en:'SOBREMESA INTERMINABLE = a very long sobremesa.', es:'SOBREMESA INTERMINABLE = una sobremesa muy larga.'} }
+];
+
+function playSobremesa() {
+  currentGameFn = playSobremesa;
+  GS = { items: _shuffle(SM_ITEMS), idx: 0, correct: 0, total: SM_ITEMS.length, answered: false, minutes: 0 };
+  _renderSMRound();
+}
+
+function _smClockHTML(minutes) {
+  const hourDeg = (minutes / 60) * 30;
+  const minDeg = (minutes % 60) * 6;
+  const totalH = Math.floor(minutes / 60);
+  const startHour = 15;
+  const endHour = (startHour + totalH) % 24;
+  const endMin = minutes % 60;
+  const timeLabel = String(endHour).padStart(2,'0') + ':' + String(endMin).padStart(2,'0');
+  return `
+    <div class="sm-scene">
+      <div class="sm-clock">
+        <div class="sm-tick sm-tick-12"></div><div class="sm-tick sm-tick-3"></div>
+        <div class="sm-tick sm-tick-6"></div><div class="sm-tick sm-tick-9"></div>
+        <div class="sm-hand sm-hand-hour" id="sm-hour" style="transform:translateX(-50%) rotate(${hourDeg}deg)"></div>
+        <div class="sm-hand sm-hand-min" id="sm-min" style="transform:translateX(-50%) rotate(${minDeg}deg)"></div>
+        <div class="sm-clock-center"></div>
+        <span class="sm-cup" id="sm-cup">☕</span>
+      </div>
+      <div class="sm-time-label" id="sm-time-label">${timeLabel}</div>
+    </div>`;
+}
+
+function _renderSMRound() {
+  const lang = L();
+  const title = lang==='es' ? 'El reloj de la sobremesa' : 'The Sobremesa Clock';
+  const { items, idx, correct, total, minutes } = GS;
+  if (idx >= total) { _end(correct, total, title); return; }
+  const item = items[idx];
+  GS.answered = false;
+
+  const btnsHTML = SM_EXPR.map(e => `<button class="sm-btn" data-key="${e.key}" onclick="smAnswer('${e.key}')">${e.label}</button>`).join('');
+
+  _modal(`
+    ${_progress(idx, total, correct, lang)}
+    <p class="gm-instr" style="text-align:center">${lang==='es'?'Lee la frase real y elige qué expresión de "sobremesa" ilustra.':'Read the real sentence and pick which "sobremesa" expression it illustrates.'}</p>
+    <div class="gm-sentence">${item.sentence}</div>
+    ${_smClockHTML(minutes)}
+    <div class="sm-btn-col">${btnsHTML}</div>
+    <div class="gm-feedback" id="gm-fb"></div>
+  `, title);
+}
+
+function smAnswer(key) {
+  if (GS.answered) return;
+  GS.answered = true;
+  const lang = L();
+  const item = GS.items[GS.idx];
+  const ok = key === item.correct;
+  if (ok) GS.correct++;
+
+  document.querySelectorAll('.sm-btn').forEach(b => {
+    b.disabled = true;
+    if (b.dataset.key === item.correct) b.classList.add('sm-correct');
+    else if (b.dataset.key === key && !ok) b.classList.add('sm-wrong');
+  });
+
+  const advance = ok ? 48 : 6;
+  const from = GS.minutes;
+  const to = from + advance;
+  GS.minutes = to;
+
+  const hourEl = document.getElementById('sm-hour');
+  const minEl = document.getElementById('sm-min');
+  const cup = document.getElementById('sm-cup');
+  if (hourEl) hourEl.style.transform = `translateX(-50%) rotate(${(to/60)*30}deg)`;
+  if (minEl) minEl.style.transform = `translateX(-50%) rotate(${(to%60)*6}deg)`;
+  const label = document.getElementById('sm-time-label');
+  if (label) {
+    const totalH = Math.floor(to / 60);
+    const endHour = (15 + totalH) % 24;
+    const endMin = to % 60;
+    label.textContent = String(endHour).padStart(2,'0') + ':' + String(endMin).padStart(2,'0');
+  }
+  if (ok && cup) { cup.classList.remove('sm-steam'); void cup.offsetWidth; cup.classList.add('sm-steam'); }
+
+  const expr = SM_EXPR.find(e => e.key === item.correct);
+
+  setTimeout(() => {
+    document.getElementById('gm-fb').innerHTML = `
+      <span class="${ok?'fb-ok':'fb-ko'}">${ok?'✓ '+(lang==='es'?'¡Correcto! La sobremesa se alarga.':'Correct! The sobremesa runs longer.'):'✗ '+(lang==='es'?'La expresión correcta es':'The correct expression is')+' <strong>'+expr.label+'</strong>'}</span>
+      <div class="pf-note">${item.note[lang]}</div>
+      <button class="gm-btn gm-btn-primary gm-next-btn" onclick="smNext()">${lang==='es'?'Siguiente →':'Next →'}</button>`;
+  }, 900);
+}
+
+function smNext() {
+  GS.idx++;
+  _renderSMRound();
+}
+
+/* ══════════════════════════════════════════════
+   GAME 20 · LA PUERTA DEL HOTEL
+   (EN EL HOTEL — fórmulas de cortesía y
+   vocabulario del check-in) — complete the real
+   dialogue line from the guide's official exercise;
+   a correct answer swipes a keycard, turns the
+   lock light green and swings the hotel room door
+   open; a wrong answer flashes the light red and
+   the door stays shut
+══════════════════════════════════════════════ */
+
+const HTL_ITEMS = [
+  { blank:'¿En qué puedo ________?', correct:'AYUDARLE', opts:['AYUDARLE','AYUDARTE','AYUDO','AYUDAN'],
+    note:{en:'Fixed reception greeting: "¿En qué puedo ayudarle?" — usted form.', es:'Saludo fijo de recepción: "¿En qué puedo ayudarle?" — forma de usted.'} },
+  { blank:'Me ________ reservar una habitación.', correct:'GUSTARÍA', opts:['GUSTARÍA','GUSTA','GUSTAN','GUSTO'],
+    note:{en:'ME GUSTARÍA + infinitive = polite way to state what you want.', es:'ME GUSTARÍA + infinitivo = forma cortés de pedir algo.'} },
+  { blank:'¿A nombre de ________ hago la reserva?', correct:'QUIÉN', opts:['QUIÉN','QUÉ','CUÁNDO','CÓMO'],
+    note:{en:'"A nombre de quién" asks whose name the booking goes under.', es:'"A nombre de quién" pregunta bajo qué nombre va la reserva.'} },
+  { blank:'¿Podría ________ su pasaporte?', correct:'ENSEÑARME', opts:['ENSEÑARME','ENSEÑARLE','VERME','MOSTRARLE'],
+    note:{en:'¿PODRÍA + infinitive? = polite request at check-in.', es:'¿PODRÍA + infinitivo? = petición cortés en el check-in.'} },
+  { blank:'El aire acondicionado no ________.', correct:'FUNCIONA', opts:['FUNCIONA','FUNCIONO','TRABAJA','SIRVE'],
+    note:{en:'NO FUNCIONA = it does not work — reporting a problem.', es:'NO FUNCIONA = para reportar una avería o un problema.'} },
+  { blank:'¿Sería ________ cambiar de habitación?', correct:'POSIBLE', opts:['POSIBLE','CAPAZ','SEGURO','DISPONIBLE'],
+    note:{en:'¿SERÍA POSIBLE...? = very polite way to ask for a change.', es:'¿SERÍA POSIBLE...? = fórmula muy cortés para pedir un cambio.'} },
+  { blank:'¿Podrían ________ una almohada más?', correct:'TRAERME', opts:['TRAERME','LLEVARME','DARME','TRAER'],
+    note:{en:'¿PODRÍAN TRAERME...? = polite request for room service.', es:'¿PODRÍAN TRAERME...? = petición cortés de servicio de habitación.'} },
+  { blank:'¿Sería posible ________ mi estancia?', correct:'ALARGAR', opts:['ALARGAR','CAMBIAR','ANULAR','RESERVAR'],
+    note:{en:'ALARGAR LA ESTANCIA = to extend your stay one more night.', es:'ALARGAR LA ESTANCIA = quedarse una noche más.'} },
+  { blank:'¿Podría dejar mi ________ aquí?', correct:'MALETA', opts:['MALETA','PASAPORTE','TARJETA','LLAVE'],
+    note:{en:'DEJAR LA MALETA = to leave your luggage after check-out.', es:'DEJAR LA MALETA = guardar el equipaje después del check-out.'} },
+  { blank:'Que ________ de su estancia.', correct:'DISFRUTE', opts:['DISFRUTE','DISFRUTA','DISFRUTES','APROVECHE'],
+    note:{en:'"Que disfrute" — usted-form farewell wish.', es:'"Que disfrute" — despedida formal en la forma de usted.'} }
+];
+
+function playHotel() {
+  currentGameFn = playHotel;
+  GS = { items: _shuffleOpts(_shuffle(HTL_ITEMS).map(it => ({ ...it, a: it.opts.indexOf(it.correct) }))), idx: 0, correct: 0, total: HTL_ITEMS.length, answered: false };
+  _renderHTLRound();
+}
+
+function _renderHTLRound() {
+  const lang = L();
+  const title = lang==='es' ? 'La puerta del hotel' : 'The Hotel Room Door';
+  const { items, idx, correct, total } = GS;
+  if (idx >= total) { _end(correct, total, title); return; }
+  const item = items[idx];
+  GS.answered = false;
+
+  const btnsHTML = item.opts.map((o, i) => `<button class="htl-btn" data-idx="${i}" onclick="htlAnswer(${i})">${o}</button>`).join('');
+
+  _modal(`
+    ${_progress(idx, total, correct, lang)}
+    <p class="gm-instr" style="text-align:center">${lang==='es'?'Completa la frase real del hotel. Si aciertas, la puerta se abre.':'Complete the real hotel line. Get it right and the door opens.'}</p>
+    <div class="gm-sentence">${item.blank}</div>
+    <div class="htl-scene">
+      <div class="htl-door-frame">
+        <div class="htl-door" id="htl-door">
+          <div class="htl-door-handle"></div>
+        </div>
+        <div class="htl-light" id="htl-light"></div>
+      </div>
+      <div class="htl-keycard" id="htl-keycard">🔑</div>
+    </div>
+    <div class="htl-btn-row">${btnsHTML}</div>
+    <div class="gm-feedback" id="gm-fb"></div>
+  `, title);
+}
+
+function htlAnswer(i) {
+  if (GS.answered) return;
+  GS.answered = true;
+  const lang = L();
+  const item = GS.items[GS.idx];
+  const ok = i === item.a;
+  if (ok) GS.correct++;
+
+  document.querySelectorAll('.htl-btn').forEach((b, bi) => {
+    b.disabled = true;
+    if (bi === item.a) b.classList.add('htl-correct');
+    else if (bi === i && !ok) b.classList.add('htl-wrong');
+  });
+
+  const card = document.getElementById('htl-keycard');
+  const door = document.getElementById('htl-door');
+  const light = document.getElementById('htl-light');
+  if (card) card.classList.add('htl-swipe');
+
+  setTimeout(() => {
+    if (light) light.classList.add(ok ? 'htl-light-green' : 'htl-light-red');
+    if (ok && door) door.classList.add('htl-open');
+    if (!ok && door) door.classList.add('htl-shake');
+  }, 450);
+
+  setTimeout(() => {
+    document.getElementById('gm-fb').innerHTML = `
+      <span class="${ok?'fb-ok':'fb-ko'}">${ok?'✓ '+(lang==='es'?'¡Puerta abierta!':'Door open!'):'✗ '+(lang==='es'?'La palabra correcta es':'The correct word is')+' <strong>'+item.correct+'</strong>'}</span>
+      <div class="pf-note">${item.note[lang]}</div>
+      <button class="gm-btn gm-btn-primary gm-next-btn" onclick="htlNext()">${lang==='es'?'Siguiente →':'Next →'}</button>`;
+  }, 1050);
+}
+
+function htlNext() {
+  GS.idx++;
+  _renderHTLRound();
+}
+
 /* ── EXPOSE GLOBALS ───────────────────────────── */
 Object.assign(window, {
   closeGame, restartGame, toggleGameFullscreen, flipFC, fcAnswer,
@@ -2648,6 +2899,9 @@ Object.assign(window, {
   rrAnswer, rrNext,
   cnAnswer, cnNext,
   tkAnswer, tkNext,
+  smAnswer, smNext,
+  htlAnswer, htlNext,
   playFlashcards, playSerEstar, playQuiz, playFillGaps, playWordOrder, playVerbSprint, playPresentarse,
-  playRuleta, playDialogos, playGustar, playGenero, playCD, playDesde, playPorPara, playProfesiones, playVerMirar, playTrabajo, playSonidoR, playGeneroII, playConectores
+  playRuleta, playDialogos, playGustar, playGenero, playCD, playDesde, playPorPara, playProfesiones, playVerMirar, playTrabajo, playSonidoR, playGeneroII, playConectores,
+  playSobremesa, playHotel
 });

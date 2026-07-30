@@ -1097,6 +1097,76 @@ body.is-spanish .lang-en-block { display: none; }
 .wk-btn.wk-correct { border-color: #1A9E87; background: #E6F9F5; }
 .wk-btn.wk-wrong { border-color: #C8102E; background: #FDECEA; }
 
+/* ── EL RELOJ DE LA SOBREMESA ─────────────────── */
+.sm-scene { display: flex; flex-direction: column; align-items: center; gap: 8px; margin: 18px 0 6px; }
+.sm-clock {
+  position: relative; width: 140px; height: 140px; border-radius: 50%;
+  background: #F9F9FB; border: 6px solid #E74C3C; box-shadow: inset 0 2px 6px rgba(0,0,0,0.08);
+}
+.sm-tick { position: absolute; background: #9B9AAB; }
+.sm-tick-12, .sm-tick-6 { left: 50%; width: 2px; height: 10px; transform: translateX(-50%); }
+.sm-tick-12 { top: 6px; }
+.sm-tick-6 { bottom: 6px; }
+.sm-tick-3, .sm-tick-9 { top: 50%; height: 2px; width: 10px; transform: translateY(-50%); }
+.sm-tick-3 { right: 6px; }
+.sm-tick-9 { left: 6px; }
+.sm-hand { position: absolute; left: 50%; bottom: 50%; transform-origin: bottom center; background: #121117; border-radius: 3px; transition: transform 0.8s cubic-bezier(.4,1.4,.6,1); }
+.sm-hand-hour { width: 5px; height: 34px; }
+.sm-hand-min { width: 3px; height: 48px; background: #E74C3C; }
+.sm-clock-center { position: absolute; top: 50%; left: 50%; width: 10px; height: 10px; border-radius: 50%; background: #121117; transform: translate(-50%,-50%); }
+.sm-cup { position: absolute; bottom: -14px; right: -10px; font-size: 22px; }
+.sm-cup.sm-steam { animation: smSteamPuff 0.7s ease-out; }
+@keyframes smSteamPuff {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.4) translateY(-4px); }
+  100% { transform: scale(1); }
+}
+.sm-time-label { font-family: 'Noto Sans', sans-serif; font-weight: 800; font-size: 15px; color: #E74C3C; letter-spacing: 0.5px; }
+.sm-btn-col { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; max-width: 420px; margin-left: auto; margin-right: auto; }
+.sm-btn {
+  padding: 12px 16px; border-radius: 8px; border: 1.5px solid #DCDCE5; background: #fff;
+  cursor: pointer; font-family: 'Noto Sans', sans-serif; font-weight: 700; font-size: 13.5px;
+  color: #121117; letter-spacing: 0.3px; transition: transform 0.15s, border-color 0.15s, background 0.15s;
+}
+.sm-btn:hover:not(:disabled) { transform: scale(1.02); border-color: #E74C3C; }
+.sm-btn:disabled { cursor: default; }
+.sm-btn.sm-correct { border-color: #1A9E87; background: #E6F9F5; }
+.sm-btn.sm-wrong { border-color: #C8102E; background: #FDECEA; }
+
+/* ── LA PUERTA DEL HOTEL (EN EL HOTEL) ────────── */
+.htl-scene { display: flex; justify-content: center; align-items: flex-end; gap: 18px; margin: 18px 0 6px; perspective: 600px; }
+.htl-door-frame { position: relative; width: 100px; height: 140px; background: #6B4423; border-radius: 4px; padding: 6px; }
+.htl-door {
+  width: 100%; height: 100%; background: #8B5E34; border-radius: 3px; position: relative;
+  transform-origin: left center; transition: transform 0.6s cubic-bezier(.3,.7,.4,1);
+  box-shadow: inset 0 0 0 2px rgba(0,0,0,0.15);
+}
+.htl-door.htl-open { transform: rotateY(-68deg); }
+.htl-door.htl-shake { animation: htlShake 0.4s; }
+@keyframes htlShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+.htl-door-handle { position: absolute; right: 8px; top: 50%; width: 8px; height: 8px; border-radius: 50%; background: #F5EDE3; transform: translateY(-50%); }
+.htl-light { position: absolute; top: -14px; right: -4px; width: 12px; height: 12px; border-radius: 50%; background: #9B9AAB; transition: background 0.2s; }
+.htl-light.htl-light-green { background: #1A9E87; box-shadow: 0 0 8px #1A9E87; }
+.htl-light.htl-light-red { background: #C8102E; box-shadow: 0 0 8px #C8102E; }
+.htl-keycard {
+  font-size: 26px; transform: translateY(-40px); opacity: 0; transition: transform 0.45s ease-in, opacity 0.3s;
+}
+.htl-keycard.htl-swipe { transform: translateY(0); opacity: 1; }
+.htl-btn-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 14px; max-width: 420px; margin-left: auto; margin-right: auto; }
+.htl-btn {
+  padding: 14px 10px; border-radius: 10px; border: 1.5px solid #DCDCE5; background: #fff;
+  cursor: pointer; font-family: 'Noto Sans', sans-serif; font-weight: 800; font-size: 14px;
+  color: #121117; transition: transform 0.15s, border-color 0.15s, background 0.15s;
+}
+.htl-btn:hover:not(:disabled) { transform: scale(1.03); border-color: #2885FD; }
+.htl-btn:disabled { cursor: default; }
+.htl-btn.htl-correct { border-color: #1A9E87; background: #E6F9F5; }
+.htl-btn.htl-wrong { border-color: #C8102E; background: #FDECEA; }
+
 /* ── EL VIBRÓMETRO (LA R — R suave / RR fuerte) ── */
 .rr-scene { display: flex; justify-content: center; margin: 18px 0 6px; }
 .rr-gauge-face {
