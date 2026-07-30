@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=43">
+  <link rel="stylesheet" href="styles.css?v=44">
   <style>
     .pdf-grid {
       display: grid;
@@ -909,6 +909,34 @@
     setTimeout(function(){ m.style.display = 'none'; }, 220);
     document.body.style.overflow = '';
   }
+
+  // Add a direct "Play" link on every PDF card that already has a matching game
+  document.addEventListener('DOMContentLoaded', function () {
+    Object.keys(LESSONS).forEach(function (id) {
+      var l = LESSONS[id];
+      if (!l.game) return;
+      var card = document.getElementById(id);
+      var dl = card && card.querySelector('.pdf-card__download');
+      if (!dl || dl.parentElement.classList.contains('pdf-card__actions')) return;
+
+      var row = document.createElement('div');
+      row.className = 'pdf-card__actions';
+      row.style.cssText = 'display:flex; gap:10px; align-items:center; margin-top:auto; padding-top:12px; flex-wrap:wrap;';
+      dl.style.marginTop = '0';
+      dl.style.paddingTop = '0';
+      dl.parentNode.insertBefore(row, dl);
+      row.appendChild(dl);
+
+      var gameLink = document.createElement('a');
+      gameLink.href = l.game;
+      gameLink.className = 'pdf-card__download';
+      gameLink.style.background = '#121117';
+      gameLink.style.color = '#fff';
+      gameLink.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg><span class="lang-en">Play</span><span class="lang-es">Jugar</span>';
+      gameLink.addEventListener('click', function (e) { e.stopPropagation(); });
+      row.appendChild(gameLink);
+    });
+  });
 
   // Deep link support: free-pdf.html#card-gustar opens that lesson's modal directly
   document.addEventListener('DOMContentLoaded', function () {
