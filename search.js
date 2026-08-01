@@ -17,16 +17,23 @@
     // ── VÍDEOS ──────────────────────────────────────────────────────────
     { es:'Ser vs Estar — La lección más importante', en:'Ser vs Estar — The Most Important Lesson', type:'video', level:'A1', url:'videos.html#video-ser-estar', kw:'ser estar verbos gramática principiante copulativos ser-estar difference diferencia' },
     { es:'Saludos y Presentaciones en Español', en:'Spanish Greetings & Introductions', type:'video', level:'A1', url:'videos.html#video-saludos', kw:'saludos presentaciones hola buenos días gramática greetings introducirse' },
-    { es:'Números, Días y Meses en Español', en:'Numbers, Days & Months in Spanish', type:'video', level:'A1', url:'videos.html#video-numeros', kw:'números días meses vocabulario numbers days months contar' },
-    { es:'Tus Primeras 100 Palabras en Español', en:'Your First 100 Spanish Words', type:'video', level:'A1', url:'videos.html#video-palabras', kw:'palabras vocabulario principiante words vocabulary beginner básico' },
+    { es:'Cómo Decir las Fechas en Español', en:'How to Say Dates in Spanish', type:'video', level:'A1-A2', url:'videos.html#video-fechas', kw:'fechas días meses vocabulario dates days months contar calendario' },
+    { es:'El Género en Español: Masculino y Femenino', en:'Gender in Spanish: Masculine & Feminine', type:'video', level:'A1', url:'videos.html#video-genero', kw:'género masculino femenino gramática gender masculine feminine el la' },
     { es:'Pedir Indicaciones en Español', en:'Asking for Directions in Spanish', type:'video', level:'A2', url:'videos.html#video-indicaciones', kw:'indicaciones direcciones conversación frases directions phrases dónde calle' },
+    { es:'Preséntate en Español en 30 Segundos', en:'Introduce Yourself in Spanish in 30 Seconds', type:'video', level:'A1-A2', url:'videos.html#video-presentarte-short', kw:'presentarte llamarse ser tener vivir short introduce yourself verbos esenciales' },
+    { es:'Cuándo Usar "A" con el Complemento Directo', en:'When to Use "A" with the Direct Object', type:'video', level:'A2-B1', url:'videos.html#video-cd-prep-a-short', kw:'complemento directo preposición a personal short cd direct object' },
     { es:'Imperfecto vs Pretérito', en:'The Imperfect vs Preterite', type:'video', level:'B1', url:'videos.html#video-imperfecto', kw:'imperfecto pretérito pasado tiempos verbales gramática imperfect preterite past indefinido' },
     { es:'Hablar del Pasado en Español', en:'Talking About the Past in Spanish', type:'video', level:'B1', url:'videos.html#video-pasado', kw:'pasado conversación tiempo verbal past conversation ayer antes' },
     { es:'Comprensión Lectora DELE B1', en:'DELE B1 Reading Comprehension', type:'video', level:'B1', url:'videos.html#video-dele-b1', kw:'dele b1 comprensión lectura examen reading exam leer texto' },
-    { es:'El Subjuntivo Explicado', en:'The Subjunctive Mood Explained', type:'video', level:'B2', url:'videos.html#video-subjuntivo', kw:'subjuntivo modo subjuntivo gramática subjunctive grammar quiero que ojalá' },
+    { es:'El Verbo GUSTAR en Español', en:'The Verb GUSTAR in Spanish', type:'video', level:'A2-B1', url:'videos.html#video-gustar', kw:'gustar encantar molestar verbos pronombres like love indirecto me gusta' },
+    { es:'Vocabulario: Hablar del Trabajo (Parte I)', en:'Talking About Work in Spanish (Part I)', type:'video', level:'B1', url:'videos.html#video-trabajo-1', kw:'trabajo laboral vocabulario work job professional parte 1' },
+    { es:'Vocabulario: Hablar del Trabajo (Parte II)', en:'Talking About Work in Spanish (Part II)', type:'video', level:'B1', url:'videos.html#video-trabajo-2', kw:'trabajo laboral vocabulario work job professional parte 2' },
+    { es:'Las Diferencias Entre RECORDAR y ACORDARSE', en:'The Differences Between RECORDAR and ACORDARSE', type:'video', level:'A2-B1', url:'videos.html#video-recordar-acordarse-short', kw:'recordar acordarse verbos memoria memory remember short diferencias' },
+    { es:'DESDE · DESDE HACE · DESDE... HASTA', en:'DESDE · DESDE HACE · DESDE... HASTA', type:'video', level:'A2-B2', url:'videos.html#video-desde-short', kw:'desde desde hace hasta tiempo expresiones since for until short' },
     { es:'Pedir Comida en un Restaurante Español', en:'Ordering Food in a Spanish Restaurant', type:'video', level:'B2', url:'videos.html#video-comida', kw:'comida restaurante conversación pedir food restaurant order menú comer' },
+    { es:'La Palabra Española que no Tiene Traducción: SOBREMESA', en:'The Spanish Word With No Translation: SOBREMESA', type:'video', level:'B1-B2', url:'videos.html#video-sobremesa-short', kw:'sobremesa palabra traducción short cultura mesa conversación café' },
     { es:'Modismos y Expresiones Avanzadas', en:'Advanced Spanish Idioms & Expressions', type:'video', level:'C1', url:'videos.html#video-modismos', kw:'modismos expresiones avanzado nativo idioms expressions advanced native coloquial' },
-    { es:'Examen Oral DELE C1 — 10 Consejos', en:'DELE C1 Oral Exam — 10 Tips', type:'video', level:'C1', url:'videos.html#video-dele-c1', kw:'dele c1 oral examen consejos exam tips oral hablar' },
+    { es:'Examen Oral DELE C1 — 10 Consejos', en:'DELE C1 Oral Exam — 10 Tips', type:'video', level:'C1', url:'videos.html#video-dele-c1-full', kw:'dele c1 oral examen consejos exam tips oral hablar' },
 
     // ── PDFs GRATUITOS — GRAMÁTICA ────────────────────────────────────
     { es:'Guía Completa de Ser y Estar', en:'Complete Guide to Ser & Estar', type:'pdf', level:'A1-B1', url:'free-pdf.html#card-ser-estar', kw:'ser estar verbos gramática guía copulativos diferencia attributes states' },
@@ -38,18 +45,25 @@
     { es:'El CD y la Preposición A', en:'The Direct Object & Preposition A', type:'pdf', level:'A2-B1', url:'free-pdf.html#card-cd-prep-a', kw:'complemento directo preposición a CD gramática personal a direct object acusativo' },
     { es:'La carta formal: cómo escribirla', en:'The Formal Letter: How to Write It', type:'pdf', level:'C1', url:'free-pdf.html#card-carta-formal', kw:'carta formal dele c1 escritura prueba writing formal letter estructura redactar' },
     { es:'Presentarte en Español', en:'Introducing Yourself in Spanish', type:'pdf', level:'A1-A2', url:'free-pdf.html#card-presentarte', kw:'presentarse llamarse ser tener vivir presentaciones introduce yourself me llamo tengo años' },
+    { es:'Recordar vs Acordarse: cuándo usar cada verbo', en:'Recordar vs Acordarse: When to Use Each Verb', type:'pdf', level:'A2-B1', url:'free-pdf.html#card-recordar-acordarse', kw:'recordar acordarse verbos memoria remember memory diferencia conjugación' },
+    { es:'Las construcciones temporales: infinitivo, indicativo o subjuntivo', en:'Temporal Connectors: Infinitive, Indicative or Subjunctive', type:'pdf', level:'B2', url:'free-pdf.html#card-conectores', kw:'conectores temporales infinitivo indicativo subjuntivo antes de que en cuanto mientras hasta que' },
+    { es:'En el hotel: el condicional en situaciones reales', en:'At the Hotel: The Conditional Tense in Real Situations', type:'pdf', level:'B1-B2', url:'free-pdf.html#card-en-el-hotel-grammar', kw:'hotel condicional gramática conditional hospitality peticiones educadas' },
+    { es:'Las fechas: SER vs ESTAR + preposiciones', en:'Dates: SER vs ESTAR + Prepositions', type:'pdf', level:'A1-A2', url:'free-pdf.html#card-fechas-grammar', kw:'fechas ser estar preposiciones de en a gramática dates prepositions' },
 
     // ── PDFs GRATUITOS — VOCABULARIO ─────────────────────────────────
     { es:'Las profesiones: Masculino y Femenino', en:'Professions: Masculine & Feminine', type:'pdf', level:'B1-B2', url:'free-pdf.html#card-profesiones', kw:'profesiones trabajo masculino femenino vocabulario jobs professions gender masculine feminine médico abogado' },
     { es:'Hablemos del Mundo Laboral', en:"Let's Talk About Work", type:'pdf', level:'B1-B2', url:'free-pdf.html#card-mundo-laboral', kw:'trabajo laboral mundo profesional vocabulario expresiones work jobs professional employment entrevista empresa' },
     { es:'Ver, Mirar y Observar', en:'Ver, Mirar & Observar', type:'pdf', level:'B1', url:'free-pdf.html#card-ver-mirar', kw:'ver mirar observar vocabulario verbos diferencia see look watch observe sinónimos' },
+    { es:'La sobremesa: tradición y vocabulario de conversación', en:'Table Talk: Tradition and Conversation Vocabulary', type:'pdf', level:'B1-B2', url:'free-pdf.html#card-sobremesa', kw:'sobremesa tradición vocabulario conversación mesa café cultura table talk' },
+    { es:'En el hotel: vocabulario de situaciones cotidianas', en:'At the Hotel: Everyday Situations Vocabulary', type:'pdf', level:'B1-B2', url:'free-pdf.html#card-en-el-hotel-vocab', kw:'hotel vocabulario check-in servicio habitación reserva viaje hotel vocabulary' },
+    { es:'Las fechas en español', en:'Dates in Spanish', type:'pdf', level:'A1-A2', url:'free-pdf.html#card-fechas', kw:'fechas días meses estaciones vocabulario dates days months seasons calendario' },
 
     // ── PDFs GRATUITOS — PRONUNCIACIÓN ───────────────────────────────
     { es:'El Sonido R en Español', en:'The R Sound in Spanish', type:'pdf', level:'A1-A2', url:'free-pdf.html#card-sonido-r', kw:'r sonido pronunciación rr sound pronunciation consonante vibrante cómo pronunciar' },
 
     // ── EXÁMENES DELE ─────────────────────────────────────────────────
-    { es:'Examen de Práctica DELE A1', en:'DELE A1 Practice Exam', type:'dele', level:'A1', url:'free-pdf.html#dele', kw:'dele a1 examen práctica descarga pdf practice exam principiante' },
-    { es:'Examen de Práctica DELE A2', en:'DELE A2 Practice Exam', type:'dele', level:'A2', url:'free-pdf.html#dele', kw:'dele a2 examen práctica descarga pdf practice exam elemental' },
+    { es:'Examen de Práctica DELE A1', en:'DELE A1 Practice Exam', type:'dele', level:'A1', url:'dele.html#a1', kw:'dele a1 examen práctica descarga pdf practice exam principiante' },
+    { es:'Examen de Práctica DELE A2', en:'DELE A2 Practice Exam', type:'dele', level:'A2', url:'dele.html#a2', kw:'dele a2 examen práctica descarga pdf practice exam elemental' },
     { es:'Examen de Práctica DELE B1', en:'DELE B1 Practice Exam', type:'dele', level:'B1', url:'dele.html#b1', kw:'dele b1 examen práctica descarga pdf practice exam intermedio' },
     { es:'Examen de Práctica DELE B2', en:'DELE B2 Practice Exam', type:'dele', level:'B2', url:'dele.html#b2', kw:'dele b2 examen práctica descarga pdf practice exam avanzado' },
     { es:'Examen de Práctica DELE C1', en:'DELE C1 Practice Exam', type:'dele', level:'C1', url:'dele.html#c1', kw:'dele c1 examen práctica descarga pdf practice exam superior' },
@@ -58,9 +72,25 @@
     // ── CULTURA ───────────────────────────────────────────────────────
     { es:'Cultura Española', en:'Spanish Culture', type:'cultura', level:'', url:'culture.html', kw:'cultura españa literatura cine arte culture spain cinema art literature historia fiestas' },
     { es:'Patria — Guía de Lectura', en:'Patria — Reading Guide', type:'cultura', level:'B2-C2', url:'patria-reading-guide.html', kw:'patria novela lectura literatura aramburu reading guide novel basque vasco eta guía' },
+    { es:'San Fermín en Español', en:'San Fermín in Spanish', type:'cultura', level:'B1-B2', url:'sanfermines.html', kw:'san fermín sanfermines pamplona encierros toros fiestas festival vocabulario' },
 
     // ── JUEGOS ────────────────────────────────────────────────────────
-    { es:'Juego: Ser o Estar', en:'Game: Ser or Estar', type:'juego', level:'A1-B1', url:'juego-ser-estar.html', kw:'juego ser estar game practice interactivo interactive practicar ejercicio' },
+    { es:'Juego: ¿Ser o Estar?', en:'Game: Ser or Estar?', type:'juego', level:'A1-B1', url:'juego-ser-estar.html', kw:'juego ser estar game practice interactivo interactive practicar ejercicio' },
+    { es:'Juego: Preséntate en Español', en:'Game: Introduce Yourself', type:'juego', level:'A1-A2', url:'juego-presentarte.html', kw:'juego presentarte llamarse tener vivir game introduce yourself' },
+    { es:'Juego: Atrapa la Concordancia (GUSTAR)', en:'Game: Catch the Agreement (GUSTAR)', type:'juego', level:'A2-B1', url:'juego-gustar.html', kw:'juego gustar concordancia game catch agreement pronombres' },
+    { es:'Juego: El Carrete de la Concordancia (Género)', en:'Game: The Agreement Reel (Gender)', type:'juego', level:'A1-B1', url:'juego-genero.html', kw:'juego género concordancia carrete game gender reel masculino femenino' },
+    { es:'Juego: La Moneda del Género (Género II)', en:'Game: The Gender Coin (Gender II)', type:'juego', level:'A2-B1', url:'juego-genero-ii.html', kw:'juego género moneda casos especiales game gender coin' },
+    { es:'Juego: La Cinta del CD', en:'Game: The Direct Object Conveyor', type:'juego', level:'A2-B1', url:'juego-cd-prep-a.html', kw:'juego complemento directo preposición a cinta game direct object conveyor' },
+    { es:'Juego: La Línea del Tiempo (Desde)', en:'Game: The Timeline (Desde)', type:'juego', level:'A2-B2', url:'juego-desde.html', kw:'juego desde desde hace durante línea tiempo game timeline' },
+    { es:'Juego: La Diana de las Preposiciones (Por/Para)', en:'Game: The Preposition Dartboard (Por/Para)', type:'juego', level:'B1-B2', url:'juego-por-para.html', kw:'juego por para durante diana preposiciones game dartboard' },
+    { es:'Juego: El Ascensor de las Profesiones', en:'Game: The Profession Elevator', type:'juego', level:'B1-B2', url:'juego-profesiones.html', kw:'juego profesiones ascensor género game profession elevator masculino femenino' },
+    { es:'Juego: El Objetivo de la Cámara (Ver/Mirar/Observar)', en:'Game: The Camera Lens (Ver/Mirar/Observar)', type:'juego', level:'B1', url:'juego-ver-mirar.html', kw:'juego ver mirar observar cámara game camera lens' },
+    { es:'Juego: Preséntate en tu Trabajo', en:'Game: Introduce Yourself at Work', type:'juego', level:'B1-B2', url:'juego-mundo-laboral.html', kw:'juego trabajo laboral ponchadora game work time clock ser trabajar dedicarse' },
+    { es:'Juego: El Vibrómetro (Sonido R)', en:'Game: The Vibration Meter (R Sound)', type:'juego', level:'A1-A2', url:'juego-sonido-r.html', kw:'juego sonido r rr vibrómetro pronunciación game vibration meter' },
+    { es:'Juego: El Cambio de Vías (Conectores)', en:'Game: The Track Switch (Connectors)', type:'juego', level:'B2', url:'juego-conectores.html', kw:'juego conectores temporales vías tren game track switch infinitivo subjuntivo' },
+    { es:'Juego: El Reloj de la Sobremesa', en:'Game: The Sobremesa Clock', type:'juego', level:'B1-B2', url:'juego-sobremesa.html', kw:'juego sobremesa reloj game clock expresiones mesa café' },
+    { es:'Juego: La Puerta del Hotel', en:'Game: The Hotel Room Door', type:'juego', level:'A2-B1', url:'juego-en-el-hotel.html', kw:'juego hotel puerta llave game door key recepción check-in' },
+    { es:'Juego: El Calendario de las Fechas', en:'Game: The Dates Calendar', type:'juego', level:'A1-A2', url:'juego-fechas.html', kw:'juego fechas calendario game dates calendar ser estar de en a días meses' },
   ];
 
   var TYPE_META = {
