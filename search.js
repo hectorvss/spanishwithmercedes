@@ -34,6 +34,7 @@
     { es:'La Palabra Española que no Tiene Traducción: SOBREMESA', en:'The Spanish Word With No Translation: SOBREMESA', type:'video', level:'B1-B2', url:'videos.html#video-sobremesa-short', kw:'sobremesa palabra traducción short cultura mesa conversación café' },
     { es:'Modismos y Expresiones Avanzadas', en:'Advanced Spanish Idioms & Expressions', type:'video', level:'C1', url:'videos.html#video-modismos', kw:'modismos expresiones avanzado nativo idioms expressions advanced native coloquial' },
     { es:'Examen Oral DELE C1 — 10 Consejos', en:'DELE C1 Oral Exam — 10 Tips', type:'video', level:'C1', url:'videos.html#video-dele-c1-full', kw:'dele c1 oral examen consejos exam tips oral hablar' },
+    { es:'Consejos para Redactar una Carta Formal', en:'Tips for Writing a Formal Letter', type:'video', level:'C1', url:'videos.html#video-carta-formal', kw:'carta formal dele c1 escritura escribir consejos writing formal letter tips redactar' },
 
     // ── PDFs GRATUITOS — GRAMÁTICA ────────────────────────────────────
     { es:'Guía Completa de Ser y Estar', en:'Complete Guide to Ser & Estar', type:'pdf', level:'A1-B1', url:'free-pdf.html#card-ser-estar', kw:'ser estar verbos gramática guía copulativos diferencia attributes states' },
