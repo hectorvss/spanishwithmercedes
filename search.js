@@ -16,24 +16,16 @@
   var INDEX = [
     // ── VÍDEOS ──────────────────────────────────────────────────────────
     { es:'Ser vs Estar — La lección más importante', en:'Ser vs Estar — The Most Important Lesson', type:'video', level:'A1', url:'videos.html#video-ser-estar', kw:'ser estar verbos gramática principiante copulativos ser-estar difference diferencia' },
-    { es:'Saludos y Presentaciones en Español', en:'Spanish Greetings & Introductions', type:'video', level:'A1', url:'videos.html#video-saludos', kw:'saludos presentaciones hola buenos días gramática greetings introducirse' },
     { es:'Cómo Decir las Fechas en Español', en:'How to Say Dates in Spanish', type:'video', level:'A1-A2', url:'videos.html#video-fechas', kw:'fechas días meses vocabulario dates days months contar calendario' },
     { es:'El Género en Español: Masculino y Femenino', en:'Gender in Spanish: Masculine & Feminine', type:'video', level:'A1', url:'videos.html#video-genero', kw:'género masculino femenino gramática gender masculine feminine el la' },
-    { es:'Pedir Indicaciones en Español', en:'Asking for Directions in Spanish', type:'video', level:'A2', url:'videos.html#video-indicaciones', kw:'indicaciones direcciones conversación frases directions phrases dónde calle' },
     { es:'Preséntate en Español en 30 Segundos', en:'Introduce Yourself in Spanish in 30 Seconds', type:'video', level:'A1-A2', url:'videos.html#video-presentarte-short', kw:'presentarte llamarse ser tener vivir short introduce yourself verbos esenciales' },
     { es:'Cuándo Usar "A" con el Complemento Directo', en:'When to Use "A" with the Direct Object', type:'video', level:'A2-B1', url:'videos.html#video-cd-prep-a-short', kw:'complemento directo preposición a personal short cd direct object' },
-    { es:'Imperfecto vs Pretérito', en:'The Imperfect vs Preterite', type:'video', level:'B1', url:'videos.html#video-imperfecto', kw:'imperfecto pretérito pasado tiempos verbales gramática imperfect preterite past indefinido' },
-    { es:'Hablar del Pasado en Español', en:'Talking About the Past in Spanish', type:'video', level:'B1', url:'videos.html#video-pasado', kw:'pasado conversación tiempo verbal past conversation ayer antes' },
-    { es:'Comprensión Lectora DELE B1', en:'DELE B1 Reading Comprehension', type:'video', level:'B1', url:'videos.html#video-dele-b1', kw:'dele b1 comprensión lectura examen reading exam leer texto' },
     { es:'El Verbo GUSTAR en Español', en:'The Verb GUSTAR in Spanish', type:'video', level:'A2-B1', url:'videos.html#video-gustar', kw:'gustar encantar molestar verbos pronombres like love indirecto me gusta' },
     { es:'Vocabulario: Hablar del Trabajo (Parte I)', en:'Talking About Work in Spanish (Part I)', type:'video', level:'B1', url:'videos.html#video-trabajo-1', kw:'trabajo laboral vocabulario work job professional parte 1' },
     { es:'Vocabulario: Hablar del Trabajo (Parte II)', en:'Talking About Work in Spanish (Part II)', type:'video', level:'B1', url:'videos.html#video-trabajo-2', kw:'trabajo laboral vocabulario work job professional parte 2' },
     { es:'Las Diferencias Entre RECORDAR y ACORDARSE', en:'The Differences Between RECORDAR and ACORDARSE', type:'video', level:'A2-B1', url:'videos.html#video-recordar-acordarse-short', kw:'recordar acordarse verbos memoria memory remember short diferencias' },
     { es:'DESDE · DESDE HACE · DESDE... HASTA', en:'DESDE · DESDE HACE · DESDE... HASTA', type:'video', level:'A2-B2', url:'videos.html#video-desde-short', kw:'desde desde hace hasta tiempo expresiones since for until short' },
-    { es:'Pedir Comida en un Restaurante Español', en:'Ordering Food in a Spanish Restaurant', type:'video', level:'B2', url:'videos.html#video-comida', kw:'comida restaurante conversación pedir food restaurant order menú comer' },
     { es:'La Palabra Española que no Tiene Traducción: SOBREMESA', en:'The Spanish Word With No Translation: SOBREMESA', type:'video', level:'B1-B2', url:'videos.html#video-sobremesa-short', kw:'sobremesa palabra traducción short cultura mesa conversación café' },
-    { es:'Modismos y Expresiones Avanzadas', en:'Advanced Spanish Idioms & Expressions', type:'video', level:'C1', url:'videos.html#video-modismos', kw:'modismos expresiones avanzado nativo idioms expressions advanced native coloquial' },
-    { es:'Examen Oral DELE C1 — 10 Consejos', en:'DELE C1 Oral Exam — 10 Tips', type:'video', level:'C1', url:'videos.html#video-dele-c1-full', kw:'dele c1 oral examen consejos exam tips oral hablar' },
     { es:'Consejos para Redactar una Carta Formal', en:'Tips for Writing a Formal Letter', type:'video', level:'C1', url:'videos.html#video-carta-formal', kw:'carta formal dele c1 escritura escribir consejos writing formal letter tips redactar' },
 
     // ── PDFs GRATUITOS — GRAMÁTICA ────────────────────────────────────
