@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,800;0,900;1,800;1,900&family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=51">
+  <link rel="stylesheet" href="styles.css?v=52">
   <style>
     .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1280px; margin-bottom: 64px; }
     .blog-grid--feature { grid-template-columns: 2fr 1fr; margin-bottom: 48px; }
@@ -218,6 +218,16 @@
     }
     @media (max-width: 900px) { .video-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 560px) { .video-grid { grid-template-columns: 1fr; } }
+    .culture-wip {
+      max-width: 480px; margin: 0 auto 40px; text-align: center;
+      padding: 48px 24px; border: 1.5px dashed #DCDCE5; border-radius: 12px;
+    }
+    .culture-wip__icon { font-size: 36px; margin-bottom: 12px; }
+    .culture-wip__title {
+      font-family: 'Noto Sans', sans-serif; font-weight: 800; font-size: 18px;
+      color: #121117; margin-bottom: 8px;
+    }
+    .culture-wip__desc { font-size: 14px; color: #6B6A7A; line-height: 1.6; }
     .video-card {
       background: #fff; border-radius: 12px;
       border: 1.5px solid #EBEBF0; overflow: hidden;
@@ -376,120 +386,30 @@
   <!-- CINE DETAIL -->
   <div class="culture-detail" id="cine-detail">
     <div class="culture-detail__heading">🎬 <span class="lang-en">Cinema &amp; Series</span><span class="lang-es">Cine y Series</span></div>
-    <div class="video-grid">
-      <div class="video-card">
-        <div class="video-card__thumb">
-          <img src="https://www.figma.com/api/mcp/asset/6d8a9a65-261c-4e13-a967-4528839f2b66" alt="">
-          <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><polygon points="5,3 19,12 5,21"/></svg></div></div>
-        </div>
-        <div class="video-card__body">
-          <div class="video-card__level">B1</div>
-          <div class="video-card__title"><span class="lang-en">Pedro Almodóvar's 10 Best Films — What They Teach About Spain</span><span class="lang-es">Las 10 Mejores Películas de Almodóvar — Lo Que Enseñan Sobre España</span></div>
-          <div class="video-card__desc"><span class="lang-en">A crash course in modern Spanish society and culture.</span><span class="lang-es">Un curso intensivo sobre la sociedad y la cultura española moderna.</span></div>
-        </div>
-      </div>
-      <div class="video-card">
-        <div class="video-card__thumb">
-          <img src="https://www.figma.com/api/mcp/asset/3443e1d9-5525-4306-94e5-52a036ae3b53" alt="">
-          <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><polygon points="5,3 19,12 5,21"/></svg></div></div>
-        </div>
-        <div class="video-card__body">
-          <div class="video-card__level">B2</div>
-          <div class="video-card__title"><span class="lang-en">"Money Heist" and "Elite" — Are They Good for Learning Spanish?</span><span class="lang-es">"La Casa de Papel" y "Élite" — ¿Son Buenas para Aprender Español?</span></div>
-          <div class="video-card__desc"><span class="lang-en">Spanish Netflix hits can be useful — if you use them the right way.</span><span class="lang-es">Las series de Netflix pueden ser útiles — si las usas bien.</span></div>
-        </div>
-      </div>
-      <div class="video-card">
-        <div class="video-card__thumb">
-          <img src="https://www.figma.com/api/mcp/asset/5e2c88c2-23c2-4410-b727-0ff7801fe209" alt="">
-          <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><polygon points="5,3 19,12 5,21"/></svg></div></div>
-        </div>
-        <div class="video-card__body">
-          <div class="video-card__level">B1 – C1</div>
-          <div class="video-card__title"><span class="lang-en">Best Spanish Films to Learn Spanish — By Level</span><span class="lang-es">Las Mejores Películas en Español para Aprender — Por Nivel</span></div>
-          <div class="video-card__desc"><span class="lang-en">A curated list from Mercedes sorted by difficulty.</span><span class="lang-es">Una lista seleccionada por Mercedes ordenada por dificultad.</span></div>
-        </div>
-      </div>
+    <div class="culture-wip">
+      <div class="culture-wip__icon">🚧</div>
+      <div class="culture-wip__title"><span class="lang-en">Work in progress</span><span class="lang-es">Trabajo en curso</span></div>
+      <div class="culture-wip__desc"><span class="lang-en">This section is still being prepared. Come back soon for real content about Spanish cinema and series.</span><span class="lang-es">Esta sección todavía está en preparación. Vuelve pronto para ver contenido real sobre cine y series en español.</span></div>
     </div>
   </div>
 
   <!-- MÚSICA DETAIL -->
   <div class="culture-detail" id="musica-detail">
     <div class="culture-detail__heading">🎵 <span class="lang-en">Music</span><span class="lang-es">Música</span></div>
-    <div class="video-grid">
-      <div class="video-card">
-        <div class="video-card__thumb">
-          <img src="https://www.figma.com/api/mcp/asset/5e2c88c2-23c2-4410-b727-0ff7801fe209" alt="">
-          <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><polygon points="5,3 19,12 5,21"/></svg></div></div>
-        </div>
-        <div class="video-card__body">
-          <div class="video-card__level">A2</div>
-          <div class="video-card__title"><span class="lang-en">Learn Spanish Through Songs — 15 Artists Beginner to Advanced</span><span class="lang-es">Aprende Español con Canciones — 15 Artistas de Principiante a Avanzado</span></div>
-          <div class="video-card__desc"><span class="lang-en">From Rosalía to Juanes, music is one of the best tools for acquisition.</span><span class="lang-es">De Rosalía a Juanes, la música es una de las mejores herramientas.</span></div>
-        </div>
-      </div>
-      <div class="video-card">
-        <div class="video-card__thumb">
-          <img src="https://www.figma.com/api/mcp/asset/6157f9ed-9e1e-46c5-94f8-29ce4f1d6330" alt="">
-          <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><polygon points="5,3 19,12 5,21"/></svg></div></div>
-        </div>
-        <div class="video-card__body">
-          <div class="video-card__level">B1</div>
-          <div class="video-card__title"><span class="lang-en">Flamenco — History, Vocabulary and Culture in One Lesson</span><span class="lang-es">Flamenco — Historia, Vocabulario y Cultura en Una Lección</span></div>
-          <div class="video-card__desc"><span class="lang-en">Understanding flamenco is understanding Andalusia. Essential cultural vocabulary.</span><span class="lang-es">Entender el flamenco es entender Andalucía. Vocabulario cultural esencial.</span></div>
-        </div>
-      </div>
-      <div class="video-card">
-        <div class="video-card__thumb">
-          <img src="https://www.figma.com/api/mcp/asset/6d8a9a65-261c-4e13-a967-4528839f2b66" alt="">
-          <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><polygon points="5,3 19,12 5,21"/></svg></div></div>
-        </div>
-        <div class="video-card__body">
-          <div class="video-card__level">A1 – B2</div>
-          <div class="video-card__title"><span class="lang-en">Top Spanish Playlists for Language Learners — By Level</span><span class="lang-es">Las Mejores Playlists en Español para Estudiantes — Por Nivel</span></div>
-          <div class="video-card__desc"><span class="lang-en">Mercedes's recommended playlists curated for each DELE level.</span><span class="lang-es">Playlists recomendadas por Mercedes para cada nivel DELE.</span></div>
-        </div>
-      </div>
+    <div class="culture-wip">
+      <div class="culture-wip__icon">🚧</div>
+      <div class="culture-wip__title"><span class="lang-en">Work in progress</span><span class="lang-es">Trabajo en curso</span></div>
+      <div class="culture-wip__desc"><span class="lang-en">This section is still being prepared. Come back soon for real content about Spanish music.</span><span class="lang-es">Esta sección todavía está en preparación. Vuelve pronto para ver contenido real sobre música en español.</span></div>
     </div>
   </div>
 
   <!-- GASTRONOMÍA DETAIL -->
   <div class="culture-detail" id="gastronomia-detail">
     <div class="culture-detail__heading">🍳 <span class="lang-en">Gastronomy</span><span class="lang-es">Gastronomía</span></div>
-    <div class="video-grid">
-      <div class="video-card">
-        <div class="video-card__thumb">
-          <img src="https://www.figma.com/api/mcp/asset/6157f9ed-9e1e-46c5-94f8-29ce4f1d6330" alt="">
-          <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><polygon points="5,3 19,12 5,21"/></svg></div></div>
-        </div>
-        <div class="video-card__body">
-          <div class="video-card__level">A1</div>
-          <div class="video-card__title"><span class="lang-en">Spanish Food Vocabulary — From Tapas to Paella</span><span class="lang-es">Vocabulario de Comida Española — De las Tapas a la Paella</span></div>
-          <div class="video-card__desc"><span class="lang-en">Master the essential food vocabulary with the Spanish table as your guide.</span><span class="lang-es">Domina el vocabulario esencial de comida con la mesa española como guía.</span></div>
-        </div>
-      </div>
-      <div class="video-card">
-        <div class="video-card__thumb">
-          <img src="https://www.figma.com/api/mcp/asset/5e2c88c2-23c2-4410-b727-0ff7801fe209" alt="">
-          <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><polygon points="5,3 19,12 5,21"/></svg></div></div>
-        </div>
-        <div class="video-card__body">
-          <div class="video-card__level">B2</div>
-          <div class="video-card__title"><span class="lang-en">Ferran Adrià and Spanish Avant-Garde Cuisine — Vocabulary Masterclass</span><span class="lang-es">Ferran Adrià y la Cocina Vanguardista Española — Masterclass de Vocabulario</span></div>
-          <div class="video-card__desc"><span class="lang-en">How Spain revolutionised global cooking — language through gastronomy.</span><span class="lang-es">Cómo España revolucionó la cocina global — idioma a través de la gastronomía.</span></div>
-        </div>
-      </div>
-      <div class="video-card">
-        <div class="video-card__thumb">
-          <img src="https://www.figma.com/api/mcp/asset/3443e1d9-5525-4306-94e5-52a036ae3b53" alt="">
-          <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><polygon points="5,3 19,12 5,21"/></svg></div></div>
-        </div>
-        <div class="video-card__body">
-          <div class="video-card__level">B1</div>
-          <div class="video-card__title"><span class="lang-en">Spanish Regional Cuisine — A Journey Through 17 Autonomous Communities</span><span class="lang-es">Cocina Regional Española — Un Viaje por 17 Comunidades Autónomas</span></div>
-          <div class="video-card__desc"><span class="lang-en">Every region has its signature dish. A cultural and vocabulary tour.</span><span class="lang-es">Cada región tiene su plato estrella. Un recorrido cultural y de vocabulario.</span></div>
-        </div>
-      </div>
+    <div class="culture-wip">
+      <div class="culture-wip__icon">🚧</div>
+      <div class="culture-wip__title"><span class="lang-en">Work in progress</span><span class="lang-es">Trabajo en curso</span></div>
+      <div class="culture-wip__desc"><span class="lang-en">This section is still being prepared. Come back soon for real content about Spanish gastronomy.</span><span class="lang-es">Esta sección todavía está en preparación. Vuelve pronto para ver contenido real sobre gastronomía española.</span></div>
     </div>
   </div>
 
