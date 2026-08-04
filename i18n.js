@@ -10,6 +10,7 @@ const translations = {
     // Nav
     'nav.home': 'Home', 'nav.videos': 'Videos', 'nav.pdf': 'Free PDF',
     'nav.dele': 'DELE', 'nav.culture': 'Culture', 'nav.games': 'Games', 'nav.subscribe': 'Watch Free',
+    'search.placeholder': 'Search lessons...',
     // Hero
     'hero.heading': 'Learn Spanish faster with your best online tutor.',
     'hero.cta': 'Start Learning Free',
@@ -131,6 +132,7 @@ const translations = {
     'banner.cta': 'Suscríbete ahora',
     'nav.home': 'Inicio', 'nav.videos': 'Vídeos', 'nav.pdf': 'PDF Gratis',
     'nav.dele': 'DELE', 'nav.culture': 'Cultura española', 'nav.games': 'Juegos', 'nav.subscribe': 'Ver Gratis',
+    'search.placeholder': 'Buscar lecciones...',
     'hero.heading': 'Aprende español más rápido con tu mejor tutora online.',
     'hero.cta': 'Empieza Gratis',
     'stat.videos': 'Lecciones en vídeo gratuitas', 'stat.students': 'Estudiantes en todo el mundo',
