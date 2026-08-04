@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,800;0,900;1,800;1,900&family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=50">
+  <link rel="stylesheet" href="styles.css?v=51">
   <style>
     .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1280px; margin-bottom: 64px; }
     .blog-grid--feature { grid-template-columns: 2fr 1fr; margin-bottom: 48px; }
@@ -585,24 +585,32 @@
     });
   }
 
+  function openCulture(id) {
+    const detail = document.getElementById(id + '-detail');
+    const card   = document.getElementById('card-' + id);
+    const toggle = document.getElementById('toggle-' + id);
+    if (!detail) return;
+    closeAllCultureCats(id);
+    detail.style.display = 'block';
+    detail.style.opacity = '0';
+    detail.style.transform = 'translateY(-12px)';
+    detail.style.transition = 'opacity 0.35s, transform 0.35s';
+    requestAnimationFrame(() => {
+      detail.style.opacity = '1';
+      detail.style.transform = 'translateY(0)';
+    });
+    if (card)   card.classList.add('cult-level-col--active');
+    if (toggle) toggle.innerHTML = '<span class="lang-en">Close ↑</span><span class="lang-es">Cerrar ↑</span>';
+    setTimeout(() => detail.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+  }
+
   function toggleCulture(id) {
     const detail = document.getElementById(id + '-detail');
     const card   = document.getElementById('card-' + id);
     const toggle = document.getElementById('toggle-' + id);
     const open   = detail.style.display === 'none' || detail.style.display === '';
     if (open) {
-      closeAllCultureCats(id);
-      detail.style.display = 'block';
-      detail.style.opacity = '0';
-      detail.style.transform = 'translateY(-12px)';
-      detail.style.transition = 'opacity 0.35s, transform 0.35s';
-      requestAnimationFrame(() => {
-        detail.style.opacity = '1';
-        detail.style.transform = 'translateY(0)';
-      });
-      if (card)   card.classList.add('cult-level-col--active');
-      if (toggle) toggle.innerHTML = '<span class="lang-en">Close ↑</span><span class="lang-es">Cerrar ↑</span>';
-      setTimeout(() => detail.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+      openCulture(id);
     } else {
       detail.style.opacity = '0';
       detail.style.transform = 'translateY(-12px)';
@@ -612,13 +620,15 @@
     }
   }
 
-  // Open section from URL hash (e.g. culture.html#cine)
-  document.addEventListener('DOMContentLoaded', () => {
+  // Open section from URL hash (e.g. culture.html#cine) — on first load
+  // AND whenever the hash changes while already on this page (e.g. clicking
+  // the "Cultura" nav dropdown while culture.html is already open).
+  function openCultureFromHash() {
     const hash = window.location.hash.replace('#', '');
-    if (['literatura', 'cine', 'musica', 'gastronomia', 'fiestas'].includes(hash)) {
-      setTimeout(() => toggleCulture(hash), 120);
-    }
-  });
+    if (CULTURE_CATS.includes(hash)) openCulture(hash);
+  }
+  document.addEventListener('DOMContentLoaded', () => { setTimeout(openCultureFromHash, 120); });
+  window.addEventListener('hashchange', openCultureFromHash);
 
   // Navigation Dropdown Handler - Hover based
   document.querySelectorAll('.nav-item-dropdown').forEach(dropdown => {
