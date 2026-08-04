@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,800;0,900;1,800;1,900&family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=52">
+  <link rel="stylesheet" href="styles.css?v=53">
   <style>
     .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1280px; margin-bottom: 64px; }
     .blog-grid--feature { grid-template-columns: 2fr 1fr; margin-bottom: 48px; }
@@ -324,6 +324,14 @@
       </div>
     </div>
 
+    <div class="cult-level-col" id="card-fiestas" onclick="toggleCulture('fiestas')">
+      <div class="cult-level-col__name"><span class="lang-en">Festivals</span><span class="lang-es">Fiestas</span></div>
+      <div class="cult-level-col__desc"><span class="lang-en">Traditions, celebrations & culture</span><span class="lang-es">Tradiciones, celebraciones y cultura</span></div>
+      <div class="cult-level-col__toggle" id="toggle-fiestas">
+        <span class="lang-en">Explore ↓</span><span class="lang-es">Explorar ↓</span>
+      </div>
+    </div>
+
     <div class="cult-level-col" id="card-cine" onclick="toggleCulture('cine')">
       <div class="cult-level-col__name"><span class="lang-en">Cinema</span><span class="lang-es">Cine</span></div>
       <div class="cult-level-col__desc"><span class="lang-en">Films, series & directors</span><span class="lang-es">Películas, series y directores</span></div>
@@ -344,14 +352,6 @@
       <div class="cult-level-col__name"><span class="lang-en">Gastronomy</span><span class="lang-es">Gastronomía</span></div>
       <div class="cult-level-col__desc"><span class="lang-en">Food, recipes & vocabulary</span><span class="lang-es">Comida, recetas y vocabulario</span></div>
       <div class="cult-level-col__toggle" id="toggle-gastronomia">
-        <span class="lang-en">Explore ↓</span><span class="lang-es">Explorar ↓</span>
-      </div>
-    </div>
-
-    <div class="cult-level-col" id="card-fiestas" onclick="toggleCulture('fiestas')">
-      <div class="cult-level-col__name"><span class="lang-en">Festivals</span><span class="lang-es">Fiestas</span></div>
-      <div class="cult-level-col__desc"><span class="lang-en">Traditions, celebrations & culture</span><span class="lang-es">Tradiciones, celebraciones y cultura</span></div>
-      <div class="cult-level-col__toggle" id="toggle-fiestas">
         <span class="lang-en">Explore ↓</span><span class="lang-es">Explorar ↓</span>
       </div>
     </div>
