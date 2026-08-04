@@ -73,6 +73,7 @@
     // ── CULTURA ───────────────────────────────────────────────────────
     { es:'Cultura Española', en:'Spanish Culture', type:'cultura', level:'', url:'culture.html', kw:'cultura españa literatura cine arte culture spain cinema art literature historia fiestas' },
     { es:'Patria — Guía de Lectura', en:'Patria — Reading Guide', type:'cultura', level:'B2-C2', url:'patria-reading-guide.html', kw:'patria novela lectura literatura aramburu reading guide novel basque vasco eta guía' },
+    { es:'Patria, de Fernando Aramburu', en:'Patria, by Fernando Aramburu', type:'cultura', level:'B2-C1', url:'culture.html#literatura', kw:'patria aramburu novela memoria silencio terrorismo país vasco literatura video short' },
     { es:'San Fermín en Español', en:'San Fermín in Spanish', type:'cultura', level:'B1-B2', url:'sanfermines.html', kw:'san fermín sanfermines pamplona encierros toros fiestas festival vocabulario' },
 
     // ── JUEGOS ────────────────────────────────────────────────────────
