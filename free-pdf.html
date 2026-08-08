@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=47">
+  <link rel="stylesheet" href="styles.css?v=48">
   <style>
     .pdf-grid {
       display: grid;
@@ -879,7 +879,8 @@
       desc:{en:'The Spanish tradition of staying at the table after a meal to chat, enjoy coffee, and linger — and the vocabulary you need for relaxed conversation: small talk, opinions, anecdotes, and the phrases that keep a natural dialogue flowing.',
             es:'La tradición española de quedarse en la mesa después de la comida para charlar, tomar café y disfrutar de la compañía — y el vocabulario que necesitas para una conversación relajada: charla, opiniones, anécdotas y frases para que el diálogo fluya naturalmente.'},
       pdf:'DESCARGABLES_PDF/SOBREMESA/SOBREMESA_DESCARGABLE.pdf',
-      game:'juego-sobremesa.html'
+      game:'juego-sobremesa.html',
+      video:'https://youtube.com/shorts/TNmCrvUwcOU'
     },
     'card-en-el-hotel-grammar': {
       color:'#2885FD', level:'B1 – B2',
@@ -926,6 +927,9 @@
     var gameBtn = l.game
       ? '<a href="' + l.game + '" class="gm-btn" style="justify-content:center;text-decoration:none;background:#121117;color:#fff;font-size:15.5px;padding:14px 22px;">🎮 <span class="lang-en">Play to practice</span><span class="lang-es">Jugar para practicar</span></a>'
       : '';
+    var videoBtn = l.video
+      ? '<a href="' + l.video + '" target="_blank" class="gm-btn" style="justify-content:center;text-decoration:none;background:#fff;color:#121117;border:1.5px solid #DCDCE5;font-size:15.5px;padding:14px 22px;">▶ <span class="lang-en">Watch the video</span><span class="lang-es">Ver el vídeo</span></a>'
+      : '';
     document.getElementById('lm-body').innerHTML =
       '<div style="display:flex;align-items:center;gap:18px;margin-bottom:22px;">' +
         '<div style="width:64px;height:64px;border-radius:16px;background:' + l.color + ';display:flex;align-items:center;justify-content:center;flex-shrink:0;">' +
@@ -937,6 +941,7 @@
       '<div style="display:flex;flex-direction:column;gap:12px;">' +
         '<a href="' + l.pdf + '" target="_blank" class="gm-btn gm-btn-primary" style="justify-content:center;text-decoration:none;font-size:15.5px;padding:14px 22px;">📥 <span class="lang-en">Download free PDF</span><span class="lang-es">Descargar PDF gratis</span></a>' +
         gameBtn +
+        videoBtn +
       '</div>';
     var m = document.getElementById('lesson-modal');
     m.style.display = 'flex';
@@ -951,11 +956,11 @@
     document.body.style.overflow = '';
   }
 
-  // Add a direct "Play" link on every PDF card that already has a matching game
+  // Add direct "Play" / "Watch" links on every PDF card that has a matching game/video
   document.addEventListener('DOMContentLoaded', function () {
     Object.keys(LESSONS).forEach(function (id) {
       var l = LESSONS[id];
-      if (!l.game) return;
+      if (!l.game && !l.video) return;
       var card = document.getElementById(id);
       var dl = card && card.querySelector('.pdf-card__download');
       if (!dl || dl.parentElement.classList.contains('pdf-card__actions')) return;
@@ -968,14 +973,29 @@
       dl.parentNode.insertBefore(row, dl);
       row.appendChild(dl);
 
-      var gameLink = document.createElement('a');
-      gameLink.href = l.game;
-      gameLink.className = 'pdf-card__download';
-      gameLink.style.background = '#121117';
-      gameLink.style.color = '#fff';
-      gameLink.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg><span class="lang-en">Play</span><span class="lang-es">Jugar</span>';
-      gameLink.addEventListener('click', function (e) { e.stopPropagation(); });
-      row.appendChild(gameLink);
+      if (l.game) {
+        var gameLink = document.createElement('a');
+        gameLink.href = l.game;
+        gameLink.className = 'pdf-card__download';
+        gameLink.style.background = '#121117';
+        gameLink.style.color = '#fff';
+        gameLink.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg><span class="lang-en">Play</span><span class="lang-es">Jugar</span>';
+        gameLink.addEventListener('click', function (e) { e.stopPropagation(); });
+        row.appendChild(gameLink);
+      }
+
+      if (l.video) {
+        var videoLink = document.createElement('a');
+        videoLink.href = l.video;
+        videoLink.target = '_blank';
+        videoLink.className = 'pdf-card__download';
+        videoLink.style.background = '#fff';
+        videoLink.style.color = '#121117';
+        videoLink.style.border = '1.5px solid #DCDCE5';
+        videoLink.innerHTML = '▶ <span class="lang-en">Watch</span><span class="lang-es">Ver vídeo</span>';
+        videoLink.addEventListener('click', function (e) { e.stopPropagation(); });
+        row.appendChild(videoLink);
+      }
     });
   });
 
