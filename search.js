@@ -47,7 +47,7 @@
     { es:'Las profesiones: Masculino y Femenino', en:'Professions: Masculine & Feminine', type:'pdf', level:'B1-B2', url:'free-pdf.html#card-profesiones', kw:'profesiones trabajo masculino femenino vocabulario jobs professions gender masculine feminine médico abogado' },
     { es:'Hablemos del Mundo Laboral', en:"Let's Talk About Work", type:'pdf', level:'B1-B2', url:'free-pdf.html#card-mundo-laboral', kw:'trabajo laboral mundo profesional vocabulario expresiones work jobs professional employment entrevista empresa' },
     { es:'Ver, Mirar y Observar', en:'Ver, Mirar & Observar', type:'pdf', level:'B1', url:'free-pdf.html#card-ver-mirar', kw:'ver mirar observar vocabulario verbos diferencia see look watch observe sinónimos' },
-    { es:'La sobremesa: tradición y vocabulario de conversación', en:'Table Talk: Tradition and Conversation Vocabulary', type:'pdf', level:'B1-B2', url:'free-pdf.html#card-sobremesa', kw:'sobremesa tradición vocabulario conversación mesa café cultura table talk' },
+    { es:'La sobremesa: tradición y vocabulario de conversación', en:'Table Talk: Tradition and Conversation Vocabulary', type:'pdf', level:'A2-B1', url:'free-pdf.html#card-sobremesa', kw:'sobremesa tradición vocabulario conversación mesa café cultura table talk' },
     { es:'En el hotel: vocabulario de situaciones cotidianas', en:'At the Hotel: Everyday Situations Vocabulary', type:'pdf', level:'B1-B2', url:'free-pdf.html#card-en-el-hotel-vocab', kw:'hotel vocabulario check-in servicio habitación reserva viaje hotel vocabulary' },
     { es:'Las fechas en español', en:'Dates in Spanish', type:'pdf', level:'A1-A2', url:'free-pdf.html#card-fechas', kw:'fechas días meses estaciones vocabulario dates days months seasons calendario' },
 
