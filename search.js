@@ -25,7 +25,7 @@
     { es:'Vocabulario: Hablar del Trabajo (Parte II)', en:'Talking About Work in Spanish (Part II)', type:'video', level:'B1', url:'videos.html#video-trabajo-2', kw:'trabajo laboral vocabulario work job professional parte 2' },
     { es:'Las Diferencias Entre RECORDAR y ACORDARSE', en:'The Differences Between RECORDAR and ACORDARSE', type:'video', level:'A2-B1', url:'videos.html#video-recordar-acordarse-short', kw:'recordar acordarse verbos memoria memory remember short diferencias' },
     { es:'DESDE · DESDE HACE · DESDE... HASTA', en:'DESDE · DESDE HACE · DESDE... HASTA', type:'video', level:'A2-B2', url:'videos.html#video-desde-short', kw:'desde desde hace hasta tiempo expresiones since for until short' },
-    { es:'La Palabra Española que no Tiene Traducción: SOBREMESA', en:'The Spanish Word With No Translation: SOBREMESA', type:'video', level:'B1-B2', url:'videos.html#video-sobremesa-short', kw:'sobremesa palabra traducción short cultura mesa conversación café' },
+    { es:'La Palabra Española que no Tiene Traducción: SOBREMESA', en:'The Spanish Word With No Translation: SOBREMESA', type:'video', level:'A2-B1', url:'videos.html#video-sobremesa-short', kw:'sobremesa palabra traducción short cultura mesa conversación café' },
     { es:'TARDEAR: la Palabra Española para un Plan de Tarde', en:'TARDEAR: The Spanish Word for an Afternoon Plan', type:'video', level:'A2-B1', url:'videos.html#video-tardear-short', kw:'tardear tardeo tarde tapas cañas terraza short cultura plan' },
     { es:'Consejos para Redactar una Carta Formal', en:'Tips for Writing a Formal Letter', type:'video', level:'C1', url:'videos.html#video-carta-formal', kw:'carta formal dele c1 escritura escribir consejos writing formal letter tips redactar' },
 
