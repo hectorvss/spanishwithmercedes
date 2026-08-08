@@ -85,7 +85,6 @@
     { es:'Juego: Preséntate en tu Trabajo', en:'Game: Introduce Yourself at Work', type:'juego', level:'B1-B2', url:'juego-mundo-laboral.html', kw:'juego trabajo laboral ponchadora game work time clock ser trabajar dedicarse' },
     { es:'Juego: El Vibrómetro (Sonido R)', en:'Game: The Vibration Meter (R Sound)', type:'juego', level:'A1-A2', url:'juego-sonido-r.html', kw:'juego sonido r rr vibrómetro pronunciación game vibration meter' },
     { es:'Juego: El Cambio de Vías (Conectores)', en:'Game: The Track Switch (Connectors)', type:'juego', level:'B2', url:'juego-conectores.html', kw:'juego conectores temporales vías tren game track switch infinitivo subjuntivo' },
-    { es:'Juego: El Reloj de la Sobremesa', en:'Game: The Sobremesa Clock', type:'juego', level:'B1-B2', url:'juego-sobremesa.html', kw:'juego sobremesa reloj game clock expresiones mesa café' },
     { es:'Juego: La Puerta del Hotel', en:'Game: The Hotel Room Door', type:'juego', level:'A2-B1', url:'juego-en-el-hotel.html', kw:'juego hotel puerta llave game door key recepción check-in' },
     { es:'Juego: El Calendario de las Fechas', en:'Game: The Dates Calendar', type:'juego', level:'A1-A2', url:'juego-fechas.html', kw:'juego fechas calendario game dates calendar ser estar de en a días meses' },
   ];

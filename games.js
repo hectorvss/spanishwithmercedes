@@ -2633,144 +2633,6 @@ function tkNext() {
 }
 
 /* ══════════════════════════════════════════════
-   GAME 19 · EL RELOJ DE LA SOBREMESA
-   (LA SOBREMESA — hacer sobremesa, quedarse de
-   sobremesa, una sobremesa animada, alargar la
-   sobremesa, sobremesa interminable) — read the
-   real example sentence and pick the expression
-   it illustrates; a clock face starting at 3pm
-   spins its hands forward on every correct answer,
-   as if the sobremesa itself keeps getting longer
-══════════════════════════════════════════════ */
-
-const SM_EXPR = [
-  { key:'HACER',     label:'HACER SOBREMESA' },
-  { key:'QUEDARSE',  label:'QUEDARSE DE SOBREMESA' },
-  { key:'ANIMADA',   label:'UNA SOBREMESA ANIMADA' },
-  { key:'ALARGAR',   label:'ALARGAR LA SOBREMESA' },
-  { key:'INTERMINABLE', label:'SOBREMESA INTERMINABLE' }
-];
-
-const SM_ITEMS = [
-  { sentence:'"Después de comer, siempre hacemos sobremesa."', correct:'HACER',
-    note:{en:'HACER SOBREMESA = to stay chatting at the table after eating.', es:'HACER SOBREMESA = quedarse charlando en la mesa después de comer.'} },
-  { sentence:'"Los domingos, mi familia siempre hace sobremesa después de la paella."', correct:'HACER',
-    note:{en:'HACER SOBREMESA = to stay chatting at the table after eating.', es:'HACER SOBREMESA = quedarse charlando en la mesa después de comer.'} },
-  { sentence:'"Nos quedamos de sobremesa hasta las cuatro."', correct:'QUEDARSE',
-    note:{en:'QUEDARSE DE SOBREMESA = to remain at the table talking.', es:'QUEDARSE DE SOBREMESA = permanecer en la mesa charlando.'} },
-  { sentence:'"Ayer nos quedamos de sobremesa más de dos horas."', correct:'QUEDARSE',
-    note:{en:'QUEDARSE DE SOBREMESA = to remain at the table talking.', es:'QUEDARSE DE SOBREMESA = permanecer en la mesa charlando.'} },
-  { sentence:'"Tuvimos una sobremesa muy animada ayer."', correct:'ANIMADA',
-    note:{en:'UNA SOBREMESA ANIMADA = a lively, fun conversation.', es:'UNA SOBREMESA ANIMADA = una conversación viva y divertida.'} },
-  { sentence:'"En el cumpleaños de mi tío, la sobremesa fue muy animada."', correct:'ANIMADA',
-    note:{en:'UNA SOBREMESA ANIMADA = a lively, fun conversation.', es:'UNA SOBREMESA ANIMADA = una conversación viva y divertida.'} },
-  { sentence:'"Nadie quería alargar la sobremesa."', correct:'ALARGAR',
-    note:{en:'ALARGAR LA SOBREMESA = to make it last longer.', es:'ALARGAR LA SOBREMESA = hacer que dure más tiempo.'} },
-  { sentence:'"Decidimos alargar la sobremesa con un café más."', correct:'ALARGAR',
-    note:{en:'ALARGAR LA SOBREMESA = to make it last longer.', es:'ALARGAR LA SOBREMESA = hacer que dure más tiempo.'} },
-  { sentence:'"En Navidad, la sobremesa es interminable."', correct:'INTERMINABLE',
-    note:{en:'SOBREMESA INTERMINABLE = a very long sobremesa.', es:'SOBREMESA INTERMINABLE = una sobremesa muy larga.'} },
-  { sentence:'"Con mis abuelos, la sobremesa siempre es interminable."', correct:'INTERMINABLE',
-    note:{en:'SOBREMESA INTERMINABLE = a very long sobremesa.', es:'SOBREMESA INTERMINABLE = una sobremesa muy larga.'} }
-];
-
-function playSobremesa() {
-  currentGameFn = playSobremesa;
-  GS = { items: _shuffle(SM_ITEMS), idx: 0, correct: 0, total: SM_ITEMS.length, answered: false, minutes: 0 };
-  _renderSMRound();
-}
-
-function _smClockHTML(minutes) {
-  const hourDeg = (minutes / 60) * 30;
-  const minDeg = (minutes % 60) * 6;
-  const totalH = Math.floor(minutes / 60);
-  const startHour = 15;
-  const endHour = (startHour + totalH) % 24;
-  const endMin = minutes % 60;
-  const timeLabel = String(endHour).padStart(2,'0') + ':' + String(endMin).padStart(2,'0');
-  return `
-    <div class="sm-scene">
-      <div class="sm-clock">
-        <div class="sm-tick sm-tick-12"></div><div class="sm-tick sm-tick-3"></div>
-        <div class="sm-tick sm-tick-6"></div><div class="sm-tick sm-tick-9"></div>
-        <div class="sm-hand sm-hand-hour" id="sm-hour" style="transform:translateX(-50%) rotate(${hourDeg}deg)"></div>
-        <div class="sm-hand sm-hand-min" id="sm-min" style="transform:translateX(-50%) rotate(${minDeg}deg)"></div>
-        <div class="sm-clock-center"></div>
-        <span class="sm-cup" id="sm-cup">☕</span>
-      </div>
-      <div class="sm-time-label" id="sm-time-label">${timeLabel}</div>
-    </div>`;
-}
-
-function _renderSMRound() {
-  const lang = L();
-  const title = lang==='es' ? 'El reloj de la sobremesa' : 'The Sobremesa Clock';
-  const { items, idx, correct, total, minutes } = GS;
-  if (idx >= total) { _end(correct, total, title); return; }
-  const item = items[idx];
-  GS.answered = false;
-
-  const btnsHTML = SM_EXPR.map(e => `<button class="sm-btn" data-key="${e.key}" onclick="smAnswer('${e.key}')">${e.label}</button>`).join('');
-
-  _modal(`
-    ${_progress(idx, total, correct, lang)}
-    <p class="gm-instr" style="text-align:center">${lang==='es'?'Lee la frase real y elige qué expresión de "sobremesa" ilustra.':'Read the real sentence and pick which "sobremesa" expression it illustrates.'}</p>
-    <div class="gm-sentence">${item.sentence}</div>
-    ${_smClockHTML(minutes)}
-    <div class="sm-btn-col">${btnsHTML}</div>
-    <div class="gm-feedback" id="gm-fb"></div>
-  `, title);
-}
-
-function smAnswer(key) {
-  if (GS.answered) return;
-  GS.answered = true;
-  const lang = L();
-  const item = GS.items[GS.idx];
-  const ok = key === item.correct;
-  if (ok) GS.correct++;
-
-  document.querySelectorAll('.sm-btn').forEach(b => {
-    b.disabled = true;
-    if (b.dataset.key === item.correct) b.classList.add('sm-correct');
-    else if (b.dataset.key === key && !ok) b.classList.add('sm-wrong');
-  });
-
-  const advance = ok ? 48 : 6;
-  const from = GS.minutes;
-  const to = from + advance;
-  GS.minutes = to;
-
-  const hourEl = document.getElementById('sm-hour');
-  const minEl = document.getElementById('sm-min');
-  const cup = document.getElementById('sm-cup');
-  if (hourEl) hourEl.style.transform = `translateX(-50%) rotate(${(to/60)*30}deg)`;
-  if (minEl) minEl.style.transform = `translateX(-50%) rotate(${(to%60)*6}deg)`;
-  const label = document.getElementById('sm-time-label');
-  if (label) {
-    const totalH = Math.floor(to / 60);
-    const endHour = (15 + totalH) % 24;
-    const endMin = to % 60;
-    label.textContent = String(endHour).padStart(2,'0') + ':' + String(endMin).padStart(2,'0');
-  }
-  if (ok && cup) { cup.classList.remove('sm-steam'); void cup.offsetWidth; cup.classList.add('sm-steam'); }
-
-  const expr = SM_EXPR.find(e => e.key === item.correct);
-
-  setTimeout(() => {
-    document.getElementById('gm-fb').innerHTML = `
-      <span class="${ok?'fb-ok':'fb-ko'}">${ok?'✓ '+(lang==='es'?'¡Correcto! La sobremesa se alarga.':'Correct! The sobremesa runs longer.'):'✗ '+(lang==='es'?'La expresión correcta es':'The correct expression is')+' <strong>'+expr.label+'</strong>'}</span>
-      <div class="pf-note">${item.note[lang]}</div>
-      <button class="gm-btn gm-btn-primary gm-next-btn" onclick="smNext()">${lang==='es'?'Siguiente →':'Next →'}</button>`;
-  }, 900);
-}
-
-function smNext() {
-  GS.idx++;
-  _renderSMRound();
-}
-
-/* ══════════════════════════════════════════════
    GAME 20 · LA PUERTA DEL HOTEL
    (EN EL HOTEL — fórmulas de cortesía y
    vocabulario del check-in) — complete the real
@@ -3018,10 +2880,9 @@ Object.assign(window, {
   rrAnswer, rrNext,
   cnAnswer, cnNext,
   tkAnswer, tkNext,
-  smAnswer, smNext,
   htlAnswer, htlNext,
   calAnswer, calNext,
   playFlashcards, playSerEstar, playQuiz, playFillGaps, playWordOrder, playVerbSprint, playPresentarse,
   playRuleta, playDialogos, playGustar, playGenero, playCD, playDesde, playPorPara, playProfesiones, playVerMirar, playTrabajo, playSonidoR, playGeneroII, playConectores,
-  playSobremesa, playHotel, playFechas
+  playHotel, playFechas
 });
