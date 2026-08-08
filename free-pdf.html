@@ -579,6 +579,13 @@
         <div class="pdf-card__desc"><span class="lang-en">Learn what "sobremesa" means — the Spanish tradition of lingering at the table after a meal. Includes essential vocabulary to keep relaxed and natural conversations at the table.</span><span class="lang-es">Aprende qué significa 'sobremesa' — la tradición española de quedarse en la mesa después de comer. Incluye vocabulario esencial para mantener conversaciones relajadas y naturales en la mesa.</span></div>
         <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
       </div>
+      <div id="card-tardear" class="pdf-card" onclick="openLesson('card-tardear')" style="border-color:#D4920A; display:flex; flex-direction:column; cursor:pointer;">
+        <div class="pdf-card__icon" style="background:#D4920A;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/></svg></div>
+        <div class="pdf-card__level">A2 – B1 ⭐</div>
+        <div class="pdf-card__title"><span class="lang-en">Tardear: The Spanish Afternoon Plan</span><span class="lang-es">Tardear: el plan de tarde español</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">Learn "tardear" and "ir de tardeo" — the Spanish word for an afternoon plan with tapas, drinks and a terrace, no direct translation in English, French or German. Includes key vocabulary and a practice exercise.</span><span class="lang-es">Aprende "tardear" e "ir de tardeo" — la palabra española para un plan de tarde con tapas, cañas y terraza, sin traducción directa en inglés, francés o alemán. Incluye vocabulario clave y un ejercicio práctico.</span></div>
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
+      </div>
       <div id="card-en-el-hotel-vocab" class="pdf-card" onclick="openLesson('card-en-el-hotel-vocab')" style="border-color:#3DDABE; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#3DDABE;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
         <div class="pdf-card__level">B1 – B2 ⭐⭐</div>
@@ -881,6 +888,15 @@
       pdf:'DESCARGABLES_PDF/SOBREMESA/SOBREMESA_DESCARGABLE.pdf?v=2',
       video:'https://youtube.com/shorts/TNmCrvUwcOU'
     },
+    'card-tardear': {
+      color:'#D4920A', level:'A2 – B1',
+      icon:'<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>',
+      title:{en:'Tardear: The Spanish Afternoon Plan', es:'Tardear: el plan de tarde español'},
+      desc:{en:'A new Spanish verb born from "tarde": TARDEAR, or IR DE TARDEO — an afternoon plan of tapas, drinks and a sunny terrace, home before it gets late. No exact translation in English, French or German. Includes key vocabulary and a fill-in-the-blank exercise with solutions.',
+            es:'Un verbo nuevo nacido de "tarde": TARDEAR, o IR DE TARDEO — un plan de tarde con tapas, cañas y terraza al sol, y vuelta a casa antes de que anochezca. Sin traducción exacta en inglés, francés o alemán. Incluye vocabulario clave y un ejercicio de huecos con soluciones.'},
+      pdf:'DESCARGABLES_PDF/TARDEAR/TARDEAR_DESCARGABLE.pdf',
+      video:'https://youtube.com/shorts/EkDakfrY5dU'
+    },
     'card-en-el-hotel-grammar': {
       color:'#2885FD', level:'B1 – B2',
       icon:'<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="13" x2="8" y2="13"/><line x1="16" y1="13" x2="8" y2="13"/>',
@@ -1031,7 +1047,7 @@
     });
   });
 </script>
-<script src="search.js?v=10"></script>
+<script src="search.js?v=11"></script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script>window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments);};</script>

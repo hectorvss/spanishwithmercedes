@@ -26,6 +26,7 @@
     { es:'Las Diferencias Entre RECORDAR y ACORDARSE', en:'The Differences Between RECORDAR and ACORDARSE', type:'video', level:'A2-B1', url:'videos.html#video-recordar-acordarse-short', kw:'recordar acordarse verbos memoria memory remember short diferencias' },
     { es:'DESDE · DESDE HACE · DESDE... HASTA', en:'DESDE · DESDE HACE · DESDE... HASTA', type:'video', level:'A2-B2', url:'videos.html#video-desde-short', kw:'desde desde hace hasta tiempo expresiones since for until short' },
     { es:'La Palabra Española que no Tiene Traducción: SOBREMESA', en:'The Spanish Word With No Translation: SOBREMESA', type:'video', level:'B1-B2', url:'videos.html#video-sobremesa-short', kw:'sobremesa palabra traducción short cultura mesa conversación café' },
+    { es:'TARDEAR: la Palabra Española para un Plan de Tarde', en:'TARDEAR: The Spanish Word for an Afternoon Plan', type:'video', level:'A2-B1', url:'videos.html#video-tardear-short', kw:'tardear tardeo tarde tapas cañas terraza short cultura plan' },
     { es:'Consejos para Redactar una Carta Formal', en:'Tips for Writing a Formal Letter', type:'video', level:'C1', url:'videos.html#video-carta-formal', kw:'carta formal dele c1 escritura escribir consejos writing formal letter tips redactar' },
 
     // ── PDFs GRATUITOS — GRAMÁTICA ────────────────────────────────────
@@ -48,6 +49,7 @@
     { es:'Hablemos del Mundo Laboral', en:"Let's Talk About Work", type:'pdf', level:'B1-B2', url:'free-pdf.html#card-mundo-laboral', kw:'trabajo laboral mundo profesional vocabulario expresiones work jobs professional employment entrevista empresa' },
     { es:'Ver, Mirar y Observar', en:'Ver, Mirar & Observar', type:'pdf', level:'B1', url:'free-pdf.html#card-ver-mirar', kw:'ver mirar observar vocabulario verbos diferencia see look watch observe sinónimos' },
     { es:'La sobremesa: tradición y vocabulario de conversación', en:'Table Talk: Tradition and Conversation Vocabulary', type:'pdf', level:'A2-B1', url:'free-pdf.html#card-sobremesa', kw:'sobremesa tradición vocabulario conversación mesa café cultura table talk' },
+    { es:'Tardear: el plan de tarde español', en:'Tardear: The Spanish Afternoon Plan', type:'pdf', level:'A2-B1', url:'free-pdf.html#card-tardear', kw:'tardear tardeo tarde tapas cañas terraza plan cultura afternoon' },
     { es:'En el hotel: vocabulario de situaciones cotidianas', en:'At the Hotel: Everyday Situations Vocabulary', type:'pdf', level:'B1-B2', url:'free-pdf.html#card-en-el-hotel-vocab', kw:'hotel vocabulario check-in servicio habitación reserva viaje hotel vocabulary' },
     { es:'Las fechas en español', en:'Dates in Spanish', type:'pdf', level:'A1-A2', url:'free-pdf.html#card-fechas', kw:'fechas días meses estaciones vocabulario dates days months seasons calendario' },
 
