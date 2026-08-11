@@ -28,6 +28,7 @@
     { es:'La Palabra Española que no Tiene Traducción: SOBREMESA', en:'The Spanish Word With No Translation: SOBREMESA', type:'video', level:'A2-B1', url:'videos.html#video-sobremesa-short', kw:'sobremesa palabra traducción short cultura mesa conversación café' },
     { es:'TARDEAR: la Palabra Española para un Plan de Tarde', en:'TARDEAR: The Spanish Word for an Afternoon Plan', type:'video', level:'A2-B1', url:'videos.html#video-tardear-short', kw:'tardear tardeo tarde tapas cañas terraza short cultura plan' },
     { es:'Expresiones Coloquiales con el Verbo PONER', en:'Colloquial Expressions with the Verb PONER', type:'video', level:'A2-B1', url:'videos.html#video-poner-short', kw:'poner ponerse expresiones pilas botas mesa nervios short vocabulario' },
+    { es:'En el Hotel: Reservar, Check-in y Pedir lo que Necesitas', en:'How to Survive in a Hotel in Spain', type:'video', level:'A2-B1', url:'videos.html#video-en-el-hotel', kw:'hotel condicional reservar check-in check-out equipaje viaje travel hospitality podría gustaría' },
     { es:'Consejos para Redactar una Carta Formal', en:'Tips for Writing a Formal Letter', type:'video', level:'C1', url:'videos.html#video-carta-formal', kw:'carta formal dele c1 escritura escribir consejos writing formal letter tips redactar' },
 
     // ── PDFs GRATUITOS — GRAMÁTICA ────────────────────────────────────
@@ -42,7 +43,7 @@
     { es:'Presentarte en Español', en:'Introducing Yourself in Spanish', type:'pdf', level:'A1-A2', url:'free-pdf.html#card-presentarte', kw:'presentarse llamarse ser tener vivir presentaciones introduce yourself me llamo tengo años' },
     { es:'Recordar vs Acordarse: cuándo usar cada verbo', en:'Recordar vs Acordarse: When to Use Each Verb', type:'pdf', level:'A2-B1', url:'free-pdf.html#card-recordar-acordarse', kw:'recordar acordarse verbos memoria remember memory diferencia conjugación' },
     { es:'Las construcciones temporales: infinitivo, indicativo o subjuntivo', en:'Temporal Connectors: Infinitive, Indicative or Subjunctive', type:'pdf', level:'B2', url:'free-pdf.html#card-conectores', kw:'conectores temporales infinitivo indicativo subjuntivo antes de que en cuanto mientras hasta que' },
-    { es:'En el hotel: el condicional en situaciones reales', en:'At the Hotel: The Conditional Tense in Real Situations', type:'pdf', level:'B1-B2', url:'free-pdf.html#card-en-el-hotel-grammar', kw:'hotel condicional gramática conditional hospitality peticiones educadas' },
+    { es:'En el hotel: el condicional en situaciones reales', en:'At the Hotel: The Conditional Tense in Real Situations', type:'pdf', level:'A2-B1', url:'free-pdf.html#card-en-el-hotel-grammar', kw:'hotel condicional gramática conditional hospitality peticiones educadas' },
     { es:'Las fechas: SER vs ESTAR + preposiciones', en:'Dates: SER vs ESTAR + Prepositions', type:'pdf', level:'A1-A2', url:'free-pdf.html#card-fechas-grammar', kw:'fechas ser estar preposiciones de en a gramática dates prepositions' },
 
     // ── PDFs GRATUITOS — VOCABULARIO ─────────────────────────────────
@@ -52,7 +53,7 @@
     { es:'La sobremesa: tradición y vocabulario de conversación', en:'Table Talk: Tradition and Conversation Vocabulary', type:'pdf', level:'A2-B1', url:'free-pdf.html#card-sobremesa', kw:'sobremesa tradición vocabulario conversación mesa café cultura table talk' },
     { es:'Tardear: el plan de tarde español', en:'Tardear: The Spanish Afternoon Plan', type:'pdf', level:'A2-B1', url:'free-pdf.html#card-tardear', kw:'tardear tardeo tarde tapas cañas terraza plan cultura afternoon' },
     { es:'Expresiones coloquiales con el verbo PONER', en:'Colloquial Expressions with PONER', type:'pdf', level:'A2-B1', url:'free-pdf.html#card-poner', kw:'poner ponerse expresiones pilas botas mesa nervios pronombre verbo' },
-    { es:'En el hotel: vocabulario de situaciones cotidianas', en:'At the Hotel: Everyday Situations Vocabulary', type:'pdf', level:'B1-B2', url:'free-pdf.html#card-en-el-hotel-vocab', kw:'hotel vocabulario check-in servicio habitación reserva viaje hotel vocabulary' },
+    { es:'En el hotel: vocabulario de situaciones cotidianas', en:'At the Hotel: Everyday Situations Vocabulary', type:'pdf', level:'A2-B1', url:'free-pdf.html#card-en-el-hotel-vocab', kw:'hotel vocabulario check-in servicio habitación reserva viaje hotel vocabulary' },
     { es:'Las fechas en español', en:'Dates in Spanish', type:'pdf', level:'A1-A2', url:'free-pdf.html#card-fechas', kw:'fechas días meses estaciones vocabulario dates days months seasons calendario' },
 
     // ── PDFs GRATUITOS — PRONUNCIACIÓN ───────────────────────────────
