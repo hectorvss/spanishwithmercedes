@@ -197,15 +197,18 @@
     if (!hash) return;
     var target = document.getElementById(hash);
     if (!target) return;
+    var revealed = false;
     var el = target.parentElement;
     while (el && el !== document.body) {
-      if (el.style.display === 'none') el.style.display = 'block';
+      if (el.style.display === 'none') { el.style.display = 'block'; revealed = true; }
       el = el.parentElement;
     }
-    if (target.style.display === 'none') target.style.display = 'block';
-    setTimeout(function () {
-      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 120);
+    if (target.style.display === 'none') { target.style.display = 'block'; revealed = true; }
+    if (revealed) {
+      setTimeout(function () {
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 120);
+    }
   }
 
   if (document.readyState === 'loading') {
