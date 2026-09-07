@@ -517,6 +517,13 @@
         <div class="pdf-card__desc"><span class="lang-en">Two words one letter apart with completely different meanings: espirar is to breathe out, expirar is to die or to run out. Where the confusion comes from, the breathing family (inspirar / espirar / respirar), and how to never mix them up again.</span><span class="lang-es">Dos palabras que se diferencian en una letra y significan cosas muy distintas: espirar es soltar el aire, expirar es morir o caducar. De dónde viene la confusión, la familia de la respiración (inspirar / espirar / respirar) y cómo no volver a mezclarlas.</span></div>
         <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
       </div>
+      <div id="card-satisfacer" class="pdf-card" onclick="openLesson('card-satisfacer')" style="border-color:#8E44AD; display:flex; flex-direction:column; cursor:pointer;">
+        <div class="pdf-card__icon" style="background:#8E44AD;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg></div>
+        <div class="pdf-card__level">A2 – B1 ⭐⭐</div>
+        <div class="pdf-card__title"><span class="lang-en">"Satisfació" or "Satisfizo"?</span><span class="lang-es">¿"Satisfació" o "Satisfizo"?</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">SATISFACER is irregular in the preterite because it conjugates exactly like HACER, just swapping the H for an F: hizo → satisfizo, hice → satisfice, hicieron → satisficieron — never "satisfació" or "satisfacieron". Full conjugation table, error correction, sentences in context and an AI practice prompt.</span><span class="lang-es">SATISFACER es irregular en el pretérito porque se conjuga igual que HACER, cambiando solo la H por una F: hizo → satisfizo, hice → satisfice, hicieron → satisficieron — nunca "satisfació" ni "satisfacieron". Tabla de conjugación completa, corrección del error, frases en contexto y un prompt de práctica con IA.</span></div>
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
+      </div>
     </div>
   </div>
 
@@ -1022,6 +1029,20 @@
         {bad:'Espiró rodeado de su familia', good:'Expiró rodeado de su familia'}
       ]
     },
+    'card-satisfacer': {
+      color:'#8E44AD', level:'A2 – B1',
+      icon:'<circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/>',
+      title:{en:'"Satisfació" or "Satisfizo"?', es:'¿"Satisfació" o "Satisfizo"?'},
+      desc:{en:'SATISFACER is irregular in the preterite because it is built on HACER: just swap the H for an F. Hizo → satisfizo, hice → satisfice, hicieron → satisficieron — never "satisfació" or "satisfacieron". The same H → F change also shows up in the present (hago → satisfago) and the past participle (hecho → satisfecho).',
+            es:'SATISFACER es irregular en el pretérito porque está construido sobre HACER: basta con cambiar la H por una F. Hizo → satisfizo, hice → satisfice, hicieron → satisficieron — nunca "satisfació" ni "satisfacieron". El mismo cambio H → F aparece también en presente (hago → satisfago) y en el participio (hecho → satisfecho).'},
+      pdf:'DESCARGABLES_PDF/SATISFACER/SATISFACER_DESCARGABLE.pdf',
+      video:'https://youtube.com/shorts/nplBWpw6zG4',
+      contrast:[
+        {bad:'La comida no me satisfació tanto', good:'La comida no me satisfizo tanto'},
+        {bad:'Por fin satisfací mi curiosidad', good:'Por fin satisfice mi curiosidad'},
+        {bad:'Los resultados satisfacieron a todos', good:'Los resultados satisficieron a todos'}
+      ]
+    },
     'card-conectores': {
       color:'#2E86AB', level:'B2',
       icon:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
@@ -1286,7 +1307,7 @@
     });
   });
 </script>
-<script src="search.js?v=25"></script>
+<script src="search.js?v=26"></script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script>window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments);};</script>
