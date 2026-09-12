@@ -517,6 +517,13 @@
         <div class="pdf-card__desc"><span class="lang-en">Two words one letter apart with completely different meanings: espirar is to breathe out, expirar is to die or to run out. Where the confusion comes from, the breathing family (inspirar / espirar / respirar), and how to never mix them up again.</span><span class="lang-es">Dos palabras que se diferencian en una letra y significan cosas muy distintas: espirar es soltar el aire, expirar es morir o caducar. De dónde viene la confusión, la familia de la respiración (inspirar / espirar / respirar) y cómo no volver a mezclarlas.</span></div>
         <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
       </div>
+      <div id="card-contra-mas" class="pdf-card" onclick="openLesson('card-contra-mas')" style="border-color:#2E86AB; display:flex; flex-direction:column; cursor:pointer;">
+        <div class="pdf-card__icon" style="background:#2E86AB;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10M18 20V4M6 20v-4"/></svg></div>
+        <div class="pdf-card__level">B1 – B2 ⭐⭐</div>
+        <div class="pdf-card__title"><span class="lang-en">"Contra más" or "Cuanto más"?</span><span class="lang-es">¿"Contra más" o "Cuanto más"?</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">"Contra más" is a vulgarism heard everywhere, but careful Spanish uses cuanto/cuanta/cuantos/cuantas + más/menos to relate two proportional things — agreeing with the noun. Why "contra" (opposition) doesn't belong here, why "cuanto" never takes an accent in this construction, and the valid Latin-American alternatives "mientras más" and "entre más".</span><span class="lang-es">"Contra más" es un vulgarismo que se oye por todas partes, pero el español cuidado usa cuanto/cuanta/cuantos/cuantas + más/menos para relacionar dos elementos proporcionales, concordando con el sustantivo. Por qué "contra" (oposición) no pinta nada aquí, por qué "cuanto" nunca lleva tilde en esta construcción, y las alternativas válidas en América "mientras más" y "entre más".</span></div>
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
+      </div>
       <div id="card-satisfacer" class="pdf-card" onclick="openLesson('card-satisfacer')" style="border-color:#8E44AD; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#8E44AD;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg></div>
         <div class="pdf-card__level">A2 – B1 ⭐⭐</div>
@@ -1029,6 +1036,20 @@
         {bad:'Espiró rodeado de su familia', good:'Expiró rodeado de su familia'}
       ]
     },
+    'card-contra-mas': {
+      color:'#2E86AB', level:'B1 – B2',
+      icon:'<path d="M12 20V10M18 20V4M6 20v-4"/>',
+      title:{en:'"Contra más" or "Cuanto más"?', es:'¿"Contra más" o "Cuanto más"?'},
+      desc:{en:'"Contra más" is a vulgarism, not standard Spanish. The real rule: cuanto/cuanta/cuantos/cuantas + más/menos, agreeing with the noun, to relate two things that grow or shrink together. "Contra" is a preposition of opposition (España juega contra Italia) — it does not belong here. Bonus: "cuanto" never carries an accent in this construction, and "mientras más"/"entre más" are valid in Latin America.',
+            es:'"Contra más" es un vulgarismo, no español cuidado. La regla real: cuanto/cuanta/cuantos/cuantas + más/menos, concordando con el sustantivo, para relacionar dos cosas que aumentan o disminuyen a la vez. "Contra" es una preposición de oposición (España juega contra Italia) — no pinta nada aquí. Extra: "cuanto" nunca lleva tilde en esta construcción, y "mientras más"/"entre más" son válidas en América Latina.'},
+      pdf:'DESCARGABLES_PDF/CONTRA_MAS/CONTRA_MAS_DESCARGABLE.pdf',
+      video:'https://youtube.com/shorts/P1aJufd_DMA',
+      contrast:[
+        {bad:'Contra más dinero ganas, más gastas', good:'Cuanto más dinero ganas, más gastas'},
+        {bad:'Contimás lo pienso, menos lo entiendo', good:'Cuanto más lo pienso, menos lo entiendo'},
+        {bad:'Cuantimás fotos hago, más aprendo', good:'Cuantas más fotos hago, más aprendo'}
+      ]
+    },
     'card-satisfacer': {
       color:'#8E44AD', level:'A2 – B1',
       icon:'<circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/>',
@@ -1307,7 +1328,7 @@
     });
   });
 </script>
-<script src="search.js?v=26"></script>
+<script src="search.js?v=27"></script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script>window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments);};</script>
