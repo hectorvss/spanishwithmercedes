@@ -1233,7 +1233,7 @@
       ? '<a href="' + l.video + '" target="_blank" class="gm-btn" style="justify-content:center;text-decoration:none;background:#fff;color:#121117;border:1.5px solid #DCDCE5;font-size:15.5px;padding:14px 22px;">▶ <span class="lang-en">Watch the video</span><span class="lang-es">Ver el vídeo</span></a>'
       : '';
     var pdfBtn = l.pdf
-      ? '<a href="' + l.pdf + '" target="_blank" class="gm-btn gm-btn-primary" style="justify-content:center;text-decoration:none;font-size:15.5px;padding:14px 22px;">📥 <span class="lang-en">Download free PDF</span><span class="lang-es">Descargar PDF gratis</span></a>'
+      ? '<a href="' + l.pdf + '" target="_blank" class="gm-btn gm-btn-primary" onclick="window.va&&window.va(\'event\',{name:\'pdf_download\',data:{lesson:\'' + id + '\'}})" style="justify-content:center;text-decoration:none;font-size:15.5px;padding:14px 22px;">📥 <span class="lang-en">Download free PDF</span><span class="lang-es">Descargar PDF gratis</span></a>'
       : '<div style="text-align:center;font-size:13.5px;color:#8A8A99;padding:4px 0 2px;"><span class="lang-en">📄 Printable card coming soon — watch the short below for now.</span><span class="lang-es">📄 Ficha descargable en camino — de momento, mira el short.</span></div>';
     var contrastBlock = (l.contrast && l.contrast.length)
       ? '<div style="border:1px solid #ECECF1;border-radius:12px;overflow:hidden;margin-bottom:26px;">' +
