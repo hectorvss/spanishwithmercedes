@@ -339,14 +339,14 @@
         <a href="#grammar" onclick="var s=document.getElementById('grammar');s.style.display='block';setTimeout(function(){s.scrollIntoView({behavior:'smooth'});},50);return false;" style="display:block;text-align:center;background:#121117;color:#fff;border-radius:8px;padding:10px 16px;font-weight:700;font-size:13px;text-decoration:none;letter-spacing:0.3px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
           <span class="lang-en">See all grammar guides</span><span class="lang-es">Ver todas las guías de gramática</span>
         </a>
-        <div style="border-top:1px solid #f0f0f0;padding-top:14px;">
+        <div id="preview-grammar" style="border-top:1px solid #f0f0f0;padding-top:14px;">
           <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#D4920A;margin-bottom:6px;"><span class="lang-en">Latest upload</span><span class="lang-es">Última subida</span></div>
           <a href="DESCARGABLES_PDF/VERBOS_SIN_PREPOSICION/VERBOS_SIN_PREPOSICION_DESCARGABLE.pdf" target="_blank" style="text-decoration:none;display:flex;align-items:center;gap:12px;">
             <div style="flex-shrink:0;width:38px;height:38px;background:#D4920A;border-radius:8px;display:flex;align-items:center;justify-content:center;">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/><line x1="4" y1="4" x2="20" y2="20"/></svg>
             </div>
             <div>
-              <div style="font-weight:700;font-size:14px;color:#000;"><span class="lang-en">Listen To, Wait For, Look For, Ask For</span><span class="lang-es">Listen To, Wait For, Look For, Ask For</span></div>
+              <div style="font-weight:700;font-size:14px;color:#000;"><span class="lang-en">Escuchar, Esperar, Buscar, Pedir — No Preposition</span><span class="lang-es">Escuchar, Esperar, Buscar, Pedir — Sin Preposición</span></div>
               <div style="font-size:11px;color:#888;">A2 – B1</div>
             </div>
           </a>
@@ -370,7 +370,7 @@
         <a href="#vocabulary" onclick="var s=document.getElementById('vocabulary');s.style.display='block';setTimeout(function(){s.scrollIntoView({behavior:'smooth'});},50);return false;" style="display:block;text-align:center;background:#121117;color:#fff;border-radius:8px;padding:10px 16px;font-weight:700;font-size:13px;text-decoration:none;letter-spacing:0.3px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
           <span class="lang-en">See all vocabulary guides</span><span class="lang-es">Ver todas las guías de vocabulario</span>
         </a>
-        <div style="border-top:1px solid #f0f0f0;padding-top:14px;">
+        <div id="preview-vocabulary" style="border-top:1px solid #f0f0f0;padding-top:14px;">
           <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#4D9DE0;margin-bottom:6px;"><span class="lang-en">Latest upload</span><span class="lang-es">Última subida</span></div>
           <a href="DESCARGABLES_PDF/AZO_GOLPE/AZO_GOLPE_DESCARGABLE.pdf" target="_blank" style="text-decoration:none;display:flex;align-items:center;gap:12px;">
             <div style="flex-shrink:0;width:38px;height:38px;background:#B22222;border-radius:8px;display:flex;align-items:center;justify-content:center;">
@@ -397,7 +397,7 @@
         <a href="#pronunciation" onclick="var s=document.getElementById('pronunciation');s.style.display='block';setTimeout(function(){s.scrollIntoView({behavior:'smooth'});},50);return false;" style="display:block;text-align:center;background:#121117;color:#fff;border-radius:8px;padding:10px 16px;font-weight:700;font-size:13px;text-decoration:none;letter-spacing:0.3px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
           <span class="lang-en">See all pronunciation guides</span><span class="lang-es">Ver todas las guías de pronunciación</span>
         </a>
-        <div style="border-top:1px solid #f0f0f0;padding-top:14px;">
+        <div id="preview-pronunciation" style="border-top:1px solid #f0f0f0;padding-top:14px;">
           <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#D4920A;margin-bottom:6px;"><span class="lang-en">Latest upload</span><span class="lang-es">Última subida</span></div>
           <a href="DESCARGABLES_PDF/LA%20R/EL_SONIDO_R.pdf?v=2" target="_blank" style="text-decoration:none;display:flex;align-items:center;gap:12px;">
             <div style="flex-shrink:0;width:38px;height:38px;background:#C8102E;border-radius:8px;display:flex;align-items:center;justify-content:center;">
@@ -424,7 +424,7 @@
         <a href="#errores-frecuentes" onclick="var s=document.getElementById('errores-frecuentes');s.style.display='block';setTimeout(function(){s.scrollIntoView({behavior:'smooth'});},50);return false;" style="display:block;text-align:center;background:#121117;color:#fff;border-radius:8px;padding:10px 16px;font-weight:700;font-size:13px;text-decoration:none;letter-spacing:0.3px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
           <span class="lang-en">See all common-mistake cards</span><span class="lang-es">Ver todas las fichas de errores</span>
         </a>
-        <div style="border-top:1px solid #f0f0f0;padding-top:14px;">
+        <div id="preview-errores" style="border-top:1px solid #f0f0f0;padding-top:14px;">
           <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#C0392B;margin-bottom:6px;"><span class="lang-en">Latest upload</span><span class="lang-es">Última subida</span></div>
           <a href="DESCARGABLES_PDF/DELANTE_DE_MI/DELANTE_DE_MI_DESCARGABLE.pdf" target="_blank" style="text-decoration:none;display:flex;align-items:center;gap:12px;">
             <div style="flex-shrink:0;width:38px;height:38px;background:#C0392B;border-radius:8px;display:flex;align-items:center;justify-content:center;">
@@ -510,21 +510,21 @@
         <div class="pdf-card__desc"><span class="lang-en">Two words one letter apart with completely different meanings: espirar is to breathe out, expirar is to die or to run out. Where the confusion comes from, the breathing family (inspirar / espirar / respirar), and how to never mix them up again.</span><span class="lang-es">Dos palabras que se diferencian en una letra y significan cosas muy distintas: espirar es soltar el aire, expirar es morir o caducar. De dónde viene la confusión, la familia de la respiración (inspirar / espirar / respirar) y cómo no volver a mezclarlas.</span></div>
         <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
       </div>
-      <div id="card-contra-mas" class="pdf-card" onclick="openLesson('card-contra-mas')" style="border-color:#2E86AB; display:flex; flex-direction:column; cursor:pointer;">
+      <div id="card-contra-mas" data-added="2026-09-14" class="pdf-card" onclick="openLesson('card-contra-mas')" style="border-color:#2E86AB; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#2E86AB;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10M18 20V4M6 20v-4"/></svg></div>
         <div class="pdf-card__level">B1 – B2 ⭐⭐</div>
         <div class="pdf-card__title"><span class="lang-en">"Contra más" or "Cuanto más"?</span><span class="lang-es">¿"Contra más" o "Cuanto más"?</span></div>
         <div class="pdf-card__desc"><span class="lang-en">"Contra más" is a vulgarism heard everywhere, but careful Spanish uses cuanto/cuanta/cuantos/cuantas + más/menos to relate two proportional things — agreeing with the noun. Why "contra" (opposition) doesn't belong here, why "cuanto" never takes an accent in this construction, and the valid Latin-American alternatives "mientras más" and "entre más".</span><span class="lang-es">"Contra más" es un vulgarismo que se oye por todas partes, pero el español cuidado usa cuanto/cuanta/cuantos/cuantas + más/menos para relacionar dos elementos proporcionales, concordando con el sustantivo. Por qué "contra" (oposición) no pinta nada aquí, por qué "cuanto" nunca lleva tilde en esta construcción, y las alternativas válidas en América "mientras más" y "entre más".</span></div>
         <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
       </div>
-      <div id="card-satisfacer" class="pdf-card" onclick="openLesson('card-satisfacer')" style="border-color:#8E44AD; display:flex; flex-direction:column; cursor:pointer;">
+      <div id="card-satisfacer" data-added="2026-09-13" class="pdf-card" onclick="openLesson('card-satisfacer')" style="border-color:#8E44AD; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#8E44AD;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg></div>
         <div class="pdf-card__level">A2 – B1 ⭐⭐</div>
         <div class="pdf-card__title"><span class="lang-en">"Satisfació" or "Satisfizo"?</span><span class="lang-es">¿"Satisfació" o "Satisfizo"?</span></div>
         <div class="pdf-card__desc"><span class="lang-en">SATISFACER is irregular in the preterite because it conjugates exactly like HACER, just swapping the H for an F: hizo → satisfizo, hice → satisfice, hicieron → satisficieron — never "satisfació" or "satisfacieron". Full conjugation table, error correction, sentences in context and an AI practice prompt.</span><span class="lang-es">SATISFACER es irregular en el pretérito porque se conjuga igual que HACER, cambiando solo la H por una F: hizo → satisfizo, hice → satisfice, hicieron → satisficieron — nunca "satisfació" ni "satisfacieron". Tabla de conjugación completa, corrección del error, frases en contexto y un prompt de práctica con IA.</span></div>
         <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
       </div>
-      <div id="card-prever-proveer" class="pdf-card" onclick="openLesson('card-prever-proveer')" style="border-color:#27AE60; display:flex; flex-direction:column; cursor:pointer;">
+      <div id="card-prever-proveer" data-added="2026-09-12" class="pdf-card" onclick="openLesson('card-prever-proveer')" style="border-color:#27AE60; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#27AE60;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
         <div class="pdf-card__level">A2 – B1 ⭐⭐</div>
         <div class="pdf-card__title"><span class="lang-en">"Preveer" or "Prever"?</span><span class="lang-es">¿"Preveer" o "Prever"?</span></div>
@@ -625,10 +625,10 @@
         <div class="pdf-card__desc"><span class="lang-en">Master ACORDARSE DE, CASARSE CON, CONFIAR EN and DARSE CUENTA DE — four verbs that always need a preposition in Spanish, even though their English equivalents don't. Includes pronominal verb conjugation, exercises and AI practice prompts.</span><span class="lang-es">Domina ACORDARSE DE, CASARSE CON, CONFIAR EN y DARSE CUENTA DE — cuatro verbos que siempre necesitan preposición en español, aunque en inglés no la lleven. Incluye conjugación de verbos pronominales, ejercicios y prompts de práctica con IA.</span></div>
         <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
       </div>
-      <div id="card-verbos-sin-preposicion" class="pdf-card" onclick="openLesson('card-verbos-sin-preposicion')" style="border-color:#D4920A; display:flex; flex-direction:column; cursor:pointer;">
+      <div id="card-verbos-sin-preposicion" data-added="2026-09-22" class="pdf-card" onclick="openLesson('card-verbos-sin-preposicion')" style="border-color:#D4920A; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#D4920A;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/><line x1="4" y1="4" x2="20" y2="20"/></svg></div>
         <div class="pdf-card__level">A2 – B1 ⭐⭐</div>
-        <div class="pdf-card__title"><span class="lang-en">Listen To, Wait For, Look For, Ask For — No Preposition in Spanish</span><span class="lang-es">Listen To, Wait For, Look For, Ask For — Sin Preposición en Español</span></div>
+        <div class="pdf-card__title"><span class="lang-en">Listen To, Wait For, Look For, Ask For — No Preposition in Spanish</span><span class="lang-es">Escuchar, Esperar, Buscar, Pedir — Sin Preposición en Español</span></div>
         <div class="pdf-card__desc"><span class="lang-en">The opposite case: ESCUCHAR, ESPERAR, BUSCAR and PEDIR never take a preposition in Spanish, even though their English equivalents do (listen TO, wait FOR, look FOR, ask FOR). Includes the typical calque error, how to tell these verbs apart from ones that DO need a fixed preposition, exercises and an AI practice prompt.</span><span class="lang-es">El caso contrario: ESCUCHAR, ESPERAR, BUSCAR y PEDIR nunca llevan preposición en español, aunque en inglés sí (listen TO, wait FOR, look FOR, ask FOR). Incluye el calco típico del inglés, cómo distinguir estos verbos de los que sí necesitan preposición fija, ejercicios y un prompt de práctica con IA.</span></div>
         <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
       </div>
@@ -671,14 +671,14 @@
       <span class="lang-es">Guías de Vocabulario</span>
     </div>
     <div class="pdf-grid">
-      <div id="card-azo-golpe" class="pdf-card" onclick="openLesson('card-azo-golpe')" style="border-color:#B22222; display:flex; flex-direction:column; cursor:pointer;">
+      <div id="card-azo-golpe" data-added="2026-09-17" class="pdf-card" onclick="openLesson('card-azo-golpe')" style="border-color:#B22222; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#B22222;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83M16.62 12l-5.74 9.94"/></svg></div>
         <div class="pdf-card__level">B1 – C1 ⭐⭐</div>
         <div class="pdf-card__title"><span class="lang-en">"Portazo" Isn't "An Impressive Door": The Suffix -AZO (2/4)</span><span class="lang-es">"Portazo" no es "una puerta impresionante": el sufijo -AZO (2/4)</span></div>
         <div class="pdf-card__desc"><span class="lang-en">The second meaning of -AZO: body part or object + -AZO = a hit given with that (codazo, cabezazo, puñetazo, balonazo...). Includes the irregular PUÑETAZO, why PORTAZO comes from the learned root "port-", how MAZAZO goes from a physical hit to an emotional one, exercises with solutions and an AI practice prompt. Part 2 of 4.</span><span class="lang-es">El segundo significado de -AZO: parte del cuerpo u objeto + -AZO = un golpe dado con eso (codazo, cabezazo, puñetazo, balonazo...). Incluye el irregular PUÑETAZO, por qué PORTAZO viene de la raíz culta "port-", cómo MAZAZO pasa del golpe físico al emocional, ejercicios con soluciones y un prompt de práctica con IA. Parte 2 de 4.</span></div>
         <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
       </div>
-      <div id="card-azo" class="pdf-card" onclick="openLesson('card-azo')" style="border-color:#B22222; display:flex; flex-direction:column; cursor:pointer;">
+      <div id="card-azo" data-added="2026-09-16" class="pdf-card" onclick="openLesson('card-azo')" style="border-color:#B22222; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#B22222;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 11-14h-7l1-6z"/></svg></div>
         <div class="pdf-card__level">B1 – C1 ⭐⭐</div>
         <div class="pdf-card__title"><span class="lang-en">"Golazo" Isn't "A Big Goal": The Suffix -AZO (1/4)</span><span class="lang-es">"Golazo" no es "un gol grande": el sufijo -AZO (1/4)</span></div>
@@ -1004,7 +1004,7 @@
     'card-verbos-sin-preposicion': {
       color:'#D4920A', level:'A2 – B1',
       icon:'<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/><line x1="4" y1="4" x2="20" y2="20"/>',
-      title:{en:'Listen To, Wait For, Look For, Ask For — No Preposition in Spanish', es:'Listen To, Wait For, Look For, Ask For — Sin Preposición en Español'},
+      title:{en:'Listen To, Wait For, Look For, Ask For — No Preposition in Spanish', es:'Escuchar, Esperar, Buscar, Pedir — Sin Preposición en Español'},
       desc:{en:'The opposite case: ESCUCHAR, ESPERAR, BUSCAR and PEDIR never take a preposition in Spanish, even though their English equivalents do (listen TO, wait FOR, look FOR, ask FOR). Includes the typical calque error, how to tell these verbs apart from ones that DO need a fixed preposition (depender DE, soñar CON...), exercises and an AI practice prompt.',
             es:'El caso contrario: ESCUCHAR, ESPERAR, BUSCAR y PEDIR nunca llevan preposición en español, aunque en inglés sí (listen TO, wait FOR, look FOR, ask FOR). Incluye el calco típico del inglés, cómo distinguir estos verbos de los que sí necesitan preposición fija (depender DE, soñar CON...), ejercicios y un prompt de práctica con IA.'},
       pdf:'DESCARGABLES_PDF/VERBOS_SIN_PREPOSICION/VERBOS_SIN_PREPOSICION_DESCARGABLE.pdf',
@@ -1379,6 +1379,49 @@
       card.scrollIntoView({ behavior: 'smooth', block: 'center' });
       openLesson(hash);
     }, 50);
+  });
+
+  // Auto-update each category's "Latest upload" preview card on the landing page.
+  // To mark a card as the newest candidate for its category, add data-added="YYYY-MM-DD"
+  // to that .pdf-card div — the preview picks whichever dated card is most recent.
+  // Categories/cards with no dated card keep whatever is already hardcoded below.
+  document.addEventListener('DOMContentLoaded', function () {
+    var categories = [
+      { sectionId: 'grammar', previewId: 'preview-grammar' },
+      { sectionId: 'vocabulary', previewId: 'preview-vocabulary' },
+      { sectionId: 'pronunciation', previewId: 'preview-pronunciation' },
+      { sectionId: 'errores-frecuentes', previewId: 'preview-errores' }
+    ];
+    categories.forEach(function (cat) {
+      var section = document.getElementById(cat.sectionId);
+      var preview = document.getElementById(cat.previewId);
+      if (!section || !preview) return;
+      var dated = Array.prototype.slice.call(section.querySelectorAll('.pdf-card[data-added]'));
+      if (!dated.length) return;
+      dated.sort(function (a, b) {
+        return new Date(b.getAttribute('data-added')) - new Date(a.getAttribute('data-added'));
+      });
+      var lesson = LESSONS[dated[0].id];
+      if (!lesson || !lesson.pdf) return;
+      var link = preview.querySelector('a');
+      if (!link) return;
+      var iconBox = link.children[0];
+      var textBox = link.children[1];
+      if (!iconBox || !textBox) return;
+      var iconSvg = iconBox.querySelector('svg');
+      var titleDiv = textBox.children[0];
+      var levelDiv = textBox.children[1];
+      link.href = lesson.pdf;
+      iconBox.style.background = lesson.color;
+      if (iconSvg) iconSvg.innerHTML = lesson.icon;
+      if (titleDiv) {
+        var titleEn = titleDiv.querySelector('.lang-en');
+        var titleEs = titleDiv.querySelector('.lang-es');
+        if (titleEn) titleEn.textContent = lesson.title.en;
+        if (titleEs) titleEs.textContent = lesson.title.es;
+      }
+      if (levelDiv) levelDiv.textContent = lesson.level;
+    });
   });
 </script>
 
