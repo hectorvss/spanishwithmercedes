@@ -1300,13 +1300,13 @@
         '</div>' +
         '<span style="font-size:13.5px;font-weight:700;background:' + l.color + '20;color:' + l.color + ';padding:5px 14px;border-radius:20px;">' + l.level + '</span>' +
       '</div>' +
-      '<p style="font-size:16.5px;line-height:1.75;color:#4D4C5C;margin-bottom:28px;"><span class="lang-en">' + l.desc.en + '</span><span class="lang-es">' + l.desc.es + '</span></p>' +
-      contrastBlock +
-      '<div style="display:flex;flex-direction:column;gap:12px;">' +
+      '<div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px;">' +
         pdfBtn +
         gameBtn +
         videoBtn +
-      '</div>';
+      '</div>' +
+      '<p style="font-size:16.5px;line-height:1.75;color:#4D4C5C;margin-bottom:28px;"><span class="lang-en">' + l.desc.en + '</span><span class="lang-es">' + l.desc.es + '</span></p>' +
+      contrastBlock;
     var m = document.getElementById('lesson-modal');
     m.style.display = 'flex';
     requestAnimationFrame(function(){ m.classList.add('gm--open'); });
