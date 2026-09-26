@@ -482,6 +482,13 @@
       <span class="lang-es">Deslices que se oyen a diario, tanto en estudiantes como en nativos. Cada ficha muestra el error, la forma correcta y por qué se produce.</span>
     </p>
     <div class="pdf-grid">
+      <div id="card-callaos" data-added="2026-09-26" class="pdf-card" onclick="openLesson('card-callaos')" style="border-color:#8E44AD; display:flex; flex-direction:column; cursor:pointer;">
+        <div class="pdf-card__icon" style="background:#8E44AD;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/></svg></div>
+        <div class="pdf-card__level">B1 ⭐⭐</div>
+        <div class="pdf-card__title"><span class="lang-en">"Callaos" or "Callaros"?</span><span class="lang-es">¿"Callaos" o "Callaros"?</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">"¡Callaros!" as an order is a mistake: it is an infinitive disguised as a command. How the imperative of regular verbs is formed (tú and vosotros), why the D disappears when you add "os" (callad + os → callaos), when "callaros" IS correct (tenéis que callaros), and the exceptions (vestíos, idos/iros).</span><span class="lang-es">"¡Callaros!" como orden es un error: es un infinitivo disfrazado de orden. Cómo se forma el imperativo de los verbos regulares (tú y vosotros), por qué la D desaparece al añadir "os" (callad + os → callaos), cuándo "callaros" sí es correcto (tenéis que callaros) y las excepciones (vestíos, idos/iros).</span></div>
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
+      </div>
       <div id="card-delante-mia" class="pdf-card" onclick="openLesson('card-delante-mia')" style="border-color:#C0392B; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#C0392B;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
         <div class="pdf-card__level">A2 – B1 ⭐⭐</div>
@@ -1227,6 +1234,20 @@
         {bad:'Qué mazazo tan grande, mide dos metros', good:'Recibió un mazazo con la noticia del despido'}
       ]
     },
+    'card-callaos': {
+      color:'#8E44AD', level:'B1',
+      icon:'<path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/>',
+      title:{en:'"Callaos" or "Callaros"?', es:'¿"Callaos" o "Callaros"?'},
+      desc:{en:'"¡Callaros!" as an order is a mistake: it is an infinitive disguised as a command. Learn how the imperative of regular verbs is formed (tú and vosotros), why the D disappears when you add "os" (callad + os → callaos), when "callaros" IS correct (tenéis que callaros), and the exceptions (vestíos, idos/iros). Includes exercises with solutions and an AI practice prompt.',
+            es:'"¡Callaros!" como orden es un error: es un infinitivo disfrazado de orden. Aprende cómo se forma el imperativo de los verbos regulares (tú y vosotros), por qué la D desaparece al añadir "os" (callad + os → callaos), cuándo "callaros" sí es correcto (tenéis que callaros) y las excepciones (vestíos, idos/iros). Incluye ejercicios con soluciones y un prompt de práctica con IA.'},
+      pdf:'DESCARGABLES_PDF/CALLAOS_CALLAROS/CALLAOS_CALLAROS_DESCARGABLE.pdf',
+      video:'https://youtube.com/shorts/Y0_8LOLNTy4',
+      contrast:[
+        {bad:'¡Callaros!', good:'¡Callaos!'},
+        {bad:'¡Sentaros ahora mismo!', good:'¡Sentaos ahora mismo!'},
+        {bad:'¡Levantaros, que es tarde!', good:'¡Levantaos, que es tarde!'}
+      ]
+    },
     'card-fechas': {
       color:'#4D9DE0', level:'A1 – A2',
       icon:'<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>',
@@ -1455,7 +1476,7 @@
     });
   });
 </script>
-<script src="search.js?v=33"></script>
+<script src="search.js?v=34"></script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script>window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments);};</script>
