@@ -751,7 +751,7 @@ function vsNext() {
 
 const PRES_LEVELS = {
   a1: {
-    label: { en: 'First Words', es: 'Primeras Palabras' },
+    label: { en: 'First Words', es: 'Primeras palabras' },
     color: '#3DDABE',
     qs: [
       { s:'Yo ___ Ana.',              opts:['me llamo','te llamas','se llama'],    a:0, e:{en:'LLAMARSE (yo) → me llamo',             es:'LLAMARSE (yo) → me llamo'} },
@@ -767,7 +767,7 @@ const PRES_LEVELS = {
     ]
   },
   a2: {
-    label: { en: 'Complete Sentences', es: 'Frases Completas' },
+    label: { en: 'Complete Sentences', es: 'Frases completas' },
     color: '#D4920A',
     qs: [
       { s:'Soy profesora ___ español.',          opts:['de','en','del'],                  a:0, e:{en:'"Profesora de español" → always DE',     es:'"Profesora de español" → siempre DE'} },
@@ -783,7 +783,7 @@ const PRES_LEVELS = {
     ]
   },
   b1: {
-    label: { en: 'Going Deeper', es: 'En Profundidad' },
+    label: { en: 'Going Deeper', es: 'En profundidad' },
     color: '#2885FD',
     qs: [
       { s:'Me ___ en filología hispánica.',                        opts:['licencié','llamé','presenté'],           a:0, e:{en:'LICENCIARSE (yo) → me licencié = I graduated in',   es:'LICENCIARSE (yo) → me licencié en'} },
@@ -799,7 +799,7 @@ const PRES_LEVELS = {
     ]
   },
   work: {
-    label: { en: '💼 Work Context', es: '💼 Contexto Laboral' },
+    label: { en: '💼 Work Context', es: '💼 Contexto laboral' },
     color: '#E8355A',
     qs: [
       { ctx:{en:'🏢 Job interview — you introduce yourself to the panel.',       es:'🏢 Entrevista de trabajo — te presentas al panel.'},
