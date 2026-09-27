@@ -23,13 +23,13 @@
 <div class="carousel-section">
   <div class="carousel-track">
     <a href="videos.html" class="carousel-item"><span class="lang-en">Ser y Estar in Spanish</span><span class="lang-es">Ser y Estar en Español</span></a>
-    <a href="videos.html" class="carousel-item"><span class="lang-en">Introduce Yourself</span><span class="lang-es">Presentarte en Español</span></a>
+    <a href="videos.html" class="carousel-item"><span class="lang-en">Introduce Yourself</span><span class="lang-es">Presentarte en español</span></a>
     <a href="videos.html" class="carousel-item"><span class="lang-en">The Spanish R</span><span class="lang-es">La R en Español</span></a>
     <a href="patria-reading-guide.html" class="carousel-item"><span class="lang-en">Reading Guide: Patria</span><span class="lang-es">Guía de Lectura: Patria</span></a>
     <a href="dele.html#b1" class="carousel-item"><span class="lang-en">DELE B1 Practice Exam</span><span class="lang-es">Examen de Práctica DELE B1</span></a>
     <!-- Duplicated for infinite scroll -->
     <a href="videos.html" class="carousel-item"><span class="lang-en">Ser y Estar in Spanish</span><span class="lang-es">Ser y Estar en Español</span></a>
-    <a href="videos.html" class="carousel-item"><span class="lang-en">Introduce Yourself</span><span class="lang-es">Presentarte en Español</span></a>
+    <a href="videos.html" class="carousel-item"><span class="lang-en">Introduce Yourself</span><span class="lang-es">Presentarte en español</span></a>
     <a href="videos.html" class="carousel-item"><span class="lang-en">The Spanish R</span><span class="lang-es">La R en Español</span></a>
     <a href="patria-reading-guide.html" class="carousel-item"><span class="lang-en">Reading Guide: Patria</span><span class="lang-es">Guía de Lectura: Patria</span></a>
     <a href="dele.html#b1" class="carousel-item"><span class="lang-en">DELE B1 Practice Exam</span><span class="lang-es">Examen de Práctica DELE B1</span></a>
@@ -309,6 +309,85 @@
   </div>
 </footer>
 
+<!-- ── NEW CONTENT POPUP ─────────────────────── -->
+<!-- Update LATEST.video / LATEST.pdf below every time a new "featured" video/PDF is published. -->
+<div id="latest-popup-overlay" style="display:none; position:fixed; inset:0; background:rgba(18,17,23,0.6); z-index:9998; align-items:center; justify-content:center; padding:16px;" onclick="if(event.target===this) closeLatestPopup();">
+  <div style="background:#fff; border-radius:18px; max-width:440px; width:100%; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.3); position:relative; font-family:'Figtree',sans-serif;">
+    <button onclick="closeLatestPopup()" aria-label="Close" style="position:absolute; top:12px; right:12px; width:32px; height:32px; border-radius:50%; border:none; background:rgba(255,255,255,0.9); color:#121117; font-size:18px; cursor:pointer; z-index:1; display:flex; align-items:center; justify-content:center;">✕</button>
+    <div style="background:#7B1D1D; padding:22px 24px 18px;">
+      <div style="font-family:'Noto Sans',sans-serif; font-weight:800; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:#D4A017; margin-bottom:6px;">
+        <span class="lang-en">Just published</span><span class="lang-es">Recién publicado</span>
+      </div>
+      <div style="font-family:'Noto Sans',sans-serif; font-weight:800; font-size:20px; color:#fff; line-height:1.3;">
+        <span class="lang-en">Don't miss the latest lesson</span><span class="lang-es">No te pierdas la última lección</span>
+      </div>
+    </div>
+    <div style="padding:20px 24px;">
+      <a id="latest-popup-video-link" href="#" target="_blank" style="display:flex; gap:12px; align-items:center; text-decoration:none; margin-bottom:14px; padding-bottom:14px; border-bottom:1px solid #ECECF1;">
+        <div style="position:relative; flex-shrink:0; width:96px; height:64px; border-radius:8px; overflow:hidden; background:#121117;">
+          <img id="latest-popup-video-thumb" src="" alt="" style="width:100%; height:100%; object-fit:cover;">
+          <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:10px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:#D4920A; margin-bottom:2px;"><span class="lang-en">Latest video</span><span class="lang-es">Último vídeo</span></div>
+          <div id="latest-popup-video-title" style="font-size:14.5px; font-weight:700; color:#121117; line-height:1.35;"></div>
+        </div>
+      </a>
+      <a id="latest-popup-pdf-link" href="#" target="_blank" style="display:flex; gap:12px; align-items:center; text-decoration:none;">
+        <div id="latest-popup-pdf-icon" style="flex-shrink:0; width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+        </div>
+        <div>
+          <div style="font-size:10px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:#D4920A; margin-bottom:2px;"><span class="lang-en">Latest free PDF</span><span class="lang-es">Último PDF gratis</span></div>
+          <div id="latest-popup-pdf-title" style="font-size:14.5px; font-weight:700; color:#121117; line-height:1.35;"></div>
+        </div>
+      </a>
+      <button onclick="closeLatestPopup()" style="width:100%; margin-top:20px; background:#121117; color:#fff; border:none; border-radius:8px; padding:12px; font-weight:700; font-size:14px; cursor:pointer; font-family:'Figtree',sans-serif;">
+        <span class="lang-en">Got it, thanks!</span><span class="lang-es">¡Vale, gracias!</span>
+      </button>
+    </div>
+  </div>
+</div>
+<script>
+  (function () {
+    // Update these 5 fields every time a new video/PDF becomes the site's "featured" upload.
+    var LATEST = {
+      videoId: 'JbutQ8NkUko',
+      videoTitle: { en: 'What Do These Spanish Gestures Mean?', es: '¿Qué significan estos gestos españoles?' },
+      pdfUrl: 'DESCARGABLES_PDF/GESTOS_ESPANOLES/GESTOS_ESPANOLES_DESCARGABLE.pdf',
+      pdfTitle: { en: 'What Do These Spanish Gestures Mean?', es: '¿Qué significan estos gestos españoles?' },
+      pdfColor: '#E67E22'
+    };
+    var STORAGE_KEY = 'spm_popup_seen_' + LATEST.videoId;
+
+    window.closeLatestPopup = function () {
+      var o = document.getElementById('latest-popup-overlay');
+      o.style.display = 'none';
+      try { localStorage.setItem(STORAGE_KEY, '1'); } catch (e) {}
+    };
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var already;
+      try { already = localStorage.getItem(STORAGE_KEY); } catch (e) { already = null; }
+      if (already) return;
+
+      var isEs = document.body.classList.contains('is-spanish');
+      document.getElementById('latest-popup-video-link').href = 'https://youtube.com/shorts/' + LATEST.videoId;
+      document.getElementById('latest-popup-video-thumb').src = 'https://img.youtube.com/vi/' + LATEST.videoId + '/hqdefault.jpg';
+      document.getElementById('latest-popup-video-title').textContent = isEs ? LATEST.videoTitle.es : LATEST.videoTitle.en;
+      document.getElementById('latest-popup-pdf-link').href = LATEST.pdfUrl;
+      document.getElementById('latest-popup-pdf-title').textContent = isEs ? LATEST.pdfTitle.es : LATEST.pdfTitle.en;
+      document.getElementById('latest-popup-pdf-icon').style.background = LATEST.pdfColor;
+
+      setTimeout(function () {
+        document.getElementById('latest-popup-overlay').style.display = 'flex';
+      }, 1500);
+    });
+  })();
+</script>
+
 <script src="i18n.js?v=11"></script>
 <script>
   // Navigation Dropdown Handler - Hover based
@@ -327,7 +406,7 @@
     });
   });
 </script>
-<script src="search.js?v=35"></script>
+<script src="search.js?v=36"></script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script>window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments);};</script>
