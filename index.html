@@ -360,17 +360,19 @@
       pdfTitle: { en: 'What Do These Spanish Gestures Mean?', es: '¿Qué significan estos gestos españoles?' },
       pdfColor: '#E67E22'
     };
-    var STORAGE_KEY = 'spm_popup_seen_' + LATEST.videoId;
+    // Shown once per browser session (sessionStorage clears when the browser/tab fully closes),
+    // regardless of which video/PDF is featured — no longer tied to LATEST.videoId.
+    var STORAGE_KEY = 'spm_popup_seen_session';
 
     window.closeLatestPopup = function () {
       var o = document.getElementById('latest-popup-overlay');
       o.style.display = 'none';
-      try { localStorage.setItem(STORAGE_KEY, '1'); } catch (e) {}
+      try { sessionStorage.setItem(STORAGE_KEY, '1'); } catch (e) {}
     };
 
     document.addEventListener('DOMContentLoaded', function () {
       var already;
-      try { already = localStorage.getItem(STORAGE_KEY); } catch (e) { already = null; }
+      try { already = sessionStorage.getItem(STORAGE_KEY); } catch (e) { already = null; }
       if (already) return;
 
       var isEs = document.body.classList.contains('is-spanish');
