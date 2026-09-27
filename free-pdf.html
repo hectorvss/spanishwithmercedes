@@ -678,6 +678,13 @@
       <span class="lang-es">Guías de Vocabulario</span>
     </div>
     <div class="pdf-grid">
+      <div id="card-gestos" data-added="2026-09-27" class="pdf-card" onclick="openLesson('card-gestos')" style="border-color:#E67E22; display:flex; flex-direction:column; cursor:pointer;">
+        <div class="pdf-card__icon" style="background:#E67E22;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-4.53a1.98 1.98 0 0 1 .19-2.61v0c.7-.66 1.87-.7 2.65-.03L7 15"/></svg></div>
+        <div class="pdf-card__level">A2 – B1 ⭐</div>
+        <div class="pdf-card__title"><span class="lang-en">What Do These Spanish Gestures Mean?</span><span class="lang-es">¿Qué Significan Estos Gestos Españoles?</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">5 very Spanish gestures and the everyday expressions that go with them — from "está a tope" to "qué caradura" — plus how a native English, French and German speaker would actually say each one.</span><span class="lang-es">5 gestos muy españoles y las expresiones cotidianas que los acompañan — desde "está a tope" hasta "qué caradura" — más cómo diría cada una un hablante nativo de inglés, francés y alemán.</span></div>
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
+      </div>
       <div id="card-azo-golpe" data-added="2026-09-17" class="pdf-card" onclick="openLesson('card-azo-golpe')" style="border-color:#B22222; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#B22222;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83M16.62 12l-5.74 9.94"/></svg></div>
         <div class="pdf-card__level">B1 – C1 ⭐⭐</div>
@@ -1248,6 +1255,20 @@
         {bad:'¡Levantaros, que es tarde!', good:'¡Levantaos, que es tarde!'}
       ]
     },
+    'card-gestos': {
+      color:'#E67E22', level:'A2 – B1',
+      icon:'<path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-4.53a1.98 1.98 0 0 1 .19-2.61v0c.7-.66 1.87-.7 2.65-.03L7 15"/>',
+      title:{en:'What Do These Spanish Gestures Mean?', es:'¿Qué Significan Estos Gestos Españoles?'},
+      desc:{en:'5 very Spanish gestures and the everyday expressions that go with them — from "está a tope" to "qué caradura" — plus how a native English, French and German speaker would actually say each one, not a word-for-word translation. Includes exercises with solutions and an AI practice prompt.',
+            es:'5 gestos muy españoles y las expresiones cotidianas que los acompañan — desde "está a tope" hasta "qué caradura" — más cómo diría cada una un hablante nativo de inglés, francés y alemán, sin traducir palabra por palabra. Incluye ejercicios con soluciones y un prompt de práctica con IA.'},
+      pdf:'DESCARGABLES_PDF/GESTOS_ESPANOLES/GESTOS_ESPANOLES_DESCARGABLE.pdf',
+      video:'https://youtube.com/shorts/JbutQ8NkUko',
+      contrast:[
+        {bad:'Está lleno de gente', good:'Está a tope / Está abarrotado'},
+        {bad:'No tengo dinero', good:'Estoy a dos velas'},
+        {bad:'Tiene mucho descaro', good:'Tiene mucho morro / Qué caradura'}
+      ]
+    },
     'card-fechas': {
       color:'#4D9DE0', level:'A1 – A2',
       icon:'<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>',
@@ -1476,7 +1497,7 @@
     });
   });
 </script>
-<script src="search.js?v=34"></script>
+<script src="search.js?v=35"></script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script>window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments);};</script>
