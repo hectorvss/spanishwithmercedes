@@ -316,43 +316,24 @@
 
 <!-- ── NEW CONTENT POPUP ─────────────────────── -->
 <!-- Update LATEST.video / LATEST.pdf below every time a new "featured" video/PDF is published. -->
-<div id="latest-popup-overlay" style="display:none; position:fixed; inset:0; background:rgba(18,17,23,0.6); z-index:9998; align-items:center; justify-content:center; padding:16px;" onclick="if(event.target===this) closeLatestPopup();">
-  <div style="background:#fff; border-radius:18px; max-width:440px; width:100%; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.3); position:relative; font-family:'Figtree',sans-serif;">
-    <button onclick="closeLatestPopup()" aria-label="Close" style="position:absolute; top:12px; right:12px; width:32px; height:32px; border-radius:50%; border:none; background:rgba(255,255,255,0.9); color:#121117; font-size:18px; cursor:pointer; z-index:1; display:flex; align-items:center; justify-content:center;">✕</button>
-    <div style="background:#7B1D1D; padding:22px 24px 18px;">
-      <div style="font-family:'Noto Sans',sans-serif; font-weight:800; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:#D4A017; margin-bottom:6px;">
-        <span class="lang-en">Just published</span><span class="lang-es">Recién publicado</span>
-      </div>
-      <div style="font-family:'Noto Sans',sans-serif; font-weight:800; font-size:20px; color:#fff; line-height:1.3;">
-        <span class="lang-en">Don't miss the latest lesson</span><span class="lang-es">No te pierdas la última lección</span>
-      </div>
+<div id="latest-popup-overlay" style="display:none; position:fixed; inset:0; background:rgba(18,17,23,0.55); z-index:9998; align-items:center; justify-content:center; padding:20px;" onclick="if(event.target===this) closeLatestPopup();">
+  <div role="dialog" aria-modal="true" style="position:relative; background:#fff; width:100%; max-width:340px; padding:36px 28px 30px; text-align:center; box-shadow:0 12px 40px rgba(0,0,0,0.35); font-family:'Figtree',sans-serif;">
+    <button onclick="closeLatestPopup()" aria-label="Close" style="position:absolute; top:10px; right:12px; width:30px; height:30px; border:none; background:transparent; cursor:pointer; padding:0;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B6A7A" stroke-width="1.5" stroke-linecap="round"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
+    </button>
+    <div style="font-family:'Noto Sans',sans-serif; font-weight:800; font-size:26px; letter-spacing:0.5px; text-transform:uppercase; color:#121117; margin-bottom:10px;">
+      <span class="lang-en">New</span><span class="lang-es">Nuevo</span>
     </div>
-    <div style="padding:20px 24px;">
-      <a id="latest-popup-video-link" href="#" target="_blank" style="display:flex; gap:12px; align-items:center; text-decoration:none; margin-bottom:14px; padding-bottom:14px; border-bottom:1px solid #ECECF1;">
-        <div style="position:relative; flex-shrink:0; width:96px; height:64px; border-radius:8px; overflow:hidden; background:#121117;">
-          <img id="latest-popup-video-thumb" src="" alt="" style="width:100%; height:100%; object-fit:cover;">
-          <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
-          </div>
-        </div>
-        <div>
-          <div style="font-size:10px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:#D4920A; margin-bottom:2px;"><span class="lang-en">Latest video</span><span class="lang-es">Último vídeo</span></div>
-          <div id="latest-popup-video-title" style="font-size:14.5px; font-weight:700; color:#121117; line-height:1.35;"></div>
-        </div>
-      </a>
-      <a id="latest-popup-pdf-link" href="#" target="_blank" style="display:flex; gap:12px; align-items:center; text-decoration:none;">
-        <div id="latest-popup-pdf-icon" style="flex-shrink:0; width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
-        </div>
-        <div>
-          <div style="font-size:10px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:#D4920A; margin-bottom:2px;"><span class="lang-en">Latest free PDF</span><span class="lang-es">Último PDF gratis</span></div>
-          <div id="latest-popup-pdf-title" style="font-size:14.5px; font-weight:700; color:#121117; line-height:1.35;"></div>
-        </div>
-      </a>
-      <button onclick="closeLatestPopup()" style="width:100%; margin-top:20px; background:#121117; color:#fff; border:none; border-radius:8px; padding:12px; font-weight:700; font-size:14px; cursor:pointer; font-family:'Figtree',sans-serif;">
-        <span class="lang-en">Got it, thanks!</span><span class="lang-es">¡Vale, gracias!</span>
-      </button>
-    </div>
+    <div id="latest-popup-video-title" style="font-family:'Noto Sans',sans-serif; font-weight:600; font-size:18px; line-height:1.35; color:#121117; margin-bottom:10px;"></div>
+    <p style="font-size:14.5px; line-height:1.5; color:#8A8A99; margin:0 0 22px;">
+      <span class="lang-en">Watch the latest video and download its free PDF.</span><span class="lang-es">Mira el último vídeo y descarga su PDF gratis.</span>
+    </p>
+    <a id="latest-popup-video-link" href="#" target="_blank" onclick="closeLatestPopup()" style="display:block; background:#121117; color:#fff; text-decoration:none; padding:13px 16px; font-weight:700; font-size:14px; letter-spacing:0.8px; text-transform:uppercase;">
+      <span class="lang-en">Watch video</span><span class="lang-es">Ver vídeo</span>
+    </a>
+    <a id="latest-popup-pdf-link" href="#" target="_blank" onclick="closeLatestPopup()" style="display:block; margin-top:10px; background:#fff; color:#121117; text-decoration:none; padding:11px 16px; font-weight:700; font-size:14px; letter-spacing:0.8px; text-transform:uppercase; border:2px solid #121117;">
+      <span class="lang-en">Download PDF</span><span class="lang-es">Descargar PDF</span>
+    </a>
   </div>
 </div>
 <script>
@@ -382,11 +363,8 @@
 
       var isEs = document.body.classList.contains('is-spanish');
       document.getElementById('latest-popup-video-link').href = 'https://youtube.com/shorts/' + LATEST.videoId;
-      document.getElementById('latest-popup-video-thumb').src = 'https://img.youtube.com/vi/' + LATEST.videoId + '/hqdefault.jpg';
       document.getElementById('latest-popup-video-title').textContent = isEs ? LATEST.videoTitle.es : LATEST.videoTitle.en;
       document.getElementById('latest-popup-pdf-link').href = LATEST.pdfUrl;
-      document.getElementById('latest-popup-pdf-title').textContent = isEs ? LATEST.pdfTitle.es : LATEST.pdfTitle.en;
-      document.getElementById('latest-popup-pdf-icon').style.background = LATEST.pdfColor;
 
       setTimeout(function () {
         document.getElementById('latest-popup-overlay').style.display = 'flex';
