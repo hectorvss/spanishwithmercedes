@@ -494,6 +494,13 @@
         <div class="pdf-card__desc"><span class="lang-en">"¡Callaros!" as an order is a mistake: it is an infinitive disguised as a command. How the imperative of regular verbs is formed (tú and vosotros), why the D disappears when you add "os" (callad + os → callaos), when "callaros" IS correct (tenéis que callaros), and the exceptions (vestíos, idos/iros).</span><span class="lang-es">"¡Callaros!" como orden es un error: es un infinitivo disfrazado de orden. Cómo se forma el imperativo de los verbos regulares (tú y vosotros), por qué la D desaparece al añadir "os" (callad + os → callaos), cuándo "callaros" sí es correcto (tenéis que callaros) y las excepciones (vestíos, idos/iros).</span></div>
         <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
       </div>
+      <div id="card-onceavo" class="pdf-card" onclick="openLesson('card-onceavo')" style="border-color:#16A085; display:flex; flex-direction:column; cursor:pointer;">
+        <div class="pdf-card__icon" style="background:#16A085;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg></div>
+        <div class="pdf-card__level">A2 – C1 ⭐⭐</div>
+        <div class="pdf-card__title"><span class="lang-en">"Onceavo" or "Undécimo"?</span><span class="lang-es">¿"Onceavo" o "Undécimo"?</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">"Terminó onceavo" is a mistake you even hear on TV: "onceavo" is a fraction (1/11), not a position. The difference between ordinals and partitives, all the ordinals from primero to milésimo, how fractions with -avo are formed, and when natives simply use cardinal numbers.</span><span class="lang-es">"Terminó onceavo" es un error que se oye hasta en la tele: "onceavo" es una fracción (1/11), no una posición. La diferencia entre ordinales y partitivos, todos los ordinales de primero a milésimo, cómo se forman las fracciones en -avo y cuándo los nativos usan simplemente el cardinal.</span></div>
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
+      </div>
       <div id="card-delante-mia" class="pdf-card" onclick="openLesson('card-delante-mia')" style="border-color:#C0392B; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#C0392B;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
         <div class="pdf-card__level">A2 – B1 ⭐⭐</div>
@@ -1258,6 +1265,20 @@
         {bad:'¡Callaros!', good:'¡Callaos!'},
         {bad:'¡Sentaros ahora mismo!', good:'¡Sentaos ahora mismo!'},
         {bad:'¡Levantaros, que es tarde!', good:'¡Levantaos, que es tarde!'}
+      ]
+    },
+    'card-onceavo': {
+      color:'#16A085', level:'A2 – C1',
+      icon:'<line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/>',
+      title:{en:'"Onceavo" or "Undécimo"?', es:'¿"Onceavo" o "Undécimo"?'},
+      desc:{en:'"Terminó onceavo" is a mistake you even hear on TV: "onceavo" is a fraction (1/11), not a position — for a place you need the ordinal "undécimo". Learn the difference between ordinals and partitives, all the ordinals from primero to milésimo, how fractions with -avo are formed (onceavo, doceavo, treintavo), why the number eight causes the confusion, and when natives simply use cardinal numbers. Includes exercises with solutions and an AI practice prompt.',
+            es:'"Terminó onceavo" es un error que se oye hasta en la tele: "onceavo" es una fracción (1/11), no una posición; para un puesto necesitas el ordinal "undécimo". Aprende la diferencia entre ordinales y partitivos, todos los ordinales de primero a milésimo, cómo se forman las fracciones en -avo (onceavo, doceavo, treintavo), por qué el número ocho provoca la confusión y cuándo los nativos usan simplemente el cardinal. Incluye ejercicios con soluciones y un prompt de práctica con IA.'},
+      pdf:'DESCARGABLES_PDF/ONCEAVO/DESCARGABLE_ONCEAVO_UNDECIMO.pdf',
+      video:'https://youtube.com/shorts/grMRamzVwek',
+      contrast:[
+        {bad:'Terminó onceavo en la carrera', good:'Terminó undécimo / en el puesto once'},
+        {bad:'Vive en el doceavo piso', good:'Vive en el duodécimo piso / en el piso doce'},
+        {bad:'Celebramos el treceavo aniversario', good:'Celebramos el decimotercer aniversario'}
       ]
     },
     'card-gestos': {
