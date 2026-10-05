@@ -326,7 +326,7 @@
     </div>
     <div id="latest-popup-video-title" style="font-family:'Noto Sans',sans-serif; font-weight:600; font-size:18px; line-height:1.35; color:#121117; margin-bottom:10px;"></div>
     <p style="font-size:14.5px; line-height:1.5; color:#8A8A99; margin:0 0 22px;">
-      <span class="lang-en">Watch the latest video and download its free PDF.</span><span class="lang-es">Mira el último vídeo y descarga su PDF gratis.</span>
+      <span class="lang-en">Watch the latest video on the channel.</span><span class="lang-es">Mira el último vídeo del canal.</span>
     </p>
     <a id="latest-popup-video-link" href="#" target="_blank" onclick="closeLatestPopup()" style="display:block; background:#121117; color:#fff; text-decoration:none; padding:13px 16px; font-weight:700; font-size:14px; letter-spacing:0.8px; text-transform:uppercase;">
       <span class="lang-en">Watch video</span><span class="lang-es">Ver vídeo</span>
@@ -340,9 +340,9 @@
   (function () {
     // Update these 5 fields every time a new video/PDF becomes the site's "featured" upload.
     var LATEST = {
-      videoId: 'Y0_8LOLNTy4',
-      videoTitle: { en: '"Callaos" or "Callaros"? The Imperative Mistake', es: '¿"Callaos" o "Callaros"? El error del imperativo de vosotros' },
-      pdfUrl: 'DESCARGABLES_PDF/CALLAOS_CALLAROS/CALLAOS_CALLAROS_DESCARGABLE.pdf',
+      videoId: 'TZFIk6YwZUA',
+      videoTitle: { en: '"Nóbel" or "Nobél"? Nobel vs Novel in Spanish', es: '¿"Nóbel" o "Nobél"? ¿Cómo lo pronuncias tú?' },
+      pdfUrl: '',
       pdfTitle: { en: '"Callaos" or "Callaros"? The Imperative Mistake', es: '¿"Callaos" o "Callaros"? El error del imperativo de vosotros' },
       pdfColor: '#8E44AD'
     };
@@ -364,7 +364,8 @@
       var isEs = document.body.classList.contains('is-spanish');
       document.getElementById('latest-popup-video-link').href = 'https://youtube.com/shorts/' + LATEST.videoId;
       document.getElementById('latest-popup-video-title').textContent = isEs ? LATEST.videoTitle.es : LATEST.videoTitle.en;
-      document.getElementById('latest-popup-pdf-link').href = LATEST.pdfUrl;
+      var pdfLink = document.getElementById('latest-popup-pdf-link');
+      if (LATEST.pdfUrl) { pdfLink.href = LATEST.pdfUrl; } else { pdfLink.style.display = 'none'; }
 
       setTimeout(function () {
         document.getElementById('latest-popup-overlay').style.display = 'flex';
@@ -391,7 +392,7 @@
     });
   });
 </script>
-<script src="search.js?v=36"></script>
+<script src="search.js?v=37"></script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script>window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments);};</script>
