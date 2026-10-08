@@ -1910,3 +1910,15 @@ body.is-spanish .lang-en-block { display: none; }
   .step-card { width: 260px; min-width: 260px; }
   .footer__social-apps { flex-direction: column; gap: 12px; }
 }
+
+/* Short windows: tighter game card so the answer feedback and "Next" button fit without hunting for them */
+@media (max-height: 820px) {
+  .gm-box { max-height: 96vh; }
+  .gm-header { padding: 16px 28px 12px; }
+  #gm-body { padding: 16px 28px 22px; }
+  .gm-sentence { font-size: 21px; padding: 16px; margin-bottom: 12px; }
+  .gm-feedback { margin-top: 8px; }
+  .gm-next-btn { margin-top: 10px; }
+  .htl-scene, .cal-scene { margin-top: 10px; }
+  .avh-board { margin-top: 10px; }
+}

@@ -1485,7 +1485,14 @@
     var section = document.getElementById(hash);
     if (section && section.classList.contains('pdf-category')) {
       section.style.display = 'block';
-      setTimeout(function () { section.scrollIntoView({ behavior: 'smooth' }); }, 50);
+      // Arrive with the four category cards at the top and the opened category's guides right below them.
+      var overview = document.getElementById('category-overview') || section;
+      var goToOverview = function () {
+        var y = overview.getBoundingClientRect().top + window.pageYOffset - 100;
+        window.scrollTo({ top: Math.max(0, y), behavior: 'instant' });   // overrides the page's smooth scrolling so it lands exactly
+      };
+      setTimeout(goToOverview, 50);
+      window.addEventListener('load', goToOverview);   // re-align once fonts/images have settled the layout
       return;
     }
 

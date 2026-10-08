@@ -257,7 +257,28 @@ function _modal(bodyHTML, title) {
   m.style.display = 'flex';
   requestAnimationFrame(() => m.classList.add('gm--open'));
   document.body.style.overflow = 'hidden';
+  const box = m.querySelector('.gm-box');
+  if (box) box.scrollTop = 0;   // every new round starts at the top of the card
 }
+
+/* The modal body scrolls inside .gm-box when the game is taller than the window (not full screen).
+   Whenever a "Next" button appears (after an answer), bring it into view so it is never hidden. */
+(function () {
+  const body = document.getElementById('gm-body');
+  if (!body || typeof MutationObserver === 'undefined') return;
+  new MutationObserver(() => {
+    const btn = body.querySelector('.gm-next-btn, button[onclick*="Next"]');
+    if (btn && !btn.dataset.seen) {
+      btn.dataset.seen = '1';
+      setTimeout(() => {
+        const box = btn.closest('.gm-box');
+        if (!box) return;
+        const over = btn.getBoundingClientRect().bottom - box.getBoundingClientRect().bottom;
+        if (over > 0) box.scrollTop += over + 16;   // instant: smooth scrolling is unreliable in some browsers
+      }, 60);
+    }
+  }).observe(body, { childList: true, subtree: true });
+})();
 
 function closeGame() {
   const m = document.getElementById('game-modal');
