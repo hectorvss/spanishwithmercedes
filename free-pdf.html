@@ -138,7 +138,17 @@
     @media (max-width: 480px) {
       .pdf-featured__badge { font-size: 10px; }
     }
-  </style>
+  
+    /* Four category cards: identical design (same border/header colour, header height, label colour) */
+    #category-overview > div { border-width: 2px !important; border-style: solid !important; }
+    #category-overview > div > div:first-child { min-height: 84px; box-sizing: border-box; display: flex; align-items: center; }
+    #category-overview > div:nth-child(-n+3) { border-color: #D4920A !important; }
+    #category-overview > div:nth-child(-n+3) > div:first-child { background: #D4920A !important; }
+    #category-overview > div:nth-child(-n+3) [id^="preview-"] > div:first-child { color: #D4920A !important; }
+    #category-overview > div:nth-child(4) { border-color: #C0392B !important; }
+    #category-overview > div:nth-child(4) > div:first-child { background: #C0392B !important; }
+    #category-overview > div:nth-child(4) [id^="preview-"] > div:first-child { color: #C0392B !important; }
+</style>
 </head>
 <body>
 
@@ -195,7 +205,7 @@
           <a href="videos.html#principiante"><span class="lang-en">Beginner</span><span class="lang-es">Principiante</span></a>
           <a href="videos.html#intermedio"><span class="lang-en">Intermediate</span><span class="lang-es">Intermedio</span></a>
           <a href="videos.html#avanzado"><span class="lang-en">Advanced</span><span class="lang-es">Avanzado</span></a>
-          <a href="videos.html#errores-frecuentes"><span class="lang-en">Common Mistakes</span><span class="lang-es">Errores Frecuentes</span></a>
+          <a href="videos.html#errores-frecuentes"><span class="lang-en">Common Mistakes</span><span class="lang-es">Errores frecuentes</span></a>
         </div>
       </div>
       <div class="nav-item-dropdown">
@@ -203,7 +213,7 @@
         <div class="nav-dropdown">
           <div class="nav-dropdown__label"><span class="lang-en">Lessons</span><span class="lang-es">Lecciones</span></div>
           <a href="free-pdf.html#grammar"><span class="lang-en">Grammar</span><span class="lang-es">Gramática</span></a>
-          <a href="free-pdf.html#vocabulary"><span class="lang-en">Vocabulary &amp; Expressions</span><span class="lang-es">Vocabulario y Expresiones</span></a>
+          <a href="free-pdf.html#vocabulary"><span class="lang-en">Vocabulary &amp; Expressions</span><span class="lang-es">Vocabulario y expresiones</span></a>
           <a href="free-pdf.html#pronunciation"><span class="lang-en">Pronunciation</span><span class="lang-es">Pronunciación</span></a>
           <a href="free-pdf.html#errores-frecuentes"><span class="lang-en">Common Mistakes</span><span class="lang-es">Errores frecuentes</span></a>
           <div class="nav-dropdown__divider"></div>
@@ -330,7 +340,7 @@
 
 
   <!-- CATEGORY OVERVIEW CARDS -->
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;padding:8px 0 48px;">
+  <div id="category-overview" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;padding:8px 0 48px;align-items:stretch;">
 
     <!-- GRAMÁTICA -->
     <div style="border:2px solid #D4920A;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;">
@@ -368,7 +378,7 @@
       <div style="background:#D4920A;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;">
         <div style="display:flex;align-items:center;gap:10px;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-          <span style="font-family:'Noto Sans',sans-serif;font-weight:800;font-size:16px;color:#fff;"><span class="lang-en">Vocabulary &amp; Expressions</span><span class="lang-es">Vocabulario y Expresiones</span></span>
+          <span style="font-family:'Noto Sans',sans-serif;font-weight:800;font-size:16px;color:#fff;"><span class="lang-en">Vocabulary &amp; Expressions</span><span class="lang-es">Vocabulario y expresiones</span></span>
         </div>
       </div>
       <div style="padding:20px;flex:1;display:flex;flex-direction:column;gap:16px;">
@@ -422,7 +432,7 @@
       <div style="background:#C0392B;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;">
         <div style="display:flex;align-items:center;gap:10px;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          <span style="font-family:'Noto Sans',sans-serif;font-weight:800;font-size:16px;color:#fff;"><span class="lang-en">Common Mistakes</span><span class="lang-es">Errores Frecuentes</span></span>
+          <span style="font-family:'Noto Sans',sans-serif;font-weight:800;font-size:16px;color:#fff;"><span class="lang-en">Common Mistakes</span><span class="lang-es">Errores frecuentes</span></span>
         </div>
       </div>
       <div style="padding:20px;flex:1;display:flex;flex-direction:column;gap:16px;">
@@ -451,7 +461,7 @@
     <div class="pdf-category__title">
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
       <span class="lang-en">Pronunciation Guides</span>
-      <span class="lang-es">Guías de Pronunciación</span>
+      <span class="lang-es">Guías de pronunciación</span>
     </div>
     <div class="pdf-grid">
       <div id="card-sonido-r" class="pdf-card" onclick="openLesson('card-sonido-r')" style="border-color:#C8102E; cursor:pointer;">
@@ -480,7 +490,7 @@
     <div class="pdf-category__title">
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C0392B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
       <span class="lang-en">Common Mistakes — natives make them too</span>
-      <span class="lang-es">Errores Frecuentes — también de nativos</span>
+      <span class="lang-es">Errores frecuentes — también de nativos</span>
     </div>
     <p style="font-size:15px; line-height:1.7; color:#4D4C5C; max-width:680px; margin:-10px 0 28px;">
       <span class="lang-en">Slips you hear every day, from learners and native speakers alike. Each card shows the mistake, the correct form, and why it happens.</span>
@@ -701,7 +711,7 @@
     <div class="pdf-category__title">
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#D4920A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
       <span class="lang-en">Vocabulary Guides</span>
-      <span class="lang-es">Guías de Vocabulario</span>
+      <span class="lang-es">Guías de vocabulario</span>
     </div>
     <div class="pdf-grid">
       <div id="card-gestos" data-added="2026-09-27" class="pdf-card" onclick="openLesson('card-gestos')" style="border-color:#E67E22; display:flex; flex-direction:column; cursor:pointer;">
@@ -944,6 +954,7 @@
       game:'juego-sonido-r.html'
     },
     'card-gustar': {
+      video:'https://youtu.be/yHzvPpK52lA',
       color:'#D4920A', level:'A2 – B1',
       icon:'<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>',
       title:{en:'GUSTAR & Similar Verbs', es:'El verbo GUSTAR y verbos similares'},
@@ -953,6 +964,7 @@
       game:'juego-gustar.html?autoplay=1'
     },
     'card-genero': {
+      video:'https://youtu.be/LCKA58ZpMtE',
       color:'#9B59B6', level:'A1 – B1',
       icon:'<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>',
       title:{en:'Gender in Spanish', es:'El género en español'},
@@ -972,6 +984,7 @@
       video:'https://youtu.be/SsROCEnMtRk'
     },
     'card-ser-estar': {
+      video:'https://youtu.be/08by8Wap1QY',
       color:'#D4920A', level:'A1 – B1',
       icon:'<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>',
       title:{en:'Complete Guide to Ser & Estar', es:'Guía completa de SER y ESTAR'},
@@ -981,6 +994,7 @@
       game:'juego-ser-estar.html?autoplay=1'
     },
     'card-cd-prep-a': {
+      video:'https://youtube.com/shorts/5rin-eWtd8o',
       color:'#D4920A', level:'A2 – B1',
       icon:'<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>',
       title:{en:'The Direct Object & the Preposition A', es:'El CD y la preposición A'},
@@ -990,6 +1004,7 @@
       game:'juego-cd-prep-a.html'
     },
     'card-desde': {
+      video:'https://youtube.com/shorts/o_SdPP9GyfY',
       color:'#D4920A', level:'A2 – B2',
       icon:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
       title:{en:'Desde, Desde Hace & Durante', es:'DESDE, DESDE HACE y DURANTE'},
@@ -1008,6 +1023,7 @@
       game:'juego-por-para.html'
     },
     'card-carta-formal': {
+      video:'https://youtu.be/5kqvYx73Dm4',
       color:'#2885FD', level:'C1',
       icon:'<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>',
       title:{en:'The Formal Letter: How to Write It', es:'La carta formal: cómo escribirla'},
@@ -1016,6 +1032,7 @@
       pdf:'DESCARGABLES_PDF/CARTA%20FORMAL/REDACTAR%20UNA%20CARTA%20FORMAL%20PARA%20EL%20DELE%20C1.pdf?v=2'
     },
     'card-presentarte': {
+      video:'https://youtube.com/shorts/ovbSywRbxDw',
       color:'#3DDABE', level:'A1 – A2',
       icon:'<path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>',
       title:{en:'Introducing Yourself in Spanish', es:'Presentarte en español'},
@@ -1025,6 +1042,7 @@
       game:'juego-presentarte.html'
     },
     'card-recordar-acordarse': {
+      video:'https://youtube.com/shorts/_88hZU-ACCI',
       color:'#6F42C1', level:'A2 – B1',
       icon:'<path d="M3 12a9 9 0 0 0 9 9m0 0a9 9 0 0 0 9-9m-9 9v-3m0-6a3 3 0 1 0 0-6"/>',
       title:{en:'Recordar vs Acordarse: When to Use Each Verb', es:'Recordar vs acordarse: cuándo usar cada verbo'},
@@ -1325,6 +1343,7 @@
       ]
     },
     'card-fechas': {
+      video:'https://youtu.be/79J_f3bC2y8',
       color:'#4D9DE0', level:'A1 – A2',
       icon:'<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>',
       title:{en:'Dates in Spanish', es:'Las fechas en español'},
@@ -1334,6 +1353,7 @@
       game:'juego-fechas.html'
     },
     'card-fechas-grammar': {
+      video:'https://youtu.be/79J_f3bC2y8',
       color:'#4D9DE0', level:'A1 – A2',
       icon:'<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>',
       title:{en:'Dates: SER vs ESTAR + Prepositions', es:'Las fechas: SER vs ESTAR + preposiciones'},
@@ -1413,11 +1433,13 @@
 
   // Add direct "Play" / "Watch" links on every PDF card that has a matching game/video
   document.addEventListener('DOMContentLoaded', function () {
-    Object.keys(LESSONS).forEach(function (id) {
-      var l = LESSONS[id];
-      if (!l.game && !l.video) return;
-      var card = document.getElementById(id);
-      var dl = card && card.querySelector('.pdf-card__download');
+    // Every grid card — including the duplicates in "Errores frecuentes" (card-xxx-ef) —
+    // gets its Play / Watch buttons from the LESSONS entry it opens.
+    Array.prototype.slice.call(document.querySelectorAll('.pdf-card[onclick]')).forEach(function (card) {
+      var m = /openLesson\('([^']+)'\)/.exec(card.getAttribute('onclick') || '');
+      var l = m && LESSONS[m[1]];
+      if (!l || (!l.game && !l.video)) return;
+      var dl = card.querySelector('.pdf-card__download');
       if (!dl || dl.parentElement.classList.contains('pdf-card__actions')) return;
 
       var row = document.createElement('div');
@@ -1556,7 +1578,7 @@
     });
   });
 </script>
-<script src="search.js?v=38"></script>
+<script src="search.js?v=39"></script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script>window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments);};</script>
