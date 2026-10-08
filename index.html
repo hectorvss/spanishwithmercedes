@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800;900&family=Noto+Sans:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=56">
+  <link rel="stylesheet" href="styles.css?v=57">
 </head>
 <body>
 
@@ -339,13 +339,23 @@
 <script>
   (function () {
     // Update these 5 fields every time a new video/PDF becomes the site's "featured" upload.
-    var LATEST = {
-      videoId: 'TZFIk6YwZUA',
-      videoTitle: { en: '"Nóbel" or "Nobél"? Nobel vs Novel in Spanish', es: '¿"Nóbel" o "Nobél"? ¿Cómo lo pronuncias tú?' },
-      pdfUrl: '',
-      pdfTitle: { en: '"Callaos" or "Callaros"? The Imperative Mistake', es: '¿"Callaos" o "Callaros"? El error del imperativo de vosotros' },
-      pdfColor: '#8E44AD'
-    };
+    // Featured items in chronological order: the popup shows the newest one whose "from" date has passed.
+    var LATEST_QUEUE = [
+      {
+        from: '2026-10-05T00:00:00+02:00',
+        videoId: 'TZFIk6YwZUA',
+        videoTitle: { en: '"Nóbel" or "Nobél"? Nobel vs Novel in Spanish', es: '¿"Nóbel" o "Nobél"? ¿Cómo lo pronuncias tú?' },
+        pdfUrl: ''
+      },
+      {
+        from: '2026-10-10T12:00:00+02:00',
+        videoId: 'C-RLMr_igyQ',
+        videoTitle: { en: '"A ver" or "Haber"? Do You Know When to Use Each One?', es: '¿"A ver" o "Haber"? ¿Sabes cuándo usarlos?' },
+        pdfUrl: 'DESCARGABLES_PDF/A%20VER_HABER/A_VER_HABER_descargable_gratuito.pdf'
+      }
+    ];
+    var LATEST = LATEST_QUEUE[0];
+    LATEST_QUEUE.forEach(function (q) { if (Date.parse(q.from) <= Date.now()) LATEST = q; });
     // Shown once per browser session (sessionStorage clears when the browser/tab fully closes),
     // regardless of which video/PDF is featured — no longer tied to LATEST.videoId.
     var STORAGE_KEY = 'spm_popup_seen_session';
@@ -392,7 +402,7 @@
     });
   });
 </script>
-<script src="search.js?v=37"></script>
+<script src="search.js?v=38"></script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script>window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments);};</script>

@@ -2857,6 +2857,194 @@ function calNext() {
   _renderCALRound();
 }
 
+/* ══════════════════════════════════════════════
+   GAME 22 · EL PANEL DE LA ESTACIÓN
+   (A VER vs HABER — ortografía y usos: a ver si + indicativo,
+   va a haber, haber + participio, ¡haberlo dicho!) — a station
+   departures board: the answer slot is a row of split-flap tiles
+   that keep flickering until you choose; the right answer flips
+   the tiles into place (board glows green), a wrong one flips them
+   to the correct answer in red.
+   Answer order is shuffled every round (and the correct slot never
+   repeats more than twice in a row); every play mixes 6 "a ver"
+   and 6 "haber" items out of a pool of 30.
+══════════════════════════════════════════════ */
+
+const AVH_ITEMS = [
+  // ── A VER (el verbo ver precedido de a) ─────────────
+  { kind:'av', blank:'___ si este fin de semana descanso un poco.', correct:'A VER', opts:['A VER','HABER','AVER'],
+    note:{en:'Hope or wish: A VER SI = "let\'s see if / hopefully". Test: you can say "veamos si".', es:'Deseo o esperanza: A VER SI = "veamos si / ojalá". Prueba: puedes decir "veamos si".'} },
+  { kind:'av', blank:'___, ¿quién quiere café?', correct:'A VER', opts:['A VER','HABER','HA VER'],
+    note:{en:'A VER at the start of a sentence gets everyone\'s attention. Test: "veamos".', es:'A VER al empezar la frase llama la atención de todos. Prueba: "veamos".'} },
+  { kind:'av', blank:'Voy ___ si queda pan.', correct:'A VER', opts:['A VER','HABER','AVER'],
+    note:{en:'IR A + VER = to go and check. Here "a" is the preposition and "ver" the verb: two words.', es:'IR A + VER = ir a comprobar. Aquí "a" es la preposición y "ver" el verbo: dos palabras.'} },
+  { kind:'av', blank:'___ qué nota me ponen en el examen.', correct:'A VER', opts:['A VER','HABER','HA VER'],
+    note:{en:'Curiosity or expectation. Test: "Veamos qué nota me ponen".', es:'Curiosidad o expectativa. Prueba: "Veamos qué nota me ponen".'} },
+  { kind:'av', blank:'___ si me escribes cuando llegues.', correct:'A VER', opts:['A VER','HABER','AVER'],
+    note:{en:'A VER SI + indicative ("me escribes") to express a wish.', es:'A VER SI + indicativo ("me escribes") para expresar un deseo.'} },
+  { kind:'av', blank:'¿___? Enséñame la foto.', correct:'A VER', opts:['A VER','HABER','HA VER'],
+    note:{en:'"¿A ver?" = "Let me see." You ask to see something.', es:'"¿A ver?" = "Déjame ver." Pides ver algo.'} },
+  { kind:'av', blank:'___ si llegas puntual por una vez.', correct:'A VER', opts:['A VER','HABER','AVER'],
+    note:{en:'Gentle reproach: "Try to be on time for once!"', es:'Reproche suave: "¡A ver si llegas puntual por una vez!"'} },
+  { kind:'av', blank:'___ si va a llover y no llevamos paraguas.', correct:'A VER', opts:['A VER','HABER','HA VER'],
+    note:{en:'Fear or suspicion: "I bet it\'s going to rain…"', es:'Temor o sospecha: "A ver si va a llover…"'} },
+  { kind:'av', blank:'___ cómo termina la película.', correct:'A VER', opts:['A VER','HABER','AVER'],
+    note:{en:'Curiosity: "Let\'s see how the film ends." Always two words, no h.', es:'Curiosidad: "Veamos cómo termina la película." Siempre dos palabras, sin h.'} },
+  { kind:'av', blank:'Mañana voy ___ a mi abuela.', correct:'A VER', opts:['A VER','HABER','HA VER'],
+    note:{en:'IR A + VER + a person = to visit. "Voy a ver a mi abuela."', es:'IR A + VER + persona = visitar. "Voy a ver a mi abuela."'} },
+  { kind:'av', blank:'___, chicos, sacad el cuaderno.', correct:'A VER', opts:['A VER','HABER','AVER'],
+    note:{en:'Teacher\'s "A ver, chicos…" = "Right, everyone…" Test: "veamos".', es:'El "A ver, chicos…" del profesor = "Bueno, chicos…" Prueba: "veamos".'} },
+  { kind:'av', blank:'Vamos ___, ¿quién ha cogido mi bolígrafo?', correct:'A VER', opts:['A VER','HABER','HA VER'],
+    note:{en:'VAMOS A VER is the longer, more emphatic version of A VER.', es:'VAMOS A VER es la versión larga y más enfática de A VER.'} },
+  { kind:'av', blank:'A ver si ___ pronto el verano.', correct:'LLEGA', opts:['LLEGA','LLEGUE','LLEGAR'],
+    note:{en:'A VER SI always takes the indicative: "llega", never "llegue".', es:'A VER SI va siempre con indicativo: "llega", nunca "llegue".'} },
+  { kind:'av', blank:'A ver si ___ a la fiesta.', correct:'VIENES', opts:['VIENES','VENGAS','VENIR'],
+    note:{en:'A VER SI + indicative: "A ver si vienes", not "a ver si vengas".', es:'A VER SI + indicativo: "A ver si vienes", no "a ver si vengas".'} },
+  { kind:'av', blank:'A ver si me ___ un día.', correct:'LLAMAS', opts:['LLAMAS','LLAMES','LLAMAR'],
+    note:{en:'A VER SI + present indicative to express a wish: "a ver si me llamas".', es:'A VER SI + presente de indicativo para expresar un deseo: "a ver si me llamas".'} },
+
+  // ── HABER (verbo: existir / tiempos compuestos) ─────
+  { kind:'h', blank:'Esta noche va a ___ fuegos artificiales.', correct:'HABER', opts:['HABER','A VER','AVER'],
+    note:{en:'IR A + HABER = "there is going to be" (existence). One word, with h.', es:'IR A + HABER = "va a existir / va a haber". Una palabra, con h.'} },
+  { kind:'h', blank:'Podríamos ___ cogido un taxi.', correct:'HABER', opts:['HABER','A VER','HA VER'],
+    note:{en:'HABER + participle ("cogido") = compound infinitive: "We could have taken a taxi."', es:'HABER + participio ("cogido") = infinitivo compuesto: "Podríamos haber cogido un taxi."'} },
+  { kind:'h', blank:'¡___ venido antes!', correct:'HABER', opts:['HABER','A VER','AVER'],
+    note:{en:'¡HABER + participle! is a reproach: "You should have come earlier!"', es:'¡HABER + participio! es un reproche: "¡Deberías haber venido antes!"'} },
+  { kind:'h', blank:'No puede ___ tanta gente en la cola.', correct:'HABER', opts:['HABER','A VER','HA VER'],
+    note:{en:'PODER + HABER = existence: "There can\'t be that many people in the queue."', es:'PODER + HABER = existencia: "No puede haber tanta gente en la cola."'} },
+  { kind:'h', blank:'Después de ___ comido, dimos un paseo.', correct:'HABER', opts:['HABER','A VER','AVER'],
+    note:{en:'After a preposition, the compound infinitive: "después de haber comido".', es:'Tras preposición, el infinitivo compuesto: "después de haber comido".'} },
+  { kind:'h', blank:'Tendrías que ___ reservado mesa.', correct:'HABER', opts:['HABER','A VER','HA VER'],
+    note:{en:'TENER QUE + HABER + participle: "You should have booked a table."', es:'TENER QUE + HABER + participio: "Tendrías que haber reservado mesa."'} },
+  { kind:'h', blank:'¿Tienes hambre? ¡___ desayunado!', correct:'HABER', opts:['HABER','A VER','AVER'],
+    note:{en:'The twist from the video: ¡Haber desayunado! = "You should have had breakfast!"', es:'El giro del vídeo: ¡Haber desayunado! = "¡Deberías haber desayunado!"'} },
+  { kind:'h', blank:'Gracias por ___ venido.', correct:'HABER', opts:['HABER','A VER','HA VER'],
+    note:{en:'POR + HABER + participle = "thank you for coming".', es:'POR + HABER + participio = "gracias por venir".'} },
+  { kind:'h', blank:'De ___ sabido la verdad, te habría avisado.', correct:'HABER', opts:['HABER','A VER','AVER'],
+    note:{en:'DE + HABER + participle = condition: "Had I known the truth, I would have told you."', es:'DE + HABER + participio = condición: "De haber sabido la verdad, te habría avisado."'} },
+  { kind:'h', blank:'Este verano ___ muchos turistas.', correct:'VA A HABER', opts:['VA A HABER','VAN A HABER','VA HABER'],
+    note:{en:'HABER meaning "to exist" is impersonal: always singular, even before a plural ("va a haber muchos turistas").', es:'HABER con el sentido de "existir" es impersonal: siempre en singular, incluso ante plural ("va a haber muchos turistas").'} },
+  { kind:'h', blank:'Mañana ___ huelga de taxis.', correct:'VA A HABER', opts:['VA A HABER','VAN A HABER','VAS A HABER'],
+    note:{en:'IR A + HABER, third person singular: "va a haber". Never "vas" or "van".', es:'IR A + HABER, tercera persona del singular: "va a haber". Nunca "vas" ni "van".'} },
+  { kind:'h', blank:'En el metro ___ retrasos.', correct:'PUEDE HABER', opts:['PUEDE HABER','PUEDEN HABER','PUEDE A VER'],
+    note:{en:'Impersonal HABER again: "puede haber retrasos", singular even with a plural noun.', es:'HABER impersonal otra vez: "puede haber retrasos", en singular aunque el sustantivo sea plural.'} },
+  { kind:'h', blank:'Debería haber ___ más.', correct:'ESTUDIADO', opts:['ESTUDIADO','ESTUDIANDO','ESTUDIAR'],
+    note:{en:'HABER is followed by the participle (-ado / -ido): "debería haber estudiado".', es:'HABER va seguido del participio (-ado / -ido): "debería haber estudiado".'} },
+  { kind:'h', blank:'Gracias por haber ___ a mi cumpleaños.', correct:'VENIDO', opts:['VENIDO','VINIENDO','VINO'],
+    note:{en:'HABER + participle: the participle of "venir" is "venido".', es:'HABER + participio: el participio de "venir" es "venido".'} },
+  { kind:'h', blank:'¡Haber ___ antes de casa!', correct:'SALIDO', opts:['SALIDO','SALIENDO','SALIR'],
+    note:{en:'¡Haber + participle! reproach: "salido" is the participle of "salir".', es:'Reproche con ¡Haber + participio!: "salido" es el participio de "salir".'} }
+];
+
+function _avhBuildItems() {
+  const pick = (kind) => _shuffle(AVH_ITEMS.filter(it => it.kind === kind)).slice(0, 6);
+  const mixed = _interleaveByGroup([...pick('av'), ...pick('h')], it => it.kind === 'h');
+  const lastPos = [];
+  return mixed.map(it => {
+    const correct = it.correct;
+    let opts, a, tries = 0;
+    do {
+      opts = _shuffle(it.opts);
+      a = opts.indexOf(correct);
+      tries++;
+    } while (tries < 12 && lastPos.length >= 2 && lastPos[lastPos.length - 1] === a && lastPos[lastPos.length - 2] === a);
+    lastPos.push(a);
+    return { ...it, opts, a };
+  });
+}
+
+function playAVerHaber() {
+  currentGameFn = playAVerHaber;
+  if (timerInt) { clearInterval(timerInt); timerInt = null; }
+  const items = _avhBuildItems();
+  GS = { items, idx: 0, correct: 0, total: items.length, answered: false };
+  _renderAVHRound();
+}
+
+function _renderAVHRound() {
+  const lang = L();
+  const title = lang==='es' ? 'El panel de la estación' : 'The Station Board';
+  const { items, idx, correct, total } = GS;
+  if (timerInt) { clearInterval(timerInt); timerInt = null; }
+  if (idx >= total) { _end(correct, total, title); return; }
+  const item = items[idx];
+  GS.answered = false;
+  GS.tiles = Math.max(...item.opts.map(o => o.length));
+
+  const btnsHTML = item.opts.map((o, i) => `<button class="avh-btn" data-idx="${i}" onclick="avhAnswer(${i})">${o}</button>`).join('');
+  const tilesHTML = Array.from({ length: GS.tiles }, () => '<span class="avh-tile"><span class="avh-ch">·</span></span>').join('');
+  const sentence = item.blank.replace('___', '<span class="avh-gap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>');
+
+  _modal(`
+    ${_progress(idx, total, correct, lang)}
+    <p class="gm-instr" style="text-align:center">${lang==='es'?'Elige cómo se escribe. El panel gira las letras y te dice si acertaste.':'Choose the right spelling. The board flips its letters to tell you if you got it.'}</p>
+    <div class="gm-sentence">${sentence}</div>
+    <div class="avh-board" id="avh-board">
+      <div class="avh-board-head">
+        <span>${lang==='es'?'SALIDAS':'DEPARTURES'}</span>
+        <span class="avh-train">🚆</span>
+        <span>${lang==='es'?'ANDÉN':'PLATFORM'} ${(idx % 9) + 1}</span>
+      </div>
+      <div class="avh-tiles" id="avh-tiles">${tilesHTML}</div>
+    </div>
+    <div class="avh-btn-row">${btnsHTML}</div>
+    <div class="gm-feedback" id="gm-fb"></div>
+  `, title);
+
+  const letters = 'ABCDEFGHIJLMNOPQRSTUVZ';
+  timerInt = setInterval(() => {
+    document.querySelectorAll('#avh-tiles .avh-ch').forEach(ch => {
+      ch.textContent = letters[Math.floor(Math.random() * letters.length)];
+    });
+  }, 110);
+}
+
+function avhAnswer(i) {
+  if (GS.answered) return;
+  GS.answered = true;
+  if (timerInt) { clearInterval(timerInt); timerInt = null; }
+  const lang = L();
+  const item = GS.items[GS.idx];
+  const ok = i === item.a;
+  if (ok) GS.correct++;
+
+  document.querySelectorAll('.avh-btn').forEach((b, bi) => {
+    b.disabled = true;
+    if (bi === item.a) b.classList.add('avh-correct');
+    else if (bi === i && !ok) b.classList.add('avh-wrong');
+  });
+
+  const board = document.getElementById('avh-board');
+  const tiles = document.querySelectorAll('#avh-tiles .avh-tile');
+  const word = item.correct;
+  tiles.forEach((tile, ti) => {
+    const ch = tile.querySelector('.avh-ch');
+    const letter = ti < word.length ? word[ti] : ' ';
+    setTimeout(() => {
+      tile.classList.add('avh-flip');
+      setTimeout(() => {
+        ch.textContent = letter === ' ' ? '' : letter;
+        tile.classList.toggle('avh-gap-tile', letter === ' ');
+      }, 130);
+      setTimeout(() => tile.classList.remove('avh-flip'), 280);
+    }, ti * 65);
+  });
+  const done = tiles.length * 65 + 300;
+  setTimeout(() => { if (board) board.classList.add(ok ? 'avh-ok' : 'avh-ko'); }, Math.min(done, 700));
+
+  setTimeout(() => {
+    document.getElementById('gm-fb').innerHTML = `
+      <span class="${ok?'fb-ok':'fb-ko'}">${ok?'✓ '+(lang==='es'?'¡Tren a la vista!':'Right on time!'):'✗ '+(lang==='es'?'La respuesta correcta es':'The correct answer is')+' <strong>'+item.correct+'</strong>'}</span>
+      <div class="pf-note">${item.note[lang]}</div>
+      <button class="gm-btn gm-btn-primary gm-next-btn" onclick="avhNext()">${lang==='es'?'Siguiente →':'Next →'}</button>`;
+  }, Math.min(done, 700) + 150);
+}
+
+function avhNext() {
+  GS.idx++;
+  _renderAVHRound();
+}
+
 /* ── EXPOSE GLOBALS ───────────────────────────── */
 Object.assign(window, {
   closeGame, restartGame, toggleGameFullscreen, flipFC, fcAnswer,
@@ -2882,7 +3070,8 @@ Object.assign(window, {
   tkAnswer, tkNext,
   htlAnswer, htlNext,
   calAnswer, calNext,
+  avhAnswer, avhNext,
   playFlashcards, playSerEstar, playQuiz, playFillGaps, playWordOrder, playVerbSprint, playPresentarse,
   playRuleta, playDialogos, playGustar, playGenero, playCD, playDesde, playPorPara, playProfesiones, playVerMirar, playTrabajo, playSonidoR, playGeneroII, playConectores,
-  playHotel, playFechas
+  playHotel, playFechas, playAVerHaber
 });

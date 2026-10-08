@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=52">
+  <link rel="stylesheet" href="styles.css?v=53">
   <style>
     .videos-grid {
       display: grid;
@@ -213,7 +213,7 @@
   <div id="featured" class="level-section level-anchor">
     <div class="level-section__title" data-i18n="videos.featured.heading">Featured — Latest upload</div>
     <div class="featured-grid">
-      <div id="video-nobel-featured" class="video-card">
+      <div id="video-nobel-featured" class="video-card" data-feature-from="2026-10-05T00:00:00+02:00">
         <a href="https://youtube.com/shorts/TZFIk6YwZUA" target="_blank" class="video-card__link">
           <div class="video-card__thumb">
             <img src="https://img.youtube.com/vi/TZFIk6YwZUA/maxresdefault.jpg" alt="Nóbel o Nobél video" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/TZFIk6YwZUA/hqdefault.jpg';">
@@ -224,6 +224,19 @@
             <div class="video-card__title"><span class="lang-en">"Nóbel" or "Nobél"? Nobel vs Novel in Spanish</span><span class="lang-es">¿"Nóbel" o "Nobél"? ¿Cómo lo pronuncias tú?</span></div>
           </div>
         </a>
+      </div>
+      <div id="video-a-ver-haber-featured" class="video-card" data-feature-from="2026-10-10T12:00:00+02:00" style="display:none">
+        <a href="https://youtube.com/shorts/C-RLMr_igyQ" target="_blank" class="video-card__link">
+          <div class="video-card__thumb">
+            <img src="https://img.youtube.com/vi/C-RLMr_igyQ/maxresdefault.jpg" alt="A ver o haber video" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/C-RLMr_igyQ/hqdefault.jpg';">
+            <div class="video-card__play"><div class="video-card__play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div>
+          </div>
+          <div class="video-card__body">
+            <span class="video-card__tag"><span class="lang-en">NEW</span><span class="lang-es">NUEVO</span> · A2–B2</span>
+            <div class="video-card__title"><span class="lang-en">"A ver" or "Haber"? Do You Know When to Use Each One?</span><span class="lang-es">¿"A ver" o "Haber"? ¿Sabes cuándo usarlos?</span></div>
+          </div>
+        </a>
+        <div class="video-card__pdf-wrap"><a href="DESCARGABLES_PDF/A%20VER_HABER/A_VER_HABER_descargable_gratuito.pdf" target="_blank" onclick="window.va&&window.va('event',{name:'pdf_download',data:{video:'video-a-ver-haber-featured'}})" class="video-card__pdf-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span class="lang-en">Download free PDF</span><span class="lang-es">Descárgate el PDF</span></a></div>
       </div>
       <div style="display:flex;flex-direction:column;gap:16px;">
                 <div id="video-gustar-featured" class="video-card">
@@ -256,6 +269,19 @@
     </div>
   </div>
 
+  <script>
+    // Featured "latest upload": show only the newest card whose data-feature-from date has already passed.
+    (function () {
+      var cards = Array.prototype.slice.call(document.querySelectorAll('#featured .featured-grid > .video-card[data-feature-from]'));
+      var now = Date.now(), best = null;
+      cards.forEach(function (c) {
+        var t = Date.parse(c.getAttribute('data-feature-from'));
+        if (t <= now && (!best || t > Date.parse(best.getAttribute('data-feature-from')))) best = c;
+      });
+      if (best) cards.forEach(function (c) { c.style.display = (c === best) ? '' : 'none'; });
+    })();
+  </script>
+
   <!-- ERRORES FRECUENTES -->
   <div id="errores-frecuentes" class="level-section level-anchor">
     <div class="level-section__title">
@@ -267,6 +293,16 @@
       <span class="lang-es">Deslices que se oyen a diario — tanto en estudiantes como en nativos. Cada short muestra el error y la forma correcta, uno al lado del otro.</span>
     </p>
     <div class="videos-grid">
+            <div id="video-a-ver-haber" class="video-card">
+        <a href="https://youtube.com/shorts/C-RLMr_igyQ" target="_blank" class="video-card__link">
+        <div class="video-card__thumb"><img src="https://img.youtube.com/vi/C-RLMr_igyQ/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/C-RLMr_igyQ/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__body">
+          <span class="video-card__tag">A2–B2 · <span class="lang-en">Common error</span><span class="lang-es">Error frecuente</span></span>
+          <div class="video-card__title"><span class="lang-en">"A ver" or "Haber"? Do You Know When to Use Each One?</span><span class="lang-es">¿"A ver" o "Haber"? ¿Sabes cuándo usarlos?</span></div>
+        </div>
+        </a>
+      <div class="video-card__pdf-wrap"><a href="DESCARGABLES_PDF/A%20VER_HABER/A_VER_HABER_descargable_gratuito.pdf" target="_blank" onclick="window.va&&window.va('event',{name:'pdf_download',data:{video:'video-a-ver-haber'}})" class="video-card__pdf-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span class="lang-en">Download free PDF</span><span class="lang-es">Descárgate el PDF</span></a></div>
+      </div>
             <div id="video-nobel" class="video-card">
         <a href="https://youtube.com/shorts/TZFIk6YwZUA" target="_blank" class="video-card__link">
         <div class="video-card__thumb"><img src="https://img.youtube.com/vi/TZFIk6YwZUA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/TZFIk6YwZUA/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
@@ -448,6 +484,16 @@
   <div id="intermedio" class="level-section level-anchor">
     <div class="level-section__title"><span class="level-badge">B1–B2</span> <span data-i18n="videos.intermediate.heading">Intermediate Spanish</span></div>
     <div class="videos-grid">
+            <div id="video-a-ver-haber-int" class="video-card">
+        <a href="https://youtube.com/shorts/C-RLMr_igyQ" target="_blank" class="video-card__link">
+        <div class="video-card__thumb"><img src="https://img.youtube.com/vi/C-RLMr_igyQ/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/C-RLMr_igyQ/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__body">
+          <span class="video-card__tag">A2–B2 · <span class="lang-en">Grammar</span><span class="lang-es">Gramática</span></span>
+          <div class="video-card__title"><span class="lang-en">"A ver" or "Haber"? Do You Know When to Use Each One?</span><span class="lang-es">¿"A ver" o "Haber"? ¿Sabes cuándo usarlos?</span></div>
+        </div>
+        </a>
+      <div class="video-card__pdf-wrap"><a href="DESCARGABLES_PDF/A%20VER_HABER/A_VER_HABER_descargable_gratuito.pdf" target="_blank" onclick="window.va&&window.va('event',{name:'pdf_download',data:{video:'video-a-ver-haber-int'}})" class="video-card__pdf-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span class="lang-en">Download free PDF</span><span class="lang-es">Descárgate el PDF</span></a></div>
+      </div>
             <div id="video-gestos" class="video-card">
         <a href="https://youtube.com/shorts/JbutQ8NkUko" target="_blank" class="video-card__link">
         <div class="video-card__thumb"><img src="https://img.youtube.com/vi/JbutQ8NkUko/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/JbutQ8NkUko/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
@@ -687,7 +733,7 @@
     });
   });
 </script>
-<script src="search.js?v=37"></script>
+<script src="search.js?v=38"></script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script>window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments);};</script>
