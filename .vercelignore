@@ -1,0 +1,6 @@
+# Files that stay in the repository (and on your computer) but are NOT published on the website.
+# They are editable sources / working scripts that no page links to, so skipping them saves storage.
+*.docx
+*.py
+create_dele_*.js
+DESCARGABLES_PDF/DESCRIPCIONES_YOUTUBE/
