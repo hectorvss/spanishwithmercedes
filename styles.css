@@ -1596,7 +1596,7 @@ body.is-spanish .lang-en-block { display: none; }
   display: inline-block;
   width: 28px;
   height: 28px;
-  background: url('LOGO TRANSPARENT E.png') center / contain no-repeat;
+  background: url('carousel-logo.png') center / contain no-repeat;
   flex-shrink: 0;
   margin-left: 6px;
 }
