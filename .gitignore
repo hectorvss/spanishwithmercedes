@@ -6,4 +6,7 @@ Thumbs.db
 *.mp4
 *.mov
 *.avi
-audio/
+
+# Contenido premium en preparación — no debe publicarse en la web todavía
+CONTENIDO_PREMIUM/
+__pycache__/
