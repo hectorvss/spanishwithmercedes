@@ -102,7 +102,7 @@
     { es:'Examen de Práctica DELE C2', en:'DELE C2 Practice Exam', type:'dele', level:'C2', url:'dele.html#c2', kw:'dele c2 examen práctica descarga pdf practice exam maestría' },
 
     // ── CULTURA ───────────────────────────────────────────────────────
-    { es:'Cultura Española', en:'Spanish Culture', type:'cultura', level:'', url:'culture.html', kw:'cultura españa literatura cine arte culture spain cinema art literature historia fiestas' },
+    { es:'Cultura Española', en:'Spanish Culture', type:'cultura', level:'', url:'culture.html', kw:'cultura españa literatura fiestas arte culture spain cinema art literature historia fiestas' },
     { es:'Patria — Guía de Lectura', en:'Patria — Reading Guide', type:'cultura', level:'B2-C2', url:'patria-reading-guide.html', kw:'patria novela lectura literatura aramburu reading guide novel basque vasco eta guía' },
     { es:'Patria, de Fernando Aramburu', en:'Patria, by Fernando Aramburu', type:'cultura', level:'B2-C1', url:'culture.html#literatura', kw:'patria aramburu novela memoria silencio terrorismo país vasco literatura video short' },
     { es:'Patria — Guía Completa en Vídeo', en:'Patria — Full Video Guide', type:'cultura', level:'B2-C1', url:'culture.html#literatura', kw:'patria aramburu novela vídeo completo largo temas vocabulario contexto cultural' },

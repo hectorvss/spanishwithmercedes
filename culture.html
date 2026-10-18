@@ -12,10 +12,24 @@
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Culture — Spanish Lessons With Mercedes</title>
+  <meta name="description" content="Learn Spanish through culture: reading guides for modern novels and the traditions behind festivals like San Fermín, with vocabulary and activities.">
+  <link rel="canonical" href="https://spanishmercedes.com/culture.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Spanish Lessons With Mercedes">
+  <meta property="og:title" content="Culture — Spanish Lessons With Mercedes">
+  <meta property="og:description" content="Learn Spanish through culture: reading guides for modern novels and the traditions behind festivals like San Fermín, with vocabulary and activities.">
+  <meta property="og:url" content="https://spanishmercedes.com/culture.html">
+  <meta property="og:image" content="https://spanishmercedes.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Culture — Spanish Lessons With Mercedes">
+  <meta name="twitter:description" content="Learn Spanish through culture: reading guides for modern novels and the traditions behind festivals like San Fermín, with vocabulary and activities.">
+  <meta name="twitter:image" content="https://spanishmercedes.com/og-image.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,800;0,900;1,800;1,900&family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=56">
+  <link rel="stylesheet" href="styles.css?v=57">
   <style>
     .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1280px; margin-bottom: 64px; }
     .blog-grid--feature { grid-template-columns: 2fr 1fr; margin-bottom: 48px; }
@@ -101,7 +115,7 @@
 <header class="header">
   <div class="header__left">
     <a class="header__logo" href="index.html">
-      <img src="logo.png" alt="Spanish Lessons with Mercedes" class="header__logo-img">
+      <img src="logo-small.png" alt="Spanish Lessons with Mercedes" class="header__logo-img">
     </a>
     <nav class="header__nav">
       <div class="nav-item-dropdown">
@@ -143,9 +157,6 @@
         <a href="culture.html" class="nav-item-trigger" data-i18n="nav.culture">Culture</a>
         <div class="nav-dropdown">
           <a href="culture.html#literatura"><span class="lang-en">Literature</span><span class="lang-es">Literatura</span></a>
-          <a href="culture.html#cine"><span class="lang-en">Cinema</span><span class="lang-es">Cine</span></a>
-          <a href="culture.html#musica"><span class="lang-en">Music</span><span class="lang-es">Música</span></a>
-          <a href="culture.html#gastronomia"><span class="lang-en">Gastronomy</span><span class="lang-es">Gastronomía</span></a>
           <a href="culture.html#fiestas"><span class="lang-en">Celebrations</span><span class="lang-es">Fiestas</span></a>
         </div>
       </div>
@@ -177,7 +188,7 @@
 <div class="inner-hero">
   <div class="inner-hero__breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a> / <span data-i18n="nav.culture">Culture</span></div>
   <h1 class="inner-hero__title" data-i18n="culture.hero.title">Spanish Culture</h1>
-  <p class="inner-hero__desc" data-i18n="culture.hero.desc">Explore the rich cultures of the Spanish-speaking world — literature, cinema, music, art, gastronomy, festivals and so much more. Language and culture are inseparable.</p>
+  <p class="inner-hero__desc" data-i18n="culture.hero.desc">Explore the rich cultures of the Spanish-speaking world — literature, festivals and traditions. Language and culture are inseparable.</p>
 </div>
 
 
@@ -345,30 +356,6 @@
       </div>
     </div>
 
-    <div class="cult-level-col" id="card-cine" onclick="toggleCulture('cine')">
-      <div class="cult-level-col__name"><span class="lang-en">Cinema</span><span class="lang-es">Cine</span></div>
-      <div class="cult-level-col__desc"><span class="lang-en">Films, series & directors</span><span class="lang-es">Películas, series y directores</span></div>
-      <div class="cult-level-col__toggle" id="toggle-cine">
-        <span class="lang-en">Explore ↓</span><span class="lang-es">Explorar ↓</span>
-      </div>
-    </div>
-
-    <div class="cult-level-col" id="card-musica" onclick="toggleCulture('musica')">
-      <div class="cult-level-col__name"><span class="lang-en">Music</span><span class="lang-es">Música</span></div>
-      <div class="cult-level-col__desc"><span class="lang-en">Artists, genres & playlists</span><span class="lang-es">Artistas, géneros y playlists</span></div>
-      <div class="cult-level-col__toggle" id="toggle-musica">
-        <span class="lang-en">Explore ↓</span><span class="lang-es">Explorar ↓</span>
-      </div>
-    </div>
-
-    <div class="cult-level-col" id="card-gastronomia" onclick="toggleCulture('gastronomia')">
-      <div class="cult-level-col__name"><span class="lang-en">Gastronomy</span><span class="lang-es">Gastronomía</span></div>
-      <div class="cult-level-col__desc"><span class="lang-en">Food, recipes & vocabulary</span><span class="lang-es">Comida, recetas y vocabulario</span></div>
-      <div class="cult-level-col__toggle" id="toggle-gastronomia">
-        <span class="lang-en">Explore ↓</span><span class="lang-es">Explorar ↓</span>
-      </div>
-    </div>
-
   </div>
 
   <!-- LITERATURA DETAIL -->
@@ -411,36 +398,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- CINE DETAIL -->
-  <div class="culture-detail" id="cine-detail">
-    <div class="culture-detail__heading">🎬 <span class="lang-en">Cinema &amp; Series</span><span class="lang-es">Cine y Series</span></div>
-    <div class="culture-wip">
-      <div class="culture-wip__icon">🚧</div>
-      <div class="culture-wip__title"><span class="lang-en">Work in progress</span><span class="lang-es">Trabajo en curso</span></div>
-      <div class="culture-wip__desc"><span class="lang-en">This section is still being prepared. Come back soon for real content about Spanish cinema and series.</span><span class="lang-es">Esta sección todavía está en preparación. Vuelve pronto para ver contenido real sobre cine y series en español.</span></div>
-    </div>
-  </div>
-
-  <!-- MÚSICA DETAIL -->
-  <div class="culture-detail" id="musica-detail">
-    <div class="culture-detail__heading">🎵 <span class="lang-en">Music</span><span class="lang-es">Música</span></div>
-    <div class="culture-wip">
-      <div class="culture-wip__icon">🚧</div>
-      <div class="culture-wip__title"><span class="lang-en">Work in progress</span><span class="lang-es">Trabajo en curso</span></div>
-      <div class="culture-wip__desc"><span class="lang-en">This section is still being prepared. Come back soon for real content about Spanish music.</span><span class="lang-es">Esta sección todavía está en preparación. Vuelve pronto para ver contenido real sobre música en español.</span></div>
-    </div>
-  </div>
-
-  <!-- GASTRONOMÍA DETAIL -->
-  <div class="culture-detail" id="gastronomia-detail">
-    <div class="culture-detail__heading">🍳 <span class="lang-en">Gastronomy</span><span class="lang-es">Gastronomía</span></div>
-    <div class="culture-wip">
-      <div class="culture-wip__icon">🚧</div>
-      <div class="culture-wip__title"><span class="lang-en">Work in progress</span><span class="lang-es">Trabajo en curso</span></div>
-      <div class="culture-wip__desc"><span class="lang-en">This section is still being prepared. Come back soon for real content about Spanish gastronomy.</span><span class="lang-es">Esta sección todavía está en preparación. Vuelve pronto para ver contenido real sobre gastronomía española.</span></div>
     </div>
   </div>
 
@@ -492,8 +449,6 @@
       <div class="footer__col"><div class="footer__col-title" data-i18n="footer.dele">DELE</div><ul><li><a href="dele.html#a1">DELE A1</a></li><li><a href="dele.html#a2">DELE A2</a></li><li><a href="dele.html#b1">DELE B1</a></li><li><a href="dele.html#b2">DELE B2</a></li><li><a href="dele.html#c1">DELE C1</a></li><li><a href="dele.html#c2">DELE C2</a></li></ul></div>
       <div class="footer__col"><div class="footer__col-title" data-i18n="footer.culture">Culture</div><ul>
         <li><a href="culture.html#literatura"><span class="lang-en">Literature</span><span class="lang-es">Literatura</span></a></li>
-        <li><a href="culture.html#cine"><span class="lang-en">Cinema &amp; Music</span><span class="lang-es">Cine y Música</span></a></li>
-        <li><a href="culture.html#gastronomia"><span class="lang-en">Gastronomy</span><span class="lang-es">Gastronomía</span></a></li>
         <li><a href="culture.html#fiestas"><span class="lang-en">Festivals</span><span class="lang-es">Fiestas</span></a></li>
       </ul></div>
     </div>
@@ -515,10 +470,10 @@
   </div>
 </footer>
 
-<script src="i18n.js?v=11"></script>
+<script src="i18n.js?v=12"></script>
 <script>
   // Culture category toggle
-  const CULTURE_CATS = ['literatura', 'cine', 'musica', 'gastronomia', 'fiestas'];
+  const CULTURE_CATS = ['literatura', 'fiestas'];
 
   function closeAllCultureCats(except) {
     CULTURE_CATS.forEach(id => {
@@ -571,7 +526,7 @@
     }
   }
 
-  // Open section from URL hash (e.g. culture.html#cine) — on first load
+  // Open section from URL hash (e.g. culture.html#literatura) — on first load
   // AND whenever the hash changes while already on this page (e.g. clicking
   // the "Cultura" nav dropdown while culture.html is already open).
   function openCultureFromHash() {
@@ -597,7 +552,7 @@
     });
   });
 </script>
-<script src="search.js?v=39"></script>
+<script src="search.js?v=40"></script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script>window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments);};</script>
