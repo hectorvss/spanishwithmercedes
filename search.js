@@ -29,7 +29,6 @@
     { es:'DESDE · DESDE HACE · DESDE... HASTA', en:'DESDE · DESDE HACE · DESDE... HASTA', type:'video', level:'A2-B2', url:'videos.html#video-desde-short', kw:'desde desde hace hasta tiempo expresiones since for until short' },
     { es:'La palabra española que no tiene traducción: SOBREMESA', en:'The Spanish Word With No Translation: SOBREMESA', type:'video', level:'A2-B1', url:'videos.html#video-sobremesa-short', kw:'sobremesa palabra traducción short cultura mesa conversación café' },
     { es:'TARDEAR: la palabra española para un plan de tarde', en:'TARDEAR: The Spanish Word for an Afternoon Plan', type:'video', level:'A2-B1', url:'videos.html#video-tardear-short', kw:'tardear tardeo tarde tapas cañas terraza short cultura plan' },
-    { es:'Expresiones coloquiales con el verbo PONER', en:'Colloquial Expressions with the Verb PONER', type:'video', level:'A2-B1', url:'videos.html#video-poner-short', kw:'poner ponerse expresiones pilas botas mesa nervios short vocabulario' },
     { es:'En el hotel: reservar, check-in y pedir lo que necesitas', en:'How to Survive in a Hotel in Spain', type:'video', level:'A2-B1', url:'videos.html#video-en-el-hotel', kw:'hotel condicional reservar check-in check-out equipaje viaje travel hospitality podría gustaría' },
     { es:'Consejos para redactar una carta formal', en:'Tips for Writing a Formal Letter', type:'video', level:'C1', url:'videos.html#video-carta-formal', kw:'carta formal dele c1 escritura escribir consejos writing formal letter tips redactar' },
 
