@@ -1922,3 +1922,27 @@ body.is-spanish .lang-en-block { display: none; }
   .htl-scene, .cal-scene { margin-top: 10px; }
   .avh-board { margin-top: 10px; }
 }
+
+/* ── EL PENALTI (JUGAR A / AL · JUGAR vs TOCAR) ─ */
+.pen-pitch { position: relative; max-width: 440px; height: 190px; margin: 16px auto 8px; border-radius: 12px; overflow: hidden; background: repeating-linear-gradient(90deg, #2E9D52 0 36px, #339F57 36px 72px); border: 2px solid #1F7A3F; transition: box-shadow 0.3s; }
+.pen-pitch.pen-flash-goal { box-shadow: 0 0 0 4px rgba(26,158,135,0.5); }
+.pen-pitch.pen-flash-save { box-shadow: 0 0 0 4px rgba(200,16,46,0.45); }
+.pen-goal { position: absolute; left: 50%; top: 10px; width: 210px; height: 78px; margin-left: -105px; border: 5px solid #fff; border-bottom: none; border-radius: 4px 4px 0 0; overflow: hidden; }
+.pen-net { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.45) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.45) 1px, transparent 1px); background-size: 12px 12px; }
+.pen-keeper { position: absolute; left: 50%; bottom: 0; font-size: 34px; line-height: 1; transform: translateX(-50%); transition: transform 0.45s cubic-bezier(.2,.8,.3,1); }
+.pen-keeper.pen-keeper-dive { transform: translateX(calc(-50% + var(--kx, 0px))) rotate(calc(var(--kx, 0px) * 0.6deg)); }
+.pen-ball { position: absolute; left: 50%; bottom: 14px; font-size: 30px; line-height: 1; margin-left: -15px; transition: transform 0.55s cubic-bezier(.3,.7,.4,1); z-index: 2; }
+.pen-ball.pen-ball-goal { transform: translate(var(--bx, 0px), -112px) scale(0.55); }
+.pen-ball.pen-ball-saved { transform: translate(var(--bx, 0px), -96px) scale(0.6); }
+.pen-score { position: absolute; right: 8px; bottom: 6px; background: rgba(18,17,23,0.82); color: #fff; font-family: 'Noto Sans', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.8px; padding: 5px 10px; border-radius: 6px; display: flex; gap: 8px; align-items: center; }
+.pen-score b { color: #F5C542; font-size: 14px; }
+.pen-score-sep { opacity: 0.5; }
+.pen-gap { display: inline-block; min-width: 54px; border-bottom: 3px solid #D4920A; vertical-align: baseline; }
+.pen-btn-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 14px; max-width: 440px; margin-left: auto; margin-right: auto; }
+.pen-btn { padding: 14px 8px; border-radius: 10px; border: 1.5px solid #DCDCE5; background: #fff; cursor: pointer; font-family: 'Noto Sans', sans-serif; font-weight: 800; font-size: 14px; color: #121117; transition: transform 0.15s, border-color 0.15s, background 0.15s; }
+.pen-btn:hover:not(:disabled) { transform: scale(1.03); border-color: #1F7A3F; }
+.pen-btn:disabled { cursor: default; }
+.pen-btn.pen-correct { border-color: #1A9E87; background: #E6F9F5; }
+.pen-btn.pen-wrong { border-color: #C8102E; background: #FDECEA; }
+@media (max-width: 480px) { .pen-pitch { height: 170px; } .pen-goal { width: 180px; margin-left: -90px; height: 68px; } .pen-ball.pen-ball-goal { transform: translate(calc(var(--bx, 0px) * 0.85), -98px) scale(0.55); } .pen-ball.pen-ball-saved { transform: translate(calc(var(--bx, 0px) * 0.85), -84px) scale(0.6); } }
+@media (max-height: 820px) { .pen-pitch { height: 160px; margin-top: 10px; } .pen-ball.pen-ball-goal { transform: translate(var(--bx, 0px), -98px) scale(0.55); } .pen-ball.pen-ball-saved { transform: translate(var(--bx, 0px), -84px) scale(0.6); } }

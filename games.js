@@ -3066,6 +3066,193 @@ function avhNext() {
   _renderAVHRound();
 }
 
+/* ══════════════════════════════════════════════
+   GAME 23 · EL PENALTI
+   (JUGAR A / AL / A LA / A LOS / A LAS y JUGAR vs TOCAR) —
+   a penalty shoot-out: choose the right form and the ball
+   flies into the net (goal!); a wrong answer and the
+   goalkeeper dives and saves it. 12 shots per game, picked
+   from a pool of 32: 4 contractions (AL / A LA / A LOS /
+   A LAS), 4 jugar-or-tocar, 4 verb forms (juego, juegas,
+   jugamos, jugáis, jugué…). Answers are shuffled every round
+   and the right one never sits in the same slot 3 times in a row.
+══════════════════════════════════════════════ */
+
+const PEN_ITEMS = [
+  // ── AL / A LA / A LOS / A LAS ──────────────────────
+  { kind:'c', blank:'Mi padre juega ___ golf los sábados.', correct:'AL', opts:['AL','A LA','A LOS','A LAS'],
+    note:{en:'A + EL = AL. Golf is masculine singular: "al golf".', es:'A + EL = AL. Golf es masculino singular: "al golf".'} },
+  { kind:'c', blank:'Los niños juegan ___ pelota en el patio.', correct:'A LA', opts:['AL','A LA','A LOS','A LAS'],
+    note:{en:'"Pelota" is feminine: A LA — no contraction with "la".', es:'"Pelota" es femenino: A LA — con "la" no hay contracción.'} },
+  { kind:'c', blank:'¿Jugamos ___ dardos esta noche?', correct:'A LOS', opts:['AL','A LA','A LOS','A LAS'],
+    note:{en:'"Dardos" is masculine plural: A LOS (only A + EL contracts).', es:'"Dardos" es masculino plural: A LOS (solo A + EL se contrae).'} },
+  { kind:'c', blank:'Mi abuela juega ___ damas con su vecina.', correct:'A LAS', opts:['AL','A LA','A LOS','A LAS'],
+    note:{en:'"Damas" is feminine plural: A LAS.', es:'"Damas" es femenino plural: A LAS.'} },
+  { kind:'c', blank:'Mi hijo juega ___ baloncesto los martes.', correct:'AL', opts:['AL','A LA','A LOS','A LAS'],
+    note:{en:'JUGAR needs A before the sport: a + el baloncesto = al baloncesto.', es:'JUGAR necesita A delante del deporte: a + el baloncesto = al baloncesto.'} },
+  { kind:'c', blank:'De pequeña, jugaba ___ muñecas.', correct:'A LAS', opts:['AL','A LA','A LOS','A LAS'],
+    note:{en:'"Muñecas" is feminine plural: A LAS.', es:'"Muñecas" es femenino plural: A LAS.'} },
+  { kind:'c', blank:'¿Juegas ___ lotería de Navidad?', correct:'A LA', opts:['AL','A LA','A LOS','A LAS'],
+    note:{en:'"Lotería" is feminine: A LA.', es:'"Lotería" es femenino: A LA.'} },
+  { kind:'c', blank:'Esta tarde vamos a jugar ___ videojuegos.', correct:'A LOS', opts:['AL','A LA','A LOS','A LAS'],
+    note:{en:'"Videojuegos" is masculine plural: A LOS.', es:'"Videojuegos" es masculino plural: A LOS.'} },
+  { kind:'c', blank:'Mi abuelo juega ___ dominó en el bar.', correct:'AL', opts:['AL','A LA','A LOS','A LAS'],
+    note:{en:'Dominó is masculine: a + el = AL.', es:'Dominó es masculino: a + el = AL.'} },
+  { kind:'c', blank:'En el recreo juegan ___ canicas.', correct:'A LAS', opts:['AL','A LA','A LOS','A LAS'],
+    note:{en:'"Canicas" (marbles) is feminine plural: A LAS.', es:'"Canicas" es femenino plural: A LAS.'} },
+  { kind:'c', blank:'Los sábados jugamos ___ bolos.', correct:'A LOS', opts:['AL','A LA','A LOS','A LAS'],
+    note:{en:'"Bolos" (bowling) is masculine plural: A LOS.', es:'"Bolos" es masculino plural: A LOS.'} },
+  { kind:'c', blank:'Quiero jugar ___ ajedrez contigo.', correct:'AL', opts:['AL','A LA','A LOS','A LAS'],
+    note:{en:'Ajedrez is masculine: a + el = AL.', es:'Ajedrez es masculino: a + el = AL.'} },
+  { kind:'c', blank:'Mis primos juegan ___ cartas cada domingo.', correct:'A LAS', opts:['AL','A LA','A LOS','A LAS'],
+    note:{en:'"Cartas" is feminine plural: A LAS.', es:'"Cartas" es femenino plural: A LAS.'} },
+  { kind:'c', blank:'¿Sabes jugar ___ mus?', correct:'AL', opts:['AL','A LA','A LOS','A LAS'],
+    note:{en:'Mus (a Spanish card game) is masculine: AL.', es:'El mus (un juego de cartas) es masculino: AL.'} },
+
+  // ── JUGAR o TOCAR ──────────────────────────────────
+  { kind:'t', blank:'Mi vecina ___ el violín todas las tardes.', correct:'toca', opts:['toca','juega','tocan','juegan'],
+    note:{en:'Instruments are played with TOCAR, never JUGAR.', es:'Los instrumentos se TOCAN, nunca se juegan.'} },
+  { kind:'t', blank:'Mi hermano ___ la batería en un grupo de rock.', correct:'toca', opts:['toca','juega','toco','juego'],
+    note:{en:'Drums are an instrument → TOCAR; "mi hermano" = él → toca.', es:'La batería es un instrumento → TOCAR; "mi hermano" = él → toca.'} },
+  { kind:'t', blank:'Los niños ___ en el patio del colegio.', correct:'juegan', opts:['juegan','tocan','juega','toca'],
+    note:{en:'Children having fun → JUGAR; plural → juegan (u → ue).', es:'Los niños se divierten → JUGAR; plural → juegan (u → ue).'} },
+  { kind:'t', blank:'Mis primos ___ al pádel todos los domingos.', correct:'juegan', opts:['juegan','tocan','juega','jugamos'],
+    note:{en:'Sports → JUGAR A; "mis primos" = ellos → juegan.', es:'Deportes → JUGAR A; "mis primos" = ellos → juegan.'} },
+  { kind:'t', blank:'¿Quién ___ la guitarra en tu familia?', correct:'toca', opts:['toca','juega','tocan','juegan'],
+    note:{en:'Guitar → TOCAR. "¿Quién…?" takes the singular: toca.', es:'Guitarra → TOCAR. "¿Quién…?" va en singular: toca.'} },
+  { kind:'t', blank:'En las fiestas, una orquesta ___ toda la noche.', correct:'toca', opts:['toca','juega','tocan','juegan'],
+    note:{en:'Live music → TOCAR; "una orquesta" is singular.', es:'Música en directo → TOCAR; "una orquesta" es singular.'} },
+  { kind:'t', blank:'Mi sobrina ___ a los videojuegos todo el día.', correct:'juega', opts:['juega','toca','juegan','tocan'],
+    note:{en:'Video games are games → JUGAR A; "mi sobrina" → juega.', es:'Los videojuegos son juegos → JUGAR A; "mi sobrina" → juega.'} },
+  { kind:'t', blank:'¿Sabes ___ el piano?', correct:'tocar', opts:['tocar','jugar','tocas','juegas'],
+    note:{en:'After "saber" use the infinitive; piano → TOCAR.', es:'Tras "saber" va el infinitivo; piano → TOCAR.'} },
+  { kind:'t', blank:'¿Sabes ___ al ajedrez?', correct:'jugar', opts:['jugar','tocar','juegas','tocas'],
+    note:{en:'After "saber" use the infinitive; chess is a game → JUGAR A.', es:'Tras "saber" va el infinitivo; el ajedrez es un juego → JUGAR A.'} },
+
+  // ── formas de JUGAR (u → ue, nosotros / vosotros sin cambio) ─────
+  { kind:'v', blank:'¿___ (tú) al tenis este fin de semana?', correct:'Juegas', opts:['Juegas','Juegan','Jugamos','Juega'],
+    note:{en:'Tú → juegas (the u becomes ue).', es:'Tú → juegas (la u pasa a ue).'} },
+  { kind:'v', blank:'Siempre ___ (yo) a las cartas con mis abuelos.', correct:'juego', opts:['juego','juegas','juega','jugamos'],
+    note:{en:'Yo → juego (u → ue).', es:'Yo → juego (u → ue).'} },
+  { kind:'v', blank:'Antes ___ (yo) al baloncesto; ahora prefiero nadar.', correct:'jugaba', opts:['jugaba','juego','jugaré','jugáis'],
+    note:{en:'"Antes" + a habit in the past → imperfect: jugaba.', es:'"Antes" + una costumbre del pasado → imperfecto: jugaba.'} },
+  { kind:'v', blank:'Nosotros ___ al parchís después de cenar.', correct:'jugamos', opts:['jugamos','juegamos','juegan','jugáis'],
+    note:{en:'Nosotros → jugamos: NO change to ue ("juegamos" does not exist).', es:'Nosotros → jugamos: sin cambio a ue ("juegamos" no existe).'} },
+  { kind:'v', blank:'Vosotros ___ al fútbol en el parque.', correct:'jugáis', opts:['jugáis','juegáis','juegan','jugamos'],
+    note:{en:'Vosotros → jugáis: NO change to ue ("juegáis" does not exist).', es:'Vosotros → jugáis: sin cambio a ue ("juegáis" no existe).'} },
+  { kind:'v', blank:'Ayer yo ___ al tenis con mi hermana.', correct:'jugué', opts:['jugué','juegué','juego','jugaré'],
+    note:{en:'Preterite of yo: jugué (g + u before é) — never "juegué".', es:'Pretérito de yo: jugué (g + u delante de é) — nunca "juegué".'} },
+  { kind:'v', blank:'Ellos ___ al póquer cada viernes.', correct:'juegan', opts:['juegan','jugan','juega','jugamos'],
+    note:{en:'Ellos → juegan (u → ue). "Jugan" does not exist.', es:'Ellos → juegan (u → ue). "Jugan" no existe.'} },
+  { kind:'v', blank:'Mañana mi equipo ___ contra el tuyo.', correct:'juega', opts:['juega','jugó','jugaba','juegan'],
+    note:{en:'"Mañana" → present for a plan: juega. "Mi equipo" is singular.', es:'"Mañana" → presente para un plan: juega. "Mi equipo" va en singular.'} },
+  { kind:'v', blank:'Cuando era niño, ___ en la calle con mis amigos.', correct:'jugaba', opts:['jugaba','juego','jugaré','juegan'],
+    note:{en:'"Cuando era niño" → imperfect for habits: jugaba.', es:'"Cuando era niño" → imperfecto para costumbres: jugaba.'} }
+];
+
+function _penBuildItems() {
+  const pick = (kind) => _shuffle(PEN_ITEMS.filter(it => it.kind === kind)).slice(0, 4);
+  let mixed = _shuffle([...pick('c'), ...pick('t'), ...pick('v')]);
+  // never three items of the same kind in a row
+  for (let i = 2; i < mixed.length; i++) {
+    if (mixed[i].kind === mixed[i - 1].kind && mixed[i].kind === mixed[i - 2].kind) {
+      const j = mixed.findIndex((x, k) => k > i && x.kind !== mixed[i].kind);
+      if (j > -1) [mixed[i], mixed[j]] = [mixed[j], mixed[i]];
+    }
+  }
+  const lastPos = [];
+  return mixed.map(it => {
+    let opts, a, tries = 0;
+    do {
+      opts = _shuffle(it.opts);
+      a = opts.indexOf(it.correct);
+      tries++;
+    } while (tries < 12 && lastPos.length >= 2 && lastPos[lastPos.length - 1] === a && lastPos[lastPos.length - 2] === a);
+    lastPos.push(a);
+    return { ...it, opts, a };
+  });
+}
+
+function playPenalti() {
+  currentGameFn = playPenalti;
+  const items = _penBuildItems();
+  GS = { items, idx: 0, correct: 0, total: items.length, answered: false, goals: 0, saves: 0 };
+  _renderPENRound();
+}
+
+function _penScoreboard(goals, saves, lang) {
+  return `<div class="pen-score"><span>${lang==='es'?'GOLES':'GOALS'} <b id="pen-goals">${goals}</b></span><span class="pen-score-sep">·</span><span>${lang==='es'?'PARADAS':'SAVES'} <b id="pen-saves">${saves}</b></span></div>`;
+}
+
+function _renderPENRound() {
+  const lang = L();
+  const title = lang==='es' ? 'El penalti' : 'The Penalty Kick';
+  const { items, idx, correct, total } = GS;
+  if (idx >= total) { _end(correct, total, title); return; }
+  const item = items[idx];
+  GS.answered = false;
+  const sentence = item.blank.replace('___', '<span class="pen-gap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>');
+  const btns = item.opts.map((o, i) => `<button class="pen-btn" data-idx="${i}" onclick="penAnswer(${i})">${o}</button>`).join('');
+  _modal(`
+    ${_progress(idx, total, correct, lang)}
+    <p class="gm-instr" style="text-align:center">${lang==='es'?'Elige la forma correcta y dispara. Si fallas, el portero la para.':'Pick the correct form and shoot. Get it wrong and the keeper saves it.'}</p>
+    <div class="gm-sentence">${sentence}</div>
+    <div class="pen-pitch" id="pen-pitch">
+      <div class="pen-goal"><div class="pen-net"></div><div class="pen-keeper" id="pen-keeper">🧤</div></div>
+      <div class="pen-ball" id="pen-ball">⚽</div>
+      ${_penScoreboard(GS.goals, GS.saves, lang)}
+    </div>
+    <div class="pen-btn-row">${btns}</div>
+    <div class="gm-feedback" id="gm-fb"></div>
+  `, title);
+}
+
+function penAnswer(i) {
+  if (GS.answered) return;
+  GS.answered = true;
+  const lang = L();
+  const item = GS.items[GS.idx];
+  const ok = i === item.a;
+  if (ok) { GS.correct++; GS.goals++; } else { GS.saves++; }
+
+  document.querySelectorAll('.pen-btn').forEach((b, bi) => {
+    b.disabled = true;
+    if (bi === item.a) b.classList.add('pen-correct');
+    else if (bi === i && !ok) b.classList.add('pen-wrong');
+  });
+
+  const ball = document.getElementById('pen-ball');
+  const keeper = document.getElementById('pen-keeper');
+  const side = Math.random() < 0.5 ? -1 : 1;           // corner of the goal
+  if (ball) {
+    ball.style.setProperty('--bx', (ok ? side * 70 : side * 30) + 'px');
+    ball.classList.add(ok ? 'pen-ball-goal' : 'pen-ball-saved');
+  }
+  if (keeper) {
+    keeper.style.setProperty('--kx', (ok ? -side * 60 : side * 30) + 'px');
+    keeper.classList.add('pen-keeper-dive');
+  }
+  setTimeout(() => {
+    const g = document.getElementById('pen-goals'), s = document.getElementById('pen-saves');
+    if (g) g.textContent = GS.goals;
+    if (s) s.textContent = GS.saves;
+    const pitch = document.getElementById('pen-pitch');
+    if (pitch) pitch.classList.add(ok ? 'pen-flash-goal' : 'pen-flash-save');
+  }, 650);
+
+  setTimeout(() => {
+    document.getElementById('gm-fb').innerHTML = `
+      <span class="${ok?'fb-ok':'fb-ko'}">${ok?'✓ '+(lang==='es'?'¡GOOOL!':'GOAL!'):'✗ '+(lang==='es'?'¡Parada! La respuesta correcta es':'Saved! The correct answer is')+' <strong>'+item.correct+'</strong>'}</span>
+      <div class="pf-note">${item.note[lang]}</div>
+      <button class="gm-btn gm-btn-primary gm-next-btn" onclick="penNext()">${lang==='es'?'Siguiente →':'Next →'}</button>`;
+  }, 900);
+}
+
+function penNext() {
+  GS.idx++;
+  _renderPENRound();
+}
+
 /* ── EXPOSE GLOBALS ───────────────────────────── */
 Object.assign(window, {
   closeGame, restartGame, toggleGameFullscreen, flipFC, fcAnswer,
@@ -3092,7 +3279,15 @@ Object.assign(window, {
   htlAnswer, htlNext,
   calAnswer, calNext,
   avhAnswer, avhNext,
+  penAnswer, penNext,
   playFlashcards, playSerEstar, playQuiz, playFillGaps, playWordOrder, playVerbSprint, playPresentarse,
   playRuleta, playDialogos, playGustar, playGenero, playCD, playDesde, playPorPara, playProfesiones, playVerMirar, playTrabajo, playSonidoR, playGeneroII, playConectores,
-  playHotel, playFechas, playAVerHaber
+  playHotel, playFechas, playAVerHaber, playPenalti
+});
+
+/* Items marked data-show-from (e.g. links to a game that is released at a set time) stay hidden until then. */
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('[data-show-from]').forEach(e => {
+    if (Date.parse(e.getAttribute('data-show-from')) <= Date.now()) { e.style.display = ''; e.removeAttribute('data-show-from'); }
+  });
 });
