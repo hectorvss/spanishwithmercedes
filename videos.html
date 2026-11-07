@@ -75,6 +75,13 @@
     }
   </style>
 <style>[data-show-from]{display:none !important}</style>
+<script>
+/* Covers: self-hosted WebP first, then YouTube maxres, then hq */
+function thumbErr(img,id){var s=img.getAttribute('data-step')||'0';
+  if(s==='0'){img.setAttribute('data-step','1');img.src='https://img.youtube.com/vi/'+id+'/maxresdefault.jpg';}
+  else if(s==='1'){img.setAttribute('data-step','2');img.src='https://img.youtube.com/vi/'+id+'/hqdefault.jpg';}
+  else{img.onerror=null;}}
+</script>
 </head>
 <body>
 
@@ -231,7 +238,7 @@
       <div id="video-nobel-featured" class="video-card" data-feature-from="2026-10-05T00:00:00+02:00">
         <a href="https://youtube.com/shorts/TZFIk6YwZUA" target="_blank" class="video-card__link">
           <div class="video-card__thumb">
-            <img src="https://img.youtube.com/vi/TZFIk6YwZUA/maxresdefault.jpg" alt="Nóbel o Nobél video" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/TZFIk6YwZUA/hqdefault.jpg';">
+            <img src="thumbs/TZFIk6YwZUA.webp" alt="Nóbel o Nobél video" onerror="thumbErr(this,'TZFIk6YwZUA')">
             <div class="video-card__play"><div class="video-card__play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div>
           </div>
           <div class="video-card__body">
@@ -243,7 +250,7 @@
       <div id="video-a-ver-haber-featured" class="video-card" data-feature-from="2026-10-10T12:00:00+02:00" style="display:none">
         <a href="https://youtube.com/shorts/C-RLMr_igyQ" target="_blank" class="video-card__link">
           <div class="video-card__thumb">
-            <img src="https://img.youtube.com/vi/C-RLMr_igyQ/maxresdefault.jpg" alt="A ver o haber video" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/C-RLMr_igyQ/hqdefault.jpg';">
+            <img src="thumbs/C-RLMr_igyQ.webp" alt="A ver o haber video" onerror="thumbErr(this,'C-RLMr_igyQ')">
             <div class="video-card__play"><div class="video-card__play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div>
           </div>
           <div class="video-card__body">
@@ -256,7 +263,7 @@
       <div id="video-anglicismos-featured" class="video-card" data-feature-from="2026-11-07T16:00:00+01:00" style="display:none">
         <a href="https://youtube.com/shorts/n-s5w4Q50S8" target="_blank" class="video-card__link">
           <div class="video-card__thumb">
-            <img src="https://img.youtube.com/vi/n-s5w4Q50S8/maxresdefault.jpg" alt="Anglicismos video" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/n-s5w4Q50S8/hqdefault.jpg';">
+            <img src="thumbs/n-s5w4Q50S8.webp" alt="Anglicismos video" onerror="thumbErr(this,'n-s5w4Q50S8')">
             <div class="video-card__play"><div class="video-card__play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div>
           </div>
           <div class="video-card__body">
@@ -269,7 +276,7 @@
       <div id="video-jugar-featured" class="video-card" data-feature-from="2026-11-03T11:00:00+01:00" style="display:none">
         <a href="https://youtube.com/shorts/K0OgmfwU8I8" target="_blank" class="video-card__link">
           <div class="video-card__thumb">
-            <img src="https://img.youtube.com/vi/K0OgmfwU8I8/maxresdefault.jpg" alt="Jugar a o tocar video" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/K0OgmfwU8I8/hqdefault.jpg';">
+            <img src="thumbs/K0OgmfwU8I8.webp" alt="Jugar a o tocar video" onerror="thumbErr(this,'K0OgmfwU8I8')">
             <div class="video-card__play"><div class="video-card__play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div>
           </div>
           <div class="video-card__body">
@@ -282,7 +289,7 @@
       <div id="video-cansado-featured" class="video-card" data-feature-from="2026-10-24T12:00:00+02:00" style="display:none">
         <a href="https://youtube.com/shorts/Ebsy1Nj1QkY" target="_blank" class="video-card__link">
           <div class="video-card__thumb">
-            <img src="https://img.youtube.com/vi/Ebsy1Nj1QkY/maxresdefault.jpg" alt="Estar cansado video" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/Ebsy1Nj1QkY/hqdefault.jpg';">
+            <img src="thumbs/Ebsy1Nj1QkY.webp" alt="Estar cansado video" onerror="thumbErr(this,'Ebsy1Nj1QkY')">
             <div class="video-card__play"><div class="video-card__play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div>
           </div>
           <div class="video-card__body">
@@ -295,7 +302,7 @@
       <div id="video-onceavo-featured" class="video-card" data-feature-from="2026-10-16T13:00:00+02:00" style="display:none">
         <a href="https://youtube.com/shorts/QoIYjEXRWss" target="_blank" class="video-card__link">
           <div class="video-card__thumb">
-            <img src="https://img.youtube.com/vi/QoIYjEXRWss/maxresdefault.jpg" alt="Onceavo o undécimo video" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/QoIYjEXRWss/hqdefault.jpg';">
+            <img src="thumbs/QoIYjEXRWss.webp" alt="Onceavo o undécimo video" onerror="thumbErr(this,'QoIYjEXRWss')">
             <div class="video-card__play"><div class="video-card__play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div>
           </div>
           <div class="video-card__body">
@@ -309,7 +316,7 @@
                 <div id="video-gustar-featured" class="video-card">
           <a href="https://youtu.be/yHzvPpK52lA" target="_blank" class="video-card__link">
           <div class="video-card__thumb" style="aspect-ratio:16/6;">
-            <img src="https://img.youtube.com/vi/yHzvPpK52lA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/yHzvPpK52lA/hqdefault.jpg';" alt="El verbo GUSTAR video">
+            <img src="thumbs/yHzvPpK52lA.webp" onerror="thumbErr(this,'yHzvPpK52lA')" alt="El verbo GUSTAR video">
             <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div>
           </div>
           <div class="video-card__body">
@@ -322,7 +329,7 @@
                 <div id="video-ser-estar-featured" class="video-card">
           <a href="https://youtu.be/08by8Wap1QY" target="_blank" class="video-card__link">
           <div class="video-card__thumb" style="aspect-ratio:16/6;">
-            <img src="https://img.youtube.com/vi/08by8Wap1QY/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/08by8Wap1QY/hqdefault.jpg';" alt="Ser vs Estar video">
+            <img src="thumbs/08by8Wap1QY.webp" onerror="thumbErr(this,'08by8Wap1QY')" alt="Ser vs Estar video">
             <div class="video-card__play"><div class="video-card__play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div>
           </div>
           <div class="video-card__body">
@@ -362,7 +369,7 @@
     <div class="videos-grid">
             <div id="video-jugar" class="video-card" data-show-from="2026-11-03T11:00:00+01:00">
         <a href="https://youtube.com/shorts/K0OgmfwU8I8" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/K0OgmfwU8I8/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/K0OgmfwU8I8/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/K0OgmfwU8I8.webp" onerror="thumbErr(this,'K0OgmfwU8I8')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A1–A2 · <span class="lang-en">Common error</span><span class="lang-es">Error frecuente</span></span>
           <div class="video-card__title"><span class="lang-en">"Play" in Spanish: Jugar A or Tocar?</span><span class="lang-es">¿Juego al fútbol o juego el piano?</span></div>
@@ -372,7 +379,7 @@
       </div>
             <div id="video-a-ver-haber" class="video-card">
         <a href="https://youtube.com/shorts/C-RLMr_igyQ" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/C-RLMr_igyQ/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/C-RLMr_igyQ/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/C-RLMr_igyQ.webp" onerror="thumbErr(this,'C-RLMr_igyQ')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A2–B2 · <span class="lang-en">Common error</span><span class="lang-es">Error frecuente</span></span>
           <div class="video-card__title"><span class="lang-en">"A ver" or "Haber"? Do You Know When to Use Each One?</span><span class="lang-es">¿"A ver" o "Haber"? ¿Sabes cuándo usarlos?</span></div>
@@ -382,7 +389,7 @@
       </div>
             <div id="video-nobel" class="video-card">
         <a href="https://youtube.com/shorts/TZFIk6YwZUA" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/TZFIk6YwZUA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/TZFIk6YwZUA/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/TZFIk6YwZUA.webp" onerror="thumbErr(this,'TZFIk6YwZUA')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">B1 · <span class="lang-en">Pronunciation</span><span class="lang-es">Pronunciación</span></span>
           <div class="video-card__title"><span class="lang-en">"Nóbel" or "Nobél"? Nobel vs Novel in Spanish</span><span class="lang-es">¿"Nóbel" o "Nobél"? ¿Cómo lo pronuncias tú?</span></div>
@@ -391,7 +398,7 @@
       </div>
             <div id="video-callaos" class="video-card">
         <a href="https://youtube.com/shorts/Y0_8LOLNTy4" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/Y0_8LOLNTy4/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/Y0_8LOLNTy4/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/Y0_8LOLNTy4.webp" onerror="thumbErr(this,'Y0_8LOLNTy4')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">B1 · <span class="lang-en">Common error</span><span class="lang-es">Error frecuente</span></span>
           <div class="video-card__title"><span class="lang-en">"Callaos" or "Callaros"? The Imperative Mistake</span><span class="lang-es">¿"Callaos" o "Callaros"? El error del imperativo de vosotros</span></div>
@@ -401,7 +408,7 @@
       </div>
             <div id="video-onceavo" class="video-card">
         <a href="https://youtube.com/shorts/QoIYjEXRWss" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/QoIYjEXRWss/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/QoIYjEXRWss/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/QoIYjEXRWss.webp" onerror="thumbErr(this,'QoIYjEXRWss')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A2–C1 · <span class="lang-en">Common error</span><span class="lang-es">Error frecuente</span></span>
           <div class="video-card__title"><span class="lang-en">"Onceavo" or "Undécimo"? Ordinals vs. Fractions</span><span class="lang-es">¿"Onceavo" o "Undécimo"? Ordinales vs. fracciones</span></div>
@@ -411,7 +418,7 @@
       </div>
             <div id="video-prever-proveer" class="video-card">
         <a href="https://youtube.com/shorts/MMVb2ujBZ9I" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/MMVb2ujBZ9I/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/MMVb2ujBZ9I/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/MMVb2ujBZ9I.webp" onerror="thumbErr(this,'MMVb2ujBZ9I')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A2–B1 · <span class="lang-en">Common error</span><span class="lang-es">Error frecuente</span></span>
           <div class="video-card__title"><span class="lang-en">"Preveer" or "Prever"? Two Verbs You're Probably Mixing Up</span><span class="lang-es">¿"Preveer" o "Prever"? Dos verbos que seguramente estás confundiendo</span></div>
@@ -421,7 +428,7 @@
       </div>
             <div id="video-contra-mas" class="video-card">
         <a href="https://youtube.com/shorts/P1aJufd_DMA" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/P1aJufd_DMA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/P1aJufd_DMA/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/P1aJufd_DMA.webp" onerror="thumbErr(this,'P1aJufd_DMA')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">B1–B2 · <span class="lang-en">Common error</span><span class="lang-es">Error frecuente</span></span>
           <div class="video-card__title"><span class="lang-en">"Contra más" or "Cuanto más"? The Mistake That Gives You Away</span><span class="lang-es">¿"Contra más" o "Cuanto más"? El error que delata que aún no hablas un español cuidado</span></div>
@@ -431,7 +438,7 @@
       </div>
             <div id="video-satisfacer" class="video-card">
         <a href="https://youtube.com/shorts/nplBWpw6zG4" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/nplBWpw6zG4/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/nplBWpw6zG4/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/nplBWpw6zG4.webp" onerror="thumbErr(this,'nplBWpw6zG4')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A2–B1 · <span class="lang-en">Common error</span><span class="lang-es">Error frecuente</span></span>
           <div class="video-card__title"><span class="lang-en">"Satisfació" or "Satisfizo"? The Preterite That Fools Even Natives</span><span class="lang-es">¿"Satisfació" o "Satisfizo"? El pretérito que hace dudar hasta a los nativos</span></div>
@@ -441,7 +448,7 @@
       </div>
             <div id="video-delante-mia" class="video-card">
         <a href="https://youtube.com/shorts/h-HcT7YLttw" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/h-HcT7YLttw/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/h-HcT7YLttw/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/h-HcT7YLttw.webp" onerror="thumbErr(this,'h-HcT7YLttw')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A2–B1 · <span class="lang-en">Common error</span><span class="lang-es">Error frecuente</span></span>
           <div class="video-card__title"><span class="lang-en">"Delante mía" or "Delante de mí"? The Possessive Trap</span><span class="lang-es">¿"Delante mía" o "Delante de mí"? La trampa del posesivo</span></div>
@@ -451,7 +458,7 @@
       </div>
             <div id="video-espira-expira-ef" class="video-card">
         <a href="https://youtube.com/shorts/ckBS3_1_mtM" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/ckBS3_1_mtM/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/ckBS3_1_mtM/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/ckBS3_1_mtM.webp" onerror="thumbErr(this,'ckBS3_1_mtM')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A2–B1 · <span class="lang-en">Common error</span><span class="lang-es">Error frecuente</span></span>
           <div class="video-card__title"><span class="lang-en">"Espira" or "Expira"? One Letter... And It Can Be Fatal</span><span class="lang-es">¿"Espira" o "Expira"? Una sola letra... y puede ser fatal</span></div>
@@ -461,7 +468,7 @@
       </div>
             <div id="video-adelante-ef" class="video-card">
         <a href="https://youtube.com/shorts/gL0MyZNvh2g" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/gL0MyZNvh2g/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/gL0MyZNvh2g/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/gL0MyZNvh2g.webp" onerror="thumbErr(this,'gL0MyZNvh2g')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A2–B1 · <span class="lang-en">Common error</span><span class="lang-es">Error frecuente</span></span>
           <div class="video-card__title"><span class="lang-en">"Alante" or "Adelante"? One of the Most Common Spoken Errors</span><span class="lang-es">¿"Alante" o "Adelante"? Uno de los errores más comunes del español hablado</span></div>
@@ -471,7 +478,7 @@
       </div>
             <div id="video-andar-preterito-ef" class="video-card">
         <a href="https://youtube.com/shorts/UmNFoDkaLmc" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/UmNFoDkaLmc/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/UmNFoDkaLmc/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/UmNFoDkaLmc.webp" onerror="thumbErr(this,'UmNFoDkaLmc')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A2–B1 · <span class="lang-en">Common error</span><span class="lang-es">Error frecuente</span></span>
           <div class="video-card__title"><span class="lang-en">ANDAMOS or ANDUVIMOS? The Irregular Preterite of ANDAR</span><span class="lang-es">ANDAMOS o ANDUVIMOS: el pretérito irregular de ANDAR</span></div>
@@ -492,7 +499,7 @@
     <div class="videos-grid">
             <div id="video-sobremesa-short" class="video-card">
         <a href="https://youtube.com/shorts/TNmCrvUwcOU" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/TNmCrvUwcOU/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/TNmCrvUwcOU/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/TNmCrvUwcOU.webp" onerror="thumbErr(this,'TNmCrvUwcOU')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A2–B1 · <span class="lang-en">Vocabulary</span><span class="lang-es">Vocabulario</span></span>
           <div class="video-card__title"><span class="lang-en">The Spanish Word With No Translation: SOBREMESA</span><span class="lang-es">La palabra española que no tiene traducción: SOBREMESA</span></div>
@@ -502,7 +509,7 @@
       </div>
             <div id="video-presentarte-short" class="video-card">
         <a href="https://youtube.com/shorts/ovbSywRbxDw" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/ovbSywRbxDw/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/ovbSywRbxDw/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/ovbSywRbxDw.webp" onerror="thumbErr(this,'ovbSywRbxDw')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A1–A2 · Short</span>
           <div class="video-card__title"><span class="lang-en">Introduce Yourself in Spanish in 30 Seconds — The 4 Essential Verbs</span><span class="lang-es">Preséntate en español en 30 segundos — los 4 verbos esenciales</span></div>
@@ -512,7 +519,7 @@
       </div>
             <div id="video-genero" class="video-card">
         <a href="https://youtu.be/LCKA58ZpMtE" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/LCKA58ZpMtE/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/LCKA58ZpMtE/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/LCKA58ZpMtE.webp" onerror="thumbErr(this,'LCKA58ZpMtE')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A1 · <span class="lang-en">Grammar</span><span class="lang-es">Gramática</span></span>
           <div class="video-card__title"><span class="lang-en">Gender in Spanish: Masculine &amp; Feminine</span><span class="lang-es">El género en español: masculino y femenino</span></div>
@@ -522,7 +529,7 @@
       </div>
             <div id="video-fechas" class="video-card">
         <a href="https://youtu.be/79J_f3bC2y8" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/79J_f3bC2y8/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/79J_f3bC2y8/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/79J_f3bC2y8.webp" onerror="thumbErr(this,'79J_f3bC2y8')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A1–A2 · <span class="lang-en">Vocabulary</span><span class="lang-es">Vocabulario</span></span>
           <div class="video-card__title"><span class="lang-en">How to Say Dates in Spanish</span><span class="lang-es">Cómo decir las fechas en español</span></div>
@@ -532,7 +539,7 @@
       </div>
             <div id="video-ser-estar" class="video-card">
         <a href="https://youtu.be/08by8Wap1QY" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/08by8Wap1QY/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/08by8Wap1QY/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/08by8Wap1QY.webp" onerror="thumbErr(this,'08by8Wap1QY')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A1 · <span class="lang-en">Grammar</span><span class="lang-es">Gramática</span></span>
           <div class="video-card__title"><span class="lang-en">Ser vs Estar — The Most Important Lesson for Beginners</span><span class="lang-es">SER vs ESTAR — la lección más importante para principiantes</span></div>
@@ -542,7 +549,7 @@
       </div>
             <div id="video-cd-prep-a-short" class="video-card">
         <a href="https://youtube.com/shorts/5rin-eWtd8o" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/5rin-eWtd8o/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/5rin-eWtd8o/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/5rin-eWtd8o.webp" onerror="thumbErr(this,'5rin-eWtd8o')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A2–B1 · Short</span>
           <div class="video-card__title"><span class="lang-en">When to Use &quot;A&quot; with the Direct Object</span><span class="lang-es">Cuándo usar &quot;A&quot; con el complemento directo</span></div>
@@ -563,7 +570,7 @@
     <div class="videos-grid">
             <div id="video-anglicismos" class="video-card" data-show-from="2026-11-07T16:00:00+01:00">
         <a href="https://youtube.com/shorts/n-s5w4Q50S8" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/n-s5w4Q50S8/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/n-s5w4Q50S8/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/n-s5w4Q50S8.webp" onerror="thumbErr(this,'n-s5w4Q50S8')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A2–B2 · <span class="lang-en">Vocabulary</span><span class="lang-es">Vocabulario</span></span>
           <div class="video-card__title"><span class="lang-en">"Feedback" or "Comentarios"? 25 Anglicisms in Spanish</span><span class="lang-es">¿"Feedback" o "comentarios"? 25 anglicismos en español</span></div>
@@ -573,7 +580,7 @@
       </div>
             <div id="video-cansado" class="video-card" data-show-from="2026-10-24T12:00:00+02:00">
         <a href="https://youtube.com/shorts/Ebsy1Nj1QkY" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/Ebsy1Nj1QkY/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/Ebsy1Nj1QkY/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/Ebsy1Nj1QkY.webp" onerror="thumbErr(this,'Ebsy1Nj1QkY')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A2–B2 · <span class="lang-en">Vocabulary</span><span class="lang-es">Vocabulario</span></span>
           <div class="video-card__title"><span class="lang-en">Ways to Say You Are Tired in Spanish</span><span class="lang-es">Cómo decir que estás cansado</span></div>
@@ -583,7 +590,7 @@
       </div>
             <div id="video-a-ver-haber-int" class="video-card">
         <a href="https://youtube.com/shorts/C-RLMr_igyQ" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/C-RLMr_igyQ/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/C-RLMr_igyQ/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/C-RLMr_igyQ.webp" onerror="thumbErr(this,'C-RLMr_igyQ')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A2–B2 · <span class="lang-en">Grammar</span><span class="lang-es">Gramática</span></span>
           <div class="video-card__title"><span class="lang-en">"A ver" or "Haber"? Do You Know When to Use Each One?</span><span class="lang-es">¿"A ver" o "Haber"? ¿Sabes cuándo usarlos?</span></div>
@@ -593,7 +600,7 @@
       </div>
             <div id="video-gestos" class="video-card">
         <a href="https://youtube.com/shorts/JbutQ8NkUko" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/JbutQ8NkUko/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/JbutQ8NkUko/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/JbutQ8NkUko.webp" onerror="thumbErr(this,'JbutQ8NkUko')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A2–B1 · <span class="lang-en">Vocabulary</span><span class="lang-es">Vocabulario</span></span>
           <div class="video-card__title"><span class="lang-en">What Do These Spanish Gestures Mean?</span><span class="lang-es">¿Qué significan estos gestos españoles?</span></div>
@@ -603,7 +610,7 @@
       </div>
       <div id="video-escuchar-esperar-buscar-pedir" class="video-card">
         <a href="https://youtube.com/shorts/u09_JIRAc3E" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/u09_JIRAc3E/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/u09_JIRAc3E/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/u09_JIRAc3E.webp" onerror="thumbErr(this,'u09_JIRAc3E')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A2–B1 · <span class="lang-en">Grammar</span><span class="lang-es">Gramática</span></span>
           <div class="video-card__title"><span class="lang-en">Listen To, Wait For, Look For, Ask For — No Preposition in Spanish</span><span class="lang-es">ESCUCHAR, ESPERAR, BUSCAR, PEDIR — sin preposición en español</span></div>
@@ -613,7 +620,7 @@
       </div>
             <div id="video-verbos-preposicion" class="video-card">
         <a href="https://youtube.com/shorts/gSFDZ_QT6Q8" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/gSFDZ_QT6Q8/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/gSFDZ_QT6Q8/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/gSFDZ_QT6Q8.webp" onerror="thumbErr(this,'gSFDZ_QT6Q8')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A2–B1 · <span class="lang-en">Grammar</span><span class="lang-es">Gramática</span></span>
           <div class="video-card__title"><span class="lang-en">Verbs with Prepositions: Acordarse, Casarse, Confiar, Darse Cuenta</span><span class="lang-es">Verbos con preposición: ACORDARSE, CASARSE, CONFIAR, DARSE CUENTA</span></div>
@@ -623,7 +630,7 @@
       </div>
             <div id="video-azo-golpe" class="video-card">
         <a href="https://youtube.com/shorts/ovQ6UpJg_C8" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/ovQ6UpJg_C8/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/ovQ6UpJg_C8/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/ovQ6UpJg_C8.webp" onerror="thumbErr(this,'ovQ6UpJg_C8')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">B1–C1 · <span class="lang-en">Vocabulary</span><span class="lang-es">Vocabulario</span></span>
           <div class="video-card__title"><span class="lang-en">"Portazo" Isn't "An Impressive Door": The Suffix -AZO (2/4)</span><span class="lang-es">"Portazo" no es "una puerta impresionante": el sufijo -AZO (2/4)</span></div>
@@ -633,7 +640,7 @@
       </div>
             <div id="video-azo" class="video-card">
         <a href="https://youtube.com/shorts/UEkW4tccFgw" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/UEkW4tccFgw/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/UEkW4tccFgw/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/UEkW4tccFgw.webp" onerror="thumbErr(this,'UEkW4tccFgw')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">B1–C1 · <span class="lang-en">Vocabulary</span><span class="lang-es">Vocabulario</span></span>
           <div class="video-card__title"><span class="lang-en">"Golazo" Isn't "A Big Goal": The Suffix -AZO (1/4)</span><span class="lang-es">"Golazo" no es "un gol grande": el sufijo -AZO (1/4)</span></div>
@@ -642,7 +649,7 @@
       <div class="video-card__pdf-wrap"><a href="DESCARGABLES_PDF/AZO_INTENSIFICADOR/AZO_INTENSIFICADOR_DESCARGABLE.pdf" target="_blank" onclick="window.va&&window.va('event',{name:'pdf_download',data:{video:'video-azo'}})" class="video-card__pdf-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span class="lang-en">Download free PDF</span><span class="lang-es">Descárgate el PDF</span></a></div>
       </div>
             <a id="video-trabajo-1" class="video-card" href="https://youtu.be/giGGhdHk_B8" target="_blank">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/giGGhdHk_B8/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/giGGhdHk_B8/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/giGGhdHk_B8.webp" onerror="thumbErr(this,'giGGhdHk_B8')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">B1 · <span class="lang-en">Vocabulary</span><span class="lang-es">Vocabulario</span></span>
           <div class="video-card__title"><span class="lang-en">Talking About Work in Spanish (Part I)</span><span class="lang-es">Vocabulario: hablar del trabajo (Parte I)</span></div>
@@ -650,7 +657,7 @@
       </a>
             <div id="video-recordar-acordarse-short" class="video-card">
         <a href="https://youtube.com/shorts/_88hZU-ACCI" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/_88hZU-ACCI/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/_88hZU-ACCI/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/_88hZU-ACCI.webp" onerror="thumbErr(this,'_88hZU-ACCI')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A2–B1 · Short</span>
           <div class="video-card__title"><span class="lang-en">The Differences Between RECORDAR and ACORDARSE</span><span class="lang-es">Las diferencias entre los verbos ACORDARSE y RECORDAR</span></div>
@@ -660,7 +667,7 @@
       </div>
             <div id="video-noche" class="video-card">
         <a href="https://youtube.com/shorts/kEn4oounlAI" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/kEn4oounlAI/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/kEn4oounlAI/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/kEn4oounlAI.webp" onerror="thumbErr(this,'kEn4oounlAI')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A2–B1 · <span class="lang-en">Vocabulary</span><span class="lang-es">Vocabulario</span></span>
           <div class="video-card__title"><span class="lang-en">MEDIANOCHE, TRASNOCHAR, ANOCHECER, NOCTURNO, NOCHEVIEJA — Words from NOCHE</span><span class="lang-es">MEDIANOCHE, TRASNOCHAR, ANOCHECER, NOCTURNO, NOCHEVIEJA — palabras de NOCHE</span></div>
@@ -670,7 +677,7 @@
       </div>
             <div id="video-ya-todavia" class="video-card">
         <a href="https://youtu.be/BLddmtQENu4" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/BLddmtQENu4/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/BLddmtQENu4/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/BLddmtQENu4.webp" onerror="thumbErr(this,'BLddmtQENu4')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A2–B2 · <span class="lang-en">Grammar</span><span class="lang-es">Gramática</span></span>
           <div class="video-card__title"><span class="lang-en">Todavía, Aún, Ya, Ya No & Todavía No</span><span class="lang-es">TODAVÍA, AÚN, YA, YA NO y TODAVÍA NO</span></div>
@@ -680,7 +687,7 @@
       </div>
             <div id="video-desde-short" class="video-card">
         <a href="https://youtube.com/shorts/o_SdPP9GyfY" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/o_SdPP9GyfY/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/o_SdPP9GyfY/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/o_SdPP9GyfY.webp" onerror="thumbErr(this,'o_SdPP9GyfY')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A2–B2 · Short</span>
           <div class="video-card__title"><span class="lang-en">DESDE · DESDE HACE · DESDE... HASTA — Learn the Differences</span><span class="lang-es">DESDE · DESDE HACE · DESDE... HASTA — aprende sus diferencias</span></div>
@@ -690,7 +697,7 @@
       </div>
             <div id="video-genero-ii" class="video-card">
         <a href="https://youtu.be/SsROCEnMtRk" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/SsROCEnMtRk/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/SsROCEnMtRk/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/SsROCEnMtRk.webp" onerror="thumbErr(this,'SsROCEnMtRk')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A2–B1 · <span class="lang-en">Grammar</span><span class="lang-es">Gramática</span></span>
           <div class="video-card__title"><span class="lang-en">Gender in Spanish: Special Cases</span><span class="lang-es">El género en español: casos especiales</span></div>
@@ -700,7 +707,7 @@
       </div>
             <div id="video-gustar" class="video-card">
         <a href="https://youtu.be/yHzvPpK52lA" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/yHzvPpK52lA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/yHzvPpK52lA/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/yHzvPpK52lA.webp" onerror="thumbErr(this,'yHzvPpK52lA')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A2–B1 · <span class="lang-en">Grammar</span><span class="lang-es">Gramática</span></span>
           <div class="video-card__title"><span class="lang-en">The Verb GUSTAR in Spanish</span><span class="lang-es">El verbo GUSTAR en español</span></div>
@@ -710,7 +717,7 @@
       </div>
             <div id="video-en-el-hotel" class="video-card">
         <a href="https://youtu.be/u-RJkhaQXXE" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/u-RJkhaQXXE/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/u-RJkhaQXXE/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/u-RJkhaQXXE.webp" onerror="thumbErr(this,'u-RJkhaQXXE')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A2–B1 · <span class="lang-en">Grammar</span><span class="lang-es">Gramática</span></span>
           <div class="video-card__title"><span class="lang-en">How to Survive in a Hotel in Spain</span><span class="lang-es">En el hotel: reservar, check-in y pedir lo que necesitas</span></div>
@@ -720,7 +727,7 @@
       </div>
             <div id="video-tardear-short" class="video-card">
         <a href="https://youtube.com/shorts/EkDakfrY5dU" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/EkDakfrY5dU/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/EkDakfrY5dU/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/EkDakfrY5dU.webp" onerror="thumbErr(this,'EkDakfrY5dU')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">A2–B1 · <span class="lang-en">Vocabulary</span><span class="lang-es">Vocabulario</span></span>
           <div class="video-card__title"><span class="lang-en">TARDEAR: The Spanish Word for an Afternoon Plan</span><span class="lang-es">TARDEAR: la palabra española para un plan de tarde</span></div>
@@ -729,7 +736,7 @@
       <div class="video-card__pdf-wrap"><a href="DESCARGABLES_PDF/TARDEAR/TARDEAR_DESCARGABLE.pdf" target="_blank" onclick="window.va&&window.va('event',{name:'pdf_download',data:{video:'video-tardear-short'}})" class="video-card__pdf-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span class="lang-en">Download free PDF</span><span class="lang-es">Descárgate el PDF</span></a></div>
       </div>
             <a id="video-trabajo-2" class="video-card" href="https://youtu.be/7_UMUqQWtaY" target="_blank">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/7_UMUqQWtaY/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/7_UMUqQWtaY/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/7_UMUqQWtaY.webp" onerror="thumbErr(this,'7_UMUqQWtaY')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">B1 · <span class="lang-en">Vocabulary</span><span class="lang-es">Vocabulario</span></span>
           <div class="video-card__title"><span class="lang-en">Talking About Work in Spanish (Part II)</span><span class="lang-es">Vocabulario: hablar del trabajo (Parte II)</span></div>
@@ -748,7 +755,7 @@
     <div class="videos-grid">
             <div id="video-carta-formal" class="video-card">
         <a href="https://youtu.be/5kqvYx73Dm4" target="_blank" class="video-card__link">
-        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="https://img.youtube.com/vi/5kqvYx73Dm4/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/5kqvYx73Dm4/hqdefault.jpg';" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="video-card__thumb"><img loading="lazy" decoding="async" src="thumbs/5kqvYx73Dm4.webp" onerror="thumbErr(this,'5kqvYx73Dm4')" alt=""><div class="video-card__play"><div class="video-card__play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="#D4920A"><path d="M8 5v14l11-7z"/></svg></div></div></div>
         <div class="video-card__body">
           <span class="video-card__tag">C1 · <span class="lang-en">Writing</span><span class="lang-es">Escritura</span></span>
           <div class="video-card__title"><span class="lang-en">Tips for Writing a Formal Letter</span><span class="lang-es">Consejos para redactar una carta formal</span></div>
