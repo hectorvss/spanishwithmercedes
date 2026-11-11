@@ -3253,6 +3253,306 @@ function penNext() {
   _renderPENRound();
 }
 
+/* ══════════════════════════════════════════════
+   GAME 24 · EL PORTERO (La doble negación)
+   You are the bouncer of a club that only lets in correct
+   Spanish. A guest walks up with a sentence: let it in or
+   throw it out. If you throw out a wrong sentence you must
+   also pick the right fix before the guest gets in. 12 guests
+   per game, 6 correct + 6 wrong, picked from a bigger pool.
+══════════════════════════════════════════════ */
+
+const DN_GUESTS = ['😎','🥳','🤠','🧑‍🎤','💃','🕺','🧙','🤖','👽','🦊','🐼','🧛','🦸','🧑‍🍳'];
+
+const DN_ITEMS = [
+  // ── correct sentences (the bouncer must let them in) ───────────
+  { ok:true, s:'No tengo nada que hacer.', en:'I have nothing to do.',
+    note:{en:'Nada comes after the verb, so "no" goes before it: two negatives, one meaning.', es:'Nada va detrás del verbo, así que "no" va delante: dos negaciones, un solo significado.'} },
+  { ok:true, s:'Nadie sabe la respuesta.', en:'Nobody knows the answer.',
+    note:{en:'Nadie comes BEFORE the verb, so no "no" is needed.', es:'Nadie va ANTES del verbo, así que no hace falta "no".'} },
+  { ok:true, s:'No he visto a nadie.', en:'I have not seen anyone.',
+    note:{en:'Nadie after the verb → "no" before it. And nadie is a person, so it takes the personal "a".', es:'Nadie detrás del verbo → "no" delante. Y nadie es una persona, así que lleva la "a" personal.'} },
+  { ok:true, s:'Ninguno de mis amigos habla chino.', en:'None of my friends speaks Chinese.',
+    note:{en:'Ninguno is before the verb, so there is no "no". It stays singular: habla.', es:'Ninguno va antes del verbo, así que no hay "no". Se queda en singular: habla.'} },
+  { ok:true, s:'No llego nunca tarde.', en:'I am never late.',
+    note:{en:'Nunca after the verb → "no" before it. (Nunca llego tarde is the same.)', es:'Nunca detrás del verbo → "no" delante. (Nunca llego tarde es lo mismo.)'} },
+  { ok:true, s:'Ni Ana ni Luis vinieron.', en:'Neither Ana nor Luis came.',
+    note:{en:'Ni… ni before the verb → no "no". After the verb: No vinieron ni Ana ni Luis.', es:'Ni… ni antes del verbo → sin "no". Detrás del verbo: No vinieron ni Ana ni Luis.'} },
+  { ok:true, s:'No vino ningún alumno.', en:'No student came.',
+    note:{en:'Ninguno loses its -o before a masculine noun: ningún alumno.', es:'Ninguno pierde la -o delante de un nombre masculino: ningún alumno.'} },
+  { ok:true, s:'Yo tampoco lo sé.', en:'I don’t know either.',
+    note:{en:'Tampoco is before the verb, so no "no". After the verb: Yo no lo sé tampoco.', es:'Tampoco va antes del verbo, así que sin "no". Detrás del verbo: Yo no lo sé tampoco.'} },
+  { ok:true, s:'No le cuento nunca nada a nadie.', en:'I never tell anyone anything.',
+    note:{en:'Four negatives in one sentence is fine: they add up, they don’t cancel out.', es:'Cuatro negaciones en una frase es correcto: se suman, no se anulan.'},
+    zh:'我从来不对任何人说任何事。' },
+  { ok:true, s:'Jamás lo olvidaré.', en:'I will never forget it.',
+    note:{en:'Jamás before the verb → no "no". After the verb: No lo olvidaré jamás.', es:'Jamás antes del verbo → sin "no". Detrás del verbo: No lo olvidaré jamás.'} },
+  { ok:true, s:'No hay nadie en casa.', en:'There is nobody at home.',
+    note:{en:'With "hay" the negative word goes after it, and "no" goes before.', es:'Con "hay", la palabra negativa va detrás y "no" va delante.'} },
+  { ok:true, s:'Nada funciona en esta oficina.', en:'Nothing works in this office.',
+    note:{en:'Nada before the verb → no "no".', es:'Nada antes del verbo → sin "no".'} },
+  { ok:true, s:'No me gusta ninguna de estas canciones.', en:'I don’t like any of these songs.',
+    note:{en:'"Any" in a negative sentence becomes ninguna / ninguno, and it agrees with the noun (canciones → ninguna).', es:'"Any" en una frase negativa pasa a ninguna / ninguno y concuerda con el nombre (canciones → ninguna).'} },
+  { ok:true, s:'Nunca hemos estado en México.', en:'We have never been to Mexico.',
+    note:{en:'English "haven’t ever" becomes nunca. With nunca before the verb there is no "no".', es:'El "haven’t ever" inglés se convierte en nunca. Con nunca antes del verbo no hay "no".'} },
+  { ok:true, s:'No como ni carne ni pescado.', en:'I eat neither meat nor fish.',
+    note:{en:'Ni… ni after the verb → "no" before it.', es:'Ni… ni detrás del verbo → "no" delante.'} },
+  { ok:true, s:'A mí tampoco me gusta.', en:'I don’t like it either.',
+    note:{en:'To agree with a negative sentence you say tampoco, not también.', es:'Para coincidir con una frase negativa se dice tampoco, no también.'} },
+
+  // ── wrong sentences (the bouncer must throw them out and fix them) ─
+  { ok:false, s:'Nadie no sabe la respuesta.', en:'Nobody knows the answer.',
+    fix:['Nadie sabe la respuesta.','Sabe nadie la respuesta.','No nadie sabe la respuesta.'],
+    note:{en:'Nadie is before the verb, so "no" must go. (No sabe nadie la respuesta is also correct.)', es:'Nadie va antes del verbo, así que sobra "no". (No sabe nadie la respuesta también es correcto.)'},
+    zh:'没有人知道答案。' },
+  { ok:false, s:'Nunca no como carne.', en:'I never eat meat.',
+    fix:['Nunca como carne.','No nunca como carne.','Como nunca carne.'],
+    note:{en:'Nunca before the verb → no "no". Chinese 从来不 joins both ideas in one phrase; Spanish nunca is already negative.', es:'Nunca antes del verbo → sin "no". El chino 从来不 junta las dos ideas; en español nunca ya es negativo.'},
+    zh:'我从来不吃肉。' },
+  { ok:false, s:'Tengo nada en el bolsillo.', en:'I have nothing in my pocket.',
+    fix:['No tengo nada en el bolsillo.','Tengo no nada en el bolsillo.','No tengo algo en el bolsillo.'],
+    note:{en:'Nada after the verb needs "no" before the verb.', es:'Nada detrás del verbo necesita "no" delante del verbo.'},
+    zh:'我口袋里什么都没有。' },
+  { ok:false, s:'No conozco a alguien aquí.', en:'I don’t know anyone here.',
+    fix:['No conozco a nadie aquí.','Conozco a nadie aquí.','No conozco nadie aquí.'],
+    note:{en:'In a negative sentence, alguien becomes nadie. (English "anyone" → nadie.)', es:'En una frase negativa, alguien se convierte en nadie. (El "anyone" inglés → nadie.)'},
+    zh:'我在这里谁也不认识。' },
+  { ok:false, s:'Yo tampoco no voy.', en:'I am not going either.',
+    fix:['Yo tampoco voy.','Yo no tampoco voy.','Yo también no voy.'],
+    note:{en:'Tampoco before the verb → no "no". (Yo no voy tampoco is also correct.)', es:'Tampoco antes del verbo → sin "no". (Yo no voy tampoco también es correcto.)'},
+    zh:'我也不去。' },
+  { ok:false, s:'No quiero algo, gracias.', en:'I don’t want anything, thanks.',
+    fix:['No quiero nada, gracias.','Quiero nada, gracias.','No quiero nadie, gracias.'],
+    note:{en:'English "anything" after don’t = nada in Spanish, never algo.', es:'El "anything" inglés tras don’t = nada en español, nunca algo.'},
+    zh:'我什么都不要，谢谢。' },
+  { ok:false, s:'Veo nadie en la calle.', en:'I don’t see anyone in the street.',
+    fix:['No veo a nadie en la calle.','Veo a nadie en la calle.','No veo nadie en la calle.'],
+    note:{en:'Two things are missing: "no" before the verb, and the personal "a" before nadie.', es:'Faltan dos cosas: "no" delante del verbo y la "a" personal delante de nadie.'},
+    zh:'我在街上谁也没看见。' },
+  { ok:false, s:'No hay algo en la nevera.', en:'There is nothing in the fridge.',
+    fix:['No hay nada en la nevera.','Hay nada en la nevera.','No hay alguien en la nevera.'],
+    note:{en:'In a negative sentence, algo becomes nada.', es:'En una frase negativa, algo se convierte en nada.'} },
+  { ok:false, s:'No tengo ningunas ideas.', en:'I have no ideas.',
+    fix:['No tengo ninguna idea.','No tengo ningún idea.','No tengo ningunas idea.'],
+    note:{en:'Ninguno is almost always singular and agrees in gender: ninguna idea.', es:'Ninguno casi siempre va en singular y concuerda en género: ninguna idea.'} },
+  { ok:false, s:'No vino ninguno alumno.', en:'No student came.',
+    fix:['No vino ningún alumno.','No vino ninguna alumno.','No vino ningunos alumnos.'],
+    note:{en:'Ninguno becomes ningún before a masculine singular noun.', es:'Ninguno se convierte en ningún delante de un nombre masculino singular.'} },
+  { ok:false, s:'No como ni carne o pescado.', en:'I eat neither meat nor fish.',
+    fix:['No como ni carne ni pescado.','No como ni carne y pescado.','No como no carne ni pescado.'],
+    note:{en:'Ni… ni always comes as a pair: neither… nor.', es:'Ni… ni va siempre en pareja: neither… nor.'} },
+  { ok:false, s:'Vino nadie a la fiesta.', en:'Nobody came to the party.',
+    fix:['No vino nadie a la fiesta.','Nadie no vino a la fiesta.','Vino no nadie a la fiesta.'],
+    note:{en:'Nadie after the verb needs "no" before it. (Nadie vino a la fiesta is also correct.)', es:'Nadie detrás del verbo necesita "no" delante. (Nadie vino a la fiesta también es correcto.)'},
+    zh:'没有人来参加聚会。' },
+  { ok:false, s:'Nada no funciona.', en:'Nothing works.',
+    fix:['Nada funciona.','No nada funciona.','Funciona nada.'],
+    note:{en:'Nada before the verb → no "no". (No funciona nada is also correct.)', es:'Nada antes del verbo → sin "no". (No funciona nada también es correcto.)'} },
+  { ok:false, s:'He estado nunca en Japón.', en:'I have never been to Japan.',
+    fix:['Nunca he estado en Japón.','He no estado nunca en Japón.','Nunca no he estado en Japón.'],
+    note:{en:'Put nunca before the verb (no "no"), or use "no" before the verb: No he estado nunca en Japón.', es:'Pon nunca antes del verbo (sin "no") o usa "no" delante: No he estado nunca en Japón.'} },
+  { ok:false, s:'Me llamó nadie ayer.', en:'Nobody called me yesterday.',
+    fix:['Nadie me llamó ayer.','Nadie no me llamó ayer.','No nadie me llamó ayer.'],
+    note:{en:'Nadie before the verb, with no "no". (No me llamó nadie ayer is also correct.)', es:'Nadie antes del verbo, sin "no". (No me llamó nadie ayer también es correcto.)'},
+    zh:'昨天没有人给我打电话。' },
+  { ok:false, s:'No le cuento algo a nadie.', en:'I don’t tell anyone anything.',
+    fix:['No le cuento nada a nadie.','Le cuento nada a nadie.','No le cuento nadie a nadie.'],
+    note:{en:'Every any- word of English becomes a negative word: anything → nada, anyone → nadie.', es:'Cada palabra con any- del inglés se convierte en negativa: anything → nada, anyone → nadie.'} },
+  { ok:false, s:'Nunca no le cuento nada a nadie.', en:'I never tell anyone anything.',
+    fix:['Nunca le cuento nada a nadie.','No nunca le cuento nada a nadie.','Nunca le cuento algo a nadie.'],
+    note:{en:'Nunca is first, so the extra "no" must go. The other negatives stay.', es:'Nunca va primero, así que sobra el "no". Las demás negaciones se quedan.'} },
+  { ok:false, s:'No me gusta ningún de estos zapatos.', en:'I don’t like any of these shoes.',
+    fix:['No me gusta ninguno de estos zapatos.','No me gusta ninguna de estos zapatos.','No me gusta ningunos de estos zapatos.'],
+    note:{en:'Before "de" the full form is used: ninguno de… (ningún is only before a noun).', es:'Delante de "de" se usa la forma completa: ninguno de… (ningún solo va delante de un nombre).'} },
+  { ok:false, s:'—Yo no fumo. —Yo también.', en:'—I don’t smoke. —Me neither.',
+    fix:['—Yo no fumo. —Yo tampoco.','—Yo no fumo. —Yo también no.','—Yo no fumo. —Yo no también.'],
+    note:{en:'Agreeing with a negative sentence: tampoco (neither), not también (also).', es:'Para coincidir con una frase negativa: tampoco, no también.'},
+    zh:'我不抽烟。—我也不抽。' },
+  { ok:false, s:'Ninguno alumno ha aprobado.', en:'No student has passed.',
+    fix:['Ningún alumno ha aprobado.','Ninguna alumno ha aprobado.','Ningún alumno no ha aprobado.'],
+    note:{en:'Ninguno → ningún before a masculine singular noun; and ningún is before the verb, so no "no".', es:'Ninguno → ningún delante de un nombre masculino singular; y ningún va antes del verbo, así que sin "no".'} },
+  { ok:false, s:'Salgo nunca con nadie.', en:'I never go out with anyone.',
+    fix:['No salgo nunca con nadie.','Nunca no salgo con nadie.','Salgo no nunca con nadie.'],
+    note:{en:'Nunca after the verb needs "no" before it. (Nunca salgo con nadie is also correct.)', es:'Nunca detrás del verbo necesita "no" delante. (Nunca salgo con nadie también es correcto.)'} },
+  { ok:false, s:'Jamás no lo olvidaré.', en:'I will never forget it.',
+    fix:['Jamás lo olvidaré.','No jamás lo olvidaré.','Jamás nadie lo olvidaré.'],
+    note:{en:'Jamás before the verb → no "no". (No lo olvidaré jamás is also correct.)', es:'Jamás antes del verbo → sin "no". (No lo olvidaré jamás también es correcto.)'} },
+  { ok:false, s:'No he visto a alguien.', en:'I haven’t seen anyone.',
+    fix:['No he visto a nadie.','He visto a nadie.','No he visto nadie.'],
+    note:{en:'In a negative sentence, alguien → nadie (and keep the personal "a").', es:'En una frase negativa, alguien → nadie (y se mantiene la "a" personal).'} },
+  { ok:false, s:'Nadie está no en casa.', en:'Nobody is at home.',
+    fix:['No hay nadie en casa.','Hay nadie en casa.','Nadie no hay en casa.'],
+    note:{en:'To say nobody is somewhere, Spanish prefers hay: No hay nadie en casa.', es:'Para decir que no hay nadie en un sitio, el español prefiere hay: No hay nadie en casa.'},
+    zh:'家里没有人。' },
+  { ok:false, s:'No he estado ninguna vez en Perú.', en:'I have never been to Peru.',
+    fix:['No he estado nunca en Perú.','No he estado alguna vez en Perú.','He estado nunca en Perú.'],
+    note:{en:'"Ever / never" is nunca (or jamás), not "ninguna vez".', es:'"Ever / never" es nunca (o jamás), no "ninguna vez".'} }
+];
+
+function _dnBuild() {
+  const oks = _shuffle(DN_ITEMS.filter(i => i.ok)).slice(0, 6);
+  const kos = _shuffle(DN_ITEMS.filter(i => !i.ok)).slice(0, 6);
+  const mixed = _interleaveByGroup([...oks, ...kos], x => !x.ok);
+  const guests = _shuffle(DN_GUESTS);
+  const lastPos = [];
+  return mixed.map((it, n) => {
+    const out = { ...it, guest: guests[n % guests.length] };
+    if (!it.ok) {
+      let opts, a, tries = 0;
+      do {
+        opts = _shuffle(it.fix);
+        a = opts.indexOf(it.fix[0]);
+        tries++;
+      } while (tries < 12 && lastPos.length >= 2 && lastPos[lastPos.length - 1] === a && lastPos[lastPos.length - 2] === a);
+      lastPos.push(a);
+      out.fixOpts = opts; out.fixA = a;
+    }
+    return out;
+  });
+}
+
+function playDobleNeg() {
+  currentGameFn = playDobleNeg;
+  const items = _dnBuild();
+  GS = { items, idx: 0, correct: 0, total: items.length, stage: 'decide', letIn: 0, thrown: 0 };
+  _renderDNRound();
+}
+
+function _dnTitle(lang) { return lang === 'es' ? 'El portero' : 'The Bouncer'; }
+
+function _renderDNRound() {
+  const lang = L();
+  const title = _dnTitle(lang);
+  const { items, idx, correct, total } = GS;
+  if (idx >= total) { _end(correct, total, title); return; }
+  const it = items[idx];
+  GS.stage = 'decide';
+  _modal(`
+    ${_progress(idx, total, correct, lang)}
+    <p class="gm-instr" style="text-align:center">${lang==='es'
+      ? 'Eres el portero: solo entra el español correcto. ¿Esta frase pasa o se queda fuera?'
+      : 'You are the bouncer: only correct Spanish gets in. Does this sentence pass, or stay out?'}</p>
+    <div class="dn-scene" id="dn-scene">
+      <div class="dn-sign">CLUB · SOLO ESPAÑOL CORRECTO</div>
+      <div class="dn-floor"></div>
+      <div class="dn-door" id="dn-door"></div>
+      <div class="dn-bouncer" id="dn-bouncer">🤵</div>
+      <div class="dn-guest" id="dn-guest">${it.guest}</div>
+      <div class="dn-alarm" id="dn-alarm">🚨</div>
+      <div class="dn-score"><span>${lang==='es'?'DENTRO':'INSIDE'} <b id="dn-in">${GS.letIn}</b></span><span class="dn-score-sep">·</span><span>${lang==='es'?'FUERA':'OUT'} <b id="dn-out">${GS.thrown}</b></span></div>
+    </div>
+    <div class="gm-sentence dn-sentence" id="dn-sentence">${it.s}</div>
+    <div class="dn-en">${it.en}</div>
+    <div class="dn-actions" id="dn-actions">
+      <button class="dn-btn dn-btn-ok" onclick="dnDecide(true)">✔ ${lang==='es'?'Pasa':'Let in'}</button>
+      <button class="dn-btn dn-btn-ko" onclick="dnDecide(false)">✖ ${lang==='es'?'Fuera':'Out'}</button>
+    </div>
+    <div class="gm-feedback" id="gm-fb"></div>
+  `, title);
+}
+
+function _dnMove(guest, door) {
+  const dx = door.offsetLeft - guest.offsetLeft + 6;
+  guest.style.setProperty('--dx', dx + 'px');
+}
+
+function _dnCounters() {
+  const a = document.getElementById('dn-in'), b = document.getElementById('dn-out');
+  if (a) a.textContent = GS.letIn;
+  if (b) b.textContent = GS.thrown;
+}
+
+function dnDecide(pass) {
+  if (GS.stage !== 'decide') return;
+  const lang = L();
+  const it = GS.items[GS.idx];
+  const guest = document.getElementById('dn-guest');
+  const door = document.getElementById('dn-door');
+  const bouncer = document.getElementById('dn-bouncer');
+  const alarm = document.getElementById('dn-alarm');
+  const actions = document.getElementById('dn-actions');
+  _dnMove(guest, door);
+
+  if (!it.ok && !pass) {                     // wrong sentence thrown out → now fix it
+    GS.stage = 'fix';
+    guest.classList.add('dn-back'); bouncer.classList.add('dn-shake');
+    const btns = it.fixOpts.map((o, i) => `<button class="dn-fix" data-idx="${i}" onclick="dnFix(${i})">${o}</button>`).join('');
+    actions.innerHTML = `
+      <p class="gm-instr" style="text-align:center;margin:4px 0 8px">${lang==='es'
+        ? '✔ ¡Bien visto, tiene un error! ¿Cómo se dice bien? Arréglala para que pueda entrar.'
+        : '✔ Good catch, it has an error! How should it be? Fix it so it can get in.'}</p>
+      <div class="dn-fix-col">${btns}</div>`;
+    return;
+  }
+
+  GS.stage = 'done';
+  actions.innerHTML = '';
+  if (it.ok && pass) {                       // correct sentence, let in → right
+    GS.correct++; GS.letIn++;
+    guest.classList.add('dn-pass'); door.classList.add('dn-open-ok');
+    _dnFinish(true, `✓ ${lang==='es'?'¡Bien! Esta frase es correcta.':'Well done! This sentence is correct.'}`);
+  } else if (it.ok && !pass) {               // correct sentence thrown out → wrong
+    GS.thrown++;
+    guest.classList.add('dn-out'); bouncer.classList.add('dn-shake'); door.classList.add('dn-open-ko');
+    _dnFinish(false, `✗ ${lang==='es'?'Esta frase era correcta. ¡No la eches!':'This sentence was correct. You shouldn’t throw it out!'}`);
+  } else {                                   // wrong sentence let in → wrong
+    GS.letIn++;
+    guest.classList.add('dn-pass'); door.classList.add('dn-open-ko'); alarm.classList.add('dn-alarm-on');
+    _dnFinish(false, `✗ ${lang==='es'?'¡Se ha colado! Esta frase tiene un error. Forma correcta:':'It sneaked in! This sentence has an error. Correct form:'} <strong>${it.fix[0]}</strong>`);
+  }
+}
+
+function dnFix(i) {
+  if (GS.stage !== 'fix') return;
+  GS.stage = 'done';
+  const lang = L();
+  const it = GS.items[GS.idx];
+  const ok = i === it.fixA;
+  const guest = document.getElementById('dn-guest');
+  const door = document.getElementById('dn-door');
+  _dnMove(guest, door);
+  document.querySelectorAll('.dn-fix').forEach((b, bi) => {
+    b.disabled = true;
+    if (bi === it.fixA) b.classList.add('dn-fix-ok');
+    else if (bi === i && !ok) b.classList.add('dn-fix-ko');
+  });
+  guest.classList.remove('dn-back');
+  if (ok) {
+    GS.correct++; GS.thrown++; GS.letIn++;
+    const s = document.getElementById('dn-sentence');
+    if (s) { s.textContent = it.fix[0]; s.classList.add('dn-fixed'); }
+    guest.classList.add('dn-vip');
+    setTimeout(() => { guest.classList.remove('dn-vip'); guest.classList.add('dn-pass'); door.classList.add('dn-open-ok'); }, 650);
+    _dnFinish(true, `✓ ${lang==='es'?'¡Frase arreglada! Ya puede entrar:':'Sentence fixed! It can get in now:'} <strong>${it.fix[0]}</strong>`, 1400);
+  } else {
+    GS.thrown++;
+    guest.classList.add('dn-out'); door.classList.add('dn-open-ko');
+    _dnFinish(false, `✗ ${lang==='es'?'Bien detectado, pero la forma correcta es':'You spotted it, but the correct form is'} <strong>${it.fix[0]}</strong>`);
+  }
+}
+
+function _dnFinish(ok, headline, delay) {
+  const lang = L();
+  const it = GS.items[GS.idx];
+  setTimeout(() => {
+    _dnCounters();
+    const scene = document.getElementById('dn-scene');
+    if (scene) scene.classList.add(ok ? 'dn-flash-ok' : 'dn-flash-ko');
+    const fb = document.getElementById('gm-fb');
+    if (!fb) return;
+    fb.innerHTML = `
+      <span class="${ok?'fb-ok':'fb-ko'}">${headline}</span>
+      <div class="pf-note">${it.note[lang]}</div>
+      ${it.zh ? `<div class="dn-zh">中文 · ${it.zh}</div>` : ''}
+      <button class="gm-btn gm-btn-primary gm-next-btn" onclick="dnNext()">${lang==='es'?'Siguiente →':'Next →'}</button>`;
+  }, delay || 900);
+}
+
+function dnNext() {
+  GS.idx++;
+  _renderDNRound();
+}
+
 /* ── EXPOSE GLOBALS ───────────────────────────── */
 Object.assign(window, {
   closeGame, restartGame, toggleGameFullscreen, flipFC, fcAnswer,
@@ -3280,9 +3580,10 @@ Object.assign(window, {
   calAnswer, calNext,
   avhAnswer, avhNext,
   penAnswer, penNext,
+  dnDecide, dnFix, dnNext,
   playFlashcards, playSerEstar, playQuiz, playFillGaps, playWordOrder, playVerbSprint, playPresentarse,
   playRuleta, playDialogos, playGustar, playGenero, playCD, playDesde, playPorPara, playProfesiones, playVerMirar, playTrabajo, playSonidoR, playGeneroII, playConectores,
-  playHotel, playFechas, playAVerHaber, playPenalti
+  playHotel, playFechas, playAVerHaber, playPenalti, playDobleNeg
 });
 
 /* Items marked data-show-from (e.g. links to a game that is released at a set time) stay hidden until then. */

@@ -32,7 +32,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=53">
+  <link rel="stylesheet" href="styles.css?v=55">
   <style>
     .pdf-grid {
       display: grid;
@@ -599,6 +599,13 @@
       <span data-i18n="pdf.grammar.heading">Grammar Guides</span>
     </div>
     <div class="pdf-grid">
+      <div id="card-doble-negacion" data-added="2026-11-11T17:00:00+01:00" data-show-from="2026-11-11T17:00:00+01:00" class="pdf-card" onclick="openLesson('card-doble-negacion')" style="border-color:#8E44AD; display:flex; flex-direction:column; cursor:pointer;">
+        <div class="pdf-card__icon" style="background:#8E44AD;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/><path d="M5.6 5.6l12.8 12.8"/></svg></div>
+        <div class="pdf-card__level">A2 – B1 ⭐⭐</div>
+        <div class="pdf-card__title"><span class="lang-en">Double Negation in Spanish</span><span class="lang-es">La doble negación en español</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">In English two negatives cancel each other out; in Spanish they add up: "No tengo nada" is the normal way to say it. When you need "no" before the verb and when you don't, nunca / nada / nadie / ninguno / tampoco, and exercises with answers.</span><span class="lang-es">En inglés dos negaciones se anulan; en español se suman: "No tengo nada" es lo normal. Cuándo hace falta "no" delante del verbo y cuándo no, nunca / nada / nadie / ninguno / tampoco, y ejercicios con soluciones.</span></div>
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
+      </div>
       <div id="card-jugar" data-added="2026-11-03T11:00:00+01:00" data-show-from="2026-11-03T11:00:00+01:00" class="pdf-card" onclick="openLesson('card-jugar')" style="border-color:#27AE60; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#27AE60;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7l3.5 2.5-1.3 4h-4.4l-1.3-4z"/><path d="M12 3v4M3.5 9.5L8.5 9.5M20.5 9.5L15.5 9.5M6 18l3.3-4M18 18l-3.3-4"/></svg></div>
         <div class="pdf-card__level">A1 – A2 ⭐</div>
@@ -1374,6 +1381,21 @@
       pdf:'DESCARGABLES_PDF/ANGLISCISMOS/ANGLICISMOS_EN_ESPANOL.pdf',
       video:'https://youtube.com/shorts/n-s5w4Q50S8'
     },
+    'card-doble-negacion': {
+      color:'#8E44AD', level:'A2 – B1',
+      icon:'<circle cx="12" cy="12" r="9"/><path d="M8 12h8"/><path d="M5.6 5.6l12.8 12.8"/>',
+      title:{en:'Double Negation in Spanish', es:'La doble negación en español'},
+      desc:{en:'In English two negatives cancel each other out ("I don\'t have nothing" is wrong); in Spanish they add up, and "No tengo nada" is the natural way to say it. Learn exactly when Spanish needs "no" before the verb (No vino nadie) and when it does not (Nadie vino), the pairs algo / nada, alguien / nadie, alguno / ninguno, también / tampoco, how to turn English anything, anyone and ever into Spanish, and the typical mistakes of English, French, Chinese, Japanese and German speakers. Includes 3 exercises with answers and 3 AI practice prompts.',
+            es:'En inglés dos negaciones se anulan ("I don\'t have nothing" es incorrecto); en español se suman, y "No tengo nada" es la forma natural. Aprende exactamente cuándo el español necesita "no" delante del verbo (No vino nadie) y cuándo no (Nadie vino), las parejas algo / nada, alguien / nadie, alguno / ninguno, también / tampoco, cómo convertir anything, anyone y ever del inglés al español, y los errores típicos de hablantes de inglés, francés, chino, japonés y alemán. Incluye 3 ejercicios con soluciones y 3 prompts de práctica con IA.'},
+      pdf:'DESCARGABLES_PDF/DOBLE%20NEGACI%C3%93N/DOBLE_NEGACION_EN_ESPANOL.pdf',
+      video:'https://youtube.com/shorts/u1aeqQCLK8U',
+      game:'juego-doble-negacion.html',
+      contrast:[
+        {bad:'No quiero algo', good:'No quiero nada'},
+        {bad:'Nadie no vino', good:'Nadie vino'},
+        {bad:'Veo nadie en la calle', good:'No veo a nadie en la calle'}
+      ]
+    },
     'card-onceavo': {
       color:'#16A085', level:'A2 – C1',
       icon:'<line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/>',
@@ -1666,7 +1688,7 @@
     });
   });
 </script>
-<script src="search.js?v=47"></script>
+<script src="search.js?v=48"></script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script>window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments);};</script>
