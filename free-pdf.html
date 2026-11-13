@@ -750,6 +750,13 @@
       <span class="lang-es">Guías de vocabulario</span>
     </div>
     <div class="pdf-grid">
+      <div id="card-alto" data-added="2026-11-14T12:00:00+01:00" data-show-from="2026-11-14T12:00:00+01:00" class="pdf-card" onclick="openLesson('card-alto')" style="border-color:#2E86AB; display:flex; flex-direction:column; cursor:pointer;">
+        <div class="pdf-card__icon" style="background:#2E86AB;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/><path d="M4 22h16"/></svg></div>
+        <div class="pdf-card__level">A2 – B1 ⭐</div>
+        <div class="pdf-card__title"><span class="lang-en">ALTO in Spanish: Tall, High, Loud or Stop?</span><span class="lang-es">ALTO en español: tall, high, loud o stop</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">In English people are tall, mountains are high, music is loud and the police shout stop. Spanish uses one word for all of it: alto. Learn when it agrees (adjective), when it never changes (adverb) and when it means stop (¡Alto!), plus exercises with answers.</span><span class="lang-es">En inglés las personas son tall, las montañas high, la música loud y la policía grita stop. El español usa una sola palabra para todo: alto. Aprende cuándo concuerda (adjetivo), cuándo nunca cambia (adverbio) y cuándo significa parar (¡Alto!), con ejercicios y soluciones.</span></div>
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
+      </div>
       <div id="card-anglicismos" data-added="2026-11-07T16:00:00+01:00" data-show-from="2026-11-07T16:00:00+01:00" class="pdf-card" onclick="openLesson('card-anglicismos')" style="border-color:#5B6ABF; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#5B6ABF;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
         <div class="pdf-card__level">A2 – B2 ⭐</div>
@@ -1396,6 +1403,20 @@
         {bad:'Veo nadie en la calle', good:'No veo a nadie en la calle'}
       ]
     },
+    'card-alto': {
+      color:'#2E86AB', level:'A2 – B1',
+      icon:'<path d="M12 19V5M5 12l7-7 7 7"/><path d="M4 22h16"/>',
+      title:{en:'ALTO in Spanish: Tall, High, Loud or Stop?', es:'ALTO en español: tall, high, loud o stop'},
+      desc:{en:'In English people are tall, mountains are high, music is loud and the police shout stop. In Spanish one single word does all of that: alto. The secret is the function, not the meaning: alto can be an adjective (alto, alta, altos, altas), an adverb that never changes (hablar alto) or an interjection (¡Alto!). Learn height, level, volume and "stop" (dar el alto, un alto el fuego), the trap of leer en voz alta, the real origin of ¡alto! (German Halt), and the typical mistakes of English, French, German, Chinese and Japanese speakers. Includes 3 exercises with answers and 3 AI practice prompts.',
+            es:'En inglés las personas son tall, las montañas high, la música loud y la policía grita stop. En español una sola palabra lo hace todo: alto. El secreto es la función, no el significado: alto puede ser adjetivo (alto, alta, altos, altas), adverbio que nunca cambia (hablar alto) o interjección (¡Alto!). Aprende altura, nivel, volumen y "parar" (dar el alto, un alto el fuego), la trampa de leer en voz alta, el verdadero origen de ¡alto! (el alemán Halt) y los errores típicos de hablantes de inglés, francés, alemán, chino y japonés. Incluye 3 ejercicios con soluciones y 3 prompts de práctica con IA.'},
+      pdf:'DESCARGABLES_PDF/ALTO/ALTO_Descargable.pdf',
+      video:'https://youtube.com/shorts/Qt-YoI81ohg',
+      contrast:[
+        {bad:'Mis compañeras hablan muy altas', good:'Mis compañeras hablan muy alto'},
+        {bad:'Lee el texto a voz alta', good:'Lee el texto en voz alta'},
+        {bad:'Es un chico alto (= habla fuerte)', good:'Es un chico que habla muy alto'}
+      ]
+    },
     'card-onceavo': {
       color:'#16A085', level:'A2 – C1',
       icon:'<line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/>',
@@ -1688,7 +1709,7 @@
     });
   });
 </script>
-<script src="search.js?v=48"></script>
+<script src="search.js?v=49"></script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script>window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments);};</script>
