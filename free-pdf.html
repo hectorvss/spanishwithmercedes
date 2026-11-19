@@ -599,6 +599,13 @@
       <span data-i18n="pdf.grammar.heading">Grammar Guides</span>
     </div>
     <div class="pdf-grid">
+      <div id="card-muy-mucho" data-added="2026-11-19T17:00:00+01:00" data-show-from="2026-11-19T17:00:00+01:00" class="pdf-card" onclick="openLesson('card-muy-mucho')" style="border-color:#E67E22; display:flex; flex-direction:column; cursor:pointer;">
+        <div class="pdf-card__icon" style="background:#E67E22;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></div>
+        <div class="pdf-card__level">A2 ⭐</div>
+        <div class="pdf-card__title"><span class="lang-en">"Muy" or "Mucho"? Very vs. a lot in Spanish</span><span class="lang-es">¿"Muy" o "mucho"? La regla clave</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">In English you say very tired and I work a lot. Spanish splits them into two words: muy and mucho. Learn the one-question rule, why "muy mejor" does not exist, and how to say "thank you very much" (muchas gracias). Free guide with a mini-test and practice.</span><span class="lang-es">En inglés dices very tired e I work a lot. El español lo reparte en dos palabras: muy y mucho. Aprende la regla de una sola pregunta, por qué "muy mejor" no existe y cómo decir "thank you very much" (muchas gracias). Guía gratuita con mini-test y práctica.</span></div>
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
+      </div>
       <div id="card-doble-negacion" data-added="2026-11-11T17:00:00+01:00" data-show-from="2026-11-11T17:00:00+01:00" class="pdf-card" onclick="openLesson('card-doble-negacion')" style="border-color:#8E44AD; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#8E44AD;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/><path d="M5.6 5.6l12.8 12.8"/></svg></div>
         <div class="pdf-card__level">A2 – B1 ⭐⭐</div>
@@ -1403,6 +1410,20 @@
         {bad:'Veo nadie en la calle', good:'No veo a nadie en la calle'}
       ]
     },
+    'card-muy-mucho': {
+      color:'#E67E22', level:'A2',
+      icon:'<path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/>',
+      title:{en:'"Muy" or "Mucho"? Very vs. a lot in Spanish', es:'¿"Muy" o "mucho"? La regla clave'},
+      desc:{en:'In English you say very tired and I work a lot, but also thank you very much. Spanish splits the idea into two words: muy and mucho. The secret is to look at the word that comes next: muy goes before an adjective or an adverb (muy cansada, muy bien), mucho goes with verbs (trabajo mucho) and agrees with nouns (mucha gente, muchas gracias). Learn why "muy mejor" does not exist (mucho mejor, mucho peor, mucho más, mucho menos) and why you never answer "Sí, muy". Includes a 30-second mini-test and 8 practice sentences with answers.',
+            es:'En inglés dices very tired e I work a lot, pero también thank you very much. El español reparte la idea en dos palabras: muy y mucho. El secreto es mirar la palabra que viene después: muy va delante de un adjetivo o un adverbio (muy cansada, muy bien), mucho va con verbos (trabajo mucho) y concuerda con los nombres (mucha gente, muchas gracias). Aprende por qué "muy mejor" no existe (mucho mejor, mucho peor, mucho más, mucho menos) y por qué nunca se contesta "Sí, muy". Incluye un mini-test de 30 segundos y 8 frases de práctica con respuestas.'},
+      pdf:'DESCARGABLES_PDF/MUY_MUCHO/MUY_MUCHO_Descargable.pdf',
+      video:'https://youtube.com/shorts/jQBO5v2z2I0',
+      contrast:[
+        {bad:'Hoy me siento muy mejor', good:'Hoy me siento mucho mejor'},
+        {bad:'Estoy mucho cansada', good:'Estoy muy cansada'},
+        {bad:'¿Te ha gustado? — Sí, muy', good:'¿Te ha gustado? — Sí, mucho'}
+      ]
+    },
     'card-alto': {
       color:'#2E86AB', level:'A2 – B1',
       icon:'<path d="M12 19V5M5 12l7-7 7 7"/><path d="M4 22h16"/>',
@@ -1709,7 +1730,7 @@
     });
   });
 </script>
-<script src="search.js?v=49"></script>
+<script src="search.js?v=50"></script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script>window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments);};</script>
