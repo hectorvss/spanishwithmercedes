@@ -512,6 +512,13 @@
       <span class="lang-es">Deslices que se oyen a diario, tanto en estudiantes como en nativos. Cada ficha muestra el error, la forma correcta y por qué se produce.</span>
     </p>
     <div class="pdf-grid">
+      <div id="card-examen" data-added="2026-11-21T13:00:00+01:00" data-show-from="2026-11-21T13:00:00+01:00" class="pdf-card" onclick="openLesson('card-examen')" style="border-color:#B8412F; display:flex; flex-direction:column; cursor:pointer;">
+        <div class="pdf-card__icon" style="background:#B8412F;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg></div>
+        <div class="pdf-card__level">A2 – B1 ⭐</div>
+        <div class="pdf-card__title"><span class="lang-en">Why "Examen" Has No Accent but "Exámenes" Does</span><span class="lang-es">¿Por qué "examen" no lleva tilde y "exámenes" sí?</span></div>
+        <div class="pdf-card__desc"><span class="lang-en">It looks like a random rule, but it isn't: examen has no accent, exámenes does. Learn the three accent rules step by step, why the stress never moves and the word just grows, the whole "examen" family (resumen, volumen, imagen…) and the words that lose the accent in the plural (canción → canciones).</span><span class="lang-es">Parece una regla caprichosa, pero no lo es: examen no lleva tilde y exámenes sí. Aprende las tres reglas de acentuación paso a paso, por qué la fuerza no se mueve y es la palabra la que crece, toda la familia de «examen» (resumen, volumen, imagen…) y las palabras que pierden la tilde en plural (canción → canciones).</span></div>
+        <div class="pdf-card__download" style="margin-top:auto; padding-top:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg><span class="lang-en">See more</span><span class="lang-es">Ver más</span></div>
+      </div>
       <div id="card-jugar-ef" data-added="2026-11-03T11:00:00+01:00" data-show-from="2026-11-03T11:00:00+01:00" class="pdf-card" onclick="openLesson('card-jugar')" style="border-color:#27AE60; display:flex; flex-direction:column; cursor:pointer;">
         <div class="pdf-card__icon" style="background:#27AE60;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7l3.5 2.5-1.3 4h-4.4l-1.3-4z"/><path d="M12 3v4M3.5 9.5L8.5 9.5M20.5 9.5L15.5 9.5M6 18l3.3-4M18 18l-3.3-4"/></svg></div>
         <div class="pdf-card__level">A1 – A2 ⭐</div>
@@ -1438,6 +1445,21 @@
         {bad:'Es un chico alto (= habla fuerte)', good:'Es un chico que habla muy alto'}
       ]
     },
+    'card-examen': {
+      color:'#B8412F', level:'A2 – B1',
+      icon:'<path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/>',
+      title:{en:'Why "Examen" Has No Accent but "Exámenes" Does', es:'¿Por qué "examen" no lleva tilde y "exámenes" sí?'},
+      desc:{en:'Why does examen have no accent mark, but exámenes does? It looks random, but it follows three simple rules. Learn how stress works in Spanish step by step (aguda, llana, esdrújula), why the stress never moves in examen → exámenes (the word just grows by one syllable), the whole "examen" family (resumen, volumen, margen, orden, crimen, imagen, joven…), the words that lose the accent in the plural (canción → canciones) and the three expert exceptions (carácter → caracteres). Includes the typical mistakes of English, French, German, Chinese and Japanese speakers, 3 exercises with answers and 2 AI practice prompts.',
+            es:'¿Por qué examen no lleva tilde y exámenes sí? Parece caprichoso, pero sigue tres reglas muy simples. Aprende cómo funciona el acento en español paso a paso (aguda, llana, esdrújula), por qué la fuerza no se mueve en examen → exámenes (la palabra crece una sílaba), toda la familia de «examen» (resumen, volumen, margen, orden, crimen, imagen, joven…), las palabras que pierden la tilde en plural (canción → canciones) y las tres excepciones de nivel experto (carácter → caracteres). Incluye los errores típicos de hablantes de inglés, francés, alemán, chino y japonés, 3 ejercicios con soluciones y 2 prompts de práctica con IA.'},
+      pdf:'DESCARGABLES_PDF/EXAMEN/Examen_sin_tilde.pdf',
+      video:'https://youtube.com/shorts/Pdz0ZWRvWx4',
+      game:'juego-cazador-de-tildes.html',
+      contrast:[
+        {bad:'Mañana tengo dos examenes', good:'Mañana tengo dos exámenes'},
+        {bad:'Hoy tengo un exámen de inglés', good:'Hoy tengo un examen de inglés'},
+        {bad:'Las canciónes de este disco', good:'Las canciones de este disco'}
+      ]
+    },
     'card-onceavo': {
       color:'#16A085', level:'A2 – C1',
       icon:'<line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/>',
@@ -1730,7 +1752,7 @@
     });
   });
 </script>
-<script src="search.js?v=50"></script>
+<script src="search.js?v=51"></script>
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script>window.si=window.si||function(){(window.siq=window.siq||[]).push(arguments);};</script>
